@@ -36,4 +36,8 @@ public class LoginStudent : MonoBehaviour {
             SceneManager.LoadScene("Overview-Student");
         }
     }
+    public void ValidateBack()
+    {
+        SceneManager.LoadScene("Entryway");
+    }
 }

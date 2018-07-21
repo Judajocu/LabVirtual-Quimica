@@ -36,4 +36,9 @@ public class LoginProfessor : MonoBehaviour {
             SceneManager.LoadScene("Overview-Professor");
         }
     }
+
+    public void ValidateBack()
+    {
+        SceneManager.LoadScene("Entryway");
+    }
 }
