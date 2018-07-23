@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Login-Professor.unity
     guid: d1f81ed3aecec1e47bc07cc4f0cd755c
   - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/4939b26b436df154b938d753e8e3768c
+    path: 
     guid: 4939b26b436df154b938d753e8e3768c
   - enabled: 1
     path: Assets/Scenes/Login-Student.unity
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Overview-Student.unity
     guid: c7a72f231d7759b4b8bf2b926e24115d
+  - enabled: 1
+    path: Assets/Scenes/Options_Professor.unity
+    guid: cbabe4b917611a3418f81674fbc31047
   m_configObjects: {}

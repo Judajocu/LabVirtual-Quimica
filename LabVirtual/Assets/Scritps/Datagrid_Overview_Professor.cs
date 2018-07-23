@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Datagrid_Overview_Professor : MonoBehaviour {
 
@@ -13,8 +15,13 @@ public class Datagrid_Overview_Professor : MonoBehaviour {
     Dictionary<string, Dictionary<string, int>> Groups_Grades;
     int changeCounter = 0;
 
-	// Use this for initialization
-	void Start () {
+    public Button buttonMenu;
+
+    public GameObject menu;
+
+
+    // Use this for initialization
+    void Start () {
         SetGrades( "ST-QMC-101-T-001","Quimica I", 30);
         SetGrades("ST-QMC-101-T-0012","Quimica I", 40);
         SetGrades("ST-QMC-101-T-003", "Quimica I", 350);
@@ -23,8 +30,16 @@ public class Datagrid_Overview_Professor : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {        
-	}
+	void Update () {
+        buttonMenu = menu.GetComponent<Button>();
+        buttonMenu.onClick.AddListener(ValidateMenu);
+    }
+
+    private void ValidateMenu()
+    {
+        SceneManager.LoadScene("Options-Professor");
+    }
+
     void Init()
     {
         if (Groups_Grades != null)
@@ -87,19 +102,5 @@ public class Datagrid_Overview_Professor : MonoBehaviour {
     {
         return changeCounter;
     }
-
-
-
-
-    /*void Populate()
-    {
-        GameObject gameObject;
-        for (int i = 0; i < Cant_grupos; i++)
-        {
-            gameObject = (GameObject)Instantiate(prefab_groups, transform);
-            gameObject = (GameObject)Instantiate(prefab_groupcode, transform);
-            gameObject = (GameObject)Instantiate(prefab_avggrades, transform);
-        }
-    }*/
 
 }

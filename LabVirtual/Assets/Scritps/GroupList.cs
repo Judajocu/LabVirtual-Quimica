@@ -16,7 +16,7 @@ public class GroupList : MonoBehaviour {
 
         datagrid = GameObject.FindObjectOfType<Datagrid_Overview_Professor>();
 
-        lastChangeCounter = datagrid.GetChangeCounter();
+        lastChangeCounter = datagrid.GetChangeCounter()-1;
 
     }
 	
