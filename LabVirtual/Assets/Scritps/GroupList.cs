@@ -38,14 +38,14 @@ public class GroupList : MonoBehaviour {
                 Destroy(firstchild.gameObject);
             }
 
-            string[] groups = datagrid.GetGroups_codes("grade");
+            string[] groups = datagrid.GetGroups_codes("Quimica I");
 
             foreach (var group in groups)
             {
                 GameObject gameObject = (GameObject)Instantiate(GroupEntryPrefab, transform);
                 gameObject.transform.SetParent(this.transform);
                 gameObject.transform.Find("Text_GroupCode").GetComponent<Text>().text = group;
-                gameObject.transform.Find("Text_AVGGrade").GetComponent<Text>().text = datagrid.GetGrades(group, "grade").ToString();
+                gameObject.transform.Find("Text_AVGGrade").GetComponent<Text>().text = datagrid.GetGrades(group, "Quimica I").ToString();
 
             }
         }

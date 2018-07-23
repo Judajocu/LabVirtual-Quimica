@@ -37,7 +37,7 @@ public class Datagrid_Overview_Professor : MonoBehaviour {
 
     private void ValidateMenu()
     {
-        SceneManager.LoadScene("Options-Professor");
+        SceneManager.LoadScene("Options_Professor");
     }
 
     void Init()

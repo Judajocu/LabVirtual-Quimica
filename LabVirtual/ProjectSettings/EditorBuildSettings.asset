@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options_Professor.unity
     guid: cbabe4b917611a3418f81674fbc31047
+  - enabled: 1
+    path: Assets/Scenes/Options_Student.unity
+    guid: 6d9a1d6259540a447ae3b87373148f08
   m_configObjects: {}
