@@ -13,7 +13,7 @@ EditorBuildSettings:
     guid: d1f81ed3aecec1e47bc07cc4f0cd755c
   - enabled: 0
     path: 
-    guid: 4939b26b436df154b938d753e8e3768c
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Login-Student.unity
     guid: 5e13263d5c66c954eb610094a422a399
@@ -22,11 +22,17 @@ EditorBuildSettings:
     guid: 461b31f3bf589aa49973abb15a494de2
   - enabled: 1
     path: Assets/Scenes/Overview-Student.unity
-    guid: c7a72f231d7759b4b8bf2b926e24115d
+    guid: a6ac3f11f35947d4882811f375b703e6
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Options_Professor.unity
     guid: cbabe4b917611a3418f81674fbc31047
   - enabled: 1
     path: Assets/Scenes/Options_Student.unity
     guid: 6d9a1d6259540a447ae3b87373148f08
+  - enabled: 1
+    path: Assets/Scenes/Simulation_Options.unity
+    guid: 6cc3ed4d08fed1644ad9926c8a4f93d3
   m_configObjects: {}
