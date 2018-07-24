@@ -37,39 +37,38 @@ public class SubjectList : MonoBehaviour {
                 Destroy(firstchild.gameObject);
             }
 
-            ShowGrade("Nomenclatura");
-            ShowGrade("Balance de Ecuaciones");
-            ShowGrade("Tabla Periodica");
-            ShowGrade("Conversion de Unidades");
-            ShowGrade("Estequiometria");
+            string[] grades = datagrid.GetStudentGrades();
 
+            GameObject gameObject = (GameObject)Instantiate(SubjectGradePrefab, transform);
+            gameObject.transform.SetParent(this.transform);
+
+            foreach (var subject in grades)
+            {
+                switch (subject)
+                {
+                    case "Nomenclatura":
+
+                        gameObject.transform.Find("TextNomenclaturaGrade").GetComponent<Text>().text = datagrid.GetGrades(subject).ToString();
+                        break;
+                    case "Balance de Ecuaciones":
+                        gameObject.transform.Find("TextBalanceEGrade").GetComponent<Text>().text = datagrid.GetGrades(subject).ToString();
+                        break;
+                    case "Tabla Periodica":
+                        gameObject.transform.Find("TextTablaPeriodicaGrade").GetComponent<Text>().text = datagrid.GetGrades(subject).ToString();
+                        break;
+                    case "Conversion de Unidades":
+                        gameObject.transform.Find("TextConversionUGrade").GetComponent<Text>().text = datagrid.GetGrades(subject).ToString();
+                        break;
+                    case "Estequiometria":
+                        gameObject.transform.Find("TextEstequimetriaGrade").GetComponent<Text>().text = datagrid.GetGrades(subject).ToString();
+                        break;
+                }
+            }            
         }
     }
 
     void ShowGrade(string subject)
     {
-        int grade = datagrid.GetGrades(subject);
-
-        GameObject gameObject = (GameObject)Instantiate(SubjectGradePrefab, transform);
-        gameObject.transform.SetParent(this.transform);
-
-        switch(subject)
-        {
-            case "Nomenclatura":
-                gameObject.transform.Find("TextNomenclaturaGrade").GetComponent<Text>().text = grade.ToString();
-                break;
-            case "Balance de Ecuaciones":
-                gameObject.transform.Find("TextBalanceEGrade").GetComponent<Text>().text = grade.ToString();
-                break;
-            case "Tabla Periodica":
-                gameObject.transform.Find("TextTablaPeriodicaGrade").GetComponent<Text>().text = grade.ToString();
-                break;
-            case "Conversion de Unidades":
-                gameObject.transform.Find("TextConversionUGrade").GetComponent<Text>().text = grade.ToString();
-                break;
-            case "Estequiometria":
-                gameObject.transform.Find("TextEstequimetriaGrade").GetComponent<Text>().text = grade.ToString();
-                break;
-        }        
+        
     }
 }

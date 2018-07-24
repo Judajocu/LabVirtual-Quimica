@@ -77,7 +77,7 @@ public class Data_Overview_Student : MonoBehaviour {
         return Student_grades.Keys.ToArray();
     }
 
-    public string[] GetGroups_codes(string SortByGrade)
+    public string[] GetStudentGrades(string SortByGrade)
     {
         Init();
         return Student_grades.Keys.OrderByDescending(n => GetGrades(SortByGrade)).ToArray();
