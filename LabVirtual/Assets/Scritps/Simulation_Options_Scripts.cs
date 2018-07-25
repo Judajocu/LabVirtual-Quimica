@@ -38,7 +38,7 @@ public class Simulation_Options_Scripts : MonoBehaviour {
     }
     public void ValidateBalance()
     {
-        //SceneManager.LoadScene("Options_Student");
+        SceneManager.LoadScene("Balance_Ecuations");
     }
     public void ValidateTable()
     {
