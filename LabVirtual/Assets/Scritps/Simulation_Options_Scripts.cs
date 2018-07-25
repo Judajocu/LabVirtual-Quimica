@@ -29,46 +29,30 @@ public class Simulation_Options_Scripts : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        buttonMenu = menu.GetComponent<Button>();
-        buttonMenu.onClick.AddListener(ValidateMenu);
-
-        buttonBalance = balance.GetComponent<Button>();
-        buttonBalance.onClick.AddListener(ValidateMenu);
-
-        buttonTable = table.GetComponent<Button>();
-        buttonTable.onClick.AddListener(ValidateMenu);
-
-        buttonConversion = conversion.GetComponent<Button>();
-        buttonConversion.onClick.AddListener(ValidateMenu);
-
-        buttonNomenclature = nomenclature.GetComponent<Button>();
-        buttonNomenclature.onClick.AddListener(ValidateMenu);
-
-        buttonEstequimetria = estequimetria.GetComponent<Button>();
-        buttonEstequimetria.onClick.AddListener(ValidateMenu);
+        
     }
 
-    private void ValidateMenu()
+    public void ValidateMenu()
     {
         SceneManager.LoadScene("Options_Student");
     }
-    private void ValidateBalance()
+    public void ValidateBalance()
     {
         //SceneManager.LoadScene("Options_Student");
     }
-    private void ValidateTable()
+    public void ValidateTable()
     {
        // SceneManager.LoadScene("Options_Student");
     }
-    private void ValidateConversion()
+    public void ValidateConversion()
     {
        // SceneManager.LoadScene("Options_Student");
     }
-    private void ValidateNomenclature()
+    public void ValidateNomenclature()
     {
         //SceneManager.LoadScene("Options_Student");
     }
-    private void ValidateEstequimetria()
+    public void ValidateEstequimetria()
     {
        // SceneManager.LoadScene("Options_Student");
     }

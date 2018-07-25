@@ -23,13 +23,10 @@ public class LoginProfessor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Username = username.GetComponent<InputField>().text;
-        Password = password.GetComponent<InputField>().text;
-
-        buttonLogin = login.GetComponent<Button>();
-        buttonLogin.onClick.AddListener(ValidateLogin);
+        Password = password.GetComponent<InputField>().text;               
     }
 
-    private void ValidateLogin() {
+    public void ValidateLogin() {
         if(Username!=string.Empty && Password!=string.Empty)
         {
             print("Sup");

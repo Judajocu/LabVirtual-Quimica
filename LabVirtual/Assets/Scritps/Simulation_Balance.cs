@@ -24,8 +24,8 @@ public class Simulation_Balance : MonoBehaviour {
 
     public GameObject ElementinputPrefab;
     public GameObject ElementoutputPrefab;
-    GameObject[] ElementsinputPrefa;
-    GameObject[] ElementsoutputPrefab;
+    List<GameObject> List_Inputprefabs = new List<GameObject>();
+    List<GameObject> List_Outputprefabs = new List<GameObject>();
 
     // Use this for initialization
     void Start () {
@@ -34,11 +34,11 @@ public class Simulation_Balance : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        ButtonMenu = menu.GetComponent<Button>();
+        /*ButtonMenu = menu.GetComponent<Button>();
         ButtonMenu.onClick.AddListener(ValidateMenu);
 
-        ButtonUpIP = upIP.GetComponent<Button>();
-        ButtonUpIP.onClick.AddListener(AddElementIP);
+       // ButtonUpIP = upIP.GetComponent<Button>();
+        //ButtonUpIP.onClick.AddListener(AddElementIP);
 
         ButtonDownIP = downIP.GetComponent<Button>();
         ButtonDownIP.onClick.AddListener(DeleteElementIP);
@@ -53,31 +53,43 @@ public class Simulation_Balance : MonoBehaviour {
        // ButtonSkip.onClick.AddListener(ValidateMenu);
 
         ButtonSubmit = submit.GetComponent<Button>();
-        ButtonSubmit.onClick.AddListener(ValidateMenu);
+        ButtonSubmit.onClick.AddListener(ValidateMenu);*/
     }
 
-    private void ValidateMenu()
+    public void ValidateMenu()
     {
         SceneManager.LoadScene("Options_Student");
     }
 
-    private void AddElementIP()
+    public void AddElementIP()
     {
-        Instantiate(ElementinputPrefab);
+        GameObject game = (GameObject)Instantiate(ElementinputPrefab);
+        List_Inputprefabs.Add(game);
     }
 
-    private void AddElementOP()
+    public void AddElementOP()
     {
-        Instantiate(ElementoutputPrefab);
+        GameObject game = (GameObject)Instantiate(ElementoutputPrefab);
+        List_Outputprefabs.Add(game);
     }
 
-    private void DeleteElementIP()
+    public void DeleteElementIP()
     {
-        Destroy(ElementinputPrefab);
+        if (List_Inputprefabs.Count == 0)
+            return;
+        GameObject game = List_Inputprefabs[List_Inputprefabs.Count - 1];
+        List_Inputprefabs.RemoveAt(index: List_Inputprefabs.Count -1);
+        Destroy(game);
+        
     }
 
-    private void DeleteElementOP()
+    public void DeleteElementOP()
     {
-        Destroy(ElementoutputPrefab);
+        if (List_Outputprefabs.Count == 0)
+            return;
+        GameObject game = List_Outputprefabs[List_Outputprefabs.Count - 1];
+        List_Outputprefabs.RemoveAt(index: List_Outputprefabs.Count - 1);
+        Destroy(game);
+
     }
 }

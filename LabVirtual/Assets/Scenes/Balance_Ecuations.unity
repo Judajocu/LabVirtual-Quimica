@@ -246,10 +246,10 @@ RectTransform:
   m_Father: {fileID: 130054123}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.155, y: 0.27621877}
-  m_AnchorMax: {x: 0.26875, y: 0.3221875}
-  m_AnchoredPosition: {x: -0.8999939, y: 0.7999878}
-  m_SizeDelta: {x: 0.19999981, y: 2.7000008}
+  m_AnchorMin: {x: 0.19625, y: 0.28178126}
+  m_AnchorMax: {x: 0.31125, y: 0.32921875}
+  m_AnchoredPosition: {x: 0, y: -0.1000061}
+  m_SizeDelta: {x: -0.79999924, y: 0.70000076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &146230567
 MonoBehaviour:
@@ -289,7 +289,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 146230568}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1956369628}
+        m_MethodName: DeleteElementIP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &146230568
@@ -965,10 +976,10 @@ RectTransform:
   m_Father: {fileID: 130054123}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.14500001, y: 0.13256252}
-  m_AnchorMax: {x: 0.25875002, y: 0.18200001}
-  m_AnchoredPosition: {x: -0.5, y: 0.5}
-  m_SizeDelta: {x: 0.2, y: -0.5}
+  m_AnchorMin: {x: 0.69750005, y: 0.28725}
+  m_AnchorMax: {x: 0.8112501, y: 0.3346875}
+  m_AnchoredPosition: {x: 0, y: -1}
+  m_SizeDelta: {x: 0.2000122, y: 1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &993544958
 MonoBehaviour:
@@ -1008,7 +1019,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 993544959}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1956369628}
+        m_MethodName: DeleteElementOP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &993544959
@@ -1075,10 +1097,10 @@ RectTransform:
   m_Father: {fileID: 130054123}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.15375, y: 0.3221875}
-  m_AnchorMax: {x: 0.25875002, y: 0.372}
-  m_AnchoredPosition: {x: 3.600006, y: 1.8999939}
-  m_SizeDelta: {x: 7.2, y: -0.5}
+  m_AnchorMin: {x: 0.19625, y: 0.32921875}
+  m_AnchorMax: {x: 0.31125, y: 0.37834376}
+  m_AnchoredPosition: {x: 0, y: 0.5}
+  m_SizeDelta: {x: -0.79999924, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1081924073
 MonoBehaviour:
@@ -1118,7 +1140,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1081924074}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1956369628}
+        m_MethodName: AddElementIP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1081924074
@@ -1537,7 +1570,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1546139677}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1956369628}
+        m_MethodName: ValidateMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1546139677
@@ -1763,6 +1807,92 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1741626554}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1747440937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1747440940}
+  - component: {fileID: 1747440939}
+  - component: {fileID: 1747440938}
+  m_Layer: 0
+  m_Name: Ecuation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!102 &1747440938
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1747440937}
+  m_Text: __H2O2 = __H2O+O2
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 300
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &1747440939
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1747440937}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!4 &1747440940
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1747440937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.42, y: -1.74, z: -4.3046875}
+  m_LocalScale: {x: 0.016923219, y: 0.016923219, z: 1.6923219}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1951669289
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,10 +2371,10 @@ RectTransform:
   m_Father: {fileID: 130054123}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.14500001, y: 0.18200001}
-  m_AnchorMax: {x: 0.25875002, y: 0.22975}
-  m_AnchoredPosition: {x: -0.5, y: 1}
-  m_SizeDelta: {x: 0.20000005, y: 1.5}
+  m_AnchorMin: {x: 0.69750005, y: 0.3346875}
+  m_AnchorMax: {x: 0.8112501, y: 0.38378125}
+  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_SizeDelta: {x: 0.2000122, y: -1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2010950645
 MonoBehaviour:
@@ -2284,7 +2414,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2010950646}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1956369628}
+        m_MethodName: AddElementOP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2010950646

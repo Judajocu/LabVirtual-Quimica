@@ -24,34 +24,24 @@ public class Options_Student : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-        buttonOverview = overview.GetComponent<Button>();
-        buttonOverview.onClick.AddListener(ValidateOverview);
-        buttonSimulations = simulations.GetComponent<Button>();
-        buttonSimulations.onClick.AddListener(ValidateGroups);
-        buttonTheory = theory.GetComponent<Button>();
-        buttonTheory.onClick.AddListener(ValidateStudents);
-        buttonLogout = logout.GetComponent<Button>();
-        buttonLogout.onClick.AddListener(ValidateLogout);
-
     }
 
-    private void ValidateOverview()
+    public void ValidateOverview()
     {
         SceneManager.LoadScene("Overview-Student");
     }
 
-    private void ValidateGroups()
+    public void ValidateSimulations()
     {
-       // SceneManager.LoadScene("Groups");
+       SceneManager.LoadScene("Simulation_Options");
     }
 
-    private void ValidateStudents()
+    public void ValidateTheory()
     {
        // SceneManager.LoadScene("Professor-Students");
     }
 
-    private void ValidateLogout()
+    public void ValidateLogout()
     {
         SceneManager.LoadScene("Entryway");
     }

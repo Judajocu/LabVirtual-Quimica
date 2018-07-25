@@ -24,12 +24,10 @@ public class LoginStudent : MonoBehaviour {
 	void Update () {
         ID = id.GetComponent<InputField>().text;
         Password = password.GetComponent<InputField>().text;
-
-        buttonLogin = login.GetComponent<Button>();
-        buttonLogin.onClick.AddListener(ValidateLogin);
+              
     }
 
-    private void ValidateLogin() {
+    public void ValidateLogin() {
         if(ID!=string.Empty && Password != string.Empty)
         {
             print("Sup");

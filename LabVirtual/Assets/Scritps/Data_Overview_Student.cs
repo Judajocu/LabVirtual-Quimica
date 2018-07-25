@@ -27,11 +27,10 @@ public class Data_Overview_Student : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        buttonMenu = menu.GetComponent<Button>();
-        buttonMenu.onClick.AddListener(ValidateMenu);
+        
     }
 
-    private void ValidateMenu()
+    public void ValidateMenu()
     {
         SceneManager.LoadScene("Options_Student");
     }
