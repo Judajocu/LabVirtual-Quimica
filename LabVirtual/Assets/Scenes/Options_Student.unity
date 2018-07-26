@@ -1162,7 +1162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.83800006}
   m_AnchorMax: {x: 1, y: 0.864}
-  m_AnchoredPosition: {x: 0.0012207031, y: 1.5001}
+  m_AnchoredPosition: {x: 0.0012207031, y: 1.5000916}
   m_SizeDelta: {x: -640.1, y: 0.81041}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1371063818
@@ -1509,12 +1509,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1079851274}
-        m_MethodName: 
+      - m_Target: {fileID: 1079851275}
+        m_MethodName: ValidateLogout
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

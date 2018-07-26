@@ -27,10 +27,16 @@ public class Simulation_Balance : MonoBehaviour {
     List<GameObject> List_Inputprefabs = new List<GameObject>();
     List<GameObject> List_Outputprefabs = new List<GameObject>();
 
+    int cant_fallos=0;
+    Text text;
+    TextMesh cantinput;
+    TextMesh cantoutput;
     // Use this for initialization
     void Start () {
-		
-	}
+        text = GameObject.Find("Text_fails").GetComponent<Text>();
+        cantinput = GameObject.Find("CantInput").GetComponent<TextMesh>();
+        cantoutput = GameObject.Find("CantOutput").GetComponent<TextMesh>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -63,14 +69,36 @@ public class Simulation_Balance : MonoBehaviour {
 
     public void AddElementIP()
     {
-        GameObject game = (GameObject)Instantiate(ElementinputPrefab);
-        List_Inputprefabs.Add(game);
+        if (List_Inputprefabs.Count > 4)
+        {
+            GameObject game = (GameObject)Instantiate(ElementinputPrefab,new Vector3(-1.4f, 4.05223f),Quaternion.identity);
+            List_Inputprefabs.Add(game);
+            cantinput.text = "Entrada: " + List_Inputprefabs.Count.ToString();
+        }
+        else
+        {
+            GameObject game = (GameObject)Instantiate(ElementinputPrefab);
+            List_Inputprefabs.Add(game);
+            cantinput.text = "Entrada: " + List_Inputprefabs.Count.ToString();
+        }
+        
     }
 
     public void AddElementOP()
     {
-        GameObject game = (GameObject)Instantiate(ElementoutputPrefab);
-        List_Outputprefabs.Add(game);
+
+        if (List_Outputprefabs.Count > 4)
+        {
+            GameObject game = (GameObject)Instantiate(ElementoutputPrefab, new Vector3(1.4f, 4.05223f), Quaternion.identity);
+            List_Outputprefabs.Add(game);
+            cantoutput.text = "Salida: " + List_Outputprefabs.Count.ToString();
+        }
+        else
+        {
+            GameObject game = (GameObject)Instantiate(ElementoutputPrefab);
+            List_Outputprefabs.Add(game);
+            cantoutput.text = "Salida: " + List_Outputprefabs.Count.ToString();
+        }
     }
 
     public void DeleteElementIP()
@@ -80,7 +108,8 @@ public class Simulation_Balance : MonoBehaviour {
         GameObject game = List_Inputprefabs[List_Inputprefabs.Count - 1];
         List_Inputprefabs.RemoveAt(index: List_Inputprefabs.Count -1);
         Destroy(game);
-        
+        cantinput.text = "Entrada: " + List_Inputprefabs.Count.ToString();
+
     }
 
     public void DeleteElementOP()
@@ -90,6 +119,24 @@ public class Simulation_Balance : MonoBehaviour {
         GameObject game = List_Outputprefabs[List_Outputprefabs.Count - 1];
         List_Outputprefabs.RemoveAt(index: List_Outputprefabs.Count - 1);
         Destroy(game);
+        cantoutput.text = "Salida: " + List_Outputprefabs.Count.ToString();
 
+    }
+
+    public void ValidateSubmit()
+    {
+        Debug.Log(List_Inputprefabs.Count);
+        Debug.Log(List_Outputprefabs.Count);
+        if(List_Inputprefabs.Count == 10 && List_Outputprefabs.Count == 15)
+        {
+            Debug.Log("Bien");
+            return;
+        }
+        else
+        {
+            cant_fallos++;
+            Debug.Log(cant_fallos);
+            text.text = "Fallos: "+cant_fallos.ToString();
+        }
     }
 }
