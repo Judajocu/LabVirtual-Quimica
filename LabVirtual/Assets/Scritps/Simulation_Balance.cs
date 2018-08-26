@@ -28,12 +28,12 @@ public class Simulation_Balance : MonoBehaviour {
     List<GameObject> List_Outputprefabs = new List<GameObject>();
 
     int cant_fallos=0;
-    Text text;
+    TextMesh text;
     TextMesh cantinput;
     TextMesh cantoutput;
     // Use this for initialization
     void Start () {
-        text = GameObject.Find("Text_fails").GetComponent<Text>();
+        text = GameObject.Find("Text_fails").GetComponent<TextMesh>();
         cantinput = GameObject.Find("CantInput").GetComponent<TextMesh>();
         cantoutput = GameObject.Find("CantOutput").GetComponent<TextMesh>();
     }
