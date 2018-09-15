@@ -28,9 +28,12 @@ public class Simulation_Balance : MonoBehaviour {
     List<GameObject> List_Outputprefabs = new List<GameObject>();
 
     int cant_fallos=0;
+    List<int> fallos_simulacion;
     TextMesh text;
     TextMesh cantinput;
     TextMesh cantoutput;
+
+    Scene activeScene;
     // Use this for initialization
     void Start () {
         text = GameObject.Find("Text_fails").GetComponent<TextMesh>();
@@ -40,26 +43,13 @@ public class Simulation_Balance : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        /*ButtonMenu = menu.GetComponent<Button>();
-        ButtonMenu.onClick.AddListener(ValidateMenu);
 
-       // ButtonUpIP = upIP.GetComponent<Button>();
-        //ButtonUpIP.onClick.AddListener(AddElementIP);
+    }
 
-        ButtonDownIP = downIP.GetComponent<Button>();
-        ButtonDownIP.onClick.AddListener(DeleteElementIP);
-
-        ButtonUpOP = upOP.GetComponent<Button>();
-        ButtonUpOP.onClick.AddListener(AddElementOP);
-
-        ButtonDownOP = downOP.GetComponent<Button>();
-        ButtonDownOP.onClick.AddListener(DeleteElementOP);
-
-       // ButtonSkip = skip.GetComponent<Button>();
-       // ButtonSkip.onClick.AddListener(ValidateMenu);
-
-        ButtonSubmit = submit.GetComponent<Button>();
-        ButtonSubmit.onClick.AddListener(ValidateMenu);*/
+    public string GetSceneName()
+    {
+        activeScene = SceneManager.GetActiveScene();
+        return activeScene.name;
     }
 
     public void ValidateMenu()
@@ -130,6 +120,7 @@ public class Simulation_Balance : MonoBehaviour {
         if(List_Inputprefabs.Count == 10 && List_Outputprefabs.Count == 15)
         {
             Debug.Log("Bien");
+
             return;
         }
         else
@@ -137,6 +128,28 @@ public class Simulation_Balance : MonoBehaviour {
             cant_fallos++;
             Debug.Log(cant_fallos);
             text.text = "Fallos: "+cant_fallos.ToString();
+        }
+    }
+       
+
+    public void ValidateSkip()
+    {
+        switch(GetSceneName())
+        {
+            case "Balanceo Nivel 1":
+                SceneManager.LoadScene("Balanceo Nivel 2");
+                return;
+            case "Balanceo Nivel 2":
+                SceneManager.LoadScene("Balanceo Nivel 3");
+                return;
+            case "Balanceo Nivel 3":
+                SceneManager.LoadScene("Balanceo Nivel 4");
+                return;
+            case "Balanceo Nivel 4":
+                SceneManager.LoadScene("Balanceo Nivel 5");
+                return;
+            case "Balanceo Nivel 5":
+                return;
         }
     }
 }
