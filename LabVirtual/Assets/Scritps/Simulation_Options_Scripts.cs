@@ -38,7 +38,7 @@ public class Simulation_Options_Scripts : MonoBehaviour {
     }
     public void ValidateBalance()
     {
-        SceneManager.LoadScene("Balance_Ecuations");
+        SceneManager.LoadScene("Balanceo Nivel 1");
     }
     public void ValidateTable()
     {
@@ -50,7 +50,7 @@ public class Simulation_Options_Scripts : MonoBehaviour {
     }
     public void ValidateNomenclature()
     {
-        //SceneManager.LoadScene("Options_Student");
+        SceneManager.LoadScene("Nomenclature");
     }
     public void ValidateEstequimetria()
     {
