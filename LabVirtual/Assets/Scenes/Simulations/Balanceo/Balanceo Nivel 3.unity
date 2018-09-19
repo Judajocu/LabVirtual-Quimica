@@ -2220,7 +2220,7 @@ MonoBehaviour:
   downIP: {fileID: 146230565}
   upOP: {fileID: 2010950643}
   downOP: {fileID: 993544956}
-  skip: {fileID: 0}
+  skip: {fileID: 225712344}
   submit: {fileID: 194243087}
   ElementinputPrefab: {fileID: 1453120054823348, guid: 81572448faf80aa43820d99ed0fc273d,
     type: 2}
