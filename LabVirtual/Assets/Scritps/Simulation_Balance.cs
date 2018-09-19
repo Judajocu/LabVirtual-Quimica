@@ -144,57 +144,25 @@ public class Simulation_Balance : MonoBehaviour {
 
     public void ResultExpected()
     {
-        results_expected.Clear();
         results_expected = cantresult.text.Split(new char[] {' '}).ToList();
-    }
-
-    public bool CheckSubmit()
-    {
-        ResultExpected();
-        if (List_Inputprefabs.Count == System.Convert.ToInt32(results_expected[0]) && List_Outputprefabs.Count == System.Convert.ToInt32(results_expected[1]))
-        {
-            Debug.Log("Bien");
-            return true;
-        }
-        else
-        {
-            cant_fallos++;
-            Debug.Log(cant_fallos);
-            textcant_fallos.text = "Fallos: " + cant_fallos.ToString();
-            return false;
-        }
     }
 
     public void ValidateSubmit()
     {
         Debug.Log(List_Inputprefabs.Count);
         Debug.Log(List_Outputprefabs.Count);
-        if(CheckSubmit())
+        if(List_Inputprefabs.Count == System.Convert.ToInt32(results_expected[0])  && List_Outputprefabs.Count == System.Convert.ToInt32(results_expected[1]))
         {
-            switch (GetSceneName())
-            {
-                case "Balanceo Nivel 1":
-                    SceneManager.LoadScene("Balanceo Nivel 2");
-                    CleanSimulation();
-                    return;
-                case "Balanceo Nivel 2":
-                    SceneManager.LoadScene("Balanceo Nivel 3");
-                    CleanSimulation();
-                    return;
-                case "Balanceo Nivel 3":
-                    SceneManager.LoadScene("Balanceo Nivel 4");
-                    CleanSimulation();
-                    return;
-                case "Balanceo Nivel 4":
-                    SceneManager.LoadScene("Balanceo Nivel 5");
-                    CleanSimulation();
-                    return;
-                case "Balanceo Nivel 5":
-                    SceneManager.LoadScene("Balanceo Nivel 5");
-                    CleanSimulation();
-                    return;
-            }
-        }    
+            Debug.Log("Bien");
+
+            return;
+        }
+        else
+        {
+            cant_fallos++;
+            Debug.Log(cant_fallos);
+            textcant_fallos.text = "Fallos: "+cant_fallos.ToString();
+        }
     }
        
     public void ValidateSkip()
