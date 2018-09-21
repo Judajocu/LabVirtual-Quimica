@@ -36,6 +36,7 @@ public class Simulation_Balance : MonoBehaviour {
     List<int> fallos_simulacion;
     List<string> results_expected = new List<string>();
     static public List<int> intentos = new List<int>();
+    static public List<float> tiempos = new List<float>();
 
     int cant_fallos = 0;
     int intento_nivel = 0;
@@ -51,7 +52,7 @@ public class Simulation_Balance : MonoBehaviour {
         cantinput = GameObject.Find("CantInput").GetComponent<TextMesh>();
         cantoutput = GameObject.Find("CantOutput").GetComponent<TextMesh>();
         cantresult = GameObject.Find("Cant_result").GetComponent<TextMesh>();
-        ResultExpected();
+        CheckTime();
     }
 	
 	// Update is called once per frame
@@ -62,14 +63,39 @@ public class Simulation_Balance : MonoBehaviour {
     public void CheckTime()
     {
         time_left -= Time.deltaTime;
+        TimeOver();
+    }
 
-        if(time_left<0)
+    public void TimeOver()
+    {
+        if (time_left < 0)
         {
             CheckSkip();
             CleanSimulation();
             SceneManager.LoadScene("Balanceo Resultado");
             return;
         }
+    }
+
+    public void Resulttime()
+    {
+        if(CheckSkip())
+        {
+            if(intento_nivel==0)
+            {
+                tiempos.Add(60.0f);
+            }
+            if(intento_nivel!=0)
+            {
+                tiempos.Add(time_left);
+            }
+        }
+        tiempos.Add(time_left);
+    }
+
+    public void ResetTime()
+    {
+        time_left = 60.0f;
     }
 
     public string GetSceneName()
@@ -173,6 +199,7 @@ public class Simulation_Balance : MonoBehaviour {
             Debug.Log("Bien");
             intento_nivel++;
             intentos.Add(intento_nivel);
+            Resulttime();
             return true;
         }
         else

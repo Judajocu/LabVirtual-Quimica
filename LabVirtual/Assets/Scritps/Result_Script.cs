@@ -6,14 +6,19 @@ public class Result_Script : MonoBehaviour {
 
     TextMesh cant_intentos;
     TextMesh promedio_intentos;
+    TextMesh promedio_tiempos;
+
     List<int> intentos = Simulation_Balance.intentos;
+    List<float> tiempos = Simulation_Balance.tiempos;
 
     // Use this for initialization
     void Start () {
         cant_intentos = GameObject.Find("Intentos").GetComponent<TextMesh>();
-        promedio_intentos = GameObject.Find("Promedio").GetComponent<TextMesh>();
-        GetAverage();
+        promedio_intentos = GameObject.Find("Promedio_intentos").GetComponent<TextMesh>();
+        promedio_tiempos = GameObject.Find("Promedio_tiempo").GetComponent<TextMesh>();
+        GetAverageTrys();
         GetIntentosCount();
+        GetAverageTime();
     }
 	
 	// Update is called once per frame
@@ -21,7 +26,7 @@ public class Result_Script : MonoBehaviour {
 		
 	}
 
-    void GetAverage()
+    void GetAverageTrys()
     {
         float sum = 0;
         for (int i = 0; i < intentos.Count; i++)
@@ -36,7 +41,26 @@ public class Result_Script : MonoBehaviour {
 
     void GetIntentosCount()
     {
-        cant_intentos.text = "Total de intentos :" + intentos.Count;
+        int sum = 0;
+        for (int i = 0; i < intentos.Count; i++)
+        {
+            sum += intentos[i];
+        }
+        cant_intentos.text = "Total de intentos :" + sum;
+    }
+
+    void GetAverageTime()
+    {
+        float sum = 0;
+        for (int i = 0; i < tiempos.Count; i++)
+        {
+         // Debug.Log(tiempos[i]);
+            sum += tiempos[i];
+        }
+        sum /= tiempos.Count;
+        sum = 60.0f - sum;
+
+        promedio_tiempos.text = "Promedio de tiempo:" + sum;
     }
 
 }
