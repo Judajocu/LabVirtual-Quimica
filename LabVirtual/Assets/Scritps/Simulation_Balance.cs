@@ -46,8 +46,8 @@ public class Simulation_Balance : MonoBehaviour {
     #endregion
 
     // Use this for initialization
-    void Start () {
-        
+    void Start ()
+    {    
         textcant_fallos = GameObject.Find("Text_fails").GetComponent<TextMesh>();
         cantinput = GameObject.Find("CantInput").GetComponent<TextMesh>();
         cantoutput = GameObject.Find("CantOutput").GetComponent<TextMesh>();
@@ -56,7 +56,8 @@ public class Simulation_Balance : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         CheckTime();
     }
 
