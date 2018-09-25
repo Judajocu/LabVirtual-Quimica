@@ -12,7 +12,7 @@ public class Simulation_Options_Scripts : MonoBehaviour {
     public Button buttonConversion;
     public Button buttonNomenclature;
     public Button buttonEstequimetria;
-    public Button buttonOk;
+    
 
     public GameObject menu;
     public GameObject balance;
@@ -20,20 +20,20 @@ public class Simulation_Options_Scripts : MonoBehaviour {
     public GameObject conversion;
     public GameObject nomenclature;
     public GameObject estequimetria;
-    public GameObject ok;
-    public GameObject PopUpGO;
+    
+
 
 
 
 
     // Use this for initialization
-    void Start () {
-
-        GameObject game = (GameObject)Instantiate(PopUpGO, new Vector3(-0.5f, -0.6150017f), Quaternion.identity);
+    void Start ()
+    {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         
     }
 
@@ -62,8 +62,5 @@ public class Simulation_Options_Scripts : MonoBehaviour {
        // SceneManager.LoadScene("Options_Student");
     }
 
-    public void ValidateDestroyWarning()
-    {
-        Destroy((GameObject)PopUpGO);
-    }
+   
 }
