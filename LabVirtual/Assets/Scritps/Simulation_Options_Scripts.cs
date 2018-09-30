@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Simulation_Options_Scripts : MonoBehaviour {
 
+    #region Variables
     public Button buttonMenu;
     public Button buttonBalance;
     public Button buttonTable;
@@ -21,14 +22,13 @@ public class Simulation_Options_Scripts : MonoBehaviour {
     public GameObject nomenclature;
     public GameObject estequimetria;
     
-
-
-
-
-
+    static public int selected;
+    #endregion
+    
     // Use this for initialization
     void Start ()
     {
+    	selected = 0;
     }
 	
 	// Update is called once per frame
@@ -43,23 +43,33 @@ public class Simulation_Options_Scripts : MonoBehaviour {
     }
     public void ValidateBalance()
     {
-        SceneManager.LoadScene("Balanceo Nivel 1");
+    	selected=1;
+    	Debug.Log(selected);
+        SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateTable()
     {
-       // SceneManager.LoadScene("Options_Student");
+    	selected=2;
+    	Debug.Log(selected);
+       	SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateConversion()
     {
-       // SceneManager.LoadScene("Options_Student");
+    	selected=3;
+    	Debug.Log(selected);
+       	SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateNomenclature()
     {
-        SceneManager.LoadScene("Nomenclature");
+    	selected=4;
+    	Debug.Log(selected);
+        SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateEstequimetria()
     {
-       // SceneManager.LoadScene("Options_Student");
+    	selected=5;
+    	Debug.Log(selected);
+       	SceneManager.LoadScene("Simulation_Selection_Options");
     }
 
    
