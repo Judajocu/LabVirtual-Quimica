@@ -21,7 +21,13 @@ public class Simulation_Options_Scripts : MonoBehaviour {
     public GameObject conversion;
     public GameObject nomenclature;
     public GameObject estequimetria;
-    
+
+    //Numeros
+    //1 es balanceo
+    //2 es tabla
+    //3 es conversion
+    //4 es nomenclatura
+    //5 es estequiometria
     static public int selected;
     #endregion
     

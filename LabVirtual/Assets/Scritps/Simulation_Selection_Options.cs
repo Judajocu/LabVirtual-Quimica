@@ -50,7 +50,7 @@ public class Simulation_Selection_Options : MonoBehaviour {
         switch(selected)
         {
             case 1:
-                SceneManager.LoadScene("Simulation_Selection_Options");
+                SceneManager.LoadScene("Balanceo Nivel 1");
                 return;
             case 2:
                 SceneManager.LoadScene("Simulation_Selection_Options");
@@ -59,7 +59,7 @@ public class Simulation_Selection_Options : MonoBehaviour {
                 SceneManager.LoadScene("Simulation_Selection_Options");
                 return;
             case 4:
-                SceneManager.LoadScene("Simulation_Selection_Options");
+                SceneManager.LoadScene("Nomenclatura");
                 return;
             case 5:
                 SceneManager.LoadScene("Simulation_Selection_Options");

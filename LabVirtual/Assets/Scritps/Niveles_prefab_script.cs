@@ -23,6 +23,8 @@ public class Niveles_prefab_script : MonoBehaviour {
     public GameObject nivel5;
     public static GameObject game;
     public GameObject placeholder;
+
+    static int selected = Simulation_Options_Scripts.selected;
     #endregion
 
     // Use this for initialization
@@ -43,7 +45,7 @@ public class Niveles_prefab_script : MonoBehaviour {
 
     public void Validatenivel1()
     {
-        
+        SceneManager.LoadScene("Balanceo Nivel 1");
     }
 
     public void Validatenivel2()
@@ -78,4 +80,10 @@ public class Niveles_prefab_script : MonoBehaviour {
         game = Instantiate(placeholder, new Vector3(0f, 0f), Quaternion.identity);
         game.transform.SetParent(GameObject.FindGameObjectWithTag("Panel").transform, false);
     }
+
+    public void CheckSimulation()
+    {
+        
+    }
+
 }
