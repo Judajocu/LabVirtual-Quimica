@@ -23,13 +23,14 @@ public class Niveles_prefab_script : MonoBehaviour {
     public GameObject nivel5;
     public static GameObject game;
     public GameObject placeholder;
-
-    static int selected = Simulation_Options_Scripts.selected;
+    
+    public static bool levels;
+    int selected = Simulation_Options_Scripts.selected;
     #endregion
 
     // Use this for initialization
     void Start () {
-		
+		levels = false;
 	}
 	
 	// Update is called once per frame
@@ -40,38 +41,50 @@ public class Niveles_prefab_script : MonoBehaviour {
     public void ValidateNiveles()
     {
         Debug.Log("fuck this GO");
+        Destroy(game);
         InstantiateNiveles();
     }
 
     public void Validatenivel1()
     {
-        SceneManager.LoadScene("Balanceo Nivel 1");
+        CheckType1();
+        Debug.Log(levels);
+        CheckSimulation("1");
     }
 
     public void Validatenivel2()
     {
-
+        CheckType1();
+        Debug.Log(levels);
+        CheckSimulation("2");
     }
 
     public void Validatenivel3()
     {
-
+        CheckType1();
+        Debug.Log(levels);
+        CheckSimulation("3");
     }
 
     public void Validatenivel4()
     {
-
+        CheckType1();
+        Debug.Log(levels);
+        CheckSimulation("4");
     }
 
     public void Validatenivel5()
     {
-
+        CheckType1();
+        Debug.Log(levels);
+        CheckSimulation("5");
     }
 
     public void InstantiateNiveles()
     {
         game = Instantiate(niveles, new Vector3(0f, 0f), Quaternion.identity);
         game.transform.SetParent(GameObject.FindGameObjectWithTag("Panel").transform, false);
+
     }
 
     public void ExitNiveles()
@@ -81,9 +94,36 @@ public class Niveles_prefab_script : MonoBehaviour {
         game.transform.SetParent(GameObject.FindGameObjectWithTag("Panel").transform, false);
     }
 
-    public void CheckSimulation()
+    public void CheckSimulation(string nivel)
     {
-        
+        switch(selected)
+        {
+            case 1:
+                SceneManager.LoadScene("Balanceo nivel "+nivel);
+                return;
+            case 2:
+                //SceneManager.LoadScene("Tabla nivel " + nivel);
+                return;
+            case 3:
+                //SceneManager.LoadScene("conversion nivel " + nivel);
+                return;
+            case 4:
+                //SceneManager.LoadScene("nomenclatura nivel " + nivel);
+                return;
+            case 5:
+                //SceneManager.LoadScene("estequiometria nivel " + nivel);
+                return;
+        }
+    }
+
+    public void CheckType1()
+    {
+        levels = true;
+    }
+
+    public void CheckType2()
+    {
+        levels = false;
     }
 
 }

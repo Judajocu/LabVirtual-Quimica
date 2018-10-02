@@ -41,13 +41,15 @@ public class Simulation_Balance : MonoBehaviour {
     int cant_fallos = 0;
     int intento_nivel = 0;
     float time_left = 60.0f;
+    bool type;
     
     Scene activeScene;
     #endregion
 
     // Use this for initialization
     void Start ()
-    {    
+    {
+        CheckType();
         textcant_fallos = GameObject.Find("Text_fails").GetComponent<TextMesh>();
         cantinput = GameObject.Find("CantInput").GetComponent<TextMesh>();
         cantoutput = GameObject.Find("CantOutput").GetComponent<TextMesh>();
@@ -107,6 +109,7 @@ public class Simulation_Balance : MonoBehaviour {
 
     public void ValidateMenu()
     {
+        CleanSimulation();
         SceneManager.LoadScene("Options_Student");
     }
 
@@ -234,61 +237,142 @@ public class Simulation_Balance : MonoBehaviour {
     {
         Debug.Log(List_Inputprefabs.Count);
         Debug.Log(List_Outputprefabs.Count);
-        if (CheckSubmit())
+        bool check = CheckType();
+        if (check != true)
         {
-            switch (GetSceneName())
+            if (CheckSubmit())
             {
-                case "Balanceo Nivel 1":
-                    CleanSimulation();
-                    SceneManager.LoadScene("Balanceo Nivel 2");                    
-                    return;
-                case "Balanceo Nivel 2":
-                    CleanSimulation();
-                    SceneManager.LoadScene("Balanceo Nivel 3");                    
-                    return;
-                case "Balanceo Nivel 3":
-                    CleanSimulation();
-                    SceneManager.LoadScene("Balanceo Nivel 4");                    
-                    return;
-                case "Balanceo Nivel 4":
-                    CleanSimulation();
-                    SceneManager.LoadScene("Balanceo Nivel 5");                    
-                    return;
-                case "Balanceo Nivel 5":
-                    CleanSimulation();
-                    SceneManager.LoadScene("Balanceo Resultado");
-                    return;
+                switch (GetSceneName())
+                {
+                    case "Balanceo Nivel 1":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Nivel 2");
+                        return;
+                    case "Balanceo Nivel 2":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Nivel 3");
+                        return;
+                    case "Balanceo Nivel 3":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Nivel 4");
+                        return;
+                    case "Balanceo Nivel 4":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Nivel 5");
+                        return;
+                    case "Balanceo Nivel 5":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Resultado");
+                        return;
+                }
             }
         }
+        else
+        {
+            if (CheckSubmit())
+            {
+                switch (GetSceneName())
+                {
+                    case "Balanceo Nivel 1":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Resultado");
+                        return;
+                    case "Balanceo Nivel 2":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Resultado");
+                        return;
+                    case "Balanceo Nivel 3":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Resultado");
+                        return;
+                    case "Balanceo Nivel 4":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Resultado");
+                        return;
+                    case "Balanceo Nivel 5":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Resultado");
+                        return;
+                }
+            }
+        }
+         
     }
        
     public void ValidateSkip()
     {
-        if(CheckSkip())
+        bool check = CheckType();
+        if (check != true)
         {
-            switch (GetSceneName())
+            ButtonSkip.GetComponentInChildren<Text>().text = "Saltar";
+
+            if (CheckSkip())
             {
-                case "Balanceo Nivel 1":
-                    CleanSimulation();
-                    SceneManager.LoadScene("Balanceo Nivel 2");
-                    return;
-                case "Balanceo Nivel 2":
-                    CleanSimulation();
-                    SceneManager.LoadScene("Balanceo Nivel 3");
-                    return;
-                case "Balanceo Nivel 3":
-                    CleanSimulation();
-                    SceneManager.LoadScene("Balanceo Nivel 4");
-                    return;
-                case "Balanceo Nivel 4":
-                    CleanSimulation();
-                    SceneManager.LoadScene("Balanceo Nivel 5");
-                    return;
-                case "Balanceo Nivel 5":
-                    CleanSimulation();
-                    SceneManager.LoadScene("Balanceo Resultado");
-                    return;
+                switch (GetSceneName())
+                {
+                    case "Balanceo Nivel 1":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Nivel 2");
+                        return;
+                    case "Balanceo Nivel 2":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Nivel 3");
+                        return;
+                    case "Balanceo Nivel 3":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Nivel 4");
+                        return;
+                    case "Balanceo Nivel 4":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Nivel 5");
+                        return;
+                    case "Balanceo Nivel 5":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Balanceo Resultado");
+                        return;
+                }
             }
         }
+        else
+        {
+            if (CheckSkip())
+            {
+                switch (GetSceneName())
+                {
+                    case "Balanceo Nivel 1":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Simulation_Selection_Options");
+                        return;
+                    case "Balanceo Nivel 2":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Simulation_Selection_Options");
+                        return;
+                    case "Balanceo Nivel 3":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Simulation_Selection_Options");
+                        return;
+                    case "Balanceo Nivel 4":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Simulation_Selection_Options");
+                        return;
+                    case "Balanceo Nivel 5":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Simulation_Selection_Options");
+                        return;
+                }
+            }
+        }
+    }
+
+    public bool CheckType()
+    {
+        type = Niveles_prefab_script.levels;
+
+        if(type.Equals(true))
+        {
+            ButtonSkip.GetComponentInChildren<Text>().text = "Volver";
+        }
+
+        return type;
     }
 }

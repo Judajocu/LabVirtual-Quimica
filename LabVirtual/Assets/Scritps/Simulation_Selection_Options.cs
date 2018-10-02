@@ -10,18 +10,25 @@ public class Simulation_Selection_Options : MonoBehaviour {
     public Button buttonMenu;
 	public Button buttonNiveles;
 	public Button buttonEvaluacion;
+    Button nivel1;
+    Button nivel2;
+    Button nivel3;
+    Button nivel4;
+    Button nivel5;
 
-	public GameObject menu;
+    public GameObject menu;
 	public GameObject niveles;
 	public GameObject evaluacion;
 	public GameObject placeholder;
-    
+
+    bool levels;
     int selected = Simulation_Options_Scripts.selected;
     #endregion
 
     // Use this for initialization
     void Start ()
-    {        
+    {
+        
     }
 	
 	// Update is called once per frame
@@ -36,12 +43,15 @@ public class Simulation_Selection_Options : MonoBehaviour {
 
     public void ValidateNiveles()
     {
-        Debug.Log("fuck this GO");
+        //GetPlaceholder();
+        Debug.Log("fuck this placeholderGO");
         Destroy(placeholder);
     }
 
     public void ValidateEvaluacion()
     {
+        levels = Niveles_prefab_script.levels;
+        Debug.Log(levels);
         CheckSimulation();
     }
 
@@ -68,4 +78,5 @@ public class Simulation_Selection_Options : MonoBehaviour {
                 return;
         }
     }
+
 }
