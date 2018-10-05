@@ -96,25 +96,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d38da44d14f224db9bf4ebed268495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonquit: {fileID: 114455644828027520, guid: ef841b1b5cbe605438588a9b5f03e539,
+  buttonquit: {fileID: 114457098909272468, guid: ef841b1b5cbe605438588a9b5f03e539,
     type: 2}
-  buttonnivel1: {fileID: 114349664908187948, guid: ef841b1b5cbe605438588a9b5f03e539,
+  buttonnivel1: {fileID: 114108647925165442, guid: ef841b1b5cbe605438588a9b5f03e539,
     type: 2}
-  buttonnivel2: {fileID: 114398256489423264, guid: ef841b1b5cbe605438588a9b5f03e539,
+  buttonnivel2: {fileID: 114737079394750558, guid: ef841b1b5cbe605438588a9b5f03e539,
     type: 2}
-  buttonnivel3: {fileID: 114679917001740868, guid: ef841b1b5cbe605438588a9b5f03e539,
+  buttonnivel3: {fileID: 114849340132398664, guid: ef841b1b5cbe605438588a9b5f03e539,
     type: 2}
-  buttonnivel4: {fileID: 114541170598941058, guid: ef841b1b5cbe605438588a9b5f03e539,
+  buttonnivel4: {fileID: 114179927259001790, guid: ef841b1b5cbe605438588a9b5f03e539,
     type: 2}
-  buttonnivel5: {fileID: 114477577835788660, guid: ef841b1b5cbe605438588a9b5f03e539,
+  buttonnivel5: {fileID: 114415760663814360, guid: ef841b1b5cbe605438588a9b5f03e539,
     type: 2}
-  niveles: {fileID: 1185129687163712, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
-  quit: {fileID: 1379846510901136, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
-  nivel1: {fileID: 1902690024579182, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
-  nivel2: {fileID: 1411279058590114, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
-  nivel3: {fileID: 1838579268849282, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
-  nivel4: {fileID: 1923660997417278, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
-  nivel5: {fileID: 1988147857678524, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
+  niveles: {fileID: 1803782614237296, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
+  quit: {fileID: 1177853921212986, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
+  nivel1: {fileID: 1510558431458384, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
+  nivel2: {fileID: 1283756450176288, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
+  nivel3: {fileID: 1670587989883084, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
+  nivel4: {fileID: 1348990187486282, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
+  nivel5: {fileID: 1037798661241098, guid: ef841b1b5cbe605438588a9b5f03e539, type: 2}
   placeholder: {fileID: 1900589182671916, guid: e2185177d9646d14b9abcf7832b16bd7,
     type: 2}
 --- !u!224 &224263788620263862

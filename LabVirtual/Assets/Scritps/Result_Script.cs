@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class Result_Script : MonoBehaviour {
 
@@ -10,10 +13,14 @@ public class Result_Script : MonoBehaviour {
     TextMesh promedio_tiempos;
     TextMesh nota_resultante;
 
+    public GameObject menu;
+
+    public Button ButtonMenu;
+
     List<int> intentos = Simulation_Balance.intentos;
     List<float> tiempos = Simulation_Balance.tiempos;
 
-    
+    bool type = Niveles_prefab_script.levels;
     #endregion
 
     // Use this for initialization
@@ -31,17 +38,25 @@ public class Result_Script : MonoBehaviour {
 		
 	}
 
+    public void ValidateMenu()
+    {
+        
+        SceneManager.LoadScene("Options_Student");
+    }
+
     public float GetAverageTrys()
     {
         float sum = 0;
         for (int i = 0; i < intentos.Count; i++)
         {
-            Debug.Log(intentos[i]);
+            //Debug.Log(intentos[i]);
             sum += intentos[i];
         }
+        Debug.Log("intentos total" + sum);
         sum /= intentos.Count;
-
-        promedio_intentos.text = "Promedio por simulación :" + sum;
+        Debug.Log("size de intentos"+intentos.Count);
+        Debug.Log("El total de intentos contados"+intentos.Count);
+        //promedio_intentos.text = "Promedio por simulación :" + sum;
 
         return sum;
     }
@@ -52,19 +67,25 @@ public class Result_Script : MonoBehaviour {
         for (int i = 0; i < intentos.Count; i++)
         {
             sum += intentos[i];
+            
         }
+        
         cant_intentos.text = "Total de intentos :" + sum;
     }
 
     public float GetAverageTime()
     {
         float sum = 0;
+        float lele;
         for (int i = 0; i < tiempos.Count; i++)
         {
          // Debug.Log(tiempos[i]);
             sum += tiempos[i];
+            lele = tiempos[i];
+            Debug.Log("tiempos en nivel" + i + "tiempo:" +  lele);
         }
         sum /= tiempos.Count;
+        Debug.Log("cantidades de tiempo" + tiempos.Count);
         //sum = 60.0f - sum;
 
         promedio_tiempos.text = "Promedio de tiempo:" + sum;
@@ -76,15 +97,15 @@ public class Result_Script : MonoBehaviour {
     {
         if (trys < 3)
         {
-            time -= 0.0f;
+            time += 0.0f;
         }
         if (trys < 5 && trys > 2)
         {
-            time -= 5.0f;
+            time += 5.0f;
         }
         if (trys > 5)
         {
-            time -= 10.0f;
+            time += 10.0f;
         }
 
         return time;
@@ -94,16 +115,16 @@ public class Result_Script : MonoBehaviour {
     {
         string grade = "";
 
-        if (final_time >= 50.0f)
+        if (final_time <= 10.0f)
             grade = "A";
 
-        if (final_time <= 49.0f && final_time >= 40.0f)
+        if (final_time >= 10.1f && final_time <= 20.0f)
             grade = "B";
 
-        if (final_time <= 39.0f && final_time >= 30.0f)
+        if (final_time >= 20.1f && final_time <= 30.0f)
             grade = "C";
 
-        if (final_time <= 29.0f)
+        if (final_time >= 30.1f)
             grade = "D";
 
         return grade;
@@ -114,6 +135,7 @@ public class Result_Script : MonoBehaviour {
         float time = GetAverageTime();
         float trys = GetAverageTrys();
         float final_time = CheckTrys(trys, time);
+
         string grade = AssingGrade(final_time);
 
         nota_resultante.text = "Calificacion resultante:" + grade;
