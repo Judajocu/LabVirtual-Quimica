@@ -454,8 +454,8 @@ Canvas:
   m_GameObject: {fileID: 641849048}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1942646230}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1131,7 +1131,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Estudiantes
+  m_Text: Ajustes
 --- !u!222 &1366099002
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1584,7 +1584,7 @@ GameObject:
   - component: {fileID: 2084864758}
   - component: {fileID: 2084864757}
   m_Layer: 5
-  m_Name: Button_students
+  m_Name: Button_settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
