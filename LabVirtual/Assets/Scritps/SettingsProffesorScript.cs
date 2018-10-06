@@ -20,11 +20,18 @@ public class SettingsProffesorScript : MonoBehaviour {
     public GameObject tiempo;
     public GameObject errores;
     public GameObject nota;
+
+    public static string time;
+    public static string trys;
+    public static string intervalo;
     #endregion
 
     // Use this for initialization
     void Start () {
-		
+        time = inputTiempo.text;
+        trys = inputErrores.text;
+        intervalo = inputNota.text;
+        Debug.Log(time + " " + trys + " " + intervalo);
 	}
 	
 	// Update is called once per frame
@@ -35,6 +42,14 @@ public class SettingsProffesorScript : MonoBehaviour {
     public void ValidateMenu()
     {
         SceneManager.LoadScene("Options_Student");
+    }
+
+    public void CheckChange()
+    {
+        time = inputTiempo.text;
+        trys = inputErrores.text;
+        intervalo = inputNota.text;
+        Debug.Log(time + " " + trys + " " + intervalo);
     }
 
 }

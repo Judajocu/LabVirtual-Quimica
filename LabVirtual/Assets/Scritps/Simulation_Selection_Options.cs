@@ -78,5 +78,4 @@ public class Simulation_Selection_Options : MonoBehaviour {
                 return;
         }
     }
-
 }

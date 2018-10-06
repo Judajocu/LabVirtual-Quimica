@@ -24,12 +24,20 @@ public class Theory_Selection : MonoBehaviour
     public GameObject nomenclature;
     public GameObject estequimetria;
     public GameObject ionizacion;
+
+    //Numeros
+    //1 es balanceo
+    //2 es tabla
+    //3 es conversion
+    //4 es nomenclatura
+    //5 es estequiometria
+    static public int selected;
     #endregion
 
     // Use this for initialization
     void Start()
     {
-
+        selected = 0;
     }
 
     // Update is called once per frame
@@ -44,28 +52,34 @@ public class Theory_Selection : MonoBehaviour
     }
     public void ValidateBalance()
     {
-        //SceneManager.LoadScene("Simulation_Selection_Options");
+        selected = 1;
+        SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateTable()
     {
-        //SceneManager.LoadScene("Simulation_Selection_Options");
+        selected = 2;
+        SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateConversion()
     {
-        //SceneManager.LoadScene("Simulation_Selection_Options");
+        selected = 3;
+        SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateNomenclature()
     {
-        //SceneManager.LoadScene("Simulation_Selection_Options");
+        selected = 4;
+        SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateEstequimetria()
     {
-        //SceneManager.LoadScene("Simulation_Selection_Options");
+        selected = 3;
+        SceneManager.LoadScene("Simulation_Selection_Options");
     }
 
     public void ValidateIonizacion()
     {
-        //SceneManager.LoadScene("Simulation_Selection_Options");
+        selected = 5;
+        SceneManager.LoadScene("Simulation_Selection_Options");
     }
 
 

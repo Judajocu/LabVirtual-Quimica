@@ -41,6 +41,7 @@ public class Simulation_Balance : MonoBehaviour {
     int cant_fallos = 0;
     int intento_nivel = 0;
     float time_left = 0.0f;
+    float timeup = float.Parse(SettingsProffesorScript.time+".0f");
     bool type;
     
     Scene activeScene;
@@ -71,7 +72,7 @@ public class Simulation_Balance : MonoBehaviour {
 
     public void TimeOver()
     {
-        if (time_left > 60)
+        if (time_left > timeup)
         {
             CheckSkip();
             CleanSimulation();

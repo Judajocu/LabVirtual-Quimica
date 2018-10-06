@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Interfaces/Simulation_Selection_Options.unity
     guid: fa0011a31ecca794d9abd340e841dedb
+  - enabled: 1
+    path: Assets/Scenes/Theory/Theory_Ionizacion.unity
+    guid: 4883ca7bca1314647b83d3dd01520c7d
   m_configObjects: {}

@@ -21,6 +21,8 @@ public class Result_Script : MonoBehaviour {
     List<float> tiempos = Simulation_Balance.tiempos;
 
     bool type = Niveles_prefab_script.levels;
+    float intervalo = float.Parse(SettingsProffesorScript.intervalo);
+    int penalidad = int.Parse(SettingsProffesorScript.trys);
     #endregion
 
     // Use this for initialization
@@ -95,15 +97,15 @@ public class Result_Script : MonoBehaviour {
 
     public float CheckTrys(float trys, float time)
     {
-        if (trys < 3)
+        if (trys < penalidad)
         {
             time += 0.0f;
         }
-        if (trys < 5 && trys > 2)
+        if (trys < penalidad*2 && trys > penalidad)
         {
             time += 5.0f;
         }
-        if (trys > 5)
+        if (trys > penalidad*3)
         {
             time += 10.0f;
         }
