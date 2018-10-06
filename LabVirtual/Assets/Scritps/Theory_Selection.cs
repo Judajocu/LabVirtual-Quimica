@@ -44,28 +44,28 @@ public class Theory_Selection : MonoBehaviour
     }
     public void ValidateBalance()
     {
-        SceneManager.LoadScene("Simulation_Selection_Options");
+        //SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateTable()
     {
-        SceneManager.LoadScene("Simulation_Selection_Options");
+        //SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateConversion()
     {
-        SceneManager.LoadScene("Simulation_Selection_Options");
+        //SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateNomenclature()
     {
-        SceneManager.LoadScene("Simulation_Selection_Options");
+        //SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateEstequimetria()
     {
-        SceneManager.LoadScene("Simulation_Selection_Options");
+        //SceneManager.LoadScene("Simulation_Selection_Options");
     }
 
     public void ValidateIonizacion()
     {
-        SceneManager.LoadScene("Simulation_Selection_Options");
+        //SceneManager.LoadScene("Simulation_Selection_Options");
     }
 
 
