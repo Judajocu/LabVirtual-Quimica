@@ -160,6 +160,9 @@ public class Result_Script : MonoBehaviour {
         resultJSON.Add("Nota", grade);
 
         Debug.Log(resultJSON.ToString());
+
+        string path = Application.persistentDataPath + "/Nota Simulation.json";
+        File.WriteAllText(path, resultJSON.ToString());
     }
 
     public void GetSimulationName()
