@@ -13,7 +13,7 @@ public class Simulation_Options_Scripts : MonoBehaviour {
     public Button buttonConversion;
     public Button buttonNomenclature;
     public Button buttonEstequimetria;
-    
+
 
     public GameObject menu;
     public GameObject balance;
@@ -29,18 +29,21 @@ public class Simulation_Options_Scripts : MonoBehaviour {
     //4 es nomenclatura
     //5 es estequiometria
     static public int selected;
-    #endregion
     
+    #endregion
+
     // Use this for initialization
-    void Start ()
-    {
-    	selected = 0;
-    }
-	
-	// Update is called once per frame
-	void Update ()
+    void Start()
     {
         
+        selected = 0;
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     public void ValidateMenu()
@@ -49,34 +52,44 @@ public class Simulation_Options_Scripts : MonoBehaviour {
     }
     public void ValidateBalance()
     {
-    	selected=1;
-    	Debug.Log(selected);
+        SetSelected(1);
+        Debug.Log(selected);
         SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateTable()
     {
-    	selected=2;
-    	Debug.Log(selected);
-       	SceneManager.LoadScene("Simulation_Selection_Options");
+        SetSelected(2);
+        Debug.Log(selected);
+        SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateConversion()
     {
-    	selected=3;
-    	Debug.Log(selected);
-       	SceneManager.LoadScene("Simulation_Selection_Options");
+        SetSelected(3);
+        Debug.Log(selected);
+        SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateNomenclature()
     {
-    	selected=4;
-    	Debug.Log(selected);
+        SetSelected(4);
+        Debug.Log(selected);
         SceneManager.LoadScene("Simulation_Selection_Options");
     }
     public void ValidateEstequimetria()
     {
-    	selected=5;
-    	Debug.Log(selected);
-       	SceneManager.LoadScene("Simulation_Selection_Options");
+        SetSelected(5);
+        Debug.Log(selected);
+        SceneManager.LoadScene("Simulation_Selection_Options");
     }
-    
+
+    public int GetSelected()
+    {
+        return selected;
+    }
+
+    public void SetSelected(int x)
+    {
+        selected = x;
+    }
    
+    
 }

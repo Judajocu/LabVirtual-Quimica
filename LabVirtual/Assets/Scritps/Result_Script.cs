@@ -20,17 +20,19 @@ public class Result_Script : MonoBehaviour {
     List<int> intentos = Simulation_Balance.intentos;
     List<float> tiempos = Simulation_Balance.tiempos;
 
+    SettingsProffesorScript settings = new SettingsProffesorScript();
     bool type = Niveles_prefab_script.levels;
-    float intervalo = float.Parse(SettingsProffesorScript.intervalo);
-    int penalidad = int.Parse(SettingsProffesorScript.trys);
+    float intervalo;
+    int penalidad;
     #endregion
 
     // Use this for initialization
     void Start () {
         cant_intentos = GameObject.Find("Intentos").GetComponent<TextMesh>();
-        promedio_intentos = GameObject.Find("Promedio_intentos").GetComponent<TextMesh>();
         promedio_tiempos = GameObject.Find("Promedio_tiempo").GetComponent<TextMesh>();
         nota_resultante = GameObject.Find("Nota_resultante").GetComponent<TextMesh>();
+        intervalo = settings.Getintervalo();
+        penalidad = settings.Gettrys();
         GetIntentosCount();
         GetGrade();
     }

@@ -62,4 +62,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Theory/Theory_Ionizacion.unity
     guid: 4883ca7bca1314647b83d3dd01520c7d
+  - enabled: 1
+    path: Assets/Scenes/Interfaces/Theory_Options.unity
+    guid: 80bb6ceb78aabdf4199a663c4a2d49aa
+  - enabled: 1
+    path: Assets/Scenes/Theory/Theory_Balance.unity
+    guid: 22857c6b9c800cc4d80f82c73bb36385
+  - enabled: 1
+    path: Assets/Scenes/Theory/Theory_Conversion.unity
+    guid: 81ab892173a6194429267395bec30330
+  - enabled: 1
+    path: Assets/Scenes/Theory/Theory_Estequiometria.unity
+    guid: e349d14e235979a4ba70933a6702038e
+  - enabled: 1
+    path: Assets/Scenes/Theory/Theory_Nomenclatura.unity
+    guid: 9feb7e120c1f0df4bb04061aa0c2cd3d
+  - enabled: 1
+    path: Assets/Scenes/Theory/Theory_Tabla.unity
+    guid: 213ebe58935491243aaa98dec704d59c
   m_configObjects: {}

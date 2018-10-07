@@ -38,10 +38,12 @@ public class Simulation_Balance : MonoBehaviour {
     static public List<int> intentos = new List<int>();
     static public List<float> tiempos = new List<float>();
 
+    SettingsProffesorScript settings = new SettingsProffesorScript();
+
     int cant_fallos = 0;
     int intento_nivel = 0;
     float time_left = 0.0f;
-    float timeup = float.Parse(SettingsProffesorScript.time+".0f");
+    float timeup;
     bool type;
     
     Scene activeScene;
@@ -50,6 +52,7 @@ public class Simulation_Balance : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        timeup = settings.Gettime();
         CheckType();
         textcant_fallos = GameObject.Find("Text_fails").GetComponent<TextMesh>();
         cantinput = GameObject.Find("CantInput").GetComponent<TextMesh>();

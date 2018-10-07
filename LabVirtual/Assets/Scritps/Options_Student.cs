@@ -38,7 +38,7 @@ public class Options_Student : MonoBehaviour {
 
     public void ValidateTheory()
     {
-       // SceneManager.LoadScene("Professor-Students");
+       SceneManager.LoadScene("Theory_Options");
     }
 
     public void ValidateLogout()

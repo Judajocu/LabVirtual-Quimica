@@ -15,8 +15,6 @@ public class TheoryTopicScript : MonoBehaviour {
     public GameObject menu;
     public GameObject pva;
     public GameObject simulacion;
-
-    int selected = Theory_Selection.selected;
     #endregion
 
     // Use this for initialization
@@ -41,7 +39,7 @@ public class TheoryTopicScript : MonoBehaviour {
 
     public void ValidateSimulacion()
     {
-        SceneManager.LoadScene("Simulation_Options");
+        SceneManager.LoadScene("Simulation_Selection_Options");
     }
 
 

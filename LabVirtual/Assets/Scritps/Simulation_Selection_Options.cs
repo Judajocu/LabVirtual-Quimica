@@ -22,13 +22,14 @@ public class Simulation_Selection_Options : MonoBehaviour {
 	public GameObject placeholder;
 
     bool levels;
-    int selected = Simulation_Options_Scripts.selected;
+    Simulation_Options_Scripts simulation = new Simulation_Options_Scripts();
+    int selected;
     #endregion
 
     // Use this for initialization
     void Start ()
     {
-        
+        selected = simulation.GetSelected();
     }
 	
 	// Update is called once per frame
@@ -57,6 +58,7 @@ public class Simulation_Selection_Options : MonoBehaviour {
 
     public void CheckSimulation()
     {
+        Debug.Log(selected);
         switch(selected)
         {
             case 1:

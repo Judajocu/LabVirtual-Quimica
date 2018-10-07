@@ -25,18 +25,22 @@ public class Niveles_prefab_script : MonoBehaviour {
     public GameObject placeholder;
     
     public static bool levels;
-    int selected = Simulation_Options_Scripts.selected;
+    Simulation_Options_Scripts simulation = new Simulation_Options_Scripts();
+    SettingsProffesorScript settings = new SettingsProffesorScript();
+    int selected;
     #endregion
 
     // Use this for initialization
     void Start () {
-		levels = false;
+        CheckSettings();
+        selected = simulation.GetSelected();
+        Debug.Log(selected);
+        levels = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+    }
 
     public void ValidateNiveles()
     {
@@ -96,7 +100,8 @@ public class Niveles_prefab_script : MonoBehaviour {
 
     public void CheckSimulation(string nivel)
     {
-        switch(selected)
+        Debug.Log(nivel+" "+selected);
+        switch (simulation.GetSelected())
         {
             case 1:
                 SceneManager.LoadScene("Balanceo nivel "+nivel);
@@ -124,6 +129,23 @@ public class Niveles_prefab_script : MonoBehaviour {
     public void CheckType2()
     {
         levels = false;
+    }
+
+    public void CheckSettings()
+    {
+        if (settings.Gettime() == 0)
+        {
+            float x = 60;
+            settings.SetTime(x);
+        }
+        if (settings.Gettrys() == 0)
+        {
+            settings.SetTrys(5);
+        }
+        if (settings.Getintervalo() == 0)
+        {
+            settings.Setintervalos(5);
+        }
     }
 
 }

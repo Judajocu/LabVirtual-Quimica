@@ -21,16 +21,21 @@ public class SettingsProffesorScript : MonoBehaviour {
     public GameObject errores;
     public GameObject nota;
 
-    public static string time;
-    public static string trys;
-    public static string intervalo;
+    public string time;
+    public string trys;
+    public string intervalo;
+
+    public static float times;
+    public static float intervalos;
+    public static int tries;
     #endregion
 
     // Use this for initialization
     void Start () {
-        time = inputTiempo.text;
+        time = inputTiempo.text+".0";
         trys = inputErrores.text;
-        intervalo = inputNota.text;
+        intervalo = inputNota.text+".0";
+        ConvertChange(time,trys,intervalo);
         Debug.Log(time + " " + trys + " " + intervalo);
 	}
 	
@@ -41,15 +46,58 @@ public class SettingsProffesorScript : MonoBehaviour {
 
     public void ValidateMenu()
     {
-        SceneManager.LoadScene("Options_Student");
+        SceneManager.LoadScene("Options_Professor");
+    }
+
+    public void ValidateSubmit()
+    {
+        SceneManager.LoadScene("Options_Professor");
     }
 
     public void CheckChange()
     {
-        time = inputTiempo.text;
+        time = inputTiempo.text+".0";
         trys = inputErrores.text;
-        intervalo = inputNota.text;
+        intervalo = inputNota.text + ".0";
+        ConvertChange(time, trys, intervalo);
         Debug.Log(time + " " + trys + " " + intervalo);
     }
 
+    public void ConvertChange(string FI, string SI, string TI)
+    {
+        times = float.Parse(FI);
+        tries = int.Parse(SI);
+        intervalos = float.Parse(TI);
+        Debug.Log(times + " " + tries + " " + intervalos);
+    }
+
+    public float Gettime()
+    {
+        return times;
+    }
+
+    public int Gettrys()
+    {
+        return tries;
+    }
+
+    public float Getintervalo()
+    {
+        return intervalos;
+    }
+
+    public void SetTime(float x)
+    {
+        times = x;
+    }
+
+    public void SetTrys(int x)
+    {
+        tries = x;
+    }
+
+    public void Setintervalos(float x)
+    {
+        intervalos = x;
+    }
 }

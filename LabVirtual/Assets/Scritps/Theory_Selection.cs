@@ -31,13 +31,12 @@ public class Theory_Selection : MonoBehaviour
     //3 es conversion
     //4 es nomenclatura
     //5 es estequiometria
-    static public int selected;
+    Simulation_Options_Scripts simulation = new Simulation_Options_Scripts();
     #endregion
 
     // Use this for initialization
     void Start()
     {
-        selected = 0;
     }
 
     // Update is called once per frame
@@ -52,34 +51,33 @@ public class Theory_Selection : MonoBehaviour
     }
     public void ValidateBalance()
     {
-        selected = 1;
-        SceneManager.LoadScene("Simulation_Selection_Options");
+        simulation.SetSelected(1);
+        SceneManager.LoadScene("Theory_Balance");
     }
     public void ValidateTable()
     {
-        selected = 2;
-        SceneManager.LoadScene("Simulation_Selection_Options");
+        simulation.SetSelected(2);
+        SceneManager.LoadScene("Theory_Conversion");
     }
     public void ValidateConversion()
     {
-        selected = 3;
-        SceneManager.LoadScene("Simulation_Selection_Options");
+        simulation.SetSelected(3);
+        SceneManager.LoadScene("Theory_Estequiometria");
     }
     public void ValidateNomenclature()
     {
-        selected = 4;
-        SceneManager.LoadScene("Simulation_Selection_Options");
+        simulation.SetSelected(4);
+        SceneManager.LoadScene("Theory_Ionizacion");
     }
     public void ValidateEstequimetria()
     {
-        selected = 3;
-        SceneManager.LoadScene("Simulation_Selection_Options");
+        simulation.SetSelected(5);
+        SceneManager.LoadScene("Theory_Nomenclatura");
     }
 
     public void ValidateIonizacion()
     {
-        selected = 5;
-        SceneManager.LoadScene("Simulation_Selection_Options");
+        SceneManager.LoadScene("Theory_Tabla");
     }
 
 

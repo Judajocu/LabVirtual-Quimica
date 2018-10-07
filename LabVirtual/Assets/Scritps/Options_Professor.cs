@@ -36,9 +36,9 @@ public class Options_Professor : MonoBehaviour {
        // SceneManager.LoadScene("Groups");
     }
 
-    public void ValidateStudents()
+    public void ValidateSetting()
     {
-       // SceneManager.LoadScene("Professor-Students");
+       SceneManager.LoadScene("Setting_Professor");
     }
 
     public void ValidateLogout()
