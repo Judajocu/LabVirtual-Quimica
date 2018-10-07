@@ -5,10 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using SimpleJSON;
+using System.IO;
 
 public class Data_Overview_Student : MonoBehaviour {
 
-    Dictionary<string,  int> Student_grades;
+    Dictionary<string,  string> Student_grades;
     int changeCounter = 0;
 
     public Button buttonMenu;
@@ -19,11 +20,12 @@ public class Data_Overview_Student : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        SetGrades("Nomenclatura", 3);
-        SetGrades("Balance de Ecuaciones", 2);
-        SetGrades("Tabla Periodica", 1);
-        SetGrades("Conversion de Unidades", 4);
-        SetGrades("Estequiometria", 5);
+        Load();
+        SetGrades("Nomenclatura", "3");
+        
+        SetGrades("Tabla Periodica", "1");
+        SetGrades("Conversion de Unidades", "4");
+        SetGrades("Estequiometria", "5");
     }
 	
 	// Update is called once per frame
@@ -42,22 +44,22 @@ public class Data_Overview_Student : MonoBehaviour {
         {
             return;
         }
-        Student_grades = new Dictionary<string,  int>();
+        Student_grades = new Dictionary<string,  string>();
     }
 
-    public int GetGrades(string subject)
+    public string GetGrades(string subject)
     {
         Init();
         if (Student_grades.ContainsKey(subject) == false)
         {
-            return 0;
+            return "";
         }
         
 
         return Student_grades[subject];
     }
 
-    public void SetGrades(string subject, int grade)
+    public void SetGrades(string subject, string grade)
     {
         Init();
 
@@ -65,15 +67,15 @@ public class Data_Overview_Student : MonoBehaviour {
 
         if (Student_grades.ContainsKey(subject) == false)
         {
-            Student_grades[subject] = new int();
+            Student_grades[subject] = "0";
         }
         Student_grades[subject] = grade;
     }
 
-    public void ChangeGrades(string subject, int new_grade)
+    public void ChangeGrades(string subject, string new_grade)
     {
         Init();
-        int currGrade = GetGrades(subject);
+        string currGrade = GetGrades(subject);
         SetGrades(subject, currGrade + new_grade);
     }
 
@@ -97,7 +99,10 @@ public class Data_Overview_Student : MonoBehaviour {
 
     void Load()
     {
-        //JSONObject 
+        string path = Application.persistentDataPath + "/Nota Simulation.json";
+        string jsonString = File.ReadAllText(path);
+        JSONObject GradeJSON = (JSONObject)JSON.Parse(jsonString);
+        SetGrades("Balance de Ecuaciones", GradeJSON["Nota"]);
     }
 
 }
