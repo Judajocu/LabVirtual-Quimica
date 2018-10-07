@@ -100,7 +100,6 @@ public class Niveles_prefab_script : MonoBehaviour {
 
     public void CheckSimulation(string nivel)
     {
-        Debug.Log(nivel+" "+selected);
         switch (simulation.GetSelected())
         {
             case 1:

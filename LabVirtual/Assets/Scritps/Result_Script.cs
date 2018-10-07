@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using SimpleJSON;
+using System.IO;
 
 public class Result_Script : MonoBehaviour {
 
@@ -20,10 +22,15 @@ public class Result_Script : MonoBehaviour {
     List<int> intentos = Simulation_Balance.intentos;
     List<float> tiempos = Simulation_Balance.tiempos;
 
+    Simulation_Options_Scripts simulation_Options = new Simulation_Options_Scripts();
     SettingsProffesorScript settings = new SettingsProffesorScript();
+
     bool type = Niveles_prefab_script.levels;
     float intervalo;
     int penalidad;
+    public string grade;
+    public string simulation;
+    string name;
     #endregion
 
     // Use this for initialization
@@ -141,7 +148,41 @@ public class Result_Script : MonoBehaviour {
         float final_time = CheckTrys(trys, time);
 
         string grade = AssingGrade(final_time);
-
+        Save(grade);
         nota_resultante.text = "Calificacion resultante:" + grade;
+    }
+
+    private void Save(string grade)
+    {
+        JSONObject resultJSON = new JSONObject();
+        GetSimulationName();
+        resultJSON.Add("Tema", name);
+        resultJSON.Add("Nota", grade);
+
+        Debug.Log(resultJSON.ToString());
+    }
+
+    public void GetSimulationName()
+    {
+        
+        switch(simulation_Options.GetSelected())
+        {
+            case 1:
+                name = "Balanceo de Ecuaciones";
+                return;
+            case 2:
+                name = "Tabla Periodica";
+                return;
+            case 3:
+                name = "Conversion de Unidades";
+                return;
+            case 4:
+                name = "Nomenclatura";
+                return;
+            case 5:
+                name = "Estequiometria";
+                return;
+
+        }
     }
 }

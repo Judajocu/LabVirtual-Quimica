@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using SimpleJSON;
 
 public class Data_Overview_Student : MonoBehaviour {
 
@@ -92,6 +93,11 @@ public class Data_Overview_Student : MonoBehaviour {
     public int GetChangeCounter()
     {
         return changeCounter;
+    }
+
+    void Load()
+    {
+        //JSONObject 
     }
 
 }
