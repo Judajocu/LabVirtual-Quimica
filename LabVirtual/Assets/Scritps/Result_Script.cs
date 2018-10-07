@@ -19,15 +19,17 @@ public class Result_Script : MonoBehaviour {
 
     public Button ButtonMenu;
 
-    List<int> intentos = Simulation_Balance.intentos;
-    List<float> tiempos = Simulation_Balance.tiempos;
+    List<int> intentos;
+    List<float> tiempos;
 
     Simulation_Options_Scripts simulation_Options = new Simulation_Options_Scripts();
     SettingsProffesorScript settings = new SettingsProffesorScript();
 
     bool type = Niveles_prefab_script.levels;
+
     float intervalo;
     int penalidad;
+
     public string grade;
     public string simulation;
     string name;
@@ -38,6 +40,7 @@ public class Result_Script : MonoBehaviour {
         cant_intentos = GameObject.Find("Intentos").GetComponent<TextMesh>();
         promedio_tiempos = GameObject.Find("Promedio_tiempo").GetComponent<TextMesh>();
         nota_resultante = GameObject.Find("Nota_resultante").GetComponent<TextMesh>();
+        GetSimulationData();
         intervalo = settings.Getintervalo();
         penalidad = settings.Gettrys();
         GetIntentosCount();
@@ -126,16 +129,16 @@ public class Result_Script : MonoBehaviour {
     {
         string grade = "";
 
-        if (final_time <= 10.0f)
+        if (final_time <= intervalo)
             grade = "A";
 
-        if (final_time >= 10.1f && final_time <= 20.0f)
+        if (final_time >= intervalo+0.1 && final_time <= intervalo*2)
             grade = "B";
 
-        if (final_time >= 20.1f && final_time <= 30.0f)
+        if (final_time >= intervalo*2+0.1 && final_time <= intervalo*3)
             grade = "C";
 
-        if (final_time >= 30.1f)
+        if (final_time >= intervalo*3+0.1)
             grade = "D";
 
         return grade;
@@ -148,42 +151,75 @@ public class Result_Script : MonoBehaviour {
         float final_time = CheckTrys(trys, time);
 
         string grade = AssingGrade(final_time);
-        Save(grade);
+        if(type=true)
+            GetSimulationName(grade);
+
         nota_resultante.text = "Calificacion resultante:" + grade;
     }
 
-    private void Save(string grade)
+    private void Save(string grade, string Simulation)
     {
         JSONObject resultJSON = new JSONObject();
-        GetSimulationName();
-        resultJSON.Add("Tema", name);
-        resultJSON.Add("Nota", grade);
-
+        resultJSON.Add(Simulation, grade);
+        
         Debug.Log(resultJSON.ToString());
 
         string path = Application.persistentDataPath + "/Nota Simulation.json";
         File.WriteAllText(path, resultJSON.ToString());
     }
 
-    public void GetSimulationName()
+    public void GetSimulationName(string grade)
     {
         
         switch(simulation_Options.GetSelected())
         {
             case 1:
                 name = "Balanceo de Ecuaciones";
+                Save(grade,name);
                 return;
             case 2:
                 name = "Tabla Periodica";
+                Save(grade, name);
                 return;
             case 3:
                 name = "Conversion de Unidades";
+                Save(grade, name);
                 return;
             case 4:
                 name = "Nomenclatura";
+                Save(grade, name);
                 return;
             case 5:
                 name = "Estequiometria";
+                Save(grade, name);
+                return;
+
+        }
+    }
+    public void GetSimulationData()
+    {
+
+        switch (simulation_Options.GetSelected())
+        {
+            case 1:
+                intentos = Simulation_Balance.intentos;
+                tiempos = Simulation_Balance.tiempos;
+                return;
+            case 2:
+                //name = "Tabla Periodica";
+                
+                return;
+            case 3:
+                //name = "Conversion de Unidades";
+                
+                return;
+            case 4:
+               // name = "Nomenclatura";
+                
+                return;
+            case 5:
+               // name = "Estequiometria";
+                
                 return;
 
         }

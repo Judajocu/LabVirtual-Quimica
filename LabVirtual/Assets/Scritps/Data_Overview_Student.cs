@@ -102,7 +102,11 @@ public class Data_Overview_Student : MonoBehaviour {
         string path = Application.persistentDataPath + "/Nota Simulation.json";
         string jsonString = File.ReadAllText(path);
         JSONObject GradeJSON = (JSONObject)JSON.Parse(jsonString);
-        SetGrades("Balance de Ecuaciones", GradeJSON["Nota"]);
+        SetGrades("Balance de Ecuaciones", GradeJSON["Balanceo de Ecuaciones"]);
+        //SetGrades("Nomenclatura", GradeJSON["Nomenclatura"]);
+        //SetGrades("Tabla Periodica", GradeJSON["Tabla Periodica"]);
+        //SetGrades("Conversion de Unidades", GradeJSON["Conversion de Unidades"]);
+        //SetGrades("Estequiometria", GradeJSON["Estequiometria"]);
     }
 
 }
