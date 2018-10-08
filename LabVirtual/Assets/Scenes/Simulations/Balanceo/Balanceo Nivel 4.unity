@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -158,12 +158,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -369,7 +369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 0.09278891}
-  m_AnchoredPosition: {x: -0.3899994, y: 0.35000038}
+  m_AnchoredPosition: {x: -0.3899994, y: 0.3499756}
   m_SizeDelta: {x: -0.22999573, y: 0.70000076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &194243089
@@ -492,7 +492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.5, y: 0.09278891}
-  m_AnchoredPosition: {x: -0.11999512, y: 0.3499999}
+  m_AnchoredPosition: {x: -0.11999512, y: 0.3499756}
   m_SizeDelta: {x: 0.769989, y: 0.7000046}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &225712346
@@ -1962,12 +1962,12 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1747440937}
-  m_Text: _Na + O2 = _Na2O
+  m_Text: "_Na + O2 \n=\n _Na2O"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
   m_Anchor: 0
-  m_Alignment: 0
+  m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 300
   m_FontStyle: 0
@@ -2018,7 +2018,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1747440937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.17, y: -1.74, z: -4.3046875}
+  m_LocalPosition: {x: -1.16, y: -1.28, z: -4.3046875}
   m_LocalScale: {x: 0.016923219, y: 0.016923219, z: 1.6923219}
   m_Children: []
   m_Father: {fileID: 0}
