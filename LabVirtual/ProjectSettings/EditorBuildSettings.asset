@@ -80,4 +80,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Theory/Theory_Tabla.unity
     guid: 213ebe58935491243aaa98dec704d59c
+  - enabled: 1
+    path: Assets/Scenes/Interfaces/Groups_Professor.unity
+    guid: e9a7f0e6d64796b43ace34108b178fd1
   m_configObjects: {}

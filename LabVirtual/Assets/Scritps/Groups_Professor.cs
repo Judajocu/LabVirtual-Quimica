@@ -16,8 +16,12 @@ public class Groups_Professor : MonoBehaviour {
     int changeCounter = 0;
 
     public Button buttonMenu;
+    public Button buttonReport;
+    public Button buttonSelect;
 
     public GameObject menu;
+    public GameObject report;
+    public GameObject select;
 
 
     // Use this for initialization
