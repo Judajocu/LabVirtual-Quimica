@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Moodle;
+using System;
 
 public class LoginStudent : MonoBehaviour {
 
     public GameObject id;
     public GameObject password;
     public GameObject login;
+
+    MoodleAPI moodleAPI;
 
     public Button buttonLogin;
 
@@ -17,8 +21,8 @@ public class LoginStudent : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,8 +31,10 @@ public class LoginStudent : MonoBehaviour {
               
     }
 
-    public void ValidateLogin() {
-        if(ID!=string.Empty && Password != string.Empty)
+    public void ValidateLogin()
+    {
+        CheckApi(ID, Password);
+        if (ID!=string.Empty && Password != string.Empty)
         {
             print("Sup");
             SceneManager.LoadScene("Overview-Student");
@@ -38,4 +44,38 @@ public class LoginStudent : MonoBehaviour {
     {
         SceneManager.LoadScene("Entryway");
     }
+
+    public void CheckApi(string user, string pass)
+    {
+        moodleAPI = GetComponent<MoodleAPI>();
+        
+
+        moodleAPI.OnTokenRetrieved += sender => {
+            // The user has successfully logged in
+
+            // We setup the data that we will record on this attempt
+            IDictionary<string, string> result = new ScormDataBuilder()
+                                    .SetLessonStatus("completed")
+                                    .SetMinScore(0)
+                                    .SetMaxScore(100)
+                                    .SetRawScore(75)
+                                    .SetSessionTime(new TimeSpan(1, 10, 25))
+                                    .Build();
+
+            uint scormId = 1; // This id can be retrieve calling “GetScorms” method and filtering it.
+            uint attempt = 1; // If this attempt has been already made the previous data will be overwritten. If you want to know the attempt count you need to call “GetScormAttemptCount” method before.
+
+            moodleAPI.InsertScormTracks(scormId, attempt, result); // 2. We will make a new attempt
+        };
+
+        moodleAPI.GetToken("20130165", "Juanjo@4");
+
+        moodleAPI.OnScormTracksInserted += (sender, trackIds) => {
+            // A Scorm attempt was successfully recorded
+            Debug.Log("asd");
+        };
+
+
+    }
+
 }
