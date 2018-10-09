@@ -1220,9 +1220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2014a191f65148469ee3743b5f100a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  host: https://campusvirtual.pucmm.edu.do/moodle/
-  endpointLogEnabled: 0
-  responseLogEnabled: 0
+  host: https://campusvirtual.pucmm.edu.do/moodle
+  endpointLogEnabled: 1
+  responseLogEnabled: 1
 --- !u!1 &1522905599
 GameObject:
   m_ObjectHideFlags: 0
