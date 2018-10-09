@@ -68,7 +68,7 @@ public class LoginStudent : MonoBehaviour {
             moodleAPI.InsertScormTracks(scormId, attempt, result); // 2. We will make a new attempt
         };
 
-        moodleAPI.GetToken("20130165", "Juanjo@4");
+        moodleAPI.GetToken(user, pass);
 
         moodleAPI.OnScormTracksInserted += (sender, trackIds) => {
             // A Scorm attempt was successfully recorded
