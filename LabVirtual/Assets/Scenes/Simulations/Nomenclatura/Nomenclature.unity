@@ -3720,8 +3720,8 @@ GameObject:
   - component: {fileID: 1037257586}
   - component: {fileID: 1037257585}
   m_Layer: 0
-  m_Name: letra_C
-  m_TagString: Untagged
+  m_Name: letra_c
+  m_TagString: c
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5092,7 +5092,7 @@ GameObject:
   - component: {fileID: 1470039277}
   m_Layer: 0
   m_Name: letra_a
-  m_TagString: Untagged
+  m_TagString: a
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5415,7 +5415,7 @@ GameObject:
   - component: {fileID: 1647837005}
   m_Layer: 0
   m_Name: letra_f
-  m_TagString: Untagged
+  m_TagString: f
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5501,7 +5501,7 @@ GameObject:
   - component: {fileID: 1677447452}
   m_Layer: 0
   m_Name: letra_b
-  m_TagString: Untagged
+  m_TagString: b
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5900,7 +5900,7 @@ GameObject:
   - component: {fileID: 1828592019}
   m_Layer: 0
   m_Name: letra_d
-  m_TagString: Untagged
+  m_TagString: d
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5986,7 +5986,7 @@ GameObject:
   - component: {fileID: 1832941961}
   m_Layer: 0
   m_Name: letra_e
-  m_TagString: Untagged
+  m_TagString: e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

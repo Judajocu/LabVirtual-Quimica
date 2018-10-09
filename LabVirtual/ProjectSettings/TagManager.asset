@@ -7,6 +7,12 @@ TagManager:
   - Canvas
   - Panel
   - ButtonOk
+  - a
+  - b
+  - c
+  - d
+  - f
+  - e
   layers:
   - Default
   - TransparentFX
