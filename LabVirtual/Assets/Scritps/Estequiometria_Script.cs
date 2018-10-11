@@ -17,6 +17,9 @@ public class Estequiometria_Script : MonoBehaviour {
     public GameObject menu;
     public GameObject skip;
     public GameObject submit;
+    public GameObject ElementFillPrefab;
+
+    List<GameObject> List_Fillprefabs = new List<GameObject>();
 
     public TextMesh cantresult;
     #endregion
@@ -47,9 +50,37 @@ public class Estequiometria_Script : MonoBehaviour {
         SceneManager.LoadScene("Options_Student");
     }
 
-    public void CheckResult(string result)
+    public bool CheckResultCorrect(string result)
     {
-        result = Answer.text;
-        Debug.Log(result);
+        if (result.Equals(Answer.text))
+            return true;
+        else
+            return false;
     }
+
+    public void FillBox()
+    {
+        FillRow();
+    }
+
+    public void FillRow()
+    {
+        float x = 0.5f;
+        GameObject game;
+        for (int i = 0; i < 3; i++)
+        {
+            if(i == 0)
+            {
+                game = (GameObject)Instantiate(ElementFillPrefab, new Vector3(-2.759f, -0.86f), Quaternion.identity);
+                List_Fillprefabs.Add(game);
+            }
+            game = (GameObject)Instantiate(ElementFillPrefab, new Vector3(-2.759f+x, -0.86f), Quaternion.identity);
+            List_Fillprefabs.Add(game);
+            x *= 2;
+        }
+        
+        
+    }
+
+
 }

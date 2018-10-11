@@ -26,13 +26,14 @@ public class LoginStudent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        ID = id.GetComponent<InputField>().text;
-        Password = password.GetComponent<InputField>().text;
+        
               
     }
 
     public void ValidateLogin()
     {
+        ID = id.GetComponent<InputField>().text;
+        Password = password.GetComponent<InputField>().text;
         CheckApi(ID, Password);
         if (ID!=string.Empty && Password != string.Empty)
         {
