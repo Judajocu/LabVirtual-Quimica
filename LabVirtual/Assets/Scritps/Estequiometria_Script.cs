@@ -21,15 +21,19 @@ public class Estequiometria_Script : MonoBehaviour {
     public GameObject skip;
     public GameObject submit;
     public GameObject ElementFillPrefab;
-
     List<GameObject> List_Fillprefabs = new List<GameObject>();
 
     public TextMesh cantresult;
     public TextMesh ecuation;
+    TextMesh textcant_fallos;
+
+    int cant_fallos;
     #endregion
 
     // Use this for initialization
     void Start () {
+
+        textcant_fallos = GameObject.Find("Text_fails").GetComponent<TextMesh>();
         cantresult = GameObject.Find("Cant_result").GetComponent<TextMesh>();
         ecuation = GameObject.Find("Ecuation").GetComponent<TextMesh>();
         ecuation.text = "C + O₂ = CO₂";
@@ -86,6 +90,20 @@ public class Estequiometria_Script : MonoBehaviour {
         }
         
         
+    }
+
+    public void CleanSimulation()
+    {
+        for (int i = 0; i < List_Fillprefabs.Count; i++)
+        {
+            Destroy(List_Fillprefabs[i].gameObject);
+        }
+        
+
+
+        cant_fallos = 0;
+
+        textcant_fallos.text = "Fallos";
     }
 
 
