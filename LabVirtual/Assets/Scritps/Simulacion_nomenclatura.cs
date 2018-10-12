@@ -35,6 +35,11 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     float timeup;
     bool type;
 
+    string word = null;
+    int wordindex = 0;
+    string alpha;
+    public Text palabra = null;
+
     // Use this for initialization
     void Start()
     {
@@ -47,6 +52,13 @@ public class Simulacion_nomenclatura : MonoBehaviour {
         letra_e = GameObject.Find("letra_e").GetComponent<TextMesh>();
         letra_f = GameObject.Find("letra_f").GetComponent<TextMesh>();
         //CheckTime();
+    }
+
+    public void formarpalabra(string letra)
+    {
+        wordindex++;
+        word = word + letra;
+        palabra.text = word;
     }
 
     // Update is called once per frame
