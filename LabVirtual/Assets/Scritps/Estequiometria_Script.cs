@@ -7,6 +7,9 @@ using System.Linq;
 
 public class Estequiometria_Script : MonoBehaviour {
 
+    //Subindices
+    //₀₁₂₃₄₅₆₇₈₉
+
     #region Variables
     public Button ButtonMenu;
     public Button ButtonSkip;
@@ -22,12 +25,15 @@ public class Estequiometria_Script : MonoBehaviour {
     List<GameObject> List_Fillprefabs = new List<GameObject>();
 
     public TextMesh cantresult;
+    public TextMesh ecuation;
     #endregion
 
     // Use this for initialization
     void Start () {
         cantresult = GameObject.Find("Cant_result").GetComponent<TextMesh>();
-        
+        ecuation = GameObject.Find("Ecuation").GetComponent<TextMesh>();
+        ecuation.text = "C + O₂ = CO₂";
+
     }
 	
 	// Update is called once per frame
