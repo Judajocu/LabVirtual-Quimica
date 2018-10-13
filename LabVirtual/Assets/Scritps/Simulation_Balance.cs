@@ -364,7 +364,7 @@ public class Simulation_Balance : MonoBehaviour {
                     CleanSimulation();
                     SceneManager.LoadScene("Simulation_Selection_Options");
                     return;
-                }
+            }
         }
     }
 

@@ -33,7 +33,7 @@ public class Options_Professor : MonoBehaviour {
 
     public void ValidateGroups()
     {
-       // SceneManager.LoadScene("Groups");
+       SceneManager.LoadScene("Groups_Professor");
     }
 
     public void ValidateSetting()

@@ -25,9 +25,9 @@ public class SettingsProffesorScript : MonoBehaviour {
     public string trys;
     public string intervalo;
 
-    public static float times;
-    public static float intervalos;
-    public static int tries;
+    public static float times = 60.0f;
+    public static float intervalos = 5.0f;
+    public static int tries = 5;
     #endregion
 
     // Use this for initialization

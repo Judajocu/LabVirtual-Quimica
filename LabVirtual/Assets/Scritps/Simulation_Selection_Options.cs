@@ -74,7 +74,7 @@ public class Simulation_Selection_Options : MonoBehaviour {
                 SceneManager.LoadScene("Nomenclatura");
                 return;
             case 5:
-                SceneManager.LoadScene("Simulation_Selection_Options");
+                SceneManager.LoadScene("Estequiometria Nivel 1");
                 return;
             default:
                 return;

@@ -319,7 +319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 0.09278891}
-  m_AnchoredPosition: {x: 0.11001587, y: 0.34985352}
+  m_AnchoredPosition: {x: 0.10998535, y: 0.35009766}
   m_SizeDelta: {x: 0.7700043, y: 0.6999998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &194243089
@@ -361,8 +361,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1956369624}
-        m_MethodName: 
+      - m_Target: {fileID: 1956369628}
+        m_MethodName: ValidateSubmit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -442,7 +442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.5, y: 0.09278891}
-  m_AnchoredPosition: {x: -0.11999512, y: 0.34985352}
+  m_AnchoredPosition: {x: -0.11999512, y: 0.35009766}
   m_SizeDelta: {x: 0.769989, y: 0.7000046}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &225712346
@@ -563,7 +563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.053750005, y: 0.6095625}
   m_AnchorMax: {x: 0.9250001, y: 0.7017813}
-  m_AnchoredPosition: {x: -1.9000015, y: -2}
+  m_AnchoredPosition: {x: -1.9000244, y: -2}
   m_SizeDelta: {x: 1, y: -3.600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384910946
@@ -747,7 +747,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -869,7 +869,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &832410060
 MeshRenderer:
@@ -954,7 +954,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &879327213
 MeshRenderer:
@@ -1054,14 +1054,14 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
-    m_Alignment: 1
+    m_MaxSize: 50
+    m_Alignment: 3
     m_AlignByGeometry: 0
-    m_RichText: 0
+    m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
@@ -1215,7 +1215,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1290,12 +1290,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 50
     m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MaxSize: 50
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1350,7 +1350,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1296220787
 MeshRenderer:
@@ -1504,7 +1504,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5683329, y: 0.41124967}
   m_AnchorMax: {x: 0.9087502, y: 0.47778127}
-  m_AnchoredPosition: {x: -0.5, y: 0.3000002}
+  m_AnchoredPosition: {x: -0.5, y: 0.2999878}
   m_SizeDelta: {x: 2.5, y: 0.6000004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1402587850
@@ -1545,19 +1545,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1402587851}
   m_TextComponent: {fileID: 1183594179}
   m_Placeholder: {fileID: 1278302485}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1956369628}
-        m_MethodName: FillBox
+        m_MethodName: CleanSimulation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1714,7 +1714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.018749997, y: 0.89846873}
   m_AnchorMax: {x: 0.19625, y: 0.9884376}
-  m_AnchoredPosition: {x: 1, y: 0.6199951}
+  m_AnchoredPosition: {x: 1, y: 0.6201172}
   m_SizeDelta: {x: -1.800003, y: -0.7999878}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1546139676
@@ -2039,7 +2039,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2775, y: 0.89846873}
   m_AnchorMax: {x: 0.96375, y: 0.9884376}
-  m_AnchoredPosition: {x: 2.4000015, y: 1.2399902}
+  m_AnchoredPosition: {x: 2.4000244, y: 1.2399902}
   m_SizeDelta: {x: 2.7000122, y: 0.35998535}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1799034096
@@ -2183,12 +2183,12 @@ MonoBehaviour:
   ButtonMenu: {fileID: 1546139676}
   ButtonSkip: {fileID: 225712346}
   Buttonsubmit: {fileID: 194243089}
-  Answer: {fileID: 1402587850}
   menu: {fileID: 1546139674}
   skip: {fileID: 225712344}
   submit: {fileID: 194243087}
   ElementFillPrefab: {fileID: 1453120054823348, guid: 4e81697baaa97844bad5c169a024dd53,
     type: 2}
+  Answer: {fileID: 1402587850}
   cantresult: {fileID: 1216210758}
   ecuation: {fileID: 1747440938}
 --- !u!1 &1962510158
@@ -2318,7 +2318,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1978094108
 MeshRenderer:
@@ -2394,7 +2394,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.053750005, y: 0.5101562}
   m_AnchorMax: {x: 0.9250001, y: 0.5962813}
-  m_AnchoredPosition: {x: -1.8999939, y: 1}
+  m_AnchoredPosition: {x: -1.9000244, y: 1}
   m_SizeDelta: {x: 1, y: 4.4000244}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2018541423

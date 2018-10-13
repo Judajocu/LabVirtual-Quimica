@@ -115,7 +115,7 @@ public class Niveles_prefab_script : MonoBehaviour {
                 //SceneManager.LoadScene("nomenclatura nivel " + nivel);
                 return;
             case 5:
-                //SceneManager.LoadScene("estequiometria nivel " + nivel);
+                SceneManager.LoadScene("Estequiometria Nivel " + nivel);
                 return;
         }
     }
