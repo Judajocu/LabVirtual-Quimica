@@ -21,6 +21,7 @@ public class Result_Script : MonoBehaviour {
 
     List<int> intentos;
     List<float> tiempos;
+    List<string> notas = new List<string>();
 
     Simulation_Options_Scripts simulation_Options = new Simulation_Options_Scripts();
     SettingsProffesorScript settings = new SettingsProffesorScript();
@@ -157,48 +158,101 @@ public class Result_Script : MonoBehaviour {
         nota_resultante.text = "Calificacion resultante:" + grade;
     }
 
-    private void Save(string grade, string Simulation)
+    public void Load()
     {
-        JSONObject resultJSON = new JSONObject();
-        resultJSON.Add(Simulation, grade);
-        
-        Debug.Log(resultJSON.ToString());
-
         string path = Application.persistentDataPath + "/Nota Simulation.json";
-        File.WriteAllText(path, resultJSON.ToString());
+        if (!File.Exists(@path))
+        {
+            notas.Add("0");
+            notas.Add("0");
+            notas.Add("0");
+            notas.Add("0");
+            notas.Add("0");
+        }
+        else
+        {   
+            string jsonString = File.ReadAllText(path);
+            JSONObject GradeJSON = (JSONObject)JSON.Parse(jsonString);
+            notas.Add(GradeJSON["Balanceo de Ecuaciones"]);
+            notas.Add(GradeJSON["Nomenclatura"]);
+            notas.Add(GradeJSON["Tabla Periodica"]);
+            notas.Add(GradeJSON["Conversion de Unidades"]);
+            notas.Add(GradeJSON["Estequiometria"]);
+            CheckNotas();
+        }
+    }
+
+    public void CheckNotas()
+    {
+        for (int i = 0; i < notas.Count; i++)
+        {
+            if (notas[i] == null || notas[i] == "")
+                notas[i] = "0";
+        }
     }
 
     public void GetSimulationName(string grade)
     {
+        Load();
+        JSONObject resultJSON = new JSONObject();
         
-        switch(simulation_Options.GetSelected())
+        switch (simulation_Options.GetSelected())
         {
             case 1:
                 name = "Balanceo de Ecuaciones";
-                Save(grade,name);
+                resultJSON.Add(name, grade);
+                resultJSON.Add("Tabla Periodica", notas[1]);
+                resultJSON.Add("Conversion de Unidades", notas[2]);
+                resultJSON.Add("Nomenclatura", notas[3]);
+                resultJSON.Add("Estequiometria", notas[4]);
+                string path1 = Application.persistentDataPath + "/Nota Simulation.json";
+                File.WriteAllText(path1, resultJSON.ToString());
                 return;
             case 2:
-                name = "Tabla Periodica";
-                Save(grade, name);
+                name = "Tabla Periodica";                
+                resultJSON.Add("Balanceo de Ecuaciones", notas[0]);
+                resultJSON.Add(name, grade);
+                resultJSON.Add("Conversion de Unidades", notas[2]);
+                resultJSON.Add("Nomenclatura", notas[3]);
+                resultJSON.Add("Estequiometria", notas[4]);
+                string path2 = Application.persistentDataPath + "/Nota Simulation.json";
+                File.WriteAllText(path2, resultJSON.ToString());
                 return;
             case 3:
                 name = "Conversion de Unidades";
-                Save(grade, name);
+                resultJSON.Add("Balanceo de Ecuaciones", notas[0]);
+                resultJSON.Add("Tabla Periodica", notas[1]);
+                resultJSON.Add(name, grade);
+                resultJSON.Add("Nomenclatura", notas[3]);
+                resultJSON.Add("Estequiometria", notas[4]);
+                string path3 = Application.persistentDataPath + "/Nota Simulation.json";
+                File.WriteAllText(path3, resultJSON.ToString());
                 return;
             case 4:
                 name = "Nomenclatura";
-                Save(grade, name);
+                resultJSON.Add("Balanceo de Ecuaciones", notas[0]);
+                resultJSON.Add("Tabla Periodica", notas[1]);
+                resultJSON.Add("Conversion de Unidades", notas[2]);
+                resultJSON.Add(name, grade);
+                resultJSON.Add("Estequiometria", notas[4]);
+                string path4 = Application.persistentDataPath + "/Nota Simulation.json";
+                File.WriteAllText(path4, resultJSON.ToString());
                 return;
             case 5:
                 name = "Estequiometria";
-                Save(grade, name);
+                resultJSON.Add("Balanceo de Ecuaciones", notas[0]);
+                resultJSON.Add("Tabla Periodica", notas[1]);
+                resultJSON.Add("Conversion de Unidades", notas[2]);
+                resultJSON.Add("Nomenclatura", notas[3]);
+                resultJSON.Add(name, grade);
+                string path5 = Application.persistentDataPath + "/Nota Simulation.json";
+                File.WriteAllText(path5, resultJSON.ToString());
                 return;
-
         }
+        
     }
     public void GetSimulationData()
     {
-
         switch (simulation_Options.GetSelected())
         {
             case 1:
@@ -218,10 +272,9 @@ public class Result_Script : MonoBehaviour {
                 
                 return;
             case 5:
-               // name = "Estequiometria";
-                
+                intentos = Estequiometria_Script.intentos;
+                tiempos = Estequiometria_Script.tiempos;
                 return;
-
         }
     }
 }

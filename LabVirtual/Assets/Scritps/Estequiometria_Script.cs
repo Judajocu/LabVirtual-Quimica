@@ -34,7 +34,6 @@ public class Estequiometria_Script : MonoBehaviour {
 
     SettingsProffesorScript settings = new SettingsProffesorScript();
     
-    int cant_fallos;
     int intento_nivel = 0;
     float time_left = 0.0f;
     float timeup;
@@ -157,13 +156,13 @@ public class Estequiometria_Script : MonoBehaviour {
         }
         else
         {
+            intento_nivel++;
             if (float.Parse(cantresult.text) > float.Parse(Answer.text))
                 FillBox(3);
             if (float.Parse(cantresult.text) < float.Parse(Answer.text))
                 FillBox(10);
-            Debug.Log("no paso");
-            intento_nivel++;
-            textcant_fallos.text = "Fallos: " + cant_fallos.ToString();
+            Debug.Log("no paso /n"+intento_nivel);
+            textcant_fallos.text = "Fallos: " + intento_nivel.ToString();
             return false;
         }
     }
@@ -200,8 +199,16 @@ public class Estequiometria_Script : MonoBehaviour {
             Destroy(List_Fillprefabs[i].gameObject);
         }
 
-        cant_fallos = 0;
+        intento_nivel = 0;
         textcant_fallos.text = "Fallos";
+    }
+
+    public void CleanForInput()
+    {
+        for (int i = 0; i < List_Fillprefabs.Count; i++)
+        {
+            Destroy(List_Fillprefabs[i].gameObject);
+        }
     }
 
     public void ValidateSubmit()

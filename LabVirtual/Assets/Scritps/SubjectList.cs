@@ -47,7 +47,6 @@ public class SubjectList : MonoBehaviour {
                 switch (subject)
                 {
                     case "Nomenclatura":
-
                         gameObject.transform.Find("TextNomenclaturaGrade").GetComponent<Text>().text = datagrid.GetGrades(subject).ToString();
                         break;
                     case "Balance de Ecuaciones":
