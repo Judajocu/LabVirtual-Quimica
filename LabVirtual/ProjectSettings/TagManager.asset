@@ -13,6 +13,8 @@ TagManager:
   - d
   - f
   - e
+  - Element
+  - Net
   layers:
   - Default
   - TransparentFX

@@ -147,17 +147,12 @@ public class Estequiometria_Script : MonoBehaviour {
         if(CheckResultCorrect())
         {
             Debug.Log("yes");
-            FillBox(6);
             intentos.Add(intento_nivel);
             return true;
         }
         else
         {
             intento_nivel++;
-            if (float.Parse(cantresult.text) > float.Parse(Answer.text))
-                FillBox(3);
-            if (float.Parse(cantresult.text) < float.Parse(Answer.text))
-                FillBox(10);
             Debug.Log("no paso /n"+intento_nivel);
             textcant_fallos.text = "Fallos: " + intento_nivel.ToString();
             return false;
