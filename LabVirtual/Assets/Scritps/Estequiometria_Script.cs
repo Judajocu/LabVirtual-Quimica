@@ -23,7 +23,6 @@ public class Estequiometria_Script : MonoBehaviour {
     public InputField Answer;
 
     public TextMesh cantresult;
-    public TextMesh ecuation;
     TextMesh textcant_fallos;
 
     List<GameObject> List_Fillprefabs = new List<GameObject>();
@@ -49,8 +48,6 @@ public class Estequiometria_Script : MonoBehaviour {
         CheckType();
         textcant_fallos = GameObject.Find("Text_fails").GetComponent<TextMesh>();
         cantresult = GameObject.Find("Cant_result").GetComponent<TextMesh>();
-        ecuation = GameObject.Find("Ecuation").GetComponent<TextMesh>();
-        ecuation.text = "C + O₂ = CO₂";
         CheckTime();
     }
 	
@@ -164,6 +161,25 @@ public class Estequiometria_Script : MonoBehaviour {
             Debug.Log("no paso /n"+intento_nivel);
             textcant_fallos.text = "Fallos: " + intento_nivel.ToString();
             return false;
+        }
+    }
+
+    public void CheckForInput()
+    {
+        float x = float.Parse(cantresult.text);
+        if (CheckResultCorrect())
+        {
+            Debug.Log("yes");
+            FillBox(6);
+        }
+        else
+        {
+            if (float.Parse(cantresult.text) > float.Parse(Answer.text))
+                FillBox(3);
+            if (float.Parse(cantresult.text) < float.Parse(Answer.text))
+                FillBox(10);
+            Debug.Log("no paso /n" + intento_nivel);
+            textcant_fallos.text = "Fallos: " + intento_nivel.ToString();
         }
     }
 
@@ -347,5 +363,7 @@ public class Estequiometria_Script : MonoBehaviour {
 
         return type;
     }
+
+    
 
 }
