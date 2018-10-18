@@ -79,7 +79,7 @@ public class Simulation_Balance : MonoBehaviour {
         {
             CheckSkip();
             CleanSimulation();
-            SceneManager.LoadScene("Balanceo Resultado");
+            SceneManager.LoadScene("Resultado");
             return;
         }
     }

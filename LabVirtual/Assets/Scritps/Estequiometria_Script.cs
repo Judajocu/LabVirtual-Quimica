@@ -68,7 +68,7 @@ public class Estequiometria_Script : MonoBehaviour {
         {
             CheckSkip();
             CleanSimulation();
-            SceneManager.LoadScene("Balanceo Resultado");
+            SceneManager.LoadScene("Resultado");
             return;
         }
     }
