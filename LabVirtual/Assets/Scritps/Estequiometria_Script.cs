@@ -79,7 +79,7 @@ public class Estequiometria_Script : MonoBehaviour {
         {
             if (intento_nivel == 0)
             {
-                tiempos.Add(00.0f);
+                tiempos.Add(0.0f);
             }
             if (intento_nivel != 0)
             {
@@ -148,6 +148,7 @@ public class Estequiometria_Script : MonoBehaviour {
         {
             Debug.Log("yes");
             intentos.Add(intento_nivel);
+            Resulttime();
             return true;
         }
         else
@@ -249,7 +250,7 @@ public class Estequiometria_Script : MonoBehaviour {
                         return;
                     case "Estequiometria Nivel 5":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                 }
             }
@@ -262,23 +263,23 @@ public class Estequiometria_Script : MonoBehaviour {
                 {
                     case "Estequiometria Nivel 1":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                     case "Estequiometria Nivel 2":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                     case "Estequiometria Nivel 3":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                     case "Estequiometria Nivel 4":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                     case "Estequiometria Nivel 5":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                 }
             }
@@ -314,7 +315,7 @@ public class Estequiometria_Script : MonoBehaviour {
                         return;
                     case "Estequiometria Nivel 5":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                 }
             }

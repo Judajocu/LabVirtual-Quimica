@@ -269,7 +269,7 @@ public class Simulation_Balance : MonoBehaviour {
                         return;
                     case "Balanceo Nivel 5":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                 }
             }
@@ -282,23 +282,23 @@ public class Simulation_Balance : MonoBehaviour {
                 {
                     case "Balanceo Nivel 1":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                     case "Balanceo Nivel 2":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                     case "Balanceo Nivel 3":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                     case "Balanceo Nivel 4":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                     case "Balanceo Nivel 5":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                 }
             }
@@ -335,7 +335,7 @@ public class Simulation_Balance : MonoBehaviour {
                         return;
                     case "Balanceo Nivel 5":
                         CleanSimulation();
-                        SceneManager.LoadScene("Balanceo Resultado");
+                        SceneManager.LoadScene("Resultado");
                         return;
                 }
             }
