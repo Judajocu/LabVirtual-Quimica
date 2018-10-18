@@ -21,11 +21,11 @@ public class Data_Overview_Student : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Load();
-        SetGrades("Nomenclatura", "3");
+        //SetGrades("Nomenclatura", "3");
         
-        SetGrades("Tabla Periodica", "1");
-        SetGrades("Conversion de Unidades", "4");
-        SetGrades("Estequiometria", "5");
+        //SetGrades("Tabla Periodica", "1");
+        //SetGrades("Conversion de Unidades", "4");
+        //SetGrades("Estequiometria", "5");
     }
 	
 	// Update is called once per frame

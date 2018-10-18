@@ -101,7 +101,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/__DELETED_GUID_Trash/f8cf992cf94413146b5be1080571d1a8
     guid: f8cf992cf94413146b5be1080571d1a8
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/a697ebb15f04655479ca8090f1d2a239
+    guid: a697ebb15f04655479ca8090f1d2a239
   - enabled: 1
     path: "Assets/Scenes/Simulations/Estequiometr\xEDa/Estequiometria Nivel 2.unity"
-    guid: a697ebb15f04655479ca8090f1d2a239
+    guid: 7a3f4e6e2135cd344a4c6d6c3f71c1b7
+  - enabled: 1
+    path: "Assets/Scenes/Simulations/Estequiometr\xEDa/Estequiometria Nivel 3.unity"
+    guid: 789583be7b6ee8c49885c3456faf3515
+  - enabled: 1
+    path: "Assets/Scenes/Simulations/Estequiometr\xEDa/Estequiometria Nivel 4.unity"
+    guid: f45ea3701977fb14383aafe83b70c61a
+  - enabled: 1
+    path: "Assets/Scenes/Simulations/Estequiometr\xEDa/Estequiometria Nivel 5.unity"
+    guid: 8a95d6387c7143b4f813344929c8d91f
   m_configObjects: {}

@@ -62,27 +62,40 @@ public class Result_Script : MonoBehaviour {
     public float GetAverageTrys()
     {
         float sum = 0;
-        for (int i = 0; i < intentos.Count; i++)
+        if(intentos == null)
         {
-            //Debug.Log(intentos[i]);
-            sum += intentos[i];
+            return sum = 1;
         }
-        Debug.Log("intentos total" + sum);
-        sum /= intentos.Count;
-        Debug.Log("size de intentos"+intentos.Count);
-        Debug.Log("El total de intentos contados"+intentos.Count);
-        //promedio_intentos.text = "Promedio por simulación :" + sum;
-
-        return sum;
+        else
+        {
+            for (int i = 0; i < intentos.Count; i++)
+            {
+                //Debug.Log(intentos[i]);
+                sum += intentos[i];
+            }
+            Debug.Log("intentos total" + sum);
+            sum /= intentos.Count;
+            Debug.Log("size de intentos" + intentos.Count);
+            Debug.Log("El total de intentos contados" + intentos.Count);
+            //promedio_intentos.text = "Promedio por simulación :" + sum;
+            return sum;
+        }
     }
 
     public void GetIntentosCount()
-    {
+    {   
         int sum = 0;
-        for (int i = 0; i < intentos.Count; i++)
+        if(intentos == null)
         {
-            sum += intentos[i];
-            
+            sum = 5;
+        }
+        else
+        {
+            for (int i = 0; i < intentos.Count; i++)
+            {
+                sum += intentos[i];
+
+            }
         }
         
         cant_intentos.text = "Total de intentos :" + sum;
@@ -94,10 +107,10 @@ public class Result_Script : MonoBehaviour {
         float lele;
         for (int i = 0; i < tiempos.Count; i++)
         {
-         // Debug.Log(tiempos[i]);
+            // Debug.Log(tiempos[i]);
             sum += tiempos[i];
             lele = tiempos[i];
-            Debug.Log("tiempos en nivel" + i + "tiempo:" +  lele);
+            Debug.Log("tiempos en nivel" + i + "tiempo:" + lele);
         }
         sum /= tiempos.Count;
         Debug.Log("cantidades de tiempo" + tiempos.Count);
