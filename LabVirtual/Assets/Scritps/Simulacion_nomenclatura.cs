@@ -14,11 +14,13 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     public GameObject menu;
 
     TextMesh letra_a;
+    public GameObject A;
     TextMesh letra_b;
     TextMesh letra_c;
     TextMesh letra_d;
     TextMesh letra_e;
     TextMesh letra_f;
+    private Vector3 MovingDirection = Vector3.up;
 
     List<GameObject> List_Inputprefabs = new List<GameObject>();
     List<GameObject> List_Outputprefabs = new List<GameObject>();
@@ -39,18 +41,25 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     int wordindex = 0;
     string alpha;
     public Text palabra = null;
+    float top;
+    float down;
+
+    public AnimationCurve myCurve;
 
     // Use this for initialization
     void Start()
     {
         //timeup = settings.Gettime();
         //CheckType();
-        letra_a = GameObject.Find("letra_a").GetComponent<TextMesh>();
+        /*letra_a = GameObject.Find("letra_a").GetComponent<TextMesh>();
         letra_b = GameObject.Find("letra_b").GetComponent<TextMesh>();
         letra_c = GameObject.Find("letra_c").GetComponent<TextMesh>();
         letra_d = GameObject.Find("letra_d").GetComponent<TextMesh>();
         letra_e = GameObject.Find("letra_e").GetComponent<TextMesh>();
-        letra_f = GameObject.Find("letra_f").GetComponent<TextMesh>();
+        letra_f = GameObject.Find("letra_f").GetComponent<TextMesh>();*/
+        top = A.transform.position.y + 0.1f;
+        down = A.transform.position.y - 0.1f;
+
         //CheckTime();
     }
 
@@ -64,9 +73,51 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        MoveElement(A);
         //CheckTime();
     }
-    /*
+
+    void MoveElement(GameObject game)
+    {
+        
+        game.transform.Translate(MovingDirection * Time.smoothDeltaTime);
+
+        if (game.transform.position.y > top)
+        {
+            MovingDirection = Vector3.down;
+        }
+        else if (game.transform.position.y < down)
+        {
+            MovingDirection = Vector3.up;
+        }
+    }
+
+   /* void MoveElementUP(GameObject game)
+    {
+        game.transform.position += Vector3.up * Time.deltaTime;
+    }
+
+    void MoveElementDown(GameObject game)
+    {
+        game.transform.position += Vector3.down * Time.deltaTime;
+    }
+
+    void CheckPosition(GameObject game)
+    {
+        top = game.transform.position.y + 2.0f;
+        down = game.transform.position.y - 2.0f;
+
+        while(true)
+        {
+            if(top>game.transform.position.y)
+            {
+                MoveElementUP(game);
+            }
+            
+        }
+    }
+
+    */ /*
     public void CheckTime()
     {
         time_left += Time.deltaTime;
