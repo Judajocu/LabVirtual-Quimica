@@ -15,11 +15,6 @@ public class Simulacion_nomenclatura : MonoBehaviour {
 
     TextMesh letra_a;
     public GameObject A;
-    TextMesh letra_b;
-    TextMesh letra_c;
-    TextMesh letra_d;
-    TextMesh letra_e;
-    TextMesh letra_f;
     private Vector3 MovingDirection = Vector3.up;
 
     List<GameObject> List_Inputprefabs = new List<GameObject>();
@@ -45,20 +40,14 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     float down;
 
     public AnimationCurve myCurve;
+    private float time = 0.0f;
+    public float interpolationPeriod = 0.05f;
 
     // Use this for initialization
     void Start()
     {
-        //timeup = settings.Gettime();
-        //CheckType();
-        /*letra_a = GameObject.Find("letra_a").GetComponent<TextMesh>();
-        letra_b = GameObject.Find("letra_b").GetComponent<TextMesh>();
-        letra_c = GameObject.Find("letra_c").GetComponent<TextMesh>();
-        letra_d = GameObject.Find("letra_d").GetComponent<TextMesh>();
-        letra_e = GameObject.Find("letra_e").GetComponent<TextMesh>();
-        letra_f = GameObject.Find("letra_f").GetComponent<TextMesh>();*/
-        top = A.transform.position.y + 0.1f;
-        down = A.transform.position.y - 0.1f;
+        top = A.transform.position.y + 0.08f;
+        down = A.transform.position.y - 0.08f;
 
         //CheckTime();
     }
@@ -73,7 +62,13 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        MoveElement(A);
+        time += Time.deltaTime;
+
+        if (time >= interpolationPeriod)
+        {
+            time = 0.0f;
+            MoveElement(A);
+        }
         //CheckTime();
     }
 
