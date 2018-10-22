@@ -11,34 +11,51 @@ public class word_move : MonoBehaviour {
     private float limite = 0.08f;
     private float interpolationPeriod = 0.1f;
 
-    float speed;
-    Vector3 start;
-    Vector3 pos;
+    bool isPicked;
 
     // Use this for initialization
     void Start () {
         top = transform.position.y + limite;
         down = transform.position.y - limite;
 
-        start = transform.position;
-        pos = transform.position;
-
     }
 	
 	// Update is called once per frame
 	void Update () {
-        /*time += Time.deltaTime;
 
-        if (time >= interpolationPeriod)
+        if (Input.GetMouseButtonUp(0))
         {
-            time = 0.0f;
-            MoveElement();
-        }*/
 
-        pos = Input.mousePosition;
-        pos.z = 45;
-        pos = Camera.main.ScreenToWorldPoint(pos);
-        transform.position = Vector3.Lerp(transform.position, pos, speed * Time.deltaTime);
+            isPicked = false;
+
+        }
+
+        if (isPicked == true)
+        {
+
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = (pos);
+
+        }
+
+        if (isPicked == false)
+        {
+            time += Time.deltaTime;
+
+            if (time >= interpolationPeriod)
+            {
+                time = 0.0f;
+                MoveElement();
+            }
+
+        }
+
+    }
+
+    void OnMouseDown()
+    {
+
+        isPicked = true;
 
     }
 
