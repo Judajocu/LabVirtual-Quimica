@@ -42,6 +42,8 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     public AnimationCurve myCurve;
     private float time = 0.0f;
     public float interpolationPeriod = 0.05f;
+    public float mouseSensitivityX = 1;
+    public float mouseSensitivityY = 1;
 
     // Use this for initialization
     void Start()
@@ -62,13 +64,18 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        /*time += Time.deltaTime;
 
         if (time >= interpolationPeriod)
         {
             time = 0.0f;
             MoveElement(A);
-        }
+        }*/
+        float moveLR = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
+        float moveUD = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
+
+        Vector3 mouse = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        transform.position = new Vector3(mouse.x, mouse.y, transform.position.z);
         //CheckTime();
     }
 
