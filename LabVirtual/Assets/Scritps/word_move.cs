@@ -9,7 +9,7 @@ public class word_move : MonoBehaviour {
     float top;
     float down;
     private float limite = 0.08f;
-    private float interpolationPeriod = 0.1f;
+    private float interpolationPeriod = 0.08f;
 
     bool isPicked;
 
@@ -27,14 +27,20 @@ public class word_move : MonoBehaviour {
         {
 
             isPicked = false;
+            top = transform.position.y + limite;
+            down = transform.position.y - limite;
 
         }
 
         if (isPicked == true)
         {
 
-            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = (pos);
+            Vector3 distance_to_screen = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+            Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance_to_screen.z));
+            transform.position = new Vector3(pos.x, pos.y, transform.position.z);
+            //Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //transform.position = (pos);
+
 
         }
 
