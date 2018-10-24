@@ -12,14 +12,22 @@ public class word_move : MonoBehaviour {
     private float interpolationPeriod = 0.08f;
 
     bool isPicked;
+    bool istrigger;
+    bool correccion;
     Vector3 original;
+
+    public float DeltaTiempo, posicion = 0;
+    public float Velocidad, Gravedad = 4.0f;
 
     // Use this for initialization
     void Start () {
         top = transform.position.y + limite;
         down = transform.position.y - limite;
-
+        DeltaTiempo = Time.time;
         original = gameObject.transform.position;
+        correccion = false;
+        //gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
+
 
     }
 	
@@ -37,19 +45,15 @@ public class word_move : MonoBehaviour {
 
         }
 
-        if (isPicked == true)
+        if (isPicked)
         {
-
             Vector3 distance_to_screen = Camera.main.WorldToScreenPoint(gameObject.transform.position);
             Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance_to_screen.z));
             transform.position = new Vector3(pos.x, pos.y, transform.position.z);
-            //Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //transform.position = (pos);
-
-
+            DeltaTiempo = Time.time;
         }
 
-        if (isPicked == false)
+        if (!isPicked)
         {
             time += Time.deltaTime;
 
@@ -60,6 +64,33 @@ public class word_move : MonoBehaviour {
             }
 
         }
+
+        /*if (istrigger)
+        {
+            gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        }*/
+
+        if (istrigger)
+        {
+            if (correccion)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
+                top = transform.position.y + limite;
+                down = transform.position.y - limite;
+                correccion = false;
+            }
+
+            posicion = 0;
+            Velocidad = 0;
+            DeltaTiempo = Time.time;
+        }
+
+        if (!istrigger && !isPicked)
+        {
+            //gameObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
+            gravedad();
+        }
+        
 
     }
 
@@ -85,29 +116,32 @@ public class word_move : MonoBehaviour {
         }
     }
 
-    /*void OnCollisionEnter(Collision col) {
-        if (col.gameObject.name == "vaso ensallo 1")
+    void OnTriggerExit2D(Collider2D other)
+    {
+        istrigger = false;
+        correccion = true;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "vaso ensallo 1")
         {
-            gameObject.GetComponent<Rigidbody>().useGravity = false;
+            istrigger = true;
+            Debug.Log("deteccion hecha");
         }
     }
 
-    void OnCollisionExit(Collision col)
+    public void gravedad()
     {
-        Debug.Log("deteccion hecha");
-        gameObject.GetComponent<Rigidbody>().useGravity = true;
-    }*/
+        Vector3 distance_to_screen = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
-    void OnTriggerEnter(Collider other)
-    {
-            Debug.Log("entered");
+        Velocidad += (-1 * Gravedad * (Time.time - DeltaTiempo));
+        posicion = Velocidad * (Time.time - DeltaTiempo);
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x,
+            gameObject.transform.position.y + posicion, gameObject.transform.position.z);
+
+        DeltaTiempo = Time.time;
+
+
     }
-
-    /* void OnMouseDrag()
-     {
-         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10);
-
-         Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePosition);
-         transform.position = objectPos;
-     }*/
 }
