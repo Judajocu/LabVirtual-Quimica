@@ -14,7 +14,6 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     public GameObject menu;
 
     TextMesh letra_a;
-    public GameObject A;
     private Vector3 MovingDirection = Vector3.up;
 
     List<GameObject> List_Inputprefabs = new List<GameObject>();
@@ -48,8 +47,6 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        top = A.transform.position.y + 0.08f;
-        down = A.transform.position.y - 0.08f;
 
         //CheckTime();
     }
@@ -78,21 +75,7 @@ public class Simulacion_nomenclatura : MonoBehaviour {
         transform.position = new Vector3(mouse.x, mouse.y, transform.position.z);
         //CheckTime();
     }
-
-    void MoveElement(GameObject game)
-    {
-        
-        game.transform.Translate(MovingDirection * Time.smoothDeltaTime);
-
-        if (game.transform.position.y > top)
-        {
-            MovingDirection = Vector3.down;
-        }
-        else if (game.transform.position.y < down)
-        {
-            MovingDirection = Vector3.up;
-        }
-    }
+    
 
    /* void MoveElementUP(GameObject game)
     {

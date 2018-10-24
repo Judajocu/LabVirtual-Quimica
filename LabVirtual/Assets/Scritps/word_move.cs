@@ -12,11 +12,14 @@ public class word_move : MonoBehaviour {
     private float interpolationPeriod = 0.08f;
 
     bool isPicked;
+    Vector3 original;
 
     // Use this for initialization
     void Start () {
         top = transform.position.y + limite;
         down = transform.position.y - limite;
+
+        original = gameObject.transform.position;
 
     }
 	
@@ -29,6 +32,8 @@ public class word_move : MonoBehaviour {
             isPicked = false;
             top = transform.position.y + limite;
             down = transform.position.y - limite;
+            //transform.position = original;
+
 
         }
 
@@ -80,11 +85,29 @@ public class word_move : MonoBehaviour {
         }
     }
 
-   /* void OnMouseDrag()
-    {
-        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10);
+    /*void OnCollisionEnter(Collision col) {
+        if (col.gameObject.name == "vaso ensallo 1")
+        {
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+        }
+    }
 
-        Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePosition);
-        transform.position = objectPos;
+    void OnCollisionExit(Collision col)
+    {
+        Debug.Log("deteccion hecha");
+        gameObject.GetComponent<Rigidbody>().useGravity = true;
     }*/
+
+    void OnTriggerEnter(Collider other)
+    {
+            Debug.Log("entered");
+    }
+
+    /* void OnMouseDrag()
+     {
+         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10);
+
+         Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePosition);
+         transform.position = objectPos;
+     }*/
 }
