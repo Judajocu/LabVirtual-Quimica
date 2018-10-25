@@ -8450,7 +8450,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2143932555}
-  m_Text: disulfuro de carbono
+  m_Text: "Mon\xF3xido de dibromo"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1

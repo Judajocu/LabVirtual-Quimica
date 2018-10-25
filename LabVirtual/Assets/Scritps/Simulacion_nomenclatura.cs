@@ -76,33 +76,7 @@ public class Simulacion_nomenclatura : MonoBehaviour {
         //CheckTime();
     }
     
-
-   /* void MoveElementUP(GameObject game)
-    {
-        game.transform.position += Vector3.up * Time.deltaTime;
-    }
-
-    void MoveElementDown(GameObject game)
-    {
-        game.transform.position += Vector3.down * Time.deltaTime;
-    }
-
-    void CheckPosition(GameObject game)
-    {
-        top = game.transform.position.y + 2.0f;
-        down = game.transform.position.y - 2.0f;
-
-        while(true)
-        {
-            if(top>game.transform.position.y)
-            {
-                MoveElementUP(game);
-            }
-            
-        }
-    }
-
-    */ /*
+ /*
     public void CheckTime()
     {
         time_left += Time.deltaTime;
@@ -174,19 +148,9 @@ public class Simulacion_nomenclatura : MonoBehaviour {
 
     public void CleanSimulation()
     {
-        for (int i = 0; i < List_Inputprefabs.Count; i++)
-        {
-            Destroy(List_Inputprefabs[i].gameObject);
-        }
-
-        for (int i = 0; i < List_Outputprefabs.Count; i++)
-        {
-            Destroy(List_Outputprefabs[i].gameObject);
-        }
-
+        //vaciar respuesta
 
         cant_fallos = 0;
-
         //textcant_fallos.text = "Fallos";
         //cantinput.text = "Entrada";
         //cantoutput.text = "Salida";

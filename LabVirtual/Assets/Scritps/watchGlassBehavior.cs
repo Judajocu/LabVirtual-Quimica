@@ -19,10 +19,10 @@ public class watchGlassBehavior : MonoBehaviour {
     void Start () {
 
         arr[0] = "CS\u2082";
-        arr[1] = "CS\u2082";
-        arr[2] = "CS\u2082";
-        arr[3] = "CS\u2082";
-        arr[4] = "CS\u2082";
+        arr[1] = "PI\u2083";
+        arr[2] = "SiH\u2084";
+        arr[3] = "Cl\u2082O\u2085";
+        arr[4] = "Br\u2082O";
     }
 	
 	// Update is called once per frame
