@@ -13,8 +13,10 @@ public class word_move : MonoBehaviour {
 
     bool isPicked;
     bool istrigger;
+    bool isSelected=false;
     bool correccion;
     Vector3 original;
+    public string lugar;
 
     private float DeltaTiempo, posicion = 0;
     private float Velocidad, Gravedad = 4.0f;
@@ -42,7 +44,16 @@ public class word_move : MonoBehaviour {
 
         if (Input.GetMouseButtonUp(0))
         {
-
+            if (isSelected)
+            {
+                if (lugar == "watch glass")
+                {
+                    //transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text = "C";
+                    GameObject.FindGameObjectWithTag("meta").GetComponent<watchGlassBehavior>().SendMessage("resultado", gameObject);
+                    transform.position = original;
+                }
+            }
+            isSelected = false;
             isPicked = false;
             top = transform.position.y + limite;
             down = transform.position.y - limite;
@@ -133,12 +144,19 @@ public class word_move : MonoBehaviour {
         if (other.gameObject.name == "vaso ensallo 1")
         {
             istrigger = true;
+            lugar = other.gameObject.name;
             //Debug.Log("deteccion hecha");
         }
         if (other.gameObject.name == "vaso ensallo 2")
         {
             istrigger = true;
-            //Debug.Log("deteccion hecha");
+            lugar = other.gameObject.name;
+        }
+        if (other.gameObject.name == "watch glass")
+        {
+            isSelected = true;
+            lugar = other.gameObject.name;
+            Debug.Log("entro al vaso");
         }
     }
 

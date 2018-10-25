@@ -7,14 +7,9 @@ TagManager:
   - Canvas
   - Panel
   - ButtonOk
-  - a
-  - b
-  - c
-  - d
-  - f
-  - e
   - Element
   - Net
+  - meta
   layers:
   - Default
   - TransparentFX
