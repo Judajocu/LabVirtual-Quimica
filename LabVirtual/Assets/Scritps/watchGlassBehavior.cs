@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class watchGlassBehavior : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public TextMesh palabra =null;
+    private string word = null;
+    private int wordindex = 0;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -16,6 +20,9 @@ public class watchGlassBehavior : MonoBehaviour {
 
     public void resultado(GameObject esto)
     {
-        esto.gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text = "D";
+        //esto.gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text = "D";
+        wordindex++;
+        word = word + esto.gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text;
+        palabra.text = word;
     }
 }
