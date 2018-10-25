@@ -34,6 +34,12 @@ public class word_move : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if (!GetComponent<Renderer>().isVisible) {
+            //Debug.Log("no es visible");
+            transform.position = original;
+        }
+
+
         if (Input.GetMouseButtonUp(0))
         {
 
@@ -127,7 +133,7 @@ public class word_move : MonoBehaviour {
         if (other.gameObject.name == "vaso ensallo 1")
         {
             istrigger = true;
-            Debug.Log("deteccion hecha");
+            //Debug.Log("deteccion hecha");
         }
     }
 
