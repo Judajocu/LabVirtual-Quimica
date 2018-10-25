@@ -15,6 +15,12 @@ TagManager:
   - e
   - Element
   - Net
+  - Symbol
+  - Weight
+  - Electrons
+  - A1
+  - A2
+  - A3
   layers:
   - Default
   - TransparentFX
