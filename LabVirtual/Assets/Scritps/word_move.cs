@@ -16,8 +16,8 @@ public class word_move : MonoBehaviour {
     bool correccion;
     Vector3 original;
 
-    public float DeltaTiempo, posicion = 0;
-    public float Velocidad, Gravedad = 4.0f;
+    private float DeltaTiempo, posicion = 0;
+    private float Velocidad, Gravedad = 4.0f;
 
     // Use this for initialization
     void Start () {
@@ -131,6 +131,11 @@ public class word_move : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "vaso ensallo 1")
+        {
+            istrigger = true;
+            //Debug.Log("deteccion hecha");
+        }
+        if (other.gameObject.name == "vaso ensallo 2")
         {
             istrigger = true;
             //Debug.Log("deteccion hecha");
