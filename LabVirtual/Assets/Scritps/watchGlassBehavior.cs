@@ -10,14 +10,20 @@ public class watchGlassBehavior : MonoBehaviour {
     public TextMesh palabra =null;
     private string word = null;
     private int wordindex = 0;
-    public TextMesh respuesta;
 
+    public int result;
     private List<string> lista = new List<string>();
+    string[] arr = new string[5];
 
     // Use this for initialization
     void Start () {
-		
-	}
+
+        arr[0] = "CS\u2082";
+        arr[1] = "CS\u2082";
+        arr[2] = "CS\u2082";
+        arr[3] = "CS\u2082";
+        arr[4] = "CS\u2082";
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -35,7 +41,7 @@ public class watchGlassBehavior : MonoBehaviour {
         palabra.text = word;
     }
 
-    public string contarRepetidos(List<string> list)
+    private string contarRepetidos(List<string> list)
     {
         string formula = null;
         string anterior = null;
@@ -83,7 +89,7 @@ public class watchGlassBehavior : MonoBehaviour {
         return formula;
     }
 
-    public string sufijo(int cant)
+    private string sufijo(int cant)
     {
         string sufijo = null;
         if(cant == 2)
@@ -121,5 +127,28 @@ public class watchGlassBehavior : MonoBehaviour {
         }
 
         return sufijo;
+    }
+
+    public void BorrarFormula()
+    {
+        word = null;
+        palabra.text = null;
+        wordindex = 0;
+        lista.Clear();
+
+    }
+
+    public void ComprobarFormula()
+    {
+        string r = arr[result];
+        if(r== palabra.text)
+        {
+            palabra.text = "Correcto";
+        }
+        else
+        {
+            palabra.text = "Incorrecto";
+        }
+
     }
 }

@@ -137,6 +137,7 @@ public class word_move : MonoBehaviour {
     {
         istrigger = false;
         correccion = true;
+        isSelected = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
