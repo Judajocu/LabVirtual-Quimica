@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class watchGlassBehavior : MonoBehaviour {
 
     public TextMesh palabra =null;
     private string word = null;
     private int wordindex = 0;
+    public TextMesh respuesta;
+
+    private List<string> lista = new List<string>();
 
     // Use this for initialization
     void Start () {
@@ -22,7 +28,98 @@ public class watchGlassBehavior : MonoBehaviour {
     {
         //esto.gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text = "D";
         wordindex++;
-        word = word + esto.gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text;
+        //word = word + esto.gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text;
+        //llenando lista de elementos
+        lista.Add(esto.gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text);
+        word = contarRepetidos(lista);
         palabra.text = word;
+    }
+
+    public string contarRepetidos(List<string> list)
+    {
+        string formula = null;
+        string anterior = null;
+        int count = 1;
+        //recorre la lista de elementos
+        foreach (string l in list)
+        {
+            //si la letra anterior guardada esta vacia
+            if (!string.IsNullOrEmpty(anterior))
+            {
+                //si el elemento actual es igual al anterior cuenta el numero de repeticiones
+                if(anterior == l)
+                {
+                    count++;
+                }
+                else
+                { //si no debuelve el contador al valor por defecto y adquiere el subindice se la letra actual
+                    string sub = sufijo(count);
+                    formula = formula + anterior;
+                    if (!string.IsNullOrEmpty(sub))
+                    {
+                        formula = formula + sub;
+                    }
+                    count = 1;
+                }
+
+                anterior = l;
+            }
+            else
+            { //si no simplemente guarda el elemento actual para comparar en el siguiente lugar
+                anterior = l;
+            }
+        }
+
+        string sub2 = sufijo(count);
+        formula = formula + anterior;
+        if (!string.IsNullOrEmpty(sub2))
+        {
+            formula = formula + sub2;
+        }
+        //count = 1;
+
+
+
+        return formula;
+    }
+
+    public string sufijo(int cant)
+    {
+        string sufijo = null;
+        if(cant == 2)
+        {
+            sufijo= "\u2082";
+        }
+
+        if (cant == 3)
+        {
+            sufijo = "\u2083";
+        }
+        if (cant == 4)
+        {
+            sufijo = "\u2084";
+        }
+        if (cant == 5)
+        {
+            sufijo = "\u2085";
+        }
+        if (cant == 6)
+        {
+            sufijo = "\u2086";
+        }
+        if (cant == 7)
+        {
+            sufijo = "\u2087";
+        }
+        if (cant == 8)
+        {
+            sufijo = "\u2088";
+        }
+        if (cant == 9)
+        {
+            sufijo = "\u2089";
+        }
+
+        return sufijo;
     }
 }

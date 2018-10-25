@@ -156,7 +156,7 @@ public class word_move : MonoBehaviour {
         {
             isSelected = true;
             lugar = other.gameObject.name;
-            Debug.Log("entro al vaso");
+            //Debug.Log("entro al vaso");
         }
     }
 
