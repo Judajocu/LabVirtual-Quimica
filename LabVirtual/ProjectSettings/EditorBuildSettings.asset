@@ -47,7 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Simulations/Balanceo/Balanceo Nivel 5.unity
     guid: 51963123eca79b445bf37ae9b9b47e5e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Simulations/Nomenclatura/Nomenclature.unity
     guid: 58cad8c1112338c4da3d19dda9d36195
   - enabled: 1
@@ -119,4 +119,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Simulations/Tabla/Tabla Nivel 1.unity
     guid: 1257a0d474267444fbf955deb785db25
+  - enabled: 1
+    path: Assets/Scenes/Simulations/Nomenclatura/Nomenclatura nivel 1.unity
+    guid: 62e057aa3051a5b489b0abe39902c513
+  - enabled: 1
+    path: Assets/Scenes/Simulations/Nomenclatura/Nomenclatura nivel 2.unity
+    guid: f226c108c0839bc4582ee8b419956a58
+  - enabled: 1
+    path: Assets/Scenes/Simulations/Nomenclatura/Nomenclatura nivel 3.unity
+    guid: 5656f7de4d4bf2c4c9cd674c7ef589fd
+  - enabled: 1
+    path: Assets/Scenes/Simulations/Nomenclatura/Nomenclatura nivel 4.unity
+    guid: 7b40ad7ec3736a24b92fba177aa5afa5
+  - enabled: 1
+    path: Assets/Scenes/Simulations/Nomenclatura/Nomenclatura nivel 5.unity
+    guid: 1b7cb4f9923bf4848bff03818a736834
   m_configObjects: {}

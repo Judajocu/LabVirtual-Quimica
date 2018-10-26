@@ -16,10 +16,9 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     TextMesh letra_a;
     private Vector3 MovingDirection = Vector3.up;
 
-    List<GameObject> List_Inputprefabs = new List<GameObject>();
-    List<GameObject> List_Outputprefabs = new List<GameObject>();
+    Scene activeScene;
+
     List<int> fallos_simulacion;
-    List<string> results_expected = new List<string>();
     static public List<int> intentos = new List<int>();
     static public List<float> tiempos = new List<float>();
 
@@ -76,7 +75,7 @@ public class Simulacion_nomenclatura : MonoBehaviour {
         //CheckTime();
     }
     
- /*
+ 
     public void CheckTime()
     {
         time_left += Time.deltaTime;
@@ -134,6 +133,171 @@ public class Simulacion_nomenclatura : MonoBehaviour {
         return false;
     }
 
+    public string GetSceneName()
+    {
+        activeScene = SceneManager.GetActiveScene();
+        return activeScene.name;
+    }
+
+    public bool ResultExpected()
+    {
+        //recibir el mensaje de forma booleana si es correcya la respuesta o no
+        //Este return es momentaneo 
+        return false;
+    }
+
+    public bool CheckSubmit()
+    {
+        
+        if (ResultExpected())
+        {
+            Debug.Log("Bien");
+            intentos.Add(intento_nivel);
+            Debug.Log(intentos.Count);
+            Resulttime();
+            return true;
+        }
+        else
+        {
+            cant_fallos++;
+            intento_nivel++;
+            //Debug.Log(cant_fallos);
+            Debug.Log("Total de intentos " + intento_nivel);
+            //textcant_fallos.text = "Fallos: " + cant_fallos.ToString();
+            return false;
+        }
+
+        return false;
+    }
+
+    public void ValidateSubmit()
+    {
+        //Debug.Log(List_Inputprefabs.Count);
+        //Debug.Log(List_Outputprefabs.Count);
+        bool check = CheckType();
+        if (check != true)
+        {
+            if (CheckSubmit())
+            {
+                switch (GetSceneName())
+                {
+                    case "Nomenclatura nivel 1":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Nomenclatura nivel 2");
+                        return;
+                    case "Nomenclatura nivel 2":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Nomenclatura nivel 3");
+                        return;
+                    case "Nomenclatura nivel 3":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Nomenclatura nivel 4");
+                        return;
+                    case "Nomenclatura nivel 4":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Nomenclatura nivel 5");
+                        return;
+                    case "Nomenclatura nivel 5":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Resultado");
+                        return;
+                }
+            }
+        }
+        else
+        {
+            if (CheckSubmit())
+            {
+                switch (GetSceneName())
+                {
+                    case "Nomenclatura nivel 1":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Resultado");
+                        return;
+                    case "Nomenclatura nivel 2":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Resultado");
+                        return;
+                    case "Nomenclatura nivel 3":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Resultado");
+                        return;
+                    case "Nomenclatura nivel 4":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Resultado");
+                        return;
+                    case "Nomenclatura nivel 5":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Resultado");
+                        return;
+                }
+            }
+        }
+
+    }
+
+    public void ValidateSkip()
+    {
+        bool check = CheckType();
+        if (check != true)
+        {
+            ButtonSkip.GetComponentInChildren<Text>().text = "Saltar";
+
+            if (CheckSkip())
+            {
+                switch (GetSceneName())
+                {
+                    case "Nomenclatura nivel 1":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Nomenclatura nivel 2");
+                        return;
+                    case "Nomenclatura nivel 2":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Nomenclatura nivel 3");
+                        return;
+                    case "Nomenclatura nivel 3":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Nomenclatura nivel 4");
+                        return;
+                    case "Nomenclatura nivel 4":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Nomenclatura nivel 5");
+                        return;
+                    case "Nomenclatura nivel 5":
+                        CleanSimulation();
+                        SceneManager.LoadScene("Resultado");
+                        return;
+                }
+            }
+        }
+        if (check == true)
+        {
+            switch (GetSceneName())
+            {
+                case "Nomenclatura nivel 1":
+                    CleanSimulation();
+                    SceneManager.LoadScene("Simulation_Selection_Options");
+                    return;
+                case "Nomenclatura nivel 2":
+                    CleanSimulation();
+                    SceneManager.LoadScene("Simulation_Selection_Options");
+                    return;
+                case "Nomenclatura nivel 3":
+                    CleanSimulation();
+                    SceneManager.LoadScene("Simulation_Selection_Options");
+                    return;
+                case "Nomenclatura nivel 4":
+                    CleanSimulation();
+                    SceneManager.LoadScene("Simulation_Selection_Options");
+                    return;
+                case "Nomenclatura nivel 5":
+                    CleanSimulation();
+                    SceneManager.LoadScene("Simulation_Selection_Options");
+                    return;
+            }
+        }
+    }
+
     public bool CheckType()
     {
         type = Niveles_prefab_script.levels;
@@ -155,7 +319,6 @@ public class Simulacion_nomenclatura : MonoBehaviour {
         //cantinput.text = "Entrada";
         //cantoutput.text = "Salida";
     }
-    */
 
     public void ValidateMenu()
     {

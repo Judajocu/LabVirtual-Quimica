@@ -16,7 +16,7 @@ public class OnSymbolCollide_Script : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collisionando");
         if (collision.gameObject.tag == "Symbol")
