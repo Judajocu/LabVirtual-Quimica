@@ -273,7 +273,8 @@ public class Result_Script : MonoBehaviour {
                 tiempos = Simulation_Balance.tiempos;
                 return;
             case 2:
-                //name = "Tabla Periodica";
+                intentos = Simulation_Table_Script.intentos;
+                tiempos = Simulation_Table_Script.tiempos;
                 
                 return;
             case 3:

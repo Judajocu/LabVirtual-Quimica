@@ -65,7 +65,7 @@ public class Simulation_Selection_Options : MonoBehaviour {
                 SceneManager.LoadScene("Balanceo Nivel 1");
                 return;
             case 2:
-                SceneManager.LoadScene("Simulation_Selection_Options");
+                SceneManager.LoadScene("Tabla Nivel 1");
                 return;
             case 3:
                 SceneManager.LoadScene("Simulation_Selection_Options");
