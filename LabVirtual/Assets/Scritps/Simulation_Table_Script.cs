@@ -55,13 +55,13 @@ public class Simulation_Table_Script : MonoBehaviour
         timeup = settings.Gettime();
         CheckType();
        textcant_fallos = GameObject.Find("Errores").GetComponent<TextMesh>();
-       // CheckTime();
+       CheckTime();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //CheckTime();
+        CheckTime();
 
         float moveLR = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
         float moveUD = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
@@ -81,7 +81,7 @@ public class Simulation_Table_Script : MonoBehaviour
         if (time_left > timeup)
         {
             CheckSkip();
-            //CleanSimulation();
+            CleanSimulation();
             SceneManager.LoadScene("Resultado");
             return;
         }
@@ -185,7 +185,9 @@ public class Simulation_Table_Script : MonoBehaviour
 
     public void CleanSimulation()
     {
-        intento_nivel = 0;
+        QS.text = "";
+        QM.text = "";
+        QE.text = "";
         textcant_fallos.text = "Errores";
     }
     
