@@ -281,7 +281,8 @@ public class Result_Script : MonoBehaviour {
                 
                 return;
             case 4:
-               // name = "Nomenclatura";
+                intentos = Simulacion_nomenclatura.intentos;
+                tiempos = Simulacion_nomenclatura.tiempos;
                 
                 return;
             case 5:

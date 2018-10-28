@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Properties_Movement_Script : MonoBehaviour {
-
+public class Properties_Movement_Script : MonoBehaviour
+{
 
     private Vector3 MovingDirection = Vector3.up;
     private float time = 0.0f;
@@ -14,14 +14,17 @@ public class Properties_Movement_Script : MonoBehaviour {
 
     bool isPicked;
     bool istrigger;
+    bool isSelected = false;
     bool correccion;
     Vector3 original;
+    public string lugar;
 
-    public float DeltaTiempo, posicion = 0;
-    public float Velocidad, Gravedad = 4.0f;
+    private float DeltaTiempo, posicion = 0;
+    private float Velocidad, Gravedad = 4.0f;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         top = transform.position.y + limite;
         down = transform.position.y - limite;
         DeltaTiempo = Time.time;
@@ -31,13 +34,30 @@ public class Properties_Movement_Script : MonoBehaviour {
 
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (!GetComponent<Renderer>().isVisible)
+        {
+            //Debug.Log("no es visible");
+            transform.position = original;
+        }
+
 
         if (Input.GetMouseButtonUp(0))
         {
-
+            if (isSelected)
+            {
+                if (lugar == "watch glass")
+                {
+                    //transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text = "C";
+                    GameObject.FindGameObjectWithTag("meta").GetComponent<watchGlassBehavior>().SendMessage("resultado", gameObject);
+                    transform.position = original;
+                }
+            }
+            isSelected = false;
             isPicked = false;
             top = transform.position.y + limite;
             down = transform.position.y - limite;
@@ -70,7 +90,29 @@ public class Properties_Movement_Script : MonoBehaviour {
         {
             gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         }*/
-        
+
+        if (istrigger)
+        {
+            if (correccion)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
+                top = transform.position.y + limite;
+                down = transform.position.y - limite;
+                correccion = false;
+            }
+
+            posicion = 0;
+            Velocidad = 0;
+            DeltaTiempo = Time.time;
+        }
+
+        if (!istrigger && !isPicked)
+        {
+            //gameObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
+            gravedad();
+        }
+
+
     }
 
     void OnMouseDown()
@@ -94,5 +136,36 @@ public class Properties_Movement_Script : MonoBehaviour {
             MovingDirection = Vector3.up;
         }
     }
-    
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        istrigger = false;
+        correccion = true;
+        isSelected = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+       
+        if (other.gameObject.tag == "Net")
+        {
+            istrigger = true;
+            lugar = other.gameObject.name;
+        }
+        
+    }
+
+    public void gravedad()
+    {
+        Vector3 distance_to_screen = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+
+        Velocidad += (-1 * Gravedad * (Time.time - DeltaTiempo));
+        posicion = Velocidad * (Time.time - DeltaTiempo);
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x,
+            gameObject.transform.position.y + posicion, gameObject.transform.position.z);
+
+        DeltaTiempo = Time.time;
+
+
+    }
 }

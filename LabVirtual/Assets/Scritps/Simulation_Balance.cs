@@ -54,7 +54,7 @@ public class Simulation_Balance : MonoBehaviour {
     {
         timeup = settings.Gettime();
         CheckType();
-        textcant_fallos = GameObject.Find("Text_fails").GetComponent<TextMesh>();
+        textcant_fallos = GameObject.Find("Errores").GetComponent<TextMesh>();
         cantinput = GameObject.Find("CantInput").GetComponent<TextMesh>();
         cantoutput = GameObject.Find("CantOutput").GetComponent<TextMesh>();
         cantresult = GameObject.Find("Cant_result").GetComponent<TextMesh>();
@@ -188,7 +188,7 @@ public class Simulation_Balance : MonoBehaviour {
 
         cant_fallos = 0;
 
-        textcant_fallos.text = "Fallos";
+        textcant_fallos.text = "Errores:";
         cantinput.text = "Entrada";
         cantoutput.text = "Salida";
     }
@@ -216,7 +216,7 @@ public class Simulation_Balance : MonoBehaviour {
             intento_nivel++;
             //Debug.Log(cant_fallos);
             Debug.Log("Total de intentos " +intento_nivel);
-            textcant_fallos.text = "Fallos: " + cant_fallos.ToString();
+            textcant_fallos.text = "Errores: " + cant_fallos.ToString();
             return false;
         }
     }

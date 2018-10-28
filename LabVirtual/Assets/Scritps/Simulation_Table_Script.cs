@@ -19,21 +19,14 @@ public class Simulation_Table_Script : MonoBehaviour
     public GameObject menu;
     public GameObject skip;
     public GameObject submit;
-   /* public GameObject A11;
-    public GameObject A12;
-    public GameObject A13;
-    public GameObject A21;
-    public GameObject A22;
-    public GameObject A23;
-    public GameObject A31;
-    public GameObject A32;
-    public GameObject A33;*/
-
-    public Text Q1;
-    public Text Q2;
-    public Text Q3;
-
+   
+    public TextMesh QS;
+    public TextMesh QM;
+    public TextMesh QE;
     TextMesh textcant_fallos;
+    public TextMesh ExpectedS;
+    public TextMesh ExpectedM;
+    public TextMesh ExpectedE;
 
     List<int> fallos_simulacion;
     List<string> results_expected = new List<string>();
@@ -48,6 +41,12 @@ public class Simulation_Table_Script : MonoBehaviour
     bool type;
 
     Scene activeScene;
+
+    public AnimationCurve myCurve;
+    private float time = 0.0f;
+    public float interpolationPeriod = 0.05f;
+    public float mouseSensitivityX = 1;
+    public float mouseSensitivityY = 1;
     #endregion
 
     // Use this for initialization
@@ -55,7 +54,7 @@ public class Simulation_Table_Script : MonoBehaviour
     {
         timeup = settings.Gettime();
         CheckType();
-       // textcant_fallos = GameObject.Find("Text_fails").GetComponent<TextMesh>();
+       textcant_fallos = GameObject.Find("Errores").GetComponent<TextMesh>();
        // CheckTime();
     }
 
@@ -63,13 +62,14 @@ public class Simulation_Table_Script : MonoBehaviour
     void Update()
     {
         //CheckTime();
+
+        float moveLR = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
+        float moveUD = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
+
+        Vector3 mouse = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        transform.position = new Vector3(mouse.x, mouse.y, transform.position.z);
     }
-
-   
-
-
-
-
+    
     public void CheckTime()
     {
         time_left += Time.deltaTime;
@@ -118,15 +118,37 @@ public class Simulation_Table_Script : MonoBehaviour
     {
         SceneManager.LoadScene("Options_Student");
     }
-    
 
-   /* public bool CheckSubmit()
+    public bool CheckResultCorrect()
     {
-        float x = float.Parse(cantresult.text);
+        Debug.Log(QE.text);
+        Debug.Log(QM.text);
+        Debug.Log(QS.text);
+        GetExpectedResult();
+        if(QS.text == results_expected[0] && QM.text == results_expected[1] && QE.text == results_expected[2])
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public void GetExpectedResult()
+    {
+        results_expected.Add(ExpectedS.text);
+        results_expected.Add(ExpectedM.text);
+        results_expected.Add(ExpectedE.text);
+
+        Debug.Log(ExpectedS.text);
+        Debug.Log(ExpectedM.text);
+        Debug.Log(ExpectedE.text);
+    }
+    
+   public bool CheckSubmit()
+    {
         if (CheckResultCorrect())
         {
             Debug.Log("yes");
-            intentos.Add(intento_nivel);
             Resulttime();
             return true;
         }
@@ -134,10 +156,10 @@ public class Simulation_Table_Script : MonoBehaviour
         {
             intento_nivel++;
             Debug.Log("no paso /n" + intento_nivel);
-            textcant_fallos.text = "Fallos: " + intento_nivel.ToString();
+            textcant_fallos.text = "Errores: " + intento_nivel.ToString();
             return false;
         }
-    }*/
+    }
 
 
     public bool CheckSkip()
@@ -161,15 +183,10 @@ public class Simulation_Table_Script : MonoBehaviour
 
     
 
-   /* public void CleanSimulation()
+    public void CleanSimulation()
     {
-        for (int i = 0; i < List_Fillprefabs.Count; i++)
-        {
-            Destroy(List_Fillprefabs[i].gameObject);
-        }
-
         intento_nivel = 0;
-        textcant_fallos.text = "Fallos";
+        textcant_fallos.text = "Errores";
     }
     
 
@@ -182,23 +199,23 @@ public class Simulation_Table_Script : MonoBehaviour
             {
                 switch (GetSceneName())
                 {
-                    case "Estequiometria Nivel 1":
+                    case "Tabla Nivel 1":
                         CleanSimulation();
-                        SceneManager.LoadScene("Estequiometria Nivel 2");
+                        SceneManager.LoadScene("Tabla Nivel 2");
                         return;
-                    case "Estequiometria Nivel 2":
+                    case "Tabla Nivel 2":
                         CleanSimulation();
-                        SceneManager.LoadScene("Estequiometria Nivel 3");
+                        SceneManager.LoadScene("Tabla Nivel 3");
                         return;
-                    case "Estequiometria Nivel 3":
+                    case "Tabla Nivel 3":
                         CleanSimulation();
-                        SceneManager.LoadScene("Estequiometria Nivel 4");
+                        SceneManager.LoadScene("Tabla Nivel 4");
                         return;
-                    case "Estequiometria Nivel 4":
+                    case "Tabla Nivel 4":
                         CleanSimulation();
-                        SceneManager.LoadScene("Estequiometria Nivel 5");
+                        SceneManager.LoadScene("Tabla Nivel 5");
                         return;
-                    case "Estequiometria Nivel 5":
+                    case "Tabla Nivel 5":
                         CleanSimulation();
                         SceneManager.LoadScene("Resultado");
                         return;
@@ -211,23 +228,23 @@ public class Simulation_Table_Script : MonoBehaviour
             {
                 switch (GetSceneName())
                 {
-                    case "Estequiometria Nivel 1":
+                    case "Tabla Nivel 1":
                         CleanSimulation();
                         SceneManager.LoadScene("Resultado");
                         return;
-                    case "Estequiometria Nivel 2":
+                    case "Tabla Nivel 2":
                         CleanSimulation();
                         SceneManager.LoadScene("Resultado");
                         return;
-                    case "Estequiometria Nivel 3":
+                    case "Tabla Nivel 3":
                         CleanSimulation();
                         SceneManager.LoadScene("Resultado");
                         return;
-                    case "Estequiometria Nivel 4":
+                    case "Tabla Nivel 4":
                         CleanSimulation();
                         SceneManager.LoadScene("Resultado");
                         return;
-                    case "Estequiometria Nivel 5":
+                    case "Tabla Nivel 5":
                         CleanSimulation();
                         SceneManager.LoadScene("Resultado");
                         return;
@@ -247,23 +264,23 @@ public class Simulation_Table_Script : MonoBehaviour
             {
                 switch (GetSceneName())
                 {
-                    case "Estequiometria Nivel 1":
+                    case "Tabla Nivel 1":
                         CleanSimulation();
-                        SceneManager.LoadScene("Estequiometria Nivel 2");
+                        SceneManager.LoadScene("Tabla Nivel 2");
                         return;
-                    case "Estequiometria Nivel 2":
+                    case "Tabla Nivel 2":
                         CleanSimulation();
-                        SceneManager.LoadScene("Estequiometria Nivel 3");
+                        SceneManager.LoadScene("Tabla Nivel 3");
                         return;
-                    case "Estequiometria Nivel 3":
+                    case "Tabla Nivel 3":
                         CleanSimulation();
-                        SceneManager.LoadScene("Estequiometria Nivel 4");
+                        SceneManager.LoadScene("Tabla Nivel 4");
                         return;
-                    case "Estequiometria Nivel 4":
+                    case "Tabla Nivel 4":
                         CleanSimulation();
-                        SceneManager.LoadScene("Estequiometria Nivel 5");
+                        SceneManager.LoadScene("Tabla Nivel 5");
                         return;
-                    case "Estequiometria Nivel 5":
+                    case "Tabla Nivel 5":
                         CleanSimulation();
                         SceneManager.LoadScene("Resultado");
                         return;
@@ -274,29 +291,29 @@ public class Simulation_Table_Script : MonoBehaviour
         {
             switch (GetSceneName())
             {
-                case "Estequiometria Nivel 1":
+                case "Tabla Nivel 1":
                     CleanSimulation();
                     SceneManager.LoadScene("Simulation_Selection_Options");
                     return;
-                case "Estequiometria Nivel 2":
+                case "Tabla Nivel 2":
                     CleanSimulation();
                     SceneManager.LoadScene("Simulation_Selection_Options");
                     return;
-                case "Estequiometria Nivel 3":
+                case "Tabla Nivel 3":
                     CleanSimulation();
                     SceneManager.LoadScene("Simulation_Selection_Options");
                     return;
-                case "Estequiometria Nivel 4":
+                case "Tabla Nivel 4":
                     CleanSimulation();
                     SceneManager.LoadScene("Simulation_Selection_Options");
                     return;
-                case "Estequiometria Nivel 5":
+                case "Tabla Nivel 5":
                     CleanSimulation();
                     SceneManager.LoadScene("Simulation_Selection_Options");
                     return;
             }
         }
-    }*/
+    }
 
     public bool CheckType()
     {

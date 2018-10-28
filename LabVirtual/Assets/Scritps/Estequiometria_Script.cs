@@ -27,7 +27,6 @@ public class Estequiometria_Script : MonoBehaviour {
 
     List<GameObject> List_Fillprefabs = new List<GameObject>();
     List<int> fallos_simulacion;
-    List<string> results_expected = new List<string>();
     static public List<int> intentos = new List<int>();
     static public List<float> tiempos = new List<float>();
 
@@ -46,7 +45,7 @@ public class Estequiometria_Script : MonoBehaviour {
     {
         timeup = settings.Gettime();
         CheckType();
-        textcant_fallos = GameObject.Find("Text_fails").GetComponent<TextMesh>();
+        textcant_fallos = GameObject.Find("Errores").GetComponent<TextMesh>();
         cantresult = GameObject.Find("Cant_result").GetComponent<TextMesh>();
         CheckTime();
     }
@@ -155,7 +154,7 @@ public class Estequiometria_Script : MonoBehaviour {
         {
             intento_nivel++;
             Debug.Log("no paso /n"+intento_nivel);
-            textcant_fallos.text = "Fallos: " + intento_nivel.ToString();
+            textcant_fallos.text = "Errores: " + intento_nivel.ToString();
             return false;
         }
     }
@@ -175,7 +174,7 @@ public class Estequiometria_Script : MonoBehaviour {
             if (float.Parse(cantresult.text) < float.Parse(Answer.text))
                 FillBox(10);
             Debug.Log("no paso /n" + intento_nivel);
-            textcant_fallos.text = "Fallos: " + intento_nivel.ToString();
+            textcant_fallos.text = "Errores: " + intento_nivel.ToString();
         }
     }
 
@@ -212,7 +211,7 @@ public class Estequiometria_Script : MonoBehaviour {
         }
 
         intento_nivel = 0;
-        textcant_fallos.text = "Fallos";
+        textcant_fallos.text = "Errores: ";
     }
 
     public void CleanForInput()
