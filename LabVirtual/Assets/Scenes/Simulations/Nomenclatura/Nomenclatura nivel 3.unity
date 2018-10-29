@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -225,7 +225,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 80561409}
-  m_Text: Nomenclatura
+  m_Text: Nomenclatura-3
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1589,8 +1589,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ValidateSubmit
+      - m_Target: {fileID: 1439317870}
+        m_MethodName: ValidateSkip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5777,7 +5777,7 @@ GameObject:
   - component: {fileID: 1439317870}
   m_Layer: 0
   m_Name: Script
-  m_TagString: Untagged
+  m_TagString: nomenclatura
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5807,6 +5807,7 @@ MonoBehaviour:
   interpolationPeriod: 0.1
   mouseSensitivityX: 1
   mouseSensitivityY: 1
+  intentado: {fileID: 1821706649}
 --- !u!102 &1439317871
 TextMesh:
   serializedVersion: 3
@@ -7070,7 +7071,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1821706647}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -124, y: 329, z: -10.991893}
+  m_LocalPosition: {x: -166.5, y: 329, z: -10.991893}
   m_LocalScale: {x: 3.370465, y: 4.3002787, z: 91.33295}
   m_Children: []
   m_Father: {fileID: 598831202}
@@ -7087,7 +7088,7 @@ TextMesh:
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
-  m_Anchor: 4
+  m_Anchor: 3
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 70
@@ -7605,7 +7606,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1439317870}
         m_MethodName: ValidateSubmit
         m_Mode: 1
         m_Arguments:

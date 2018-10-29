@@ -14,6 +14,7 @@ public class watchGlassBehavior : MonoBehaviour {
     public int result;
     private List<string> lista = new List<string>();
     string[] arr = new string[5];
+    bool valor_respuesta;
 
     // Use this for initialization
     void Start () {
@@ -138,6 +139,15 @@ public class watchGlassBehavior : MonoBehaviour {
 
     }
 
+    public void BorrarFormula2(GameObject esto)
+    {
+        word = null;
+        palabra.text = null;
+        wordindex = 0;
+        lista.Clear();
+
+    }
+
     public void ComprobarFormula()
     {
         string r = arr[result];
@@ -149,6 +159,24 @@ public class watchGlassBehavior : MonoBehaviour {
         {
             palabra.text = "Incorrecto";
         }
+
+    }
+
+    public void enviar(GameObject esto)
+    {
+        string r = arr[result];
+        if (r == palabra.text)
+        {
+            //palabra.text = "Correcto";
+            valor_respuesta = true;
+        }
+        else
+        {
+            //palabra.text = "Incorrecto";
+            valor_respuesta = false;
+        }
+
+        GameObject.FindGameObjectWithTag("nomenclatura").GetComponent<Simulacion_nomenclatura>().SendMessage("respuesta", valor_respuesta);
 
     }
 }

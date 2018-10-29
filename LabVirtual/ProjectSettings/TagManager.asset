@@ -11,6 +11,7 @@ TagManager:
   - Panel
   - ButtonOk
   - Net
+  - nomenclatura
   layers:
   - Default
   - TransparentFX

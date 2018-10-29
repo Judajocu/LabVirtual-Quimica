@@ -43,6 +43,9 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     public float mouseSensitivityX = 1;
     public float mouseSensitivityY = 1;
 
+    public TextMesh intentado = null;
+    bool resultado;
+
     // Use this for initialization
     void Start()
     {
@@ -142,8 +145,10 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     public bool ResultExpected()
     {
         //recibir el mensaje de forma booleana si es correcya la respuesta o no
+        GameObject.FindGameObjectWithTag("meta").GetComponent<watchGlassBehavior>().SendMessage("enviar", gameObject);
         //Este return es momentaneo 
-        return false;
+        //la variable resultado dice si en ese momento es real o no
+        return resultado;
     }
 
     public bool CheckSubmit()
@@ -164,6 +169,7 @@ public class Simulacion_nomenclatura : MonoBehaviour {
             //Debug.Log(cant_fallos);
             Debug.Log("Total de intentos " + intento_nivel);
             //textcant_fallos.text = "Fallos: " + cant_fallos.ToString();
+            intentado.text = intento_nivel.ToString();
             return false;
         }
 
@@ -313,6 +319,7 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     public void CleanSimulation()
     {
         //vaciar respuesta
+        GameObject.FindGameObjectWithTag("meta").GetComponent<watchGlassBehavior>().SendMessage("BorrarFormula2", gameObject);
 
         cant_fallos = 0;
         //textcant_fallos.text = "Fallos";
@@ -323,5 +330,10 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     public void ValidateMenu()
     {
         SceneManager.LoadScene("Options_Student");
+    }
+
+    public void respuesta(bool valor)
+    {
+        resultado = valor;
     }
 }
