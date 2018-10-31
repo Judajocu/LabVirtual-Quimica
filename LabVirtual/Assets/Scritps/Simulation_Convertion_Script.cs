@@ -48,13 +48,13 @@ public class Simulation_Convertion_Script : MonoBehaviour {
         timeup = settings.Gettime();
         CheckType();
         textcant_fallos = GameObject.Find("Errores").GetComponent<TextMesh>();
-       // CheckTime();
+        CheckTime();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //CheckTime();
+        CheckTime();
 
         float moveLR = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
         float moveUD = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
@@ -73,8 +73,8 @@ public class Simulation_Convertion_Script : MonoBehaviour {
     {
         if (time_left > timeup)
         {
-            //CheckSkip();
-            //CleanSimulation();
+            CheckSkip();
+            CleanSimulation();
             SceneManager.LoadScene("Resultado");
             return;
         }

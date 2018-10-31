@@ -278,7 +278,8 @@ public class Result_Script : MonoBehaviour {
                 
                 return;
             case 3:
-                //name = "Conversion de Unidades";
+                intentos = Simulation_Convertion_Script.intentos;
+                tiempos = Simulation_Convertion_Script.tiempos;
                 
                 return;
             case 4:
