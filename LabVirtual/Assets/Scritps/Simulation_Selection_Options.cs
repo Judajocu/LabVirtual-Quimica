@@ -68,7 +68,7 @@ public class Simulation_Selection_Options : MonoBehaviour {
                 SceneManager.LoadScene("Tabla Nivel 1");
                 return;
             case 3:
-                SceneManager.LoadScene("Simulation_Selection_Options");
+                SceneManager.LoadScene("Conversion Nivel 1");
                 return;
             case 4:
                 SceneManager.LoadScene("Nomenclatura nivel 1");

@@ -106,13 +106,13 @@ public class Niveles_prefab_script : MonoBehaviour {
                 SceneManager.LoadScene("Balanceo nivel "+nivel);
                 return;
             case 2:
-                //SceneManager.LoadScene("Tabla nivel " + nivel);
+                SceneManager.LoadScene("Tabla Nivel " + nivel);
                 return;
             case 3:
-                //SceneManager.LoadScene("conversion nivel " + nivel);
+                SceneManager.LoadScene("Conversion Nivel " + nivel);
                 return;
             case 4:
-                //SceneManager.LoadScene("nomenclatura nivel " + nivel);
+                SceneManager.LoadScene("Nomenclatura nivel " + nivel);
                 return;
             case 5:
                 SceneManager.LoadScene("Estequiometria Nivel " + nivel);
