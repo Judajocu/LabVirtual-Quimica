@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class OnElectronsCollide_script : MonoBehaviour {
 
-     public TextMesh Electrons;
+     public TextMesh Conversion;
+    public InputField answer;
 
     // Use this for initialization
     void Start()
@@ -22,9 +23,10 @@ public class OnElectronsCollide_script : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collisionando");
-        if (collision.gameObject.tag == "Electrons")
+        if (collision.gameObject.tag == "Symbol")
         {
-            Electrons.text = collision.transform.gameObject.GetComponentInChildren<Text>().text;
+            Conversion.text = collision.transform.gameObject.GetComponentInChildren<Text>().text;
         }
+        answer.transform.position = new Vector3(1.65f, -1.2f);
     }
 }

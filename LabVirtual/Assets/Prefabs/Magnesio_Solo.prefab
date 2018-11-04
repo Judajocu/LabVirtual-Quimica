@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212012016024503224}
   m_Layer: 0
   m_Name: Magnesio_Solo
-  m_TagString: Untagged
+  m_TagString: Mass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

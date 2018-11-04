@@ -12,6 +12,9 @@ TagManager:
   - ButtonOk
   - Net
   - nomenclatura
+  - Element
+  - Signo
+  - Mass
   layers:
   - Default
   - TransparentFX

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212190843736721694}
   m_Layer: 0
   m_Name: Escandio_Signo
-  m_TagString: Symbol
+  m_TagString: Signo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
