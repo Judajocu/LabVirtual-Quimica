@@ -20,16 +20,9 @@ public class Simulation_Table_Script : MonoBehaviour
     public GameObject skip;
     public GameObject submit;
    
-    public TextMesh QS;
-    public TextMesh QM;
-    public TextMesh QE;
     TextMesh textcant_fallos;
-    public TextMesh ExpectedS;
-    public TextMesh ExpectedM;
-    public TextMesh ExpectedE;
 
     List<int> fallos_simulacion;
-    List<string> results_expected = new List<string>();
     static public List<int> intentos = new List<int>();
     static public List<float> tiempos = new List<float>();
 
@@ -39,6 +32,7 @@ public class Simulation_Table_Script : MonoBehaviour
     float time_left = 0.0f;
     float timeup;
     bool type;
+    bool resultado;
 
     Scene activeScene;
 
@@ -121,27 +115,8 @@ public class Simulation_Table_Script : MonoBehaviour
 
     public bool CheckResultCorrect()
     {
-        Debug.Log(QE.text);
-        Debug.Log(QM.text);
-        Debug.Log(QS.text);
-        GetExpectedResult();
-        if(QS.text == results_expected[0] && QM.text == results_expected[1] && QE.text == results_expected[2])
-        {
-            return true;
-        }
-        else
-            return false;
-    }
-
-    public void GetExpectedResult()
-    {
-        results_expected.Add(ExpectedS.text);
-        results_expected.Add(ExpectedM.text);
-        results_expected.Add(ExpectedE.text);
-
-        Debug.Log(ExpectedS.text);
-        Debug.Log(ExpectedM.text);
-        Debug.Log(ExpectedE.text);
+        GameObject.FindGameObjectWithTag("Element").GetComponent<OnPropertyCollide_SCript>().SendMessage("enviar", gameObject);
+        return resultado;
     }
     
    public bool CheckSubmit()
@@ -185,9 +160,6 @@ public class Simulation_Table_Script : MonoBehaviour
 
     public void CleanSimulation()
     {
-        QS.text = "";
-        QM.text = "";
-        QE.text = "";
         textcant_fallos.text = "Errores";
     }
     
@@ -329,6 +301,8 @@ public class Simulation_Table_Script : MonoBehaviour
         return type;
     }
 
-
-
+    public void respuesta(bool valor)
+    {
+        resultado = valor;
+    }
 }
