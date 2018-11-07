@@ -1017,10 +1017,10 @@ RectTransform:
   m_Father: {fileID: 832981252}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.6038258, y: 0.31500003}
-  m_AnchorMax: {x: 0.982303, y: 0.39843565}
-  m_AnchoredPosition: {x: 335, y: 0}
-  m_SizeDelta: {x: 1.0999985, y: 2.3}
+  m_AnchorMin: {x: 0.57652277, y: 0.18016589}
+  m_AnchorMax: {x: 0.982303, y: 0.2635891}
+  m_AnchoredPosition: {x: 0.19999695, y: -2}
+  m_SizeDelta: {x: -0.3000002, y: 2.300003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &675790963
 MonoBehaviour:
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: ?????
+  m_Text: "Conversi\xF3n"
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -2689,8 +2689,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1623608919}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -97.14, y: -163, z: 0}
-  m_LocalScale: {x: 407.85812, y: 114.52221, z: 87.635605}
+  m_LocalPosition: {x: -126.6, y: -185.6, z: 0}
+  m_LocalScale: {x: 367.0723, y: 103.069984, z: 87.635605}
   m_Children:
   - {fileID: 10094315}
   - {fileID: 1401444344}
@@ -2943,7 +2943,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ?????
+  m_Text: "Conversi\xF3n"
 --- !u!222 &1747353946
 CanvasRenderer:
   m_ObjectHideFlags: 0
