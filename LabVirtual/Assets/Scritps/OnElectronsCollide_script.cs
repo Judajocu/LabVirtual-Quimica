@@ -16,6 +16,8 @@ public class OnElectronsCollide_script : MonoBehaviour {
     void Start()
     {
         answer.gameObject.SetActive(false);
+        baseScale.gameObject.SetActive(false);
+        scale.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,8 +32,10 @@ public class OnElectronsCollide_script : MonoBehaviour {
         Debug.Log("collisionando");
         if (collision.gameObject.tag == "Symbol")
         {
-            game2 = (GameObject)Instantiate(scale, new Vector3(-3.139607f, 0.8719609f), Quaternion.identity);
-            game2.transform.SetParent(GameObject.FindWithTag("Net").transform, false);
+            baseScale.gameObject.SetActive(true);
+            scale.gameObject.SetActive(true);
+            
+            scale.transform.rotation = Quaternion.Euler(0,0,0);
             conversion.text = collision.transform.gameObject.GetComponentInChildren<Text>().text;
             G2Kg(collision.gameObject);
         }
