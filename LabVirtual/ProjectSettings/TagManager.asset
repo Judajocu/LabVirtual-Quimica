@@ -17,6 +17,7 @@ TagManager:
   - Mass
   - Electrones
   - Placeholder
+  - Net2
   layers:
   - Default
   - TransparentFX
