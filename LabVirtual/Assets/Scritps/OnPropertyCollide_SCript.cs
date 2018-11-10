@@ -57,7 +57,7 @@ public class OnPropertyCollide_SCript : MonoBehaviour {
 
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("collisionando");
         if (collision.gameObject.tag == "Symbol")
@@ -69,23 +69,23 @@ public class OnPropertyCollide_SCript : MonoBehaviour {
             switch (collision.gameObject.name)
             {
                 case "Signo1":
-                    gameSymbol = Instantiate(Symbol1, new Vector3(-5.5f, -23f, -7887.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Symbol1, new Vector3(-5.5f, -21f, -7887.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
                 case "Signo4":
-                    gameSymbol = Instantiate(Symbol2, new Vector3(-5.5f, -23f, -7887.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Symbol2, new Vector3(-5.5f, -21f, -7887.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
                 case "Signo5":
-                    gameSymbol = Instantiate(Symbol3, new Vector3(-5.5f, -23f, -7887.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Symbol3, new Vector3(-5.5f, -21f, -7887.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
                 case "Signo6":
-                    gameSymbol = Instantiate(Symbol4, new Vector3(-5.5f, -23f, -7887.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Symbol4, new Vector3(-5.5f, -21f, -7887.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
                 case "Signo7":
-                    gameSymbol = Instantiate(Symbol5, new Vector3(-5.5f, -23f, -7887.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Symbol5, new Vector3(-5.5f, -21f, -7887.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
             }           
@@ -99,23 +99,23 @@ public class OnPropertyCollide_SCript : MonoBehaviour {
             switch (collision.gameObject.name)
             {
                 case "Peso2":
-                    gameSymbol = Instantiate(Mass1, new Vector3(-3f, -23f, -7885.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Mass1, new Vector3(-3f, -21f, -7885.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
                 case "Peso4":
-                    gameSymbol = Instantiate(Mass2, new Vector3(-3f, -23f, -7885.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Mass2, new Vector3(-3f, -21f, -7885.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
                 case "Peso5":
-                    gameSymbol = Instantiate(Mass3, new Vector3(-3f, -23f, -7885.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Mass3, new Vector3(-3f, -21f, -7885.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
                 case "Peso6":
-                    gameSymbol = Instantiate(Mass5, new Vector3(-3f, -23f, -7885.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Mass5, new Vector3(-3f, -21f, -7885.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
                 case "Peso7":
-                    gameSymbol = Instantiate(Mass4, new Vector3(-3f, -23f, -7885.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Mass4, new Vector3(-3f, -21f, -7885.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
             }
@@ -128,23 +128,23 @@ public class OnPropertyCollide_SCript : MonoBehaviour {
             switch (collision.gameObject.name)
             {
                 case "Electrones2":
-                    gameSymbol = Instantiate(Electron5, new Vector3(-6f, -21f, -7887.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Electron5, new Vector3(-6f, -19f, -7887.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
                 case "Electrones3":
-                    gameSymbol = Instantiate(Electron1, new Vector3(-6f, -21f, -7887.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Electron1, new Vector3(-6f, -19f, -7887.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
                 case "Electrones5":
-                    gameSymbol = Instantiate(Electron4, new Vector3(-6f, -21f, -7887.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Electron4, new Vector3(-6f, -19f, -7887.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
                 case "Electrones6":
-                    gameSymbol = Instantiate(Electron3, new Vector3(-6f, -21f, -7887.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Electron3, new Vector3(-6f, -19f, -7887.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
                 case "Electrones7":
-                    gameSymbol = Instantiate(Electron2, new Vector3(-6f, -21f, -7887.205f), Quaternion.identity);
+                    gameSymbol = Instantiate(Electron2, new Vector3(-6f, -19f, -7887.205f), Quaternion.identity);
                     gameSymbol.transform.SetParent(GameObject.FindGameObjectWithTag("Element").transform, false);
                     break;
             }

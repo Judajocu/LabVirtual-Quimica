@@ -28,7 +28,7 @@ public class OnElectronsCollide_script : MonoBehaviour {
 
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
         Clean();
         Debug.Log("collisionando");
