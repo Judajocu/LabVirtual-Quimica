@@ -78,11 +78,11 @@ public class Properties_Movement_Script : MonoBehaviour
         {
             time += Time.deltaTime;
 
-            if (time >= interpolationPeriod)
-            {
-                time = 0.0f;
-                MoveElement();
-            }
+            //if (time >= interpolationPeriod)
+            //{
+            //    time = 0.0f;
+            //    MoveElement();
+            //}
 
         }
 
