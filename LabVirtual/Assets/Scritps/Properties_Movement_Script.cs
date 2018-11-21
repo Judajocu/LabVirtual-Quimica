@@ -15,7 +15,7 @@ public class Properties_Movement_Script : MonoBehaviour
     bool isPicked;
     bool istrigger;
     bool isSelected = false;
-    bool correccion;
+    //bool correccion;
     Vector3 original;
     public string lugar;
 
@@ -25,11 +25,11 @@ public class Properties_Movement_Script : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        top = transform.position.y + limite;
-        down = transform.position.y - limite;
+        //top = transform.position.y + limite;
+        //down = transform.position.y - limite;
         DeltaTiempo = Time.time;
         original = gameObject.transform.position;
-        correccion = false;
+        //correccion = false;
         //gameObject.GetComponent<Rigidbody2D>().gravityScale = 0f;
 
 
@@ -59,8 +59,8 @@ public class Properties_Movement_Script : MonoBehaviour
             }
             isSelected = false;
             isPicked = false;
-            top = transform.position.y + limite;
-            down = transform.position.y - limite;
+            //top = transform.position.y + limite;
+            //down = transform.position.y - limite;
             //transform.position = original;
 
 
@@ -93,13 +93,13 @@ public class Properties_Movement_Script : MonoBehaviour
 
         if (istrigger)
         {
-            if (correccion)
+            /*if (correccion)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, transform.position.z);
                 top = transform.position.y + limite;
                 down = transform.position.y - limite;
                 correccion = false;
-            }
+            }*/
 
             posicion = 0;
             Velocidad = 0;
@@ -122,7 +122,7 @@ public class Properties_Movement_Script : MonoBehaviour
 
     }
 
-    void MoveElement()
+    /*void MoveElement()
     {
 
         transform.Translate(MovingDirection * Time.smoothDeltaTime);
@@ -135,12 +135,12 @@ public class Properties_Movement_Script : MonoBehaviour
         {
             MovingDirection = Vector3.up;
         }
-    }
+    }*/
 
     void OnTriggerExit2D(Collider2D other)
     {
         istrigger = false;
-        correccion = true;
+        //correccion = true;
         isSelected = false;
     }
 
