@@ -6,187 +6,57 @@ using UnityEngine.SceneManagement;
 
 public class balance_behavior : MonoBehaviour {
 
-
-    public TextMesh conversion;
-    public InputField answer;
-    public GameObject mover;
-    public GameObject scale;
-    public GameObject baseScale;
-    public TextMesh palabra = null;
-
-    Scene activeScene;
+    private float DeltaTiempo, posicion = 0;
+    private float Velocidad, Gravedad = 4.0f;
+    bool istrigger;
+    Vector3 original;
 
     // Use this for initialization
     void Start()
     {
-        answer.gameObject.SetActive(false);
-        baseScale.gameObject.SetActive(false);
-        scale.gameObject.SetActive(false);
+        //transform.localScale += new Vector3(0.1F, 0.1F, 0);
+        original = gameObject.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if (istrigger)
+        //{
+        //    //Debug.Log("no es visible");
+        //    transform.position = original;
+        //}
 
+        if (!istrigger)
+        {
+            //gameObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
+            gravedad();
+        }
     }
 
-    public void resultado(GameObject esto)
+    void OnTriggerExit(Collider other)
     {
-        //esto.gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text = "D";
-        palabra.text = esto.gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text;
+        istrigger = false;
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerEnter(Collider other)
     {
-        Clean();
-        Debug.Log("collisionando");
-        if (collision.gameObject.tag == "Symbol")
-        {
-            baseScale.gameObject.SetActive(true);
-            scale.gameObject.SetActive(true);
-
-            scale.transform.rotation = Quaternion.Euler(0, 0, 0);
-            conversion.text = collision.transform.gameObject.GetComponentInChildren<Text>().text;
-            switch (GetSceneName())
-            {
-                case "Conversion Nivel 1":
-                    G2Kg(collision.gameObject);
-                    break;
-                case "Conversion Nivel 2":
-                    F2C(collision.gameObject);
-                    break;
-                case "Conversion Nivel 3":
-                    Lb2g(collision.gameObject);
-                    break;
-                case "Conversion Nivel 4":
-                    Mph2Kmh(collision.gameObject);
-                    break;
-                case "Conversion Nivel 5":
-                    J2Kcal(collision.gameObject);
-                    break;
-            }
-
-        }
-        answer.gameObject.SetActive(true);
+        istrigger = true;
     }
 
-    void G2Kg(GameObject game)
+    public void gravedad()
     {
+        Vector3 distance_to_screen = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
-        if (game.gameObject.name == "Formula2" || game.gameObject.name == "Formula3" || game.gameObject.name == "Formula5")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-4.03f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-        if (game.gameObject.name == "Formula4" || game.gameObject.name == "Formula6")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-        if (game.gameObject.name == "Formula1")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-4.03f, 2.474f, 0f), Quaternion.identity);
-            GameObject game3 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-            game3.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
+        Velocidad += (-1 * Gravedad * (Time.time - DeltaTiempo));
+        posicion = Velocidad * (Time.time - DeltaTiempo);
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x,
+            gameObject.transform.position.y + posicion, gameObject.transform.position.z);
+
+        DeltaTiempo = Time.time;
+
 
     }
 
-    void F2C(GameObject game)
-    {
-        if (game.gameObject.name == "Formula2" || game.gameObject.name == "Formula4" || game.gameObject.name == "Formula6")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-        if (game.gameObject.name == "Formula1" || game.gameObject.name == "Formula5")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-4.03f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-        if (game.gameObject.name == "Formula3")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-4.03f, 2.474f, 0f), Quaternion.identity);
-            GameObject game3 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-            game3.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-    }
 
-    void Lb2g(GameObject game)
-    {
-        if (game.gameObject.name == "Formula2" || game.gameObject.name == "Formula3" || game.gameObject.name == "Formula5")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-4.03f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-        if (game.gameObject.name == "Formula1" || game.gameObject.name == "Formula4")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-        if (game.gameObject.name == "Formula6")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-4.03f, 2.474f, 0f), Quaternion.identity);
-            GameObject game3 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-            game3.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-    }
-
-    void Mph2Kmh(GameObject game)
-    {
-        if (game.gameObject.name == "Formula1" || game.gameObject.name == "Formula4" || game.gameObject.name == "Formula6")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-4.03f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-        if (game.gameObject.name == "Formula5" || game.gameObject.name == "Formula3")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-        if (game.gameObject.name == "Formula2")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-4.03f, 2.474f, 0f), Quaternion.identity);
-            GameObject game3 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-            game3.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-    }
-
-    void J2Kcal(GameObject game)
-    {
-        if (game.gameObject.name == "Formula1" || game.gameObject.name == "Formula2" || game.gameObject.name == "Formula6")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-        if (game.gameObject.name == "Formula4" || game.gameObject.name == "Formula3")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-4.03f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-        if (game.gameObject.name == "Formula5")
-        {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-4.03f, 2.474f, 0f), Quaternion.identity);
-            GameObject game3 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-            game3.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
-    }
-
-    void Clean()
-    {
-        GameObject[] prefavs = GameObject.FindGameObjectsWithTag("Respawn");
-        foreach (GameObject enemy in prefavs)
-            GameObject.Destroy(enemy);
-    }
-
-    public string GetSceneName()
-    {
-        activeScene = SceneManager.GetActiveScene();
-        return activeScene.name;
-    }
 }

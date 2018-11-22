@@ -788,7 +788,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "f(g) = \ng + 10"
+  m_Text: f(g) =  g + 10
 --- !u!222 &439891895
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1700,9 +1700,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversion: {fileID: 796559124}
   answer: {fileID: 675790963}
-  mover: {fileID: 1195135144046156, guid: 066d062638a58754ca2763aea91e76bd, type: 2}
+  mover: {fileID: 0}
   scale: {fileID: 1242756030}
   baseScale: {fileID: 1288831598}
+  massFirst: {fileID: 611026779}
+  massSecond: {fileID: 924287433}
 --- !u!1 &813968051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,6 +2049,7 @@ GameObject:
   - component: {fileID: 924287437}
   - component: {fileID: 924287436}
   - component: {fileID: 924287435}
+  - component: {fileID: 924287438}
   m_Layer: 0
   m_Name: Sphere edit
   m_TagString: Untagged
@@ -2121,6 +2124,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 924287433}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &924287438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 924287433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33776fef55e47e94aa92cb08f14cdf27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &926199561
 GameObject:
   m_ObjectHideFlags: 0
@@ -3068,16 +3082,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21891af08b19fe448337f6381c21e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonMenu: {fileID: 1752923991}
-  ButtonSkip: {fileID: 1325929361}
-  Buttonsubmit: {fileID: 1389832942}
-  menu: {fileID: 1752923987}
-  skip: {fileID: 1325929357}
-  submit: {fileID: 1389832938}
-  QF: {fileID: 796559124}
-  QR: {fileID: 675790963}
-  ExpectedF: {fileID: 590670310}
-  ExpectedA: {fileID: 1112355414}
+  ButtonMenu: {fileID: 0}
+  ButtonSkip: {fileID: 0}
+  Buttonsubmit: {fileID: 0}
+  menu: {fileID: 0}
+  skip: {fileID: 0}
+  submit: {fileID: 0}
+  QF: {fileID: 0}
+  QR: {fileID: 0}
+  ExpectedF: {fileID: 0}
+  ExpectedA: {fileID: 0}
   myCurve:
     serializedVersion: 2
     m_Curve: []

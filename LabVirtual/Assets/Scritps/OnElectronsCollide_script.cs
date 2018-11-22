@@ -11,6 +11,8 @@ public class OnElectronsCollide_script : MonoBehaviour {
     public GameObject mover;
     public GameObject scale;
     public GameObject baseScale;
+    public GameObject massFirst;
+    public GameObject massSecond;
 
     Scene activeScene;
 
@@ -18,8 +20,10 @@ public class OnElectronsCollide_script : MonoBehaviour {
     void Start()
     {
         answer.gameObject.SetActive(false);
-        baseScale.gameObject.SetActive(false);
-        scale.gameObject.SetActive(false);
+        //baseScale.gameObject.SetActive(false);
+        //scale.gameObject.SetActive(false);
+        //massFirst.gameObject.SetActive(false);
+        //massSecond.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -37,7 +41,9 @@ public class OnElectronsCollide_script : MonoBehaviour {
         {
             baseScale.gameObject.SetActive(true);
             scale.gameObject.SetActive(true);
-            
+            massFirst.gameObject.SetActive(true);
+            massSecond.gameObject.SetActive(true);
+
             scale.transform.rotation = Quaternion.Euler(0,0,0);
             conversion.text = collision.transform.gameObject.GetComponentInChildren<Text>().text;
             switch(GetSceneName())
