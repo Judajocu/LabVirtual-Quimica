@@ -4,13 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class OnElectronsCollide_script : MonoBehaviour {
+public class balance_behavior : MonoBehaviour {
 
-     public TextMesh conversion;
+
+    public TextMesh conversion;
     public InputField answer;
     public GameObject mover;
     public GameObject scale;
     public GameObject baseScale;
+    public TextMesh palabra = null;
 
     Scene activeScene;
 
@@ -28,8 +30,13 @@ public class OnElectronsCollide_script : MonoBehaviour {
 
     }
 
-    //void OnTriggerExit2D(Collider2D collision)
-    public void resultado(GameObject collision)
+    public void resultado(GameObject esto)
+    {
+        //esto.gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text = "D";
+        palabra.text = esto.gameObject.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text;
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
     {
         Clean();
         Debug.Log("collisionando");
@@ -37,10 +44,10 @@ public class OnElectronsCollide_script : MonoBehaviour {
         {
             baseScale.gameObject.SetActive(true);
             scale.gameObject.SetActive(true);
-            
-            scale.transform.rotation = Quaternion.Euler(0,0,0);
+
+            scale.transform.rotation = Quaternion.Euler(0, 0, 0);
             conversion.text = collision.transform.gameObject.GetComponentInChildren<Text>().text;
-            switch(GetSceneName())
+            switch (GetSceneName())
             {
                 case "Conversion Nivel 1":
                     G2Kg(collision.gameObject);
@@ -58,32 +65,32 @@ public class OnElectronsCollide_script : MonoBehaviour {
                     J2Kcal(collision.gameObject);
                     break;
             }
-            
+
         }
         answer.gameObject.SetActive(true);
     }
 
     void G2Kg(GameObject game)
     {
-        
-        if(game.gameObject.name == "Formula2" || game.gameObject.name == "Formula3" || game.gameObject.name == "Formula5")
+
+        if (game.gameObject.name == "Formula2" || game.gameObject.name == "Formula3" || game.gameObject.name == "Formula5")
         {
             GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-4.03f, 2.474f, 0f), Quaternion.identity);
             game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
         }
-        if(game.gameObject.name == "Formula4" || game.gameObject.name == "Formula6")
+        if (game.gameObject.name == "Formula4" || game.gameObject.name == "Formula6")
         {
             GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
             game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
         }
-        if(game.gameObject.name == "Formula1")
+        if (game.gameObject.name == "Formula1")
         {
             GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-4.03f, 2.474f, 0f), Quaternion.identity);
             GameObject game3 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
             game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
             game3.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
         }
-            
+
     }
 
     void F2C(GameObject game)
@@ -91,7 +98,7 @@ public class OnElectronsCollide_script : MonoBehaviour {
         if (game.gameObject.name == "Formula2" || game.gameObject.name == "Formula4" || game.gameObject.name == "Formula6")
         {
             GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
-            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);            
+            game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
         }
         if (game.gameObject.name == "Formula1" || game.gameObject.name == "Formula5")
         {
@@ -116,7 +123,7 @@ public class OnElectronsCollide_script : MonoBehaviour {
         }
         if (game.gameObject.name == "Formula1" || game.gameObject.name == "Formula4")
         {
-            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);            
+            GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
             game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
         }
         if (game.gameObject.name == "Formula6")

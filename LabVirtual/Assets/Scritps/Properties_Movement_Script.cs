@@ -50,10 +50,10 @@ public class Properties_Movement_Script : MonoBehaviour
         {
             if (isSelected)
             {
-                if (lugar == "watch glass")
+                if (lugar == "formula")
                 {
-                    //transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text = "C";
-                    GameObject.FindGameObjectWithTag("meta").GetComponent<watchGlassBehavior>().SendMessage("resultado", gameObject);
+                    Debug.Log("manda mensaje");
+                    GameObject.FindGameObjectWithTag("formula").GetComponent<OnElectronsCollide_script>().SendMessage("resultado", gameObject);
                     transform.position = original;
                 }
             }
@@ -152,7 +152,14 @@ public class Properties_Movement_Script : MonoBehaviour
             istrigger = true;
             lugar = other.gameObject.name;
         }
-        
+
+        if (other.gameObject.tag == "formula")
+        {
+            isSelected = true;
+            lugar = other.gameObject.tag;
+            //Debug.Log("entro al vaso");
+        }
+
     }
 
     public void gravedad()

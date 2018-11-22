@@ -1587,7 +1587,7 @@ GameObject:
   - component: {fileID: 796559128}
   m_Layer: 0
   m_Name: RespuestaF
-  m_TagString: Untagged
+  m_TagString: formula
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1674,7 +1674,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5, y: 0}
+  m_Offset: {x: 0.2565384, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1685,7 +1685,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 80, y: 12.289064}
+  m_Size: {x: 107.118546, y: 12.289064}
   m_EdgeRadius: 0
 --- !u!114 &796559128
 MonoBehaviour:
@@ -1701,8 +1701,8 @@ MonoBehaviour:
   conversion: {fileID: 796559124}
   answer: {fileID: 675790963}
   mover: {fileID: 1195135144046156, guid: 066d062638a58754ca2763aea91e76bd, type: 2}
-  scale: {fileID: 0}
-  baseScale: {fileID: 0}
+  scale: {fileID: 1242756030}
+  baseScale: {fileID: 1288831598}
 --- !u!1 &813968051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2219,7 +2219,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1038884236}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.91, y: -0.29999676, z: 0.17509271}
+  m_LocalPosition: {x: 0.2, y: -0.29999676, z: 0.17509271}
   m_LocalScale: {x: 9.617286, y: 4.6871824, z: 0.95951796}
   m_Children: []
   m_Father: {fileID: 796559126}

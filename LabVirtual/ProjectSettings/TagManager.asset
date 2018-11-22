@@ -18,6 +18,7 @@ TagManager:
   - Electrones
   - Placeholder
   - Net2
+  - formula
   layers:
   - Default
   - TransparentFX
