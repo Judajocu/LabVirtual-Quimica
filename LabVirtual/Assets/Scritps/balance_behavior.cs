@@ -8,7 +8,7 @@ public class balance_behavior : MonoBehaviour {
 
     private float DeltaTiempo, posicion = 0;
     private float Velocidad, Gravedad = 4.0f;
-    bool istrigger;
+    bool istrigger, activar;
     Vector3 original;
 
     // Use this for initialization
@@ -16,21 +16,28 @@ public class balance_behavior : MonoBehaviour {
     {
         //transform.localScale += new Vector3(0.1F, 0.1F, 0);
         original = gameObject.transform.position;
+        activar = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (istrigger)
-        //{
-        //    //Debug.Log("no es visible");
-        //    transform.position = original;
-        //}
-
-        if (!istrigger)
+        if (activar)
         {
-            //gameObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
-            gravedad();
+            if (istrigger)
+            {
+                //Debug.Log("no es visible");
+                //transform.position = original;
+                posicion = 0;
+                Velocidad = 0;
+                DeltaTiempo = Time.time;
+            }
+
+            if (!istrigger)
+            {
+                //gameObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
+                gravedad();
+            }
         }
     }
 
@@ -55,7 +62,14 @@ public class balance_behavior : MonoBehaviour {
 
         DeltaTiempo = Time.time;
 
+    }
 
+    public void funcionar(bool valor)
+    {
+        activar = valor;
+        posicion = 0;
+        Velocidad = 0;
+        DeltaTiempo = Time.time;
     }
 
 

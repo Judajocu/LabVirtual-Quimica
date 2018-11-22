@@ -19,6 +19,8 @@ TagManager:
   - Placeholder
   - Net2
   - formula
+  - m1
+  - m2
   layers:
   - Default
   - TransparentFX

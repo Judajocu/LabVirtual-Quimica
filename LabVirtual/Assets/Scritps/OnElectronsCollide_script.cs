@@ -13,6 +13,11 @@ public class OnElectronsCollide_script : MonoBehaviour {
     public GameObject baseScale;
     public GameObject massFirst;
     public GameObject massSecond;
+    public GameObject superficie;
+    public TextMesh ExpectedA;
+
+    //bool activar;
+    public double anterior=0;
 
     Scene activeScene;
 
@@ -20,10 +25,13 @@ public class OnElectronsCollide_script : MonoBehaviour {
     void Start()
     {
         answer.gameObject.SetActive(false);
-        //baseScale.gameObject.SetActive(false);
-        //scale.gameObject.SetActive(false);
-        //massFirst.gameObject.SetActive(false);
-        //massSecond.gameObject.SetActive(false);
+        baseScale.gameObject.SetActive(false);
+        scale.gameObject.SetActive(false);
+        massFirst.gameObject.SetActive(false);
+        massSecond.gameObject.SetActive(false);
+        superficie.gameObject.SetActive(false);
+
+        //activar = false;
     }
 
     // Update is called once per frame
@@ -43,6 +51,10 @@ public class OnElectronsCollide_script : MonoBehaviour {
             scale.gameObject.SetActive(true);
             massFirst.gameObject.SetActive(true);
             massSecond.gameObject.SetActive(true);
+            superficie.gameObject.SetActive(true);
+
+            GameObject.FindGameObjectWithTag("m1").GetComponent<balance_behavior>().SendMessage("funcionar", true);
+            GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("funcionar", true);
 
             scale.transform.rotation = Quaternion.Euler(0,0,0);
             conversion.text = collision.transform.gameObject.GetComponentInChildren<Text>().text;
@@ -52,16 +64,16 @@ public class OnElectronsCollide_script : MonoBehaviour {
                     G2Kg(collision.gameObject);
                     break;
                 case "Conversion Nivel 2":
-                    F2C(collision.gameObject);
+                    //F2C(collision.gameObject);
                     break;
                 case "Conversion Nivel 3":
-                    Lb2g(collision.gameObject);
+                    //Lb2g(collision.gameObject);
                     break;
                 case "Conversion Nivel 4":
-                    Mph2Kmh(collision.gameObject);
+                    //Mph2Kmh(collision.gameObject);
                     break;
                 case "Conversion Nivel 5":
-                    J2Kcal(collision.gameObject);
+                    //J2Kcal(collision.gameObject);
                     break;
             }
             
@@ -71,8 +83,9 @@ public class OnElectronsCollide_script : MonoBehaviour {
 
     void G2Kg(GameObject game)
     {
+
         
-        if(game.gameObject.name == "Formula2" || game.gameObject.name == "Formula3" || game.gameObject.name == "Formula5")
+        /*if(game.gameObject.name == "Formula2" || game.gameObject.name == "Formula3" || game.gameObject.name == "Formula5")
         {
             GameObject game1 = (GameObject)Instantiate(mover, new Vector3(-4.03f, 2.474f, 0f), Quaternion.identity);
             game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
@@ -88,7 +101,7 @@ public class OnElectronsCollide_script : MonoBehaviour {
             GameObject game3 = (GameObject)Instantiate(mover, new Vector3(-2.281f, 2.474f, 0f), Quaternion.identity);
             game1.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
             game3.transform.SetParent(GameObject.FindWithTag("Net2").transform, false);
-        }
+        }*/
             
     }
 
@@ -187,5 +200,17 @@ public class OnElectronsCollide_script : MonoBehaviour {
     {
         activeScene = SceneManager.GetActiveScene();
         return activeScene.name;
+    }
+
+    public void editar()
+    {
+        double actual = double.Parse(answer.text);
+        if (actual != anterior)
+        {
+            Debug.Log("se ingreso texto");
+            //mensaje para que la masa vuelva a su posicion origianl
+            //comparar valor
+            anterior = actual;
+        }
     }
 }
