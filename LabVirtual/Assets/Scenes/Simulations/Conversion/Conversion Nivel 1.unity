@@ -1210,7 +1210,7 @@ Transform:
   m_GameObject: {fileID: 611026779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.73, y: 2, z: 0}
-  m_LocalScale: {x: 0.668, y: 0.576, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 1113676038}
   m_RootOrder: 3
@@ -1406,7 +1406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.30434853, y: 0.14371784}
   m_AnchorMax: {x: 0.71000004, y: 0.22714111}
-  m_AnchoredPosition: {x: -2, y: -28.599976}
+  m_AnchoredPosition: {x: -2, y: -28.600098}
   m_SizeDelta: {x: 80.5, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &675790963
@@ -2098,7 +2098,7 @@ Transform:
   m_GameObject: {fileID: 924287433}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.64, y: 2, z: 0}
-  m_LocalScale: {x: 0.6680039, y: 0.57600534, z: 0.9999998}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.9999998}
   m_Children: []
   m_Father: {fileID: 1113676038}
   m_RootOrder: 4
@@ -2632,8 +2632,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.88038045, z: 1}
+  m_Center: {x: 0, y: -0.059809733, z: 0}
 --- !u!23 &1242756033
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4566,7 +4566,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.92951965, y: 46.275787}
+  m_AnchoredPosition: {x: -0.9295044, y: 46.275787}
   m_SizeDelta: {x: 185.03806, y: -8.252502}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1855460174

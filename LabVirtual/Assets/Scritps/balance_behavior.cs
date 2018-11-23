@@ -10,6 +10,7 @@ public class balance_behavior : MonoBehaviour {
     private float Velocidad, Gravedad = 4.0f;
     bool istrigger, activar;
     Vector3 original;
+    float valor_original = 0.6F;
 
     // Use this for initialization
     void Start()
@@ -71,6 +72,21 @@ public class balance_behavior : MonoBehaviour {
         Velocidad = 0;
         DeltaTiempo = Time.time;
     }
+
+    public void Reinicio(bool valor)
+    {
+        //activar = valor;
+        posicion = 0;
+        Velocidad = 0;
+        DeltaTiempo = Time.time;
+        transform.position = original;
+    }
+
+    public void changeSize(float valor)
+    {
+        transform.localScale = new Vector3(valor, valor, 0);
+    }
+
 
 
 }
