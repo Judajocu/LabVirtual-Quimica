@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using SimpleJSON;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class Groups_Professor : MonoBehaviour {
 
@@ -26,11 +28,12 @@ public class Groups_Professor : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        SetGrades( "ST-QMC-101-T-001","Quimica I", 30);
+        /*SetGrades( "ST-QMC-101-T-001","Quimica I", 30);
         SetGrades("ST-QMC-101-T-0012","Quimica I", 40);
         SetGrades("ST-QMC-101-T-003", "Quimica I", 350);
         SetGrades("ST-QMC-101-T-004", "Quimica I", 430);
-        Debug.Log(GetGrades("ST-QMC-101-T-001", "Quimica I"));
+        Debug.Log(GetGrades("ST-QMC-101-T-001", "Quimica I"));*/
+        Load();
     }
 	
 	// Update is called once per frame
@@ -105,5 +108,14 @@ public class Groups_Professor : MonoBehaviour {
     {
         return changeCounter;
     }
-
+    
+    void Load()
+    {
+        string path = Application.persistentDataPath + "/Nota Grupos.json";
+        string jsonString = File.ReadAllText(path);
+        JSONObject GradeJSON = (JSONObject)JSON.Parse(jsonString);
+        SetGrades("ST-QMC-101-T","001", GradeJSON["Grupo 001"]);
+        SetGrades("ST-QMC-101-T", "002", GradeJSON["Grupo 002"]);
+        SetGrades("ST-QMC-101-T", "003", GradeJSON["Grupo 003"]);
+    }
 }

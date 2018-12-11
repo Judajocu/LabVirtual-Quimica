@@ -6,7 +6,7 @@ using SimpleJSON;
 using System.IO;
 using System.Text;
 
-public class Post_Grade_Script : MonoBehaviour
+public class Post_Student_Grade_Script : MonoBehaviour
 {
 
     static string url = "https://jsonblob.com/api/jsonBlob";
