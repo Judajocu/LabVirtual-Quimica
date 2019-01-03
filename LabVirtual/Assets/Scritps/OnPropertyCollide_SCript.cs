@@ -10,6 +10,8 @@ public class OnPropertyCollide_SCript : MonoBehaviour {
     
     public GameObject pesos;
     public GameObject electronegatividad;
+    public GameObject pesosT;
+    public GameObject electronegatividadT;
 
     public TextMesh ExpectedS;
     public TextMesh ExpectedM;
@@ -49,6 +51,8 @@ public class OnPropertyCollide_SCript : MonoBehaviour {
     {
         pesos.gameObject.SetActive(false);
         electronegatividad.gameObject.SetActive(false);
+        pesosT.gameObject.SetActive(false);
+        electronegatividadT.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -64,6 +68,7 @@ public class OnPropertyCollide_SCript : MonoBehaviour {
         {
             QS = collision.transform.gameObject.GetComponentInChildren<Text>().text;
             pesos.gameObject.SetActive(true);
+            pesosT.gameObject.SetActive(true);
             Destroy(GameObject.FindGameObjectWithTag("Placeholder"));
             Destroy(GameObject.FindGameObjectWithTag("Signo"));
             switch (collision.gameObject.name)
@@ -95,6 +100,7 @@ public class OnPropertyCollide_SCript : MonoBehaviour {
         {
             QM = collision.transform.gameObject.GetComponentInChildren<Text>().text;
             electronegatividad.gameObject.SetActive(true);
+            electronegatividadT.gameObject.SetActive(true);
             Destroy(GameObject.FindGameObjectWithTag("Mass"));
             switch (collision.gameObject.name)
             {
