@@ -208,11 +208,13 @@ public class OnElectronsCollide_script : MonoBehaviour {
         double resp = double.Parse(ExpectedA.text);
         if (actual != anterior)
         {
+            int moving = 0;
             Debug.Log("se ingreso texto");
             //mensaje para que la masa vuelva a su posicion origianl
             if (actual > resp)
             {
-                float degrees = 500;
+
+                float degrees = -500;
                 Vector3 to = new Vector3(0, 0, degrees);
                 scale.transform.eulerAngles = Vector3.Lerp(scale.transform.rotation.eulerAngles, to, Time.deltaTime);
 
@@ -220,20 +222,25 @@ public class OnElectronsCollide_script : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
                 GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("changeSize", 1.5F);
                 baseScale.GetComponentInChildren<Text>().text = "<";
+                moving = 0;
             }
             if(actual < resp)
             {
-                float degrees = -500;
+
+                float degrees = 500;
                 Vector3 to = new Vector3(0, 0, degrees);
                 scale.transform.eulerAngles = Vector3.Lerp(scale.transform.rotation.eulerAngles, to, Time.deltaTime);
                 GameObject.FindGameObjectWithTag("m1").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
                 GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
                 GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("changeSize", 0.2F);
                 baseScale.GetComponentInChildren<Text>().text = ">";
+                moving = 0;
             }
             if (actual == resp)
             {
-                float degrees = 35;
+                
+
+                float degrees = 0;
                 Vector3 to = new Vector3(0, 0, degrees);
                 scale.transform.eulerAngles = Vector3.Lerp(scale.transform.rotation.eulerAngles, to, Time.deltaTime);
 
@@ -241,6 +248,7 @@ public class OnElectronsCollide_script : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
                 GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("changeSize", 0.6F);
                 baseScale.GetComponentInChildren<Text>().text = "=";
+                moving = 0;
             }
             //comparar valor
             anterior = actual;
