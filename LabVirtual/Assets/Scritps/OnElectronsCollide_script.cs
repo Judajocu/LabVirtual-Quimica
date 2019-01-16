@@ -15,6 +15,7 @@ public class OnElectronsCollide_script : MonoBehaviour {
     public GameObject massSecond;
     public GameObject superficie;
     public TextMesh ExpectedA;
+    int check = 2;
 
     //bool activar;
     public double anterior=0;
@@ -204,6 +205,7 @@ public class OnElectronsCollide_script : MonoBehaviour {
 
     public void editar()
     {
+        
         double actual = double.Parse(answer.text);
         double resp = double.Parse(ExpectedA.text);
         if (actual != anterior)
@@ -213,37 +215,89 @@ public class OnElectronsCollide_script : MonoBehaviour {
             //mensaje para que la masa vuelva a su posicion origianl
             if (actual > resp)
             {
+                if (check == 2 || check == 1)
+                {
+                    check = 1;
+                    float degrees = -500;
+                    Vector3 to = new Vector3(0, 0, degrees);
+                    Debug.Log(scale.transform.eulerAngles.z.ToString());
+                    scale.transform.eulerAngles = Vector3.Lerp(scale.transform.rotation.eulerAngles, to, Time.deltaTime);
+                    Debug.Log(scale.transform.eulerAngles.z.ToString());
 
-                float degrees = -500;
-                Vector3 to = new Vector3(0, 0, degrees);
-                scale.transform.eulerAngles = Vector3.Lerp(scale.transform.rotation.eulerAngles, to, Time.deltaTime);
+                    GameObject.FindGameObjectWithTag("m1").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
+                    GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
+                    GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("changeSize", 1.5F);
+                    baseScale.GetComponentInChildren<Text>().text = "<";
+                    moving = 0;
+                }
+                if(check == 0)
+                {
+                    Debug.Log("Changing ways i");
+                    check = 1;
+                    /*float ChangeZ = -scale.transform.eulerAngles.z;
+                    Vector3 to2 = new Vector3(0, 0, ChangeZ);
+                    scale.transform.eulerAngles = Vector3.Lerp(scale.transform.rotation.eulerAngles, to2, Time.deltaTime);
+                    Debug.Log(scale.transform.eulerAngles);*/
+                    scale.transform.rotation = Quaternion.identity;
+                    float degrees = -500;
+                    Vector3 to = new Vector3(0, 0, degrees);
+                    Debug.Log(scale.transform.eulerAngles.z.ToString());
+                    scale.transform.eulerAngles = Vector3.Lerp(scale.transform.rotation.eulerAngles, to, Time.deltaTime);
+                    Debug.Log(scale.transform.eulerAngles.z.ToString());
 
-                GameObject.FindGameObjectWithTag("m1").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
-                GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
-                GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("changeSize", 1.5F);
-                baseScale.GetComponentInChildren<Text>().text = "<";
-                moving = 0;
+                    GameObject.FindGameObjectWithTag("m1").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
+                    GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
+                    GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("changeSize", 1.5F);
+                    baseScale.GetComponentInChildren<Text>().text = "<";
+                    moving = 0;
+                }
+                
             }
             if(actual < resp)
             {
+                if(check == 2 || check == 0)
+                {
+                    check = 0;
+                    float degrees = 500;
+                    Vector3 to = new Vector3(0, 0, degrees);
+                    Debug.Log(scale.transform.rotation.z.ToString());
+                    scale.transform.eulerAngles = Vector3.Lerp(scale.transform.rotation.eulerAngles, to, Time.deltaTime);
+                    Debug.Log(scale.transform.eulerAngles.z.ToString());
 
-                float degrees = 500;
-                Vector3 to = new Vector3(0, 0, degrees);
-                scale.transform.eulerAngles = Vector3.Lerp(scale.transform.rotation.eulerAngles, to, Time.deltaTime);
-                GameObject.FindGameObjectWithTag("m1").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
-                GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
-                GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("changeSize", 0.2F);
-                baseScale.GetComponentInChildren<Text>().text = ">";
-                moving = 0;
+                    GameObject.FindGameObjectWithTag("m1").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
+                    GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
+                    GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("changeSize", 0.2F);
+                    baseScale.GetComponentInChildren<Text>().text = ">";
+                    moving = 0;
+                }
+                if(check == 1)
+                {
+                    Debug.Log("Changing ways d");
+                    check = 0;
+                    /*float ChangeZ = -scale.transform.eulerAngles.z;
+                    Vector3 to2 = new Vector3(0, 0, ChangeZ);
+                    scale.transform.eulerAngles = Vector3.Lerp(scale.transform.rotation.eulerAngles, to2, Time.deltaTime);
+                    Debug.Log(scale.transform.eulerAngles);*/
+                    scale.transform.rotation = Quaternion.identity;
+                    float degrees = 500;
+                    Vector3 to = new Vector3(0, 0, degrees);
+                    scale.transform.eulerAngles = Vector3.Lerp(scale.transform.rotation.eulerAngles, to, Time.deltaTime);
+
+                    GameObject.FindGameObjectWithTag("m1").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
+                    GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
+                    GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("changeSize", 0.2F);
+                    baseScale.GetComponentInChildren<Text>().text = ">";
+                    moving = 0;
+                }
+
             }
             if (actual == resp)
             {
-                
-
+                scale.transform.rotation = Quaternion.identity;
                 float degrees = 0;
                 Vector3 to = new Vector3(0, 0, degrees);
                 scale.transform.eulerAngles = Vector3.Lerp(scale.transform.rotation.eulerAngles, to, Time.deltaTime);
-
+                
                 GameObject.FindGameObjectWithTag("m1").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
                 GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("Reinicio", true);
                 GameObject.FindGameObjectWithTag("m2").GetComponent<balance_behavior>().SendMessage("changeSize", 0.6F);
@@ -253,5 +307,10 @@ public class OnElectronsCollide_script : MonoBehaviour {
             //comparar valor
             anterior = actual;
         }
+    }
+
+    public void changeScale()
+    {
+
     }
 }
