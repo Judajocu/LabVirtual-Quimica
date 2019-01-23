@@ -56,6 +56,13 @@ public class Properties_Movement_Script : MonoBehaviour
                     GameObject.FindGameObjectWithTag("formula").GetComponent<OnElectronsCollide_script>().SendMessage("resultado", gameObject);
                     transform.position = original;
                 }
+
+                if (lugar == "Element")
+                {
+                    Debug.Log("manda mensaje");
+                    //GameObject.FindGameObjectWithTag("Element").GetComponent<OnElectronsCollide_script>().SendMessage("resultado", gameObject);
+                    transform.position = original;
+                }
             }
             isSelected = false;
             isPicked = false;
@@ -160,6 +167,12 @@ public class Properties_Movement_Script : MonoBehaviour
             //Debug.Log("entro al vaso");
         }
 
+        if (other.gameObject.tag == "Element")
+        {
+            isSelected = true;
+            lugar = other.gameObject.tag;
+            Debug.Log("entro al area");
+        }
     }
 
     public void gravedad()
