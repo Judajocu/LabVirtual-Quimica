@@ -40,8 +40,8 @@ namespace Moodle {
 
             MoodleAPI rest = go.AddComponent<MoodleAPI>();
             rest.Host = Host;
-            rest.EndpointLogEnabled = true;
-            rest.ResponseLogEnabled = true;
+      //      rest.EndpointLogEnabled = true;
+    //        rest.ResponseLogEnabled = true;
             rest.OnError += (sender, error) => {
                 //Assert.Fail(error.Error);
             };
