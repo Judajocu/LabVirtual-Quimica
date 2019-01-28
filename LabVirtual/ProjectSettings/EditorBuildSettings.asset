@@ -43,7 +43,7 @@ EditorBuildSettings:
     guid: 51963123eca79b445bf37ae9b9b47e5e
   - enabled: 0
     path: 
-    guid: 58cad8c1112338c4da3d19dda9d36195
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Interfaces/Overview-Professor.unity
     guid: 461b31f3bf589aa49973abb15a494de2
@@ -131,16 +131,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Simulations/Conversion/Conversion Nivel 1.unity
     guid: 07151cebcfb94474aa947ac1b4b3ce3d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Simulations/Conversion/Conversion Nivel 2.unity
     guid: ce67fda598f066740af59aefb6dd2c82
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Simulations/Conversion/Conversion Nivel 3.unity
     guid: 69731b1742a1f24478ee03b48e4a1596
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Simulations/Conversion/Conversion Nivel 4.unity
     guid: b3ae088e08b79514d800dadc9a92223b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Simulations/Conversion/Conversion Nivel 5.unity
     guid: c05faae55d78d7041b5cf85b44069076
+  - enabled: 1
+    path: Assets/Scenes/Simulations/Conversion/Conversion Nivel 6.unity
+    guid: cefa7449c6041e84d89c12bfffdb222f
+  - enabled: 1
+    path: Assets/Scenes/Simulations/Conversion/Conversion Nivel 7.unity
+    guid: 1d344445d272f4448981af885fa53fb4
+  - enabled: 1
+    path: Assets/Scenes/Simulations/Conversion/Conversion Nivel 8.unity
+    guid: b06a6a9d89b72cd4787ee3a1d4fdf5b8
+  - enabled: 1
+    path: Assets/Scenes/Simulations/Conversion/Conversion Nivel 9.unity
+    guid: 549961c50970c8643b077e362eebbe86
   m_configObjects: {}

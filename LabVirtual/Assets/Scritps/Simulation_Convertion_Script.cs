@@ -54,7 +54,7 @@ public class Simulation_Convertion_Script : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //CheckTime();
+        CheckTime();
 
         float moveLR = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
         float moveUD = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
