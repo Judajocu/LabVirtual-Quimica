@@ -165,7 +165,7 @@ public class Result_Script : MonoBehaviour {
         float final_time = CheckTrys(trys, time);
 
         string grade = AssingGrade(final_time);
-        if(type=true)
+        if(type!=true)
             GetSimulationName(grade);
 
         nota_resultante.text = "Calificacion resultante:" + grade;
