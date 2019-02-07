@@ -49,8 +49,9 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
-        //CheckTime();
+        timeup = settings.Gettime();
+        CheckType();
+        CheckTime();
     }
 
     public void formarpalabra(string letra)
@@ -75,7 +76,7 @@ public class Simulacion_nomenclatura : MonoBehaviour {
 
         Vector3 mouse = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         transform.position = new Vector3(mouse.x, mouse.y, transform.position.z);
-        //CheckTime();
+        CheckTime();
     }
     
  
@@ -91,7 +92,7 @@ public class Simulacion_nomenclatura : MonoBehaviour {
         {
             CheckSkip();
             CleanSimulation();
-            SceneManager.LoadScene("Balanceo Resultado");
+            SceneManager.LoadScene("Resultado");
             return;
         }
     }
