@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 using SimpleJSON;
 using System.IO;
+using System;
 
 public class Result_Script : MonoBehaviour {
 
@@ -59,7 +60,7 @@ public class Result_Script : MonoBehaviour {
         SceneManager.LoadScene("Options_Student");
     }
 
-    public float GetAverageTrys()
+    public double GetAverageTrys()
     {
         float sum = 0;
         if(intentos == null)
@@ -101,7 +102,7 @@ public class Result_Script : MonoBehaviour {
         cant_intentos.text = "Total de intentos :" + sum;
     }
 
-    public float GetAverageTime()
+    public double GetAverageTime()
     {
         float sum = 0;
         float lele;
@@ -118,10 +119,13 @@ public class Result_Script : MonoBehaviour {
 
         promedio_tiempos.text = "Promedio de tiempo:" + sum;
 
-        return sum;
+        double tots = Math.Round(sum, 2);
+        Debug.Log(tots);
+
+        return tots;
     }
 
-    public float CheckTrys(float trys, float time)
+    public double CheckTrys(double trys, double time)
     {
         if (trys < penalidad)
         {
@@ -139,7 +143,7 @@ public class Result_Script : MonoBehaviour {
         return time;
     }
 
-    public string AssingGrade(float final_time)
+    public string AssingGrade(double final_time)
     {
         string grade = "";
 
@@ -160,9 +164,10 @@ public class Result_Script : MonoBehaviour {
 
     public void GetGrade()
     {
-        float time = GetAverageTime();
-        float trys = GetAverageTrys();
-        float final_time = CheckTrys(trys, time);
+        double time = GetAverageTime();
+        double tots = Math.Round(time, 2);
+        double trys = GetAverageTrys();
+        double final_time = CheckTrys(trys, tots);
 
         string grade = AssingGrade(final_time);
         if(type!=true)
