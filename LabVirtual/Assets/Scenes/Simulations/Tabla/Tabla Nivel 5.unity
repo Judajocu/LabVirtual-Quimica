@@ -4657,7 +4657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2735228, y: 0.89846873}
   m_AnchorMax: {x: 0.95665157, y: 0.9884376}
-  m_AnchoredPosition: {x: -11, y: 0.71989}
+  m_AnchoredPosition: {x: -11, y: 0.71990967}
   m_SizeDelta: {x: 41.624, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1569107297
@@ -4692,7 +4692,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Tabla Peri\xF3dica -1"
+  m_Text: "Tabla Peri\xF3dica -5"
 --- !u!222 &1569107298
 CanvasRenderer:
   m_ObjectHideFlags: 0
