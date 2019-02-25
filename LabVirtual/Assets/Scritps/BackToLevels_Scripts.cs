@@ -17,6 +17,7 @@ public class BackToLevels_Scripts : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         x = simulation_Options.GetSelected();
+        Debug.Log(x+"tipo sim");
         if (type == true)
             InstanciateButton();
     }
@@ -34,7 +35,7 @@ public class BackToLevels_Scripts : MonoBehaviour {
 
     public void Back2Leveles()
     {
-        simulation_Options.SetSelected(x);
+        //  simulation_Options.SetSelected(simulation_Options.GetSelected());
         SceneManager.LoadScene("Simulation_Selection_Options");
     }
 }

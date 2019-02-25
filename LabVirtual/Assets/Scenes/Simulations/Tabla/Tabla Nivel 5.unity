@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -220,7 +220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05887129, y: 0.47485894}
   m_AnchorMax: {x: 0.476303, y: 0.72029465}
-  m_AnchoredPosition: {x: 1.2000122, y: 0.099998474}
+  m_AnchoredPosition: {x: 1.2000122, y: 0.1000061}
   m_SizeDelta: {x: -1.8999939, y: -0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &113418337
@@ -572,7 +572,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5781743, y: 0.7351411}
   m_AnchorMax: {x: 0.93834853, y: 0.7945643}
-  m_AnchoredPosition: {x: 0.05000305, y: 0.59002686}
+  m_AnchoredPosition: {x: 0.049987793, y: 0.59002686}
   m_SizeDelta: {x: -0.1000061, y: -0.1000061}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &292025593
@@ -4428,8 +4428,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pesos: {fileID: 1943956873}
   electronegatividad: {fileID: 1033950599}
-  pesosT: {fileID: 0}
-  electronegatividadT: {fileID: 0}
+  pesosT: {fileID: 1964826538}
+  electronegatividadT: {fileID: 1633900305}
   ExpectedS: {fileID: 590670310}
   ExpectedM: {fileID: 1789947295}
   ExpectedE: {fileID: 292320966}

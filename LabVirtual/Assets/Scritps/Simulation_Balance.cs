@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using SimpleJSON;
 
 public class Simulation_Balance : MonoBehaviour {
 
@@ -54,6 +55,7 @@ public class Simulation_Balance : MonoBehaviour {
     {
         timeup = settings.Gettime();
         CheckType();
+        
         textcant_fallos = GameObject.Find("Errores").GetComponent<TextMesh>();
         cantinput = GameObject.Find("CantInput").GetComponent<TextMesh>();
         cantoutput = GameObject.Find("CantOutput").GetComponent<TextMesh>();
@@ -205,7 +207,7 @@ public class Simulation_Balance : MonoBehaviour {
         if (List_Inputprefabs.Count == System.Convert.ToInt32(results_expected[0]) && List_Outputprefabs.Count == System.Convert.ToInt32(results_expected[1]))
         {
             Debug.Log("Bien");
-            intentos.Add(intento_nivel);
+            intentos.Add(cant_fallos);
             Debug.Log(intentos.Count);
             Resulttime();
             return true;
@@ -268,6 +270,7 @@ public class Simulation_Balance : MonoBehaviour {
                         SceneManager.LoadScene("Balanceo Nivel 5");
                         return;
                     case "Balanceo Nivel 5":
+                        SaveList();
                         CleanSimulation();
                         SceneManager.LoadScene("Resultado");
                         return;
@@ -276,6 +279,7 @@ public class Simulation_Balance : MonoBehaviour {
         }
         else
         {
+            CleanLists();
             if (CheckSubmit())
             {
                 switch (GetSceneName())
@@ -342,6 +346,7 @@ public class Simulation_Balance : MonoBehaviour {
         }
         if(check == true)
         {
+            CleanLists();
             switch (GetSceneName())
             {
                 case "Balanceo Nivel 1":
@@ -368,6 +373,13 @@ public class Simulation_Balance : MonoBehaviour {
         }
     }
 
+    public void SaveList()
+    {
+        string path = Application.persistentDataPath + "/Nota Balance.json";
+
+        JSONObject resultJSON = new JSONObject();
+    }
+
     public bool CheckType()
     {
         type = Niveles_prefab_script.levels;
@@ -378,5 +390,11 @@ public class Simulation_Balance : MonoBehaviour {
         }
 
         return type;
+    }
+
+    public void CleanLists()
+    {
+        intentos.Clear();
+        tiempos.Clear();
     }
 }

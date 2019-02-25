@@ -145,7 +145,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114148064699796168, guid: 93a7a0015d5e1834caa4c04d1934adb1,
+          type: 2}
         m_MethodName: Back2Leveles
         m_Mode: 1
         m_Arguments:
