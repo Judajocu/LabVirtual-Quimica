@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Moodle;
 using System;
+using System.ServiceModel;
 
 public class LoginStudent : MonoBehaviour {
 
@@ -37,6 +38,19 @@ public class LoginStudent : MonoBehaviour {
         CheckApi(ID, Password);
         if (ID!=string.Empty && Password != string.Empty)
         {
+            //prueva guardado de datos en la base de datos
+            try
+            {
+                ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+
+                int mat = Int32.Parse(ID);
+                servicioWCF.RegistrarMatricula(mat, Password);
+            }
+            catch (System.Exception)
+            {
+
+            }
+
             print("Sup");
             SceneManager.LoadScene("Overview-Student");
         }
