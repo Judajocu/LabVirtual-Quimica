@@ -682,6 +682,12 @@ public interface IServiceLab
     
     //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerEstudiantes", ReplyAction="http://tempuri.org/IServiceLab/ObtenerEstudiantesResponse")]
     //System.Threading.Tasks.Task<LabServerConnection.Estudiantes[]> ObtenerEstudiantesAsync(int idEstudiantes);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerPass", ReplyAction="http://tempuri.org/IServiceLab/ObtenerPassResponse")]
+    string ObtenerPass(int idEstudiantes);
+    
+    //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerPass", ReplyAction="http://tempuri.org/IServiceLab/ObtenerPassResponse")]
+    //System.Threading.Tasks.Task<string> ObtenerPassAsync(int idEstudiantes);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -723,18 +729,28 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.RegistrarMatricula(matricula, password);
     }
     
-    /*public System.Threading.Tasks.Task<bool> RegistrarMatriculaAsync(int matricula, string password)
-    {
-        return base.Channel.RegistrarMatriculaAsync(matricula, password);
-    }*/
+    //public System.Threading.Tasks.Task<bool> RegistrarMatriculaAsync(int matricula, string password)
+    //{
+     //   return base.Channel.RegistrarMatriculaAsync(matricula, password);
+    //}
     
     public LabServerConnection.Estudiantes[] ObtenerEstudiantes(int idEstudiantes)
     {
         return base.Channel.ObtenerEstudiantes(idEstudiantes);
     }
     
-    /*public System.Threading.Tasks.Task<LabServerConnection.Estudiantes[]> ObtenerEstudiantesAsync(int idEstudiantes)
+    //public System.Threading.Tasks.Task<LabServerConnection.Estudiantes[]> ObtenerEstudiantesAsync(int idEstudiantes)
+    //{
+    //    return base.Channel.ObtenerEstudiantesAsync(idEstudiantes);
+    //}
+    
+    public string ObtenerPass(int idEstudiantes)
     {
-        return base.Channel.ObtenerEstudiantesAsync(idEstudiantes);
-    }*/
+        return base.Channel.ObtenerPass(idEstudiantes);
+    }
+    
+    //public System.Threading.Tasks.Task<string> ObtenerPassAsync(int idEstudiantes)
+    //{
+    //    return base.Channel.ObtenerPassAsync(idEstudiantes);
+    //}
 }

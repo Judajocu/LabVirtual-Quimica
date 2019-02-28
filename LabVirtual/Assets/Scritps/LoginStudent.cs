@@ -45,6 +45,13 @@ public class LoginStudent : MonoBehaviour {
 
                 int mat = Int32.Parse(ID);
                 servicioWCF.RegistrarMatricula(mat, Password);
+
+                
+                int esto = 20140805;
+                string f = servicioWCF.ObtenerPass(esto);
+                print(f);
+
+                //f.
             }
             catch (System.Exception)
             {
