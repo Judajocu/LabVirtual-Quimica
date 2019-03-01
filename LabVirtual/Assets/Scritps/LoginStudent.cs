@@ -51,6 +51,8 @@ public class LoginStudent : MonoBehaviour {
                 string f = servicioWCF.ObtenerPass(esto);
                 print(f);
 
+                //servicioWCF.ObtenerEstudiantes(esto);
+
                 //f.
             }
             catch (System.Exception)
