@@ -23,6 +23,8 @@ namespace LabServerConnection
         
         private string EstApellidoField;
         
+        private System.Nullable<int> EstMatriculaField;
+        
         private string EstNombreField;
         
         private string EstPasswordField;
@@ -31,7 +33,7 @@ namespace LabServerConnection
         
         private string EstTotalNotaField;
         
-        private long EstudianteIDField;
+        private string EstudianteIDField;
         
         private LabServerConnection.EstudiantesGrupos[] EstudiantesGruposField;
         
@@ -59,6 +61,19 @@ namespace LabServerConnection
             set
             {
                 this.EstApellidoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> EstMatricula
+        {
+            get
+            {
+                return this.EstMatriculaField;
+            }
+            set
+            {
+                this.EstMatriculaField = value;
             }
         }
         
@@ -115,7 +130,7 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long EstudianteID
+        public string EstudianteID
         {
             get
             {
@@ -164,7 +179,7 @@ namespace LabServerConnection
         
         private int EstGrupoIDField;
         
-        private System.Nullable<long> EstudianteIDField;
+        private string EstudianteIDField;
         
         private LabServerConnection.Estudiantes EstudiantesField;
         
@@ -198,7 +213,7 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> EstudianteID
+        public string EstudianteID
         {
             get
             {
@@ -258,7 +273,7 @@ namespace LabServerConnection
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private System.Nullable<long> EstudianteIdField;
+        private string EstudianteIdField;
         
         private LabServerConnection.Estudiantes EstudiantesField;
         
@@ -269,6 +284,8 @@ namespace LabServerConnection
         private System.Nullable<int> SimulacionIdField;
         
         private LabServerConnection.Simulaciones SimulacionesField;
+        
+        private string descField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -283,7 +300,7 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<long> EstudianteId
+        public string EstudianteId
         {
             get
             {
@@ -359,6 +376,19 @@ namespace LabServerConnection
                 this.SimulacionesField = value;
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string desc
+        {
+            get
+            {
+                return this.descField;
+            }
+            set
+            {
+                this.descField = value;
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -375,7 +405,7 @@ namespace LabServerConnection
         
         private string GrupoNombreField;
         
-        private System.Nullable<int> GrupoProfesorField;
+        private string GrupoProfesorField;
         
         private string NotaPromedioField;
         
@@ -433,7 +463,7 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> GrupoProfesor
+        public string GrupoProfesor
         {
             get
             {
@@ -488,7 +518,7 @@ namespace LabServerConnection
         
         private string ProfPasswordField;
         
-        private int ProfesorIdField;
+        private string ProfesorIdField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -555,7 +585,7 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ProfesorId
+        public string ProfesorId
         {
             get
             {
@@ -672,22 +702,64 @@ public interface IServiceLab
 {
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarMatricula", ReplyAction="http://tempuri.org/IServiceLab/RegistrarMatriculaResponse")]
-    bool RegistrarMatricula(int matricula, string password);
+    bool RegistrarMatricula(string matricula, string password);
     
     //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarMatricula", ReplyAction="http://tempuri.org/IServiceLab/RegistrarMatriculaResponse")]
-    //System.Threading.Tasks.Task<bool> RegistrarMatriculaAsync(int matricula, string password);
+    //System.Threading.Tasks.Task<bool> RegistrarMatriculaAsync(string matricula, string password);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerEstudiantes", ReplyAction="http://tempuri.org/IServiceLab/ObtenerEstudiantesResponse")]
-    LabServerConnection.Estudiantes[] ObtenerEstudiantes(int idEstudiantes);
+    LabServerConnection.Estudiantes[] ObtenerEstudiantes(string idEstudiantes);
     
     //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerEstudiantes", ReplyAction="http://tempuri.org/IServiceLab/ObtenerEstudiantesResponse")]
-    //System.Threading.Tasks.Task<LabServerConnection.Estudiantes[]> ObtenerEstudiantesAsync(int idEstudiantes);
+    //System.Threading.Tasks.Task<LabServerConnection.Estudiantes[]> ObtenerEstudiantesAsync(string idEstudiantes);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerPass", ReplyAction="http://tempuri.org/IServiceLab/ObtenerPassResponse")]
-    string ObtenerPass(int idEstudiantes);
+    string ObtenerPass(string idEstudiantes);
     
     //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerPass", ReplyAction="http://tempuri.org/IServiceLab/ObtenerPassResponse")]
-    //System.Threading.Tasks.Task<string> ObtenerPassAsync(int idEstudiantes);
+    //System.Threading.Tasks.Task<string> ObtenerPassAsync(string idEstudiantes);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GenerarReporteEstudiante", ReplyAction="http://tempuri.org/IServiceLab/GenerarReporteEstudianteResponse")]
+    bool GenerarReporteEstudiante(string[] notas);
+    
+    //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GenerarReporteEstudiante", ReplyAction="http://tempuri.org/IServiceLab/GenerarReporteEstudianteResponse")]
+    //System.Threading.Tasks.Task<bool> GenerarReporteEstudianteAsync(string[] notas);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarEsudiante", ReplyAction="http://tempuri.org/IServiceLab/RegistrarEsudianteResponse")]
+    bool RegistrarEsudiante(string id, string name, string lastname, int matricula);
+    
+    //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarEsudiante", ReplyAction="http://tempuri.org/IServiceLab/RegistrarEsudianteResponse")]
+    //System.Threading.Tasks.Task<bool> RegistrarEsudianteAsync(string id, string name, string lastname, int matricula);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarProfesor", ReplyAction="http://tempuri.org/IServiceLab/RegistrarProfesorResponse")]
+    bool RegistrarProfesor(string id, string name, string lastname);
+    
+    //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarProfesor", ReplyAction="http://tempuri.org/IServiceLab/RegistrarProfesorResponse")]
+    //System.Threading.Tasks.Task<bool> RegistrarProfesorAsync(string id, string name, string lastname);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarCurso", ReplyAction="http://tempuri.org/IServiceLab/RegistrarCursoResponse")]
+    bool RegistrarCurso(string name, string idprofesor);
+    
+    //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarCurso", ReplyAction="http://tempuri.org/IServiceLab/RegistrarCursoResponse")]
+    //System.Threading.Tasks.Task<bool> RegistrarCursoAsync(string name, string idprofesor);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarCursoestudiante", ReplyAction="http://tempuri.org/IServiceLab/RegistrarCursoestudianteResponse")]
+    bool RegistrarCursoestudiante(int idCurso, string idEstudiante);
+    
+    //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarCursoestudiante", ReplyAction="http://tempuri.org/IServiceLab/RegistrarCursoestudianteResponse")]
+    //System.Threading.Tasks.Task<bool> RegistrarCursoestudianteAsync(int idCurso, string idEstudiante);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarSimulacion", ReplyAction="http://tempuri.org/IServiceLab/RegistrarSimulacionResponse")]
+    bool RegistrarSimulacion(string name, int fallos, int duracion);
+    
+    //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarSimulacion", ReplyAction="http://tempuri.org/IServiceLab/RegistrarSimulacionResponse")]
+    //System.Threading.Tasks.Task<bool> RegistrarSimulacionAsync(string name, int fallos, int duracion);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarSimulacionEst", ReplyAction="http://tempuri.org/IServiceLab/RegistrarSimulacionEstResponse")]
+    bool RegistrarSimulacionEst(int idCurso, string idEstudiante, string nota);
+    
+    //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarSimulacionEst", ReplyAction="http://tempuri.org/IServiceLab/RegistrarSimulacionEstResponse")]
+    //System.Threading.Tasks.Task<bool> RegistrarSimulacionEstAsync(int idCurso, string idEstudiante, string nota);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -724,33 +796,103 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
     {
     }
     
-    public bool RegistrarMatricula(int matricula, string password)
+    public bool RegistrarMatricula(string matricula, string password)
     {
         return base.Channel.RegistrarMatricula(matricula, password);
     }
+
+    /*public System.Threading.Tasks.Task<bool> RegistrarMatriculaAsync(string matricula, string password)
+    {
+        return base.Channel.RegistrarMatriculaAsync(matricula, password);
+    }*/
     
-    //public System.Threading.Tasks.Task<bool> RegistrarMatriculaAsync(int matricula, string password)
-    //{
-     //   return base.Channel.RegistrarMatriculaAsync(matricula, password);
-    //}
-    
-    public LabServerConnection.Estudiantes[] ObtenerEstudiantes(int idEstudiantes)
+    public LabServerConnection.Estudiantes[] ObtenerEstudiantes(string idEstudiantes)
     {
         return base.Channel.ObtenerEstudiantes(idEstudiantes);
     }
+
+    /*public System.Threading.Tasks.Task<LabServerConnection.Estudiantes[]> ObtenerEstudiantesAsync(string idEstudiantes)
+    {
+        return base.Channel.ObtenerEstudiantesAsync(idEstudiantes);
+    }*/
     
-    //public System.Threading.Tasks.Task<LabServerConnection.Estudiantes[]> ObtenerEstudiantesAsync(int idEstudiantes)
-    //{
-    //    return base.Channel.ObtenerEstudiantesAsync(idEstudiantes);
-    //}
-    
-    public string ObtenerPass(int idEstudiantes)
+    public string ObtenerPass(string idEstudiantes)
     {
         return base.Channel.ObtenerPass(idEstudiantes);
     }
+
+    /*public System.Threading.Tasks.Task<string> ObtenerPassAsync(string idEstudiantes)
+    {
+        return base.Channel.ObtenerPassAsync(idEstudiantes);
+    }*/
     
-    //public System.Threading.Tasks.Task<string> ObtenerPassAsync(int idEstudiantes)
-    //{
-    //    return base.Channel.ObtenerPassAsync(idEstudiantes);
-    //}
+    public bool GenerarReporteEstudiante(string[] notas)
+    {
+        return base.Channel.GenerarReporteEstudiante(notas);
+    }
+
+    /*public System.Threading.Tasks.Task<bool> GenerarReporteEstudianteAsync(string[] notas)
+    {
+        return base.Channel.GenerarReporteEstudianteAsync(notas);
+    }*/
+    
+    public bool RegistrarEsudiante(string id, string name, string lastname, int matricula)
+    {
+        return base.Channel.RegistrarEsudiante(id, name, lastname, matricula);
+    }
+
+    /*public System.Threading.Tasks.Task<bool> RegistrarEsudianteAsync(string id, string name, string lastname, int matricula)
+    {
+        return base.Channel.RegistrarEsudianteAsync(id, name, lastname, matricula);
+    }*/
+    
+    public bool RegistrarProfesor(string id, string name, string lastname)
+    {
+        return base.Channel.RegistrarProfesor(id, name, lastname);
+    }
+
+    /*public System.Threading.Tasks.Task<bool> RegistrarProfesorAsync(string id, string name, string lastname)
+    {
+        return base.Channel.RegistrarProfesorAsync(id, name, lastname);
+    }*/
+    
+    public bool RegistrarCurso(string name, string idprofesor)
+    {
+        return base.Channel.RegistrarCurso(name, idprofesor);
+    }
+
+    /*public System.Threading.Tasks.Task<bool> RegistrarCursoAsync(string name, string idprofesor)
+    {
+        return base.Channel.RegistrarCursoAsync(name, idprofesor);
+    }*/
+    
+    public bool RegistrarCursoestudiante(int idCurso, string idEstudiante)
+    {
+        return base.Channel.RegistrarCursoestudiante(idCurso, idEstudiante);
+    }
+
+    /*public System.Threading.Tasks.Task<bool> RegistrarCursoestudianteAsync(int idCurso, string idEstudiante)
+    {
+        return base.Channel.RegistrarCursoestudianteAsync(idCurso, idEstudiante);
+    }*/
+    
+    public bool RegistrarSimulacion(string name, int fallos, int duracion)
+    {
+        return base.Channel.RegistrarSimulacion(name, fallos, duracion);
+    }
+
+    /*public System.Threading.Tasks.Task<bool> RegistrarSimulacionAsync(string name, int fallos, int duracion)
+    {
+        return base.Channel.RegistrarSimulacionAsync(name, fallos, duracion);
+    }*/
+    
+    public bool RegistrarSimulacionEst(int idCurso, string idEstudiante, string nota)
+    {
+        return base.Channel.RegistrarSimulacionEst(idCurso, idEstudiante, nota);
+    }
+
+    /*public System.Threading.Tasks.Task<bool> RegistrarSimulacionEstAsync(int idCurso, string idEstudiante, string nota)
+    {
+        return base.Channel.RegistrarSimulacionEstAsync(idCurso, idEstudiante, nota);
+    }*/
 }

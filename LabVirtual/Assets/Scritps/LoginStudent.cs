@@ -39,25 +39,58 @@ public class LoginStudent : MonoBehaviour {
         if (ID!=string.Empty && Password != string.Empty)
         {
             //prueva guardado de datos en la base de datos
+            string problem = "no se hizo la coneccion";
             try
             {
+                
                 ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+                /*
+                //int mat = Int32.Parse(ID);
+                servicioWCF.RegistrarMatricula(ID, Password);
 
-                int mat = Int32.Parse(ID);
-                servicioWCF.RegistrarMatricula(mat, Password);
-
-                //string esto = "20140805";
-                int esto = 20140805;
+                string esto = "20140805";
+                //int esto = 20140805;
                 string f = servicioWCF.ObtenerPass(esto);
                 print(f);
 
                 //servicioWCF.ObtenerEstudiantes(esto);
+                */
 
-                //f.
+                //registro de estudiantes
+                /*
+                problem = "no registro estudiantes";
+                servicioWCF.RegistrarEsudiante("20140001", "Mauricio", "Perez", 20140001);
+                servicioWCF.RegistrarEsudiante("20140002", "Melvin", "Pons", 20140002);
+                servicioWCF.RegistrarEsudiante("20140003", "Marco", "Peralta", 20140003);
+
+                problem = "no registro profesor";
+                servicioWCF.RegistrarProfesor("001", "Ignacio", "Gonzales");
+
+                problem = "no registro curso";
+                servicioWCF.RegistrarCurso("Quimica101", "001");
+                */
+
+                problem = "no registro cursoEstudiante";
+                servicioWCF.RegistrarCursoestudiante(1, "20140001");
+                servicioWCF.RegistrarCursoestudiante(1, "20140002");
+                servicioWCF.RegistrarCursoestudiante(1, "20140003");
+
+                servicioWCF.RegistrarSimulacion("Nomenclatura", 0, 120);
+                servicioWCF.RegistrarSimulacion("Balanceo", 0, 120);
+                servicioWCF.RegistrarSimulacion("Estequiometria", 0, 120);
+                servicioWCF.RegistrarSimulacion("Tabla Periodica", 0, 120);
+                servicioWCF.RegistrarSimulacion("Conversion", 0, 120);
+
+                servicioWCF.RegistrarSimulacionEst(1, "20140001", "A");
+                servicioWCF.RegistrarSimulacionEst(2, "20140001", "B");
+                servicioWCF.RegistrarSimulacionEst(3, "20140001", "A");
+                servicioWCF.RegistrarSimulacionEst(4, "20140001", "B");
+                servicioWCF.RegistrarSimulacionEst(5, "20140001", "C");
+
             }
             catch (System.Exception)
             {
-
+                print(problem);
             }
 
             print("Sup");
