@@ -720,10 +720,10 @@ public interface IServiceLab
     //System.Threading.Tasks.Task<string> ObtenerPassAsync(string idEstudiantes);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GenerarReporteEstudiante", ReplyAction="http://tempuri.org/IServiceLab/GenerarReporteEstudianteResponse")]
-    bool GenerarReporteEstudiante(string[] notas);
+    bool GenerarReporteEstudiante(string estudianteID);
     
     //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GenerarReporteEstudiante", ReplyAction="http://tempuri.org/IServiceLab/GenerarReporteEstudianteResponse")]
-    //System.Threading.Tasks.Task<bool> GenerarReporteEstudianteAsync(string[] notas);
+    //System.Threading.Tasks.Task<bool> GenerarReporteEstudianteAsync(string estudianteID);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarEsudiante", ReplyAction="http://tempuri.org/IServiceLab/RegistrarEsudianteResponse")]
     bool RegistrarEsudiante(string id, string name, string lastname, int matricula);
@@ -734,7 +734,7 @@ public interface IServiceLab
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarProfesor", ReplyAction="http://tempuri.org/IServiceLab/RegistrarProfesorResponse")]
     bool RegistrarProfesor(string id, string name, string lastname);
     
-    //[System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarProfesor", ReplyAction="http://tempuri.org/IServiceLab/RegistrarProfesorResponse")]
+    // [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarProfesor", ReplyAction="http://tempuri.org/IServiceLab/RegistrarProfesorResponse")]
     //System.Threading.Tasks.Task<bool> RegistrarProfesorAsync(string id, string name, string lastname);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarCurso", ReplyAction="http://tempuri.org/IServiceLab/RegistrarCursoResponse")]
@@ -800,7 +800,7 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
     {
         return base.Channel.RegistrarMatricula(matricula, password);
     }
-
+    
     /*public System.Threading.Tasks.Task<bool> RegistrarMatriculaAsync(string matricula, string password)
     {
         return base.Channel.RegistrarMatriculaAsync(matricula, password);
@@ -826,14 +826,14 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.ObtenerPassAsync(idEstudiantes);
     }*/
     
-    public bool GenerarReporteEstudiante(string[] notas)
+    public bool GenerarReporteEstudiante(string estudianteID)
     {
-        return base.Channel.GenerarReporteEstudiante(notas);
+        return base.Channel.GenerarReporteEstudiante(estudianteID);
     }
 
-    /*public System.Threading.Tasks.Task<bool> GenerarReporteEstudianteAsync(string[] notas)
+    /*public System.Threading.Tasks.Task<bool> GenerarReporteEstudianteAsync(string estudianteID)
     {
-        return base.Channel.GenerarReporteEstudianteAsync(notas);
+        return base.Channel.GenerarReporteEstudianteAsync(estudianteID);
     }*/
     
     public bool RegistrarEsudiante(string id, string name, string lastname, int matricula)
@@ -880,7 +880,7 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
     {
         return base.Channel.RegistrarSimulacion(name, fallos, duracion);
     }
-
+    
     /*public System.Threading.Tasks.Task<bool> RegistrarSimulacionAsync(string name, int fallos, int duracion)
     {
         return base.Channel.RegistrarSimulacionAsync(name, fallos, duracion);

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 using SimpleJSON;
 using System.IO;
+using System.ServiceModel;
 
 public class Data_Overview_Student : MonoBehaviour {
 
@@ -26,6 +27,8 @@ public class Data_Overview_Student : MonoBehaviour {
         //SetGrades("Tabla Periodica", "1");
         //SetGrades("Conversion de Unidades", "4");
         //SetGrades("Estequiometria", "5");
+
+
     }
 	
 	// Update is called once per frame
@@ -107,6 +110,24 @@ public class Data_Overview_Student : MonoBehaviour {
         SetGrades("Tabla Periodica", GradeJSON["Tabla Periodica"]);
         SetGrades("Conversion de Unidades", GradeJSON["Conversion de Unidades"]);
         SetGrades("Estequiometria", GradeJSON["Estequiometria"]);
+    }
+
+    public void GenerateReport()
+    {
+        string problem = "no se hizo la coneccion";
+        try
+        {
+
+            ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+            
+            servicioWCF.GenerarReporteEstudiante("melissa");
+            
+
+        }
+        catch (System.Exception)
+        {
+            print(problem);
+        }
     }
 
 }
