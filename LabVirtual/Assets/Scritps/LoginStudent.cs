@@ -68,7 +68,7 @@ public class LoginStudent : MonoBehaviour {
 
                 problem = "no registro curso";
                 servicioWCF.RegistrarCurso("Quimica101", "001");
-                */
+                
 
                 problem = "no registro cursoEstudiante";
                 servicioWCF.RegistrarCursoestudiante(1, "20140001");
@@ -86,6 +86,7 @@ public class LoginStudent : MonoBehaviour {
                 servicioWCF.RegistrarSimulacionEst(3, "20140001", "A");
                 servicioWCF.RegistrarSimulacionEst(4, "20140001", "B");
                 servicioWCF.RegistrarSimulacionEst(5, "20140001", "C");
+                */
 
             }
             catch (System.Exception)
