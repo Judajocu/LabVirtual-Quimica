@@ -120,7 +120,7 @@ public class Data_Overview_Student : MonoBehaviour {
 
             ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
             
-            string esto=servicioWCF.GenerarReporteEstudiante("melissa");
+            string esto=servicioWCF.GenerarReporteEstudiante("20140001");
             print(esto);
 
 

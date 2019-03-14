@@ -728,6 +728,9 @@ public interface IServiceLab
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarSimulacion", ReplyAction="http://tempuri.org/IServiceLab/RegistrarSimulacionResponse")]
     bool RegistrarSimulacion(string name, int fallos, int duracion);
     
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarSimulacionEst", ReplyAction="http://tempuri.org/IServiceLab/RegistrarSimulacionEstResponse")]
+    bool RegistrarSimulacionEst(int idCurso, string idEstudiante, string nota);
+    
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -794,7 +797,6 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.RegistrarProfesor(id, name, lastname);
     }
     
-    
     public bool RegistrarCurso(string name, string idprofesor)
     {
         return base.Channel.RegistrarCurso(name, idprofesor);
@@ -808,6 +810,11 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
     public bool RegistrarSimulacion(string name, int fallos, int duracion)
     {
         return base.Channel.RegistrarSimulacion(name, fallos, duracion);
+    }
+    
+    public bool RegistrarSimulacionEst(int idCurso, string idEstudiante, string nota)
+    {
+        return base.Channel.RegistrarSimulacionEst(idCurso, idEstudiante, nota);
     }
     
 }
