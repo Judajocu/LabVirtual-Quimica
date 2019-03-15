@@ -41,6 +41,11 @@ public class Options_Professor : MonoBehaviour {
        SceneManager.LoadScene("Setting_Professor");
     }
 
+    public void ValidateSimulations()
+    {
+        SceneManager.LoadScene("Dynamic_Simulations");
+    }
+
     public void ValidateLogout()
     {
         SceneManager.LoadScene("Entryway");
