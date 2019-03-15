@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 267880664}
   - component: {fileID: 267880663}
   m_Layer: 5
-  m_Name: "Intervalo_Evaluaci\xF3n"
+  m_Name: Prob_lvl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -837,7 +837,7 @@ GameObject:
   - component: {fileID: 414347475}
   - component: {fileID: 414347474}
   m_Layer: 5
-  m_Name: InputFieldEvaluacion
+  m_Name: InputFieldProb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1194,8 +1194,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927edf8b59cc5dc4eb90982097ace6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonSave: {fileID: 0}
-  ButtonAceptar: {fileID: 0}
+  buttonSave: {fileID: 1285253420}
+  Sol: {fileID: 927330767}
+  Prob: {fileID: 414347474}
+  Nivels: {fileID: 1477940084}
+  Pro: {fileID: 1773083688}
+  ButtonAceptar: {fileID: 1285253418}
 --- !u!1 &550107369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,7 +1525,7 @@ GameObject:
   - component: {fileID: 927330768}
   - component: {fileID: 927330767}
   m_Layer: 5
-  m_Name: InputFieldPenalidad
+  m_Name: InputFieldSol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2611,7 +2615,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -2711,7 +2715,7 @@ GameObject:
   - component: {fileID: 1734540361}
   - component: {fileID: 1734540360}
   m_Layer: 5
-  m_Name: Tiempo_Simulaciones
+  m_Name: Lvl_Simulation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2995,7 +2999,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 1
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -3108,7 +3112,18 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 461149852}
+        m_MethodName: GetContext
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: TMPro.TMP_InputField+SubmitEvent, Unity.TextMeshPro, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnSubmit:
@@ -3571,7 +3586,7 @@ GameObject:
   - component: {fileID: 2064003622}
   - component: {fileID: 2064003621}
   m_Layer: 5
-  m_Name: Penalidad_Simulaciones
+  m_Name: Sol_lvl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
