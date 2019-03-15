@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class Dynamic_Selection_Script : MonoBehaviour {
 
     #region Variables
+    public Button buttonMenu;
     public Button buttonBalance;
     public Button buttonTable;
     public Button buttonConversion;
     public Button buttonNomenclature;
     public Button buttonEstequimetria;
 
-    
+    public GameObject menu;
     public GameObject balance;
     public GameObject table;
     public GameObject conversion;
@@ -32,6 +33,10 @@ public class Dynamic_Selection_Script : MonoBehaviour {
     void Update()
     {
 
+    }
+    public void ValidateMenu()
+    {
+        SceneManager.LoadScene("Options_Professor");
     }
     public void ValidateBalance()
     {
