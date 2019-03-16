@@ -12,6 +12,8 @@ public class LoginStudent : MonoBehaviour {
     public GameObject id;
     public GameObject password;
     public GameObject login;
+    private string pass;
+    private string identification;
 
     MoodleAPI moodleAPI;
 
@@ -22,13 +24,15 @@ public class LoginStudent : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-        
-              
+
+        identification = id.GetComponent<InputField>().text;
+        pass = password.GetComponent<InputField>().text;
+
     }
 
     public void ValidateLogin()
