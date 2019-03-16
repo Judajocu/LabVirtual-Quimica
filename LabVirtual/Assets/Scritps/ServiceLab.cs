@@ -606,6 +606,8 @@ namespace LabServerConnection
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        private LabServerConnection.Datosdinamicos[] DatosdinamicosField;
+        
         private System.Nullable<int> SimCantFallosField;
         
         private System.Nullable<long> SimDuracionField;
@@ -625,6 +627,19 @@ namespace LabServerConnection
             set
             {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LabServerConnection.Datosdinamicos[] Datosdinamicos
+        {
+            get
+            {
+                return this.DatosdinamicosField;
+            }
+            set
+            {
+                this.DatosdinamicosField = value;
             }
         }
         
@@ -693,6 +708,102 @@ namespace LabServerConnection
             }
         }
     }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Datosdinamicos", Namespace="http://schemas.datacontract.org/2004/07/LabServerConnection")]
+    public partial class Datosdinamicos : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private System.Nullable<long> DataIntField;
+        
+        private string DatastringField;
+        
+        private string NombreIDField;
+        
+        private LabServerConnection.Simulaciones SimulacionesField;
+        
+        private System.Nullable<int> simulacionIDField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> DataInt
+        {
+            get
+            {
+                return this.DataIntField;
+            }
+            set
+            {
+                this.DataIntField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Datastring
+        {
+            get
+            {
+                return this.DatastringField;
+            }
+            set
+            {
+                this.DatastringField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreID
+        {
+            get
+            {
+                return this.NombreIDField;
+            }
+            set
+            {
+                this.NombreIDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public LabServerConnection.Simulaciones Simulaciones
+        {
+            get
+            {
+                return this.SimulacionesField;
+            }
+            set
+            {
+                this.SimulacionesField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> simulacionID
+        {
+            get
+            {
+                return this.simulacionIDField;
+            }
+            set
+            {
+                this.simulacionIDField = value;
+            }
+        }
+    }
 }
 
 
@@ -730,6 +841,18 @@ public interface IServiceLab
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarSimulacionEst", ReplyAction="http://tempuri.org/IServiceLab/RegistrarSimulacionEstResponse")]
     bool RegistrarSimulacionEst(int idCurso, string idEstudiante, string nota);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/verificarEstudiante", ReplyAction="http://tempuri.org/IServiceLab/verificarEstudianteResponse")]
+    bool verificarEstudiante(string idEstudiantes);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/verificarProfesor", ReplyAction="http://tempuri.org/IServiceLab/verificarProfesorResponse")]
+    bool verificarProfesor(string idprofesor);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GuardarCambioDinamicos", ReplyAction="http://tempuri.org/IServiceLab/GuardarCambioDinamicosResponse")]
+    bool GuardarCambioDinamicos(string[] idprofesor);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/BuscarDatosD", ReplyAction="http://tempuri.org/IServiceLab/BuscarDatosDResponse")]
+    string[] BuscarDatosD(string[] datos);
     
 }
 
@@ -815,6 +938,26 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
     public bool RegistrarSimulacionEst(int idCurso, string idEstudiante, string nota)
     {
         return base.Channel.RegistrarSimulacionEst(idCurso, idEstudiante, nota);
+    }
+    
+    public bool verificarEstudiante(string idEstudiantes)
+    {
+        return base.Channel.verificarEstudiante(idEstudiantes);
+    }
+    
+    public bool verificarProfesor(string idprofesor)
+    {
+        return base.Channel.verificarProfesor(idprofesor);
+    }
+    
+    public bool GuardarCambioDinamicos(string[] idprofesor)
+    {
+        return base.Channel.GuardarCambioDinamicos(idprofesor);
+    }
+    
+    public string[] BuscarDatosD(string[] datos)
+    {
+        return base.Channel.BuscarDatosD(datos);
     }
     
 }

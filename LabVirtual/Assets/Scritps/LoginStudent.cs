@@ -21,6 +21,7 @@ public class LoginStudent : MonoBehaviour {
 
     private string ID;
     private string Password;
+    private bool logueo = false;
 
 	// Use this for initialization
 	void Start () {
@@ -48,6 +49,11 @@ public class LoginStudent : MonoBehaviour {
             {
                 
                 ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+
+
+                logueo= servicioWCF.verificarEstudiante(identification);
+
+
                 /*
                 //int mat = Int32.Parse(ID);
                 servicioWCF.RegistrarMatricula(ID, Password);
