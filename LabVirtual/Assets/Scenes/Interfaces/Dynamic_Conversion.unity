@@ -559,11 +559,11 @@ RectTransform:
   m_LocalScale: {x: 1.0000509, y: 1.0000509, z: 1.0000509}
   m_Children: []
   m_Father: {fileID: 1218473425}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.04345347, y: 0.4121411}
   m_AnchorMax: {x: 0.81965154, y: 0.47870553}
-  m_AnchoredPosition: {x: 0.3999939, y: 1.5}
+  m_AnchoredPosition: {x: 0.4000244, y: 1.5}
   m_SizeDelta: {x: 2.4000015, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &267880663
@@ -634,11 +634,11 @@ RectTransform:
   m_LocalScale: {x: 0.9999222, y: 0.9999222, z: 0.9999222}
   m_Children: []
   m_Father: {fileID: 1218473425}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.04345347, y: 0.2625767}
   m_AnchorMax: {x: 0.81965154, y: 0.32771787}
-  m_AnchoredPosition: {x: 20.034, y: 0.5}
+  m_AnchoredPosition: {x: 20.033997, y: 0.5}
   m_SizeDelta: {x: 41.668, y: 1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &344832517
@@ -837,7 +837,7 @@ GameObject:
   - component: {fileID: 414347475}
   - component: {fileID: 414347474}
   m_Layer: 5
-  m_Name: InputFieldProb
+  m_Name: InputFieldProbInicio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -855,7 +855,7 @@ RectTransform:
   m_Children:
   - {fileID: 2027204128}
   m_Father: {fileID: 1218473425}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.113265365, y: 0.33342332}
   m_AnchorMax: {x: 0.5, y: 0.40300003}
@@ -911,8 +911,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CheckChange
+      - m_Target: {fileID: 461149848}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1191,12 +1191,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 461149848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 927edf8b59cc5dc4eb90982097ace6d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 150fb17de6826fc41a5e65ef814a2cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttonSave: {fileID: 1285253420}
-  Sol: {fileID: 927330767}
-  Prob: {fileID: 414347474}
+  SolIzquierda: {fileID: 927330767}
+  SolDerecha: {fileID: 1500795525}
+  ProbInicio: {fileID: 414347474}
+  ProbFinal: {fileID: 1175750879}
   Nivels: {fileID: 1477940084}
   Pro: {fileID: 1773083688}
   ButtonAceptar: {fileID: 1285253418}
@@ -1675,7 +1677,7 @@ GameObject:
   - component: {fileID: 927330768}
   - component: {fileID: 927330767}
   m_Layer: 5
-  m_Name: InputFieldSol
+  m_Name: InputFieldSolFormula
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1748,7 +1750,18 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 461149848}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
@@ -1971,7 +1984,7 @@ GameObject:
   - component: {fileID: 1175750880}
   - component: {fileID: 1175750879}
   m_Layer: 5
-  m_Name: InputFieldProb (1)
+  m_Name: InputFieldProbFinal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1989,7 +2002,7 @@ RectTransform:
   m_Children:
   - {fileID: 815650779}
   m_Father: {fileID: 1218473425}
-  m_RootOrder: 11
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.560212, y: 0.33342332}
   m_AnchorMax: {x: 0.92321986, y: 0.40300003}
@@ -2045,8 +2058,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CheckChange
+      - m_Target: {fileID: 461149848}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2135,14 +2148,14 @@ RectTransform:
   - {fileID: 1734540359}
   - {fileID: 2064003620}
   - {fileID: 927330766}
+  - {fileID: 1500795524}
   - {fileID: 267880662}
   - {fileID: 414347473}
+  - {fileID: 1175750878}
   - {fileID: 1285253419}
   - {fileID: 1477940083}
   - {fileID: 344832516}
   - {fileID: 1773083687}
-  - {fileID: 1500795524}
-  - {fileID: 1175750878}
   m_Father: {fileID: 251642724}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2332,11 +2345,11 @@ RectTransform:
   m_Children:
   - {fileID: 1408278730}
   m_Father: {fileID: 1218473425}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.006}
   m_AnchorMax: {x: 1, y: 0.10236672}
-  m_AnchoredPosition: {x: 0.5, y: -1.2000732}
+  m_AnchoredPosition: {x: 0.5, y: -1.1999512}
   m_SizeDelta: {x: 0, y: 3.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1285253420
@@ -2378,7 +2391,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 461149852}
+      - m_Target: {fileID: 0}
         m_MethodName: ValidateChange
         m_Mode: 1
         m_Arguments:
@@ -2676,7 +2689,7 @@ RectTransform:
   - {fileID: 2120978826}
   - {fileID: 1999789506}
   m_Father: {fileID: 1218473425}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.24765149, y: 0.64212865}
   m_AnchorMax: {x: 0.8014773, y: 0.72056437}
@@ -2788,7 +2801,7 @@ GameObject:
   - component: {fileID: 1500795526}
   - component: {fileID: 1500795525}
   m_Layer: 5
-  m_Name: InputFieldSol (1)
+  m_Name: InputFieldSolValor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2806,11 +2819,11 @@ RectTransform:
   m_Children:
   - {fileID: 871376496}
   m_Father: {fileID: 1218473425}
-  m_RootOrder: 10
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.53647727, y: 0.5}
   m_AnchorMax: {x: 0.93600005, y: 0.55484647}
-  m_AnchoredPosition: {x: 1, y: -3.9999962}
+  m_AnchoredPosition: {x: 1, y: -4}
   m_SizeDelta: {x: -4.3999634, y: 11.799995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1500795525
@@ -2861,7 +2874,18 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 461149848}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
@@ -2942,7 +2966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.600006, y: 0.80000305}
+  m_AnchoredPosition: {x: 5.6000366, y: 0.80000305}
   m_SizeDelta: {x: 11.1, y: 16.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1565871232
@@ -3046,7 +3070,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -3167,7 +3191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.04345347, y: 0.72670543}
   m_AnchorMax: {x: 0.74865156, y: 0.81328225}
-  m_AnchoredPosition: {x: -0.5, y: 0.8500061}
+  m_AnchoredPosition: {x: -0.5, y: 0.8499756}
   m_SizeDelta: {x: 0.5999985, y: -0.70000076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1734540360
@@ -3482,7 +3506,7 @@ RectTransform:
   - {fileID: 2000352005}
   - {fileID: 430074399}
   m_Father: {fileID: 1218473425}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.04345347, y: 0.11757675}
   m_AnchorMax: {x: 0.94730306, y: 0.25685892}
@@ -3544,7 +3568,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 461149852}
+      - m_Target: {fileID: 0}
         m_MethodName: GetContext
         m_Mode: 1
         m_Arguments:
@@ -4047,7 +4071,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.04345347, y: 0.55484647}
   m_AnchorMax: {x: 0.7905229, y: 0.63642323}
-  m_AnchoredPosition: {x: 0.3999939, y: 1.5}
+  m_AnchoredPosition: {x: 0.4000244, y: 1.5}
   m_SizeDelta: {x: 0.80000305, y: 0.79999924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2064003621

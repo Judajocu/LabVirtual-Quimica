@@ -5,34 +5,38 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class Dynamic_Balanceo : MonoBehaviour {
+public class Dynamic_Conversion : MonoBehaviour {
 
     #region Varialbes
     public Button buttonSave;
     public InputField SolIzquierda;
     public InputField SolDerecha;
-    public InputField Prob;
+    public InputField ProbInicio;
+    public InputField ProbFinal;
     public Dropdown Nivels;
     public TMP_InputField Pro;
 
     public GameObject ButtonAceptar;
 
     string sol;
-    string prob;
+    string probInicio;
+    string probFinal;
     string nivels;
     string context;
     #endregion
 
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void ValidateChange()
     {
@@ -41,13 +45,19 @@ public class Dynamic_Balanceo : MonoBehaviour {
     //Esto consigue el texto de la solucion despues que se cambia
     public void GetSol()
     {
-        sol = SolIzquierda.text + " "+ SolDerecha.text;
+        sol = SolIzquierda.text + " " + SolDerecha.text;
     }
     //Esto consigue el texto del problema despues que se cambia
-    public void GetProb()
+    public void GetProbInicio()
     {
-        prob = Prob.text;
+        probInicio = ProbInicio.text;
     }
+
+    public void GetProbFinal()
+    {
+        probFinal = ProbFinal.text;
+    }
+
     //Esto consigue el texto del dropdown
     public void GetNivel()
     {
@@ -58,5 +68,4 @@ public class Dynamic_Balanceo : MonoBehaviour {
     {
         context = Pro.text;
     }
-
 }

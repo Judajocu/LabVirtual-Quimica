@@ -935,7 +935,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonSave: {fileID: 1285253420}
-  Sol: {fileID: 927330767}
+  SolIzquierda: {fileID: 927330767}
+  SolDerecha: {fileID: 554708055}
   Prob: {fileID: 414347474}
   Nivels: {fileID: 1477940084}
   Pro: {fileID: 0}
