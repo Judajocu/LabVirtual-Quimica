@@ -30,6 +30,8 @@ public class LoginProfessor : MonoBehaviour {
         Password = password.GetComponent<InputField>().text;
         if (Username!=string.Empty && Password!=string.Empty)
         {
+
+            GameObject.FindGameObjectWithTag("seccion").GetComponent<UserSession>().SendMessage("cambio", Username);
             print("Sup");
             SceneManager.LoadScene("Overview-Professor");
         }

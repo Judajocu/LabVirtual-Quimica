@@ -21,6 +21,7 @@ TagManager:
   - formula
   - m1
   - m2
+  - seccion
   layers:
   - Default
   - TransparentFX

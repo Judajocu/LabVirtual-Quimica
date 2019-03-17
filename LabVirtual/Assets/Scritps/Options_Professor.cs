@@ -48,6 +48,7 @@ public class Options_Professor : MonoBehaviour {
 
     public void ValidateLogout()
     {
+        GameObject.FindGameObjectWithTag("seccion").GetComponent<UserSession>().SendMessage("limpiar", gameObject);
         SceneManager.LoadScene("Entryway");
     }
 }

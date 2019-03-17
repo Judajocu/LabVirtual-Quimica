@@ -45,14 +45,15 @@ public class LoginStudent : MonoBehaviour {
         {
             //prueva guardado de datos en la base de datos
             string problem = "no se hizo la coneccion";
+            GameObject.FindGameObjectWithTag("seccion").GetComponent<UserSession>().SendMessage("cambio", ID);
             try
             {
                 
                 ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
 
-
-                logueo= servicioWCF.verificarEstudiante(identification);
-
+                
+                logueo = servicioWCF.verificarEstudiante(identification);
+                Debug.Log("logueo:" + logueo);
 
                 /*
                 //int mat = Int32.Parse(ID);
