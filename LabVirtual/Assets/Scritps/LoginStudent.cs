@@ -12,6 +12,9 @@ public class LoginStudent : MonoBehaviour {
     public GameObject id;
     public GameObject password;
     public GameObject login;
+
+    public GameObject letrero;
+
     private string pass;
     private string identification;
 
@@ -25,7 +28,7 @@ public class LoginStudent : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        letrero.gameObject.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -46,7 +49,7 @@ public class LoginStudent : MonoBehaviour {
             //prueva guardado de datos en la base de datos
             string problem = "no se hizo la coneccion";
             GameObject.FindGameObjectWithTag("seccion").GetComponent<UserSession>().SendMessage("cambio", ID);
-           /* try
+            try
             {
                 
                 ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
@@ -97,6 +100,7 @@ public class LoginStudent : MonoBehaviour {
                 servicioWCF.RegistrarSimulacionEst(3, "20140001", "A");
                 servicioWCF.RegistrarSimulacionEst(4, "20140001", "B");
                 servicioWCF.RegistrarSimulacionEst(5, "20140001", "C");
+                */
                 
 
             }
@@ -104,9 +108,16 @@ public class LoginStudent : MonoBehaviour {
             {
                 print(problem);
             }
-            */
-            print("Sup");
-            SceneManager.LoadScene("Overview-Student");
+
+            if (logueo)
+            {
+                print("Sup");
+                SceneManager.LoadScene("Overview-Student");
+            }
+            else
+            {
+                letrero.gameObject.SetActive(true);
+            }
         }
     }
     public void ValidateBack()
