@@ -46,7 +46,7 @@ public class LoginStudent : MonoBehaviour {
             //prueva guardado de datos en la base de datos
             string problem = "no se hizo la coneccion";
             GameObject.FindGameObjectWithTag("seccion").GetComponent<UserSession>().SendMessage("cambio", ID);
-            try
+           /* try
             {
                 
                 ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
@@ -97,14 +97,14 @@ public class LoginStudent : MonoBehaviour {
                 servicioWCF.RegistrarSimulacionEst(3, "20140001", "A");
                 servicioWCF.RegistrarSimulacionEst(4, "20140001", "B");
                 servicioWCF.RegistrarSimulacionEst(5, "20140001", "C");
-                */
+                
 
             }
             catch (System.Exception)
             {
                 print(problem);
             }
-
+            */
             print("Sup");
             SceneManager.LoadScene("Overview-Student");
         }
