@@ -864,10 +864,10 @@ public interface IServiceLab
     bool verificarProfesor(string idprofesor, string password);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GuardarCambioDinamicos", ReplyAction="http://tempuri.org/IServiceLab/GuardarCambioDinamicosResponse")]
-    bool GuardarCambioDinamicos(string[] idprofesor);
+    bool GuardarCambioDinamicos(string simulacion, string[] dato, int dato2, string nivel, string[] nombreData);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/BuscarDatosD", ReplyAction="http://tempuri.org/IServiceLab/BuscarDatosDResponse")]
-    string[] BuscarDatosD(string[] datos);
+    string[] BuscarDatosD(string simulacion, string nivel, string[] nombreData);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/devolverNotasEst", ReplyAction="http://tempuri.org/IServiceLab/devolverNotasEstResponse")]
     string[] devolverNotasEst(string idEstudiantes);
@@ -974,14 +974,14 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.verificarProfesor(idprofesor, password);
     }
     
-    public bool GuardarCambioDinamicos(string[] idprofesor)
+    public bool GuardarCambioDinamicos(string simulacion, string[] dato, int dato2, string nivel, string[] nombreData)
     {
-        return base.Channel.GuardarCambioDinamicos(idprofesor);
+        return base.Channel.GuardarCambioDinamicos(simulacion, dato, dato2, nivel, nombreData);
     }
     
-    public string[] BuscarDatosD(string[] datos)
+    public string[] BuscarDatosD(string simulacion, string nivel, string[] nombreData)
     {
-        return base.Channel.BuscarDatosD(datos);
+        return base.Channel.BuscarDatosD(simulacion, nivel, nombreData);
     }
     
     public string[] devolverNotasEst(string idEstudiantes)
@@ -998,5 +998,4 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
     {
         base.Channel.datosUser(idEstudiante);
     }
-    
 }

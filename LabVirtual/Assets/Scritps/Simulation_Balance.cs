@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using SimpleJSON;
+using System.ServiceModel;
 
 public class Simulation_Balance : MonoBehaviour {
 
@@ -46,20 +47,29 @@ public class Simulation_Balance : MonoBehaviour {
     float time_left = 0.0f;
     float timeup;
     bool type;
-    
+
+    public string level;
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+
     Scene activeScene;
     #endregion
 
     // Use this for initialization
     void Start ()
     {
+        string[] simulacionesNombre = new string[3] { "problema", "SolIzq", "SolDer" };
+        string[] resultados = servicioWCF.BuscarDatosD("Balanceo", level, simulacionesNombre);
+
         timeup = settings.Gettime();
         CheckType();
         
         textcant_fallos = GameObject.Find("Errores").GetComponent<TextMesh>();
         cantinput = GameObject.Find("CantInput").GetComponent<TextMesh>();
         cantoutput = GameObject.Find("CantOutput").GetComponent<TextMesh>();
+        GameObject.Find("Cant_result").GetComponent<TextMesh>().text = resultados[1] + " " + resultados[2];
+        GameObject.Find("Ecuation").GetComponent<TextMesh>().text = resultados[0];
         cantresult = GameObject.Find("Cant_result").GetComponent<TextMesh>();
+        
         CheckTime();
     }
 	

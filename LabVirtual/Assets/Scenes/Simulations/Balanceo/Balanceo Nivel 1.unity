@@ -2765,6 +2765,7 @@ MonoBehaviour:
     type: 2}
   ElementoutputPrefab: {fileID: 1063891330792728, guid: 08b222c9099f43449a16c18b3a731a02,
     type: 2}
+  level: Nivel1
 --- !u!1 &1962510158
 GameObject:
   m_ObjectHideFlags: 0
