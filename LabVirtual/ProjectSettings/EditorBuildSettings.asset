@@ -164,4 +164,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Interfaces/Dynamic_Estequiometria.unity
     guid: 7c53a737c73855449bd613834a805d86
+  - enabled: 1
+    path: Assets/Scenes/Interfaces/Dynamic_Conversion.unity
+    guid: ee54b82cd1a44434fb4b1c864e34348b
   m_configObjects: {}
