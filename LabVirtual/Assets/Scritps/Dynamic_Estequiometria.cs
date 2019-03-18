@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.ServiceModel;
+using System;
 
 public class Dynamic_Estequiometria : MonoBehaviour {
 
@@ -28,22 +29,38 @@ public class Dynamic_Estequiometria : MonoBehaviour {
     // Use this for initialization
     void Start () {
         GetNivel();
+        /*GetContext();
+        Debug.Log("Original: "+context);
+        string[] mierda = context.Split('\n');
+        string lala="";
+        for (int i = 0; i < datos.Length; i++)
+        {
+            Debug.Log(mierda[i]);
+            lala += mierda[i] + Environment.NewLine;
+        }
+        
+        Debug.Log("version resubida: @" + lala);*/
 
         /*string[] simulacionesNombre = new string[3] { "problema", "Solucion", "Contexto" };
 
-        string[] simulacionesData = new string[3] { "__H2O₂ = __H₂O + O₂", "2", "2" };
-        servicioWCF.GuardarCambioDinamicos("Estequiometria", simulacionesData, 0,"Nivel1",simulacionesNombre);
-        
-        simulacionesData = new string[3] { "H₂ + Cl₂ = _HCl", "0", "2" };
+        string texto = "Masa atómica del carbono = 12,0107@@Masa atómica del oxígeno = 15,9994@@Encontrar la masa molecular del reactivo O";
+        string[] simulacionesData = new string[3] { "C + O₂ = CO₂", "266.41", texto };
+        servicioWCF.GuardarCambioDinamicos("Estequiometria", simulacionesData, 0, "Nivel1", simulacionesNombre);
+
+        texto = "Masa atómica del carbono = 12.01@@Masa atómica del oxígeno = 15.99@Masa atómica del sodio = 22.99@@Masa atómica del hidrógeno = 1.008@@Encontrar la masa molecular de la mezcla.";
+        simulacionesData = new string[3] { "NaHCO₃", "84.01", texto };
         servicioWCF.GuardarCambioDinamicos("Estequiometria", simulacionesData, 0, "Nivel2", simulacionesNombre);
-        
-        simulacionesData = new string[3] { "N₂+ _H₂ = _NH₃", "3", "2" };
+
+        texto = "Masa atómica del azufre = 15.99@@Masa atómica del oxígeno = 32.06@@Masa atómica del hidrógeno = 1.008@@Encontrar la masa atómica total de la mezcla.";
+        simulacionesData = new string[3] { "H₂SO₄", "98.07", texto };
         servicioWCF.GuardarCambioDinamicos("Estequiometria", simulacionesData, 0, "Nivel3", simulacionesNombre);
-        
-        simulacionesData = new string[3] { "_Na + O₂ = _Na₂O", "4", "2" };
+
+        texto = "Masa atómica del potasio = 39.098@@Masa atómica del oxígeno = 15.99@@Masa atómica del cloro = 35.45@@Encontrar la masa atómica de la mezcla.";
+        simulacionesData = new string[3] { "KClO₃", "122.55", texto };
         servicioWCF.GuardarCambioDinamicos("Estequiometria", simulacionesData, 0, "Nivel4", simulacionesNombre);
-        
-        simulacionesData = new string[3] { "__NAOH + H2SO₄ = Na₂SO₄ + _H₂O", "2", "2" };
+
+        texto = "Masa atómica del carbono = 12.01@@Masa atómica del calcio = 40.078@@Masa atómica del oxígeno = 15.99@@Encontrar la masa atómica de la mezcla.";
+        simulacionesData = new string[3] { "CaCO₃", "100.086", texto };
         servicioWCF.GuardarCambioDinamicos("Estequiometria", simulacionesData, 0, "Nivel5", simulacionesNombre);*/
 
         //carga de los datos guardados
