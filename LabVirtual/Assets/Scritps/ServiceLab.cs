@@ -23,7 +23,7 @@ namespace LabServerConnection
         
         private string EstApellidoField;
         
-        private System.Nullable<int> EstMatriculaField;
+        private string EstMatriculaField;
         
         private string EstNombreField;
         
@@ -65,7 +65,7 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> EstMatricula
+        public string EstMatricula
         {
             get
             {
@@ -840,7 +840,7 @@ public interface IServiceLab
     string GenerarReporteEstudiante(string estudianteID);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarEsudiante", ReplyAction="http://tempuri.org/IServiceLab/RegistrarEsudianteResponse")]
-    bool RegistrarEsudiante(string id, string name, string lastname, int matricula);
+    bool RegistrarEsudiante(string id, string name, string lastname, string matricula);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarProfesor", ReplyAction="http://tempuri.org/IServiceLab/RegistrarProfesorResponse")]
     bool RegistrarProfesor(string id, string name, string lastname);
@@ -858,10 +858,10 @@ public interface IServiceLab
     bool RegistrarSimulacionEst(string NombreSim, string idEstudiante, string nota);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/verificarEstudiante", ReplyAction="http://tempuri.org/IServiceLab/verificarEstudianteResponse")]
-    bool verificarEstudiante(string idEstudiantes);
+    bool verificarEstudiante(string idEstudiantes, string password);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/verificarProfesor", ReplyAction="http://tempuri.org/IServiceLab/verificarProfesorResponse")]
-    bool verificarProfesor(string idprofesor);
+    bool verificarProfesor(string idprofesor, string password);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GuardarCambioDinamicos", ReplyAction="http://tempuri.org/IServiceLab/GuardarCambioDinamicosResponse")]
     bool GuardarCambioDinamicos(string[] idprofesor);
@@ -874,6 +874,9 @@ public interface IServiceLab
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/updateNota", ReplyAction="http://tempuri.org/IServiceLab/updateNotaResponse")]
     bool updateNota(string NombreSim, string idEstudiante, string nota, int id);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/datosUser", ReplyAction="http://tempuri.org/IServiceLab/datosUserResponse")]
+    void datosUser(string idEstudiante);
     
 }
 
@@ -931,7 +934,7 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.GenerarReporteEstudiante(estudianteID);
     }
     
-    public bool RegistrarEsudiante(string id, string name, string lastname, int matricula)
+    public bool RegistrarEsudiante(string id, string name, string lastname, string matricula)
     {
         return base.Channel.RegistrarEsudiante(id, name, lastname, matricula);
     }
@@ -961,14 +964,14 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.RegistrarSimulacionEst(NombreSim, idEstudiante, nota);
     }
     
-    public bool verificarEstudiante(string idEstudiantes)
+    public bool verificarEstudiante(string idEstudiantes, string password)
     {
-        return base.Channel.verificarEstudiante(idEstudiantes);
+        return base.Channel.verificarEstudiante(idEstudiantes, password);
     }
     
-    public bool verificarProfesor(string idprofesor)
+    public bool verificarProfesor(string idprofesor, string password)
     {
-        return base.Channel.verificarProfesor(idprofesor);
+        return base.Channel.verificarProfesor(idprofesor, password);
     }
     
     public bool GuardarCambioDinamicos(string[] idprofesor)
@@ -989,6 +992,11 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
     public bool updateNota(string NombreSim, string idEstudiante, string nota, int id)
     {
         return base.Channel.updateNota(NombreSim, idEstudiante, nota, id);
+    }
+    
+    public void datosUser(string idEstudiante)
+    {
+        base.Channel.datosUser(idEstudiante);
     }
     
 }

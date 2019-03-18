@@ -9,7 +9,8 @@ using System.IO;
 using System;
 using System.ServiceModel;
 
-public class Result_Script : MonoBehaviour {
+public class Result_Script : MonoBehaviour
+{
 
     #region Variables
     TextMesh cant_intentos;
@@ -44,7 +45,8 @@ public class Result_Script : MonoBehaviour {
     #endregion
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         Usuario = GameObject.FindObjectOfType<UserSession>();
         ID = Usuario.darID();
 
@@ -57,22 +59,23 @@ public class Result_Script : MonoBehaviour {
         GetIntentosCount();
         GetGrade();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void ValidateMenu()
     {
-        
+
         SceneManager.LoadScene("Options_Student");
     }
 
     public double GetAverageTrys()
     {
         float sum = 0;
-        if(intentos == null)
+        if (intentos == null)
         {
             return sum = 1;
         }
@@ -93,9 +96,9 @@ public class Result_Script : MonoBehaviour {
     }
 
     public void GetIntentosCount()
-    {   
+    {
         int sum = 0;
-        if(intentos == null)
+        if (intentos == null)
         {
             sum = 5;
         }
@@ -107,7 +110,7 @@ public class Result_Script : MonoBehaviour {
 
             }
         }
-        
+
         cant_intentos.text = "Total de intentos :" + sum;
     }
 
@@ -140,11 +143,11 @@ public class Result_Script : MonoBehaviour {
         {
             time += 0.0f;
         }
-        if (trys < penalidad*2 && trys > penalidad)
+        if (trys < penalidad * 2 && trys > penalidad)
         {
             time += 5.0f;
         }
-        if (trys > penalidad*3)
+        if (trys > penalidad * 3)
         {
             time += 10.0f;
         }
@@ -159,13 +162,13 @@ public class Result_Script : MonoBehaviour {
         if (final_time <= intervalo)
             grade = "A";
 
-        if (final_time >= intervalo+0.1 && final_time <= intervalo*2)
+        if (final_time >= intervalo + 0.1 && final_time <= intervalo * 2)
             grade = "B";
 
-        if (final_time >= intervalo*2+0.1 && final_time <= intervalo*3)
+        if (final_time >= intervalo * 2 + 0.1 && final_time <= intervalo * 3)
             grade = "C";
 
-        if (final_time >= intervalo*3+0.1)
+        if (final_time >= intervalo * 3 + 0.1)
             grade = "D";
 
         return grade;
@@ -179,7 +182,7 @@ public class Result_Script : MonoBehaviour {
         double final_time = CheckTrys(trys, tots);
 
         string grade = AssingGrade(final_time);
-        if(type!=true)
+        if (type != true)
             GetSimulationName(grade);
 
         nota_resultante.text = "Calificacion resultante:" + grade;
@@ -197,7 +200,7 @@ public class Result_Script : MonoBehaviour {
             notas.Add("0");
         }
         else
-        {   
+        {
             string jsonString = File.ReadAllText(path);
             JSONObject GradeJSON = (JSONObject)JSON.Parse(jsonString);
             notas.Add(GradeJSON["Balanceo de Ecuaciones"]);
@@ -222,7 +225,7 @@ public class Result_Script : MonoBehaviour {
     {
         Load();
         JSONObject resultJSON = new JSONObject();
-        
+
         switch (simulation_Options.GetSelected())
         {
             case 1:
@@ -286,7 +289,7 @@ public class Result_Script : MonoBehaviour {
                 File.WriteAllText(path5, resultJSON.ToString());*/
                 return;
         }
-        
+
     }
     public void GetSimulationData()
     {
@@ -299,17 +302,17 @@ public class Result_Script : MonoBehaviour {
             case 2:
                 intentos = Simulation_Table_Script.intentos;
                 tiempos = Simulation_Table_Script.tiempos;
-                
+
                 return;
             case 3:
                 intentos = Simulation_Convertion_Script.intentos;
                 tiempos = Simulation_Convertion_Script.tiempos;
-                
+
                 return;
             case 4:
                 intentos = Simulacion_nomenclatura.intentos;
                 tiempos = Simulacion_nomenclatura.tiempos;
-                
+
                 return;
             case 5:
                 intentos = Estequiometria_Script.intentos;

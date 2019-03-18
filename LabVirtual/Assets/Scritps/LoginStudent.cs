@@ -55,8 +55,8 @@ public class LoginStudent : MonoBehaviour {
                 ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
 
                 
-                logueo = servicioWCF.verificarEstudiante(identification);
-                Debug.Log("logueo:" + logueo);
+                logueo = servicioWCF.verificarEstudiante(ID,Password);
+                //Debug.Log("logueo:" + logueo);
 
                 //servicioWCF.updateNota("Nomenclatura", "20140001", "A",1);
                 //servicioWCF.RegistrarSimulacionEst("Nomenclatura", "20140002", "A");
