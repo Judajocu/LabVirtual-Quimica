@@ -24,4 +24,9 @@ public class UserSession : MonoBehaviour {
     {
         userID = "";
     }
+
+    public string darID()
+    {
+        return userID;
+    }
 }

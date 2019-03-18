@@ -7,6 +7,7 @@ using System.Linq;
 using SimpleJSON;
 using System.IO;
 using System;
+using System.ServiceModel;
 
 public class Result_Script : MonoBehaviour {
 
@@ -35,10 +36,18 @@ public class Result_Script : MonoBehaviour {
     public string grade;
     public string simulation;
     string name;
+
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+    private UserSession Usuario;
+    private string ID;
+
     #endregion
 
     // Use this for initialization
     void Start () {
+        Usuario = GameObject.FindObjectOfType<UserSession>();
+        ID = Usuario.darID();
+
         cant_intentos = GameObject.Find("Intentos").GetComponent<TextMesh>();
         promedio_tiempos = GameObject.Find("Promedio_tiempo").GetComponent<TextMesh>();
         nota_resultante = GameObject.Find("Nota_resultante").GetComponent<TextMesh>();
@@ -217,54 +226,64 @@ public class Result_Script : MonoBehaviour {
         switch (simulation_Options.GetSelected())
         {
             case 1:
-                name = "Balanceo de Ecuaciones";
-                resultJSON.Add(name, grade);
+                name = "Balanceo";
+                servicioWCF.RegistrarSimulacionEst(name, ID, grade);
+                //"Nomenclatura", "Balanceo", "Estequiometria", "Tabla Periodica", "Conversion"
+                /*resultJSON.Add(name, grade);
                 resultJSON.Add("Tabla Periodica", notas[1]);
                 resultJSON.Add("Conversion de Unidades", notas[2]);
                 resultJSON.Add("Nomenclatura", notas[3]);
                 resultJSON.Add("Estequiometria", notas[4]);
                 string path1 = Application.persistentDataPath + "/Nota Simulation.json";
-                File.WriteAllText(path1, resultJSON.ToString());
+                File.WriteAllText(path1, resultJSON.ToString());*/
                 return;
             case 2:
-                name = "Tabla Periodica";                
-                resultJSON.Add("Balanceo de Ecuaciones", notas[0]);
+                name = "Tabla Periodica";
+                servicioWCF.RegistrarSimulacionEst(name, ID, grade);
+                //"Nomenclatura", "Balanceo", "Estequiometria", "Tabla Periodica", "Conversion"
+                /*resultJSON.Add("Balanceo de Ecuaciones", notas[0]);
                 resultJSON.Add(name, grade);
                 resultJSON.Add("Conversion de Unidades", notas[2]);
                 resultJSON.Add("Nomenclatura", notas[3]);
                 resultJSON.Add("Estequiometria", notas[4]);
                 string path2 = Application.persistentDataPath + "/Nota Simulation.json";
-                File.WriteAllText(path2, resultJSON.ToString());
+                File.WriteAllText(path2, resultJSON.ToString());*/
                 return;
             case 3:
-                name = "Conversion de Unidades";
-                resultJSON.Add("Balanceo de Ecuaciones", notas[0]);
+                name = "Conversion";
+                servicioWCF.RegistrarSimulacionEst(name, ID, grade);
+                //"Nomenclatura", "Balanceo", "Estequiometria", "Tabla Periodica", "Conversion"
+                /*resultJSON.Add("Balanceo de Ecuaciones", notas[0]);
                 resultJSON.Add("Tabla Periodica", notas[1]);
                 resultJSON.Add(name, grade);
                 resultJSON.Add("Nomenclatura", notas[3]);
                 resultJSON.Add("Estequiometria", notas[4]);
                 string path3 = Application.persistentDataPath + "/Nota Simulation.json";
-                File.WriteAllText(path3, resultJSON.ToString());
+                File.WriteAllText(path3, resultJSON.ToString());*/
                 return;
             case 4:
                 name = "Nomenclatura";
-                resultJSON.Add("Balanceo de Ecuaciones", notas[0]);
+                servicioWCF.RegistrarSimulacionEst(name, ID, grade);
+                //"Nomenclatura", "Balanceo", "Estequiometria", "Tabla Periodica", "Conversion"
+                /*resultJSON.Add("Balanceo de Ecuaciones", notas[0]);
                 resultJSON.Add("Tabla Periodica", notas[1]);
                 resultJSON.Add("Conversion de Unidades", notas[2]);
                 resultJSON.Add(name, grade);
                 resultJSON.Add("Estequiometria", notas[4]);
                 string path4 = Application.persistentDataPath + "/Nota Simulation.json";
-                File.WriteAllText(path4, resultJSON.ToString());
+                File.WriteAllText(path4, resultJSON.ToString());*/
                 return;
             case 5:
                 name = "Estequiometria";
-                resultJSON.Add("Balanceo de Ecuaciones", notas[0]);
+                servicioWCF.RegistrarSimulacionEst(name, ID, grade);
+                //"Nomenclatura", "Balanceo", "Estequiometria", "Tabla Periodica", "Conversion"
+                /*resultJSON.Add("Balanceo de Ecuaciones", notas[0]);
                 resultJSON.Add("Tabla Periodica", notas[1]);
                 resultJSON.Add("Conversion de Unidades", notas[2]);
                 resultJSON.Add("Nomenclatura", notas[3]);
                 resultJSON.Add(name, grade);
                 string path5 = Application.persistentDataPath + "/Nota Simulation.json";
-                File.WriteAllText(path5, resultJSON.ToString());
+                File.WriteAllText(path5, resultJSON.ToString());*/
                 return;
         }
         

@@ -287,6 +287,8 @@ namespace LabServerConnection
         
         private string descField;
         
+        private System.Nullable<System.DateTime> fechaField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -387,6 +389,19 @@ namespace LabServerConnection
             set
             {
                 this.descField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> fecha
+        {
+            get
+            {
+                return this.fechaField;
+            }
+            set
+            {
+                this.fechaField = value;
             }
         }
     }
@@ -840,7 +855,7 @@ public interface IServiceLab
     bool RegistrarSimulacion(string name, int fallos, int duracion);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarSimulacionEst", ReplyAction="http://tempuri.org/IServiceLab/RegistrarSimulacionEstResponse")]
-    bool RegistrarSimulacionEst(int idCurso, string idEstudiante, string nota);
+    bool RegistrarSimulacionEst(string NombreSim, string idEstudiante, string nota);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/verificarEstudiante", ReplyAction="http://tempuri.org/IServiceLab/verificarEstudianteResponse")]
     bool verificarEstudiante(string idEstudiantes);
@@ -853,6 +868,12 @@ public interface IServiceLab
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/BuscarDatosD", ReplyAction="http://tempuri.org/IServiceLab/BuscarDatosDResponse")]
     string[] BuscarDatosD(string[] datos);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/devolverNotasEst", ReplyAction="http://tempuri.org/IServiceLab/devolverNotasEstResponse")]
+    string[] devolverNotasEst(string idEstudiantes);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/updateNota", ReplyAction="http://tempuri.org/IServiceLab/updateNotaResponse")]
+    bool updateNota(string NombreSim, string idEstudiante, string nota, int id);
     
 }
 
@@ -935,9 +956,9 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.RegistrarSimulacion(name, fallos, duracion);
     }
     
-    public bool RegistrarSimulacionEst(int idCurso, string idEstudiante, string nota)
+    public bool RegistrarSimulacionEst(string NombreSim, string idEstudiante, string nota)
     {
-        return base.Channel.RegistrarSimulacionEst(idCurso, idEstudiante, nota);
+        return base.Channel.RegistrarSimulacionEst(NombreSim, idEstudiante, nota);
     }
     
     public bool verificarEstudiante(string idEstudiantes)
@@ -958,6 +979,16 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
     public string[] BuscarDatosD(string[] datos)
     {
         return base.Channel.BuscarDatosD(datos);
+    }
+    
+    public string[] devolverNotasEst(string idEstudiantes)
+    {
+        return base.Channel.devolverNotasEst(idEstudiantes);
+    }
+    
+    public bool updateNota(string NombreSim, string idEstudiante, string nota, int id)
+    {
+        return base.Channel.updateNota(NombreSim, idEstudiante, nota, id);
     }
     
 }

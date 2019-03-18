@@ -58,6 +58,15 @@ public class LoginStudent : MonoBehaviour {
                 logueo = servicioWCF.verificarEstudiante(identification);
                 Debug.Log("logueo:" + logueo);
 
+                //servicioWCF.updateNota("Nomenclatura", "20140001", "A",1);
+                //servicioWCF.RegistrarSimulacionEst("Nomenclatura", "20140002", "A");
+
+                string[] prueba = servicioWCF.devolverNotasEst(ID);
+                for (int i = 0; i < prueba.Length; i++)
+                {
+                    Debug.Log(ID+" nota 1:" + prueba[i]);
+                }
+
                 /*
                 //int mat = Int32.Parse(ID);
                 servicioWCF.RegistrarMatricula(ID, Password);
@@ -101,12 +110,13 @@ public class LoginStudent : MonoBehaviour {
                 servicioWCF.RegistrarSimulacionEst(4, "20140001", "B");
                 servicioWCF.RegistrarSimulacionEst(5, "20140001", "C");
                 */
-                
+
 
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
                 print(problem);
+                print(ex.ToString());
             }
 
             if (logueo)
