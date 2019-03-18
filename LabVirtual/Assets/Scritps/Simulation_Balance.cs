@@ -197,6 +197,7 @@ public class Simulation_Balance : MonoBehaviour {
 
     public void ResultExpected()
     {
+        //Aqui busca el resultado esperado, es el textmesh que esta fuera de la vista de la camara
         results_expected.Clear();
         results_expected = cantresult.text.Split(new char[] {' '}).ToList();
     }
@@ -204,6 +205,8 @@ public class Simulation_Balance : MonoBehaviour {
     public bool CheckSubmit()
     {
         ResultExpected();
+        //Aqui compara si lo que se espera es igual a lo que se tiene
+        //Primero izuiqerdo y luego derecho
         if (List_Inputprefabs.Count == System.Convert.ToInt32(results_expected[0]) && List_Outputprefabs.Count == System.Convert.ToInt32(results_expected[1]))
         {
             Debug.Log("Bien");

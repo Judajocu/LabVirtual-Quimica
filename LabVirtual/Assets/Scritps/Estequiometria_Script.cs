@@ -104,6 +104,7 @@ public class Estequiometria_Script : MonoBehaviour {
         SceneManager.LoadScene("Options_Student");
     }
 
+    //Esto es lo que chequea si el resultado esperado es igual al esperado
     public bool CheckResultCorrect()
     {
         if (cantresult.text.Equals(GetInput()))
@@ -139,7 +140,7 @@ public class Estequiometria_Script : MonoBehaviour {
         
         
     }
-
+    
     public bool CheckSubmit()
     {
         float x = float.Parse(cantresult.text);
@@ -159,6 +160,7 @@ public class Estequiometria_Script : MonoBehaviour {
         }
     }
 
+    //Esto es para llenar la caja de la n cantidad y se vea lo más o menos llena posible
     public void CheckForInput()
     {
         float x = float.Parse(cantresult.text);

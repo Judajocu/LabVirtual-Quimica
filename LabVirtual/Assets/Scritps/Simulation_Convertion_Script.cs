@@ -114,7 +114,8 @@ public class Simulation_Convertion_Script : MonoBehaviour {
 
     public bool CheckResultCorrect()
     {
-        
+        //Aqui compara si lo esperado es igual a lo que se entro
+        //El primer valor es la formula y el segundo es el resultado de la operacion
         GetExpectedResult();
         if (QF.text == results_expected[0] && QR.text == results_expected[1])
         {
@@ -126,6 +127,7 @@ public class Simulation_Convertion_Script : MonoBehaviour {
 
     public void GetExpectedResult()
     {
+        //Saca la formula y luego el valor de los text que estan fuera de camara
         results_expected.Add(ExpectedF.text);
         results_expected.Add(ExpectedA.text);
         
