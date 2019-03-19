@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.ServiceModel;
 
 public class Simulation_Convertion_Script : MonoBehaviour {
 
@@ -40,11 +41,30 @@ public class Simulation_Convertion_Script : MonoBehaviour {
     public float interpolationPeriod = 0.05f;
     public float mouseSensitivityX = 1;
     public float mouseSensitivityY = 1;
+
+    public string level;
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
     #endregion
 
     // Use this for initialization
     void Start()
     {
+        string[] simulacionesNombre = new string[5] { "ProInicio", "ProFinal", "Contexto", "Formula", "Valor" };
+        string[] resultados = servicioWCF.BuscarDatosD("Estequiometria", level, simulacionesNombre);
+        string[] ayuda = resultados[2].Split('@');
+
+        GameObject.Find("TextBefore").GetComponent<Text>().text = resultados[1];
+        GameObject.Find("TextAfter").GetComponent<Text>().text = resultados[0];
+        
+        GameObject.Find("Formula1").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
+        GameObject.Find("Formula2").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
+        GameObject.Find("Formula3").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
+        GameObject.Find("Formula4").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
+        GameObject.Find("Formula5").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
+        GameObject.Find("Formula6").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
+
+        GameObject.Find("ExpectedFormula").GetComponent<TextMesh>().text = resultados[3];
+        GameObject.Find("ExpectedAnswer").GetComponent<TextMesh>().text = resultados[4];
 
         timeup = settings.Gettime();
         CheckType();

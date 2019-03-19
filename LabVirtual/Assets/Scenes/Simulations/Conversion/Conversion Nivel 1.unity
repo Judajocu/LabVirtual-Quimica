@@ -3174,6 +3174,7 @@ MonoBehaviour:
   interpolationPeriod: 0.05
   mouseSensitivityX: 1
   mouseSensitivityY: 1
+  level: Nivel1
 --- !u!102 &1371210781
 TextMesh:
   serializedVersion: 3
