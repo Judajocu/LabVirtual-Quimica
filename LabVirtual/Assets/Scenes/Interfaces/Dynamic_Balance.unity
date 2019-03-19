@@ -717,8 +717,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.24765149, y: 0.26029453}
   m_AnchorMax: {x: 0.92547727, y: 0.32414111}
-  m_AnchoredPosition: {x: 1.2000122, y: 0.5999756}
-  m_SizeDelta: {x: 2.5, y: 3.2}
+  m_AnchoredPosition: {x: -46.912994, y: 1.6000061}
+  m_SizeDelta: {x: 76.5, y: 3.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &414347474
 MonoBehaviour:
@@ -758,13 +758,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 414347475}
   m_TextComponent: {fileID: 2027204129}
   m_Placeholder: {fileID: 0}
-  m_ContentType: 4
+  m_ContentType: 0
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 1
+  m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 3
+  m_CharacterValidation: 0
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:

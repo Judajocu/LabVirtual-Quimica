@@ -29,6 +29,7 @@ public class Dynamic_Estequiometria : MonoBehaviour {
     // Use this for initialization
     void Start () {
         GetNivel();
+
         /*GetContext();
         Debug.Log("Original: "+context);
         string[] mierda = context.Split('\n');
@@ -70,38 +71,38 @@ public class Dynamic_Estequiometria : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        /*GetNivel();
+        GetNivel();
         if (nivels.Equals("Nivel 1"))
         {
-            SolIzquierda.text = datos[0].solIzq;
-            SolDerecha.text = datos[0].solDer;
+            Solucion.text = datos[0].solucion;
+            Pro.text = datos[0].contexto;
             Prob.text = datos[0].problema;
 
         }
         else if (nivels.Equals("Nivel 2"))
         {
-            SolIzquierda.text = datos[1].solIzq;
-            SolDerecha.text = datos[1].solDer;
+            Solucion.text = datos[1].solucion;
+            Pro.text = datos[1].contexto;
             Prob.text = datos[1].problema;
         }
         else if (nivels.Equals("Nivel 3"))
         {
-            SolIzquierda.text = datos[2].solIzq;
-            SolDerecha.text = datos[2].solDer;
+            Solucion.text = datos[2].solucion;
+            Pro.text = datos[2].contexto;
             Prob.text = datos[2].problema;
         }
         else if (nivels.Equals("Nivel 4"))
         {
-            SolIzquierda.text = datos[3].solIzq;
-            SolDerecha.text = datos[3].solDer;
+            Solucion.text = datos[3].solucion;
+            Pro.text = datos[3].contexto;
             Prob.text = datos[3].problema;
         }
         else if (nivels.Equals("Nivel 5"))
         {
-            SolIzquierda.text = datos[4].solIzq;
-            SolDerecha.text = datos[4].solDer;
+            Solucion.text = datos[4].solucion;
+            Pro.text = datos[4].contexto;
             Prob.text = datos[4].problema;
-        }*/
+        }
     }
 
     public void ValidateChange()
@@ -160,11 +161,15 @@ public class Dynamic_Estequiometria : MonoBehaviour {
                 datos[i].nivelName = nombreNivel[i];
                 datos[i].problema = resultados[0];
                 datos[i].solucion = resultados[1];
-                datos[i].contexto = resultados[2];
-                /*for (int j = 0; j < resultados.Length; j++)
+                string[] ayuda = resultados[2].Split('@');
+                string lala = "";
+                for (int j = 0; j < ayuda.Length; j++)
                 {
-                    print("nivel: " + nombreNivel[i] + ", " + resultados[j] );
-                }*/
+                    lala += ayuda[j] + Environment.NewLine;
+                }
+                datos[i].contexto = lala;
+
+               
             }
             catch (System.Exception ex)
             {
