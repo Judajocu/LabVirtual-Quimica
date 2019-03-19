@@ -50,11 +50,11 @@ public class Simulation_Convertion_Script : MonoBehaviour {
     void Start()
     {
         string[] simulacionesNombre = new string[5] { "ProInicio", "ProFinal", "Contexto", "Formula", "Valor" };
-        string[] resultados = servicioWCF.BuscarDatosD("Estequiometria", level, simulacionesNombre);
+        string[] resultados = servicioWCF.BuscarDatosD("Conversion", level, simulacionesNombre);
         string[] ayuda = resultados[2].Split('@');
 
-        GameObject.Find("TextBefore").GetComponent<Text>().text = resultados[1];
-        GameObject.Find("TextAfter").GetComponent<Text>().text = resultados[0];
+        GameObject.Find("TextBefore").GetComponent<Text>().text = resultados[0];
+        GameObject.Find("TextAfter").GetComponent<Text>().text = resultados[1];
         
         GameObject.Find("Formula1").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
         GameObject.Find("Formula2").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
