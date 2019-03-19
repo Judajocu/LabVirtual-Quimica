@@ -45,6 +45,7 @@ public class Simulation_Convertion_Script : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+
         timeup = settings.Gettime();
         CheckType();
         textcant_fallos = GameObject.Find("Errores").GetComponent<TextMesh>();
@@ -129,8 +130,10 @@ public class Simulation_Convertion_Script : MonoBehaviour {
     {
         //Saca la formula y luego el valor de los text que estan fuera de camara
         results_expected.Add(ExpectedF.text);
+        Debug.Log(results_expected[0]);
         results_expected.Add(ExpectedA.text);
-        
+        Debug.Log(results_expected[1]);
+
     }
 
     public bool CheckSubmit()
@@ -187,21 +190,21 @@ public class Simulation_Convertion_Script : MonoBehaviour {
                 {
                     case "Conversion Nivel 1":
                         CleanSimulation();
-                        SceneManager.LoadScene("Conversion Nivel 2");
+                        SceneManager.LoadScene("Conversion Nivel 6");
                         return;
-                    case "Conversion Nivel 2":
+                    case "Conversion Nivel 6":
                         CleanSimulation();
-                        SceneManager.LoadScene("Conversion Nivel 3");
+                        SceneManager.LoadScene("Conversion Nivel 7");
                         return;
-                    case "Conversion Nivel 3":
+                    case "Conversion Nivel 7":
                         CleanSimulation();
-                        SceneManager.LoadScene("Conversion Nivel 4");
+                        SceneManager.LoadScene("Conversion Nivel 8");
                         return;
-                    case "Conversion Nivel 4":
+                    case "Conversion Nivel 8":
                         CleanSimulation();
-                        SceneManager.LoadScene("Conversion Nivel 5");
+                        SceneManager.LoadScene("Conversion Nivel 9");
                         return;
-                    case "Conversion Nivel 5":
+                    case "Conversion Nivel 9":
                         CleanSimulation();
                         SceneManager.LoadScene("Resultado");
                         return;
