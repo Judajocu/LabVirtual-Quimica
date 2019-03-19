@@ -838,7 +838,7 @@ GameObject:
   - component: {fileID: 497754428}
   - component: {fileID: 497754427}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2813,6 +2813,7 @@ MonoBehaviour:
     type: 2}
   Answer: {fileID: 1402587850}
   cantresult: {fileID: 1216210758}
+  level: Nivel5
 --- !u!1 &1956713907
 GameObject:
   m_ObjectHideFlags: 0

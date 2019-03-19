@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 497754428}
   - component: {fileID: 497754427}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -739,7 +739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.016766978, y: 0}
   m_AnchorMax: {x: 0.95500004, y: 1}
-  m_AnchoredPosition: {x: 0.26000977, y: -44.40001}
+  m_AnchoredPosition: {x: 0.26000977, y: -44.450012}
   m_SizeDelta: {x: 0.1, y: 88.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497754427
@@ -2441,8 +2441,8 @@ RectTransform:
   m_Father: {fileID: 1172250841}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.24772428}
-  m_AnchorMax: {x: 1, y: 0.99986064}
+  m_AnchorMin: {x: 0, y: 0.24786365}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2555,7 +2555,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1761610861}
   m_HandleRect: {fileID: 1761610860}
   m_Direction: 2
-  m_Value: 0.9994375
+  m_Value: 1
   m_Size: 0.75213635
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2780,6 +2780,7 @@ MonoBehaviour:
     type: 2}
   Answer: {fileID: 1402587850}
   cantresult: {fileID: 1216210758}
+  level: Nivel1
 --- !u!1 &1956713907
 GameObject:
   m_ObjectHideFlags: 0
@@ -2832,7 +2833,7 @@ MonoBehaviour:
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
-  m_Inertia: 1
+  m_Inertia: 0
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 1
   m_Viewport: {fileID: 0}

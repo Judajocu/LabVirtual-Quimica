@@ -665,7 +665,7 @@ GameObject:
   - component: {fileID: 497754428}
   - component: {fileID: 497754427}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2367,8 +2367,8 @@ RectTransform:
   m_Father: {fileID: 1172250841}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.4991046}
-  m_AnchorMax: {x: 1, y: 0.99972165}
+  m_AnchorMin: {x: 0, y: 0.49910462}
+  m_AnchorMax: {x: 1, y: 0.9997217}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2706,6 +2706,7 @@ MonoBehaviour:
     type: 2}
   Answer: {fileID: 1402587850}
   cantresult: {fileID: 1216210758}
+  level: Nivel2
 --- !u!1 &1956713907
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,6 +2965,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.32125002, y: 0.71500003}
   m_AnchorMax: {x: 0.69075006, y: 0.7965625}
-  m_AnchoredPosition: {x: 0.6000061, y: -0.1000061}
+  m_AnchoredPosition: {x: 0.6000061, y: -0.099975586}
   m_SizeDelta: {x: 7.100006, y: 2.2000122}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using System.ServiceModel;
+using System;
 
 public class Estequiometria_Script : MonoBehaviour {
 
@@ -38,14 +40,30 @@ public class Estequiometria_Script : MonoBehaviour {
     bool type;
 
     Scene activeScene;
+
+    public string level;
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
     #endregion
 
     // Use this for initialization
     void Start ()
     {
+        string[] simulacionesNombre = new string[3] { "problema", "Solucion", "Contexto" };
+        string[] resultados = servicioWCF.BuscarDatosD("Estequiometria", level, simulacionesNombre);
+        string[] ayuda = resultados[2].Split('@');
+        string lala = "";
+        for (int j = 0; j < ayuda.Length; j++)
+        {
+            lala += ayuda[j] + Environment.NewLine;
+        }
+        print(lala);
+
         timeup = settings.Gettime();
         CheckType();
         textcant_fallos = GameObject.Find("Errores").GetComponent<TextMesh>();
+        GameObject.Find("Cant_result").GetComponent<TextMesh>().text = resultados[1];
+        GameObject.Find("Ecuation").GetComponent<TextMesh>().text = resultados[0];
+        GameObject.Find("TextC").GetComponent<Text>().text = lala;
         cantresult = GameObject.Find("Cant_result").GetComponent<TextMesh>();
         CheckTime();
     }

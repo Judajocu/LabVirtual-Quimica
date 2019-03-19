@@ -112,16 +112,17 @@ public class Dynamic_Estequiometria : MonoBehaviour {
 
         for (int i = 0; i < datos.Length; i++)
         {
-            print("lo que devuelve es:");
             try
             {
-                string aux = nombreNivel[i];
-                string[] simulacionesData = new string[3] { datos[i].problema, datos[i].solucion, datos[i].contexto };
-                servicioWCF.GuardarCambioDinamicos("Estequiometria", simulacionesData, 0, aux, simulacionesNombre);
-                /*for (int j = 0; j < resultados.Length; j++)
+                string[] ayuda = datos[i].contexto.Split('\n');
+                string lala = "";
+                for (int j = 0; j < ayuda.Length; j++)
                 {
-                    print("nivel: " + nombreNivel[i] + ", " + resultados[j] );
-                }*/
+                    lala += ayuda[j] + "@";
+                }
+                string aux = nombreNivel[i];
+                string[] simulacionesData = new string[3] { datos[i].problema, datos[i].solucion, lala };
+                servicioWCF.GuardarCambioDinamicos("Estequiometria", simulacionesData, 0, aux, simulacionesNombre);
             }
             catch (System.Exception ex)
             {
@@ -208,58 +209,58 @@ public class Dynamic_Estequiometria : MonoBehaviour {
     }
     public void editarSolucion()
     {
-        /*if (SolIzquierda.GetComponent<InputField>().isFocused)
+        if (Solucion.GetComponent<InputField>().isFocused)
         {
             GetNivel();
             if (nivels.Equals("Nivel 1"))
             {
-                datos[0].solIzq = SolIzquierda.text;
+                datos[0].solucion = Solucion.text;
 
             }
             else if (nivels.Equals("Nivel 2"))
             {
-                datos[1].solIzq = SolIzquierda.text;
+                datos[1].solucion = Solucion.text;
             }
             else if (nivels.Equals("Nivel 3"))
             {
-                datos[2].solIzq = SolIzquierda.text;
+                datos[2].solucion = Solucion.text;
             }
             else if (nivels.Equals("Nivel 4"))
             {
-                datos[3].solIzq = SolIzquierda.text;
+                datos[3].solucion = Solucion.text;
             }
             else if (nivels.Equals("Nivel 5"))
             {
-                datos[4].solIzq = SolIzquierda.text;
+                datos[4].solucion = Solucion.text;
             }
-        }*/
+        }
     }
     public void editarContexto()
     {
-        /*if (SolDerecha.GetComponent<InputField>().isFocused)
+        if (Pro.GetComponent<TMP_InputField>().isFocused)
         {
             GetNivel();
             if (nivels.Equals("Nivel 1"))
             {
-                datos[0].solDer = SolDerecha.text;
+                datos[0].contexto = Pro.text;
             }
             else if (nivels.Equals("Nivel 2"))
             {
-                datos[1].solDer = SolDerecha.text;
+                datos[1].contexto = Pro.text;
             }
             else if (nivels.Equals("Nivel 3"))
             {
-                datos[2].solDer = SolDerecha.text;
+                datos[2].contexto = Pro.text;
             }
             else if (nivels.Equals("Nivel 4"))
             {
-                datos[3].solDer = SolDerecha.text;
+                datos[3].contexto = Pro.text;
             }
             else if (nivels.Equals("Nivel 5"))
             {
-                datos[4].solDer = SolDerecha.text;
+                datos[4].contexto = Pro.text;
             }
-        }*/
+        }
     }
 
     public class nivel
