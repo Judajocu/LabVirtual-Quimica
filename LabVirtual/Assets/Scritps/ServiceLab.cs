@@ -878,6 +878,9 @@ public interface IServiceLab
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/datosUser", ReplyAction="http://tempuri.org/IServiceLab/datosUserResponse")]
     void datosUser(string idEstudiante);
     
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/LinkDocumentos", ReplyAction="http://tempuri.org/IServiceLab/LinkDocumentosResponse")]
+    string[] LinkDocumentos();
+    
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -998,4 +1001,10 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
     {
         base.Channel.datosUser(idEstudiante);
     }
+    
+    public string[] LinkDocumentos()
+    {
+        return base.Channel.LinkDocumentos();
+    }
+    
 }
