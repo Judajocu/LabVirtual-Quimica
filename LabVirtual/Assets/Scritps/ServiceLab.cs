@@ -848,6 +848,9 @@ public interface IServiceLab
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarCurso", ReplyAction="http://tempuri.org/IServiceLab/RegistrarCursoResponse")]
     bool RegistrarCurso(string name, string idprofesor);
     
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ActualizarCurso", ReplyAction="http://tempuri.org/IServiceLab/ActualizarCursoResponse")]
+    bool ActualizarCurso(string name, string idprofesor);
+    
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarCursoestudiante", ReplyAction="http://tempuri.org/IServiceLab/RegistrarCursoestudianteResponse")]
     bool RegistrarCursoestudiante(int idCurso, string idEstudiante);
     
@@ -878,8 +881,17 @@ public interface IServiceLab
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/datosUser", ReplyAction="http://tempuri.org/IServiceLab/datosUserResponse")]
     void datosUser(string idEstudiante);
     
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/datosUserProf", ReplyAction="http://tempuri.org/IServiceLab/datosUserProfResponse")]
+    void datosUserProf(string idProf);
+    
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/LinkDocumentos", ReplyAction="http://tempuri.org/IServiceLab/LinkDocumentosResponse")]
     string[] LinkDocumentos();
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ActualizarSimulacion", ReplyAction="http://tempuri.org/IServiceLab/ActualizarSimulacionResponse")]
+    bool ActualizarSimulacion(string name, int fallos, int duracion);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DatosSimulacion", ReplyAction="http://tempuri.org/IServiceLab/DatosSimulacionResponse")]
+    long[] DatosSimulacion(string name);
     
 }
 
@@ -952,6 +964,11 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.RegistrarCurso(name, idprofesor);
     }
     
+    public bool ActualizarCurso(string name, string idprofesor)
+    {
+        return base.Channel.ActualizarCurso(name, idprofesor);
+    }
+    
     public bool RegistrarCursoestudiante(int idCurso, string idEstudiante)
     {
         return base.Channel.RegistrarCursoestudiante(idCurso, idEstudiante);
@@ -1002,9 +1019,23 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         base.Channel.datosUser(idEstudiante);
     }
     
+    public void datosUserProf(string idProf)
+    {
+        base.Channel.datosUserProf(idProf);
+    }
+    
     public string[] LinkDocumentos()
     {
         return base.Channel.LinkDocumentos();
     }
     
+    public bool ActualizarSimulacion(string name, int fallos, int duracion)
+    {
+        return base.Channel.ActualizarSimulacion(name, fallos, duracion);
+    }
+    
+    public long[] DatosSimulacion(string name)
+    {
+        return base.Channel.DatosSimulacion(name);
+    }
 }
