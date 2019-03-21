@@ -15,7 +15,7 @@ public class Groups_Professor : MonoBehaviour {
     public GameObject prefab_avggrades;
     public int Cant_grupos;*/
 
-    Dictionary<string, Dictionary<string, int>> Groups_Grades;
+    Dictionary<string, Dictionary<string, string>> Groups_Grades;
     int changeCounter = 0;
 
     public Button buttonMenu;
@@ -55,12 +55,13 @@ public class Groups_Professor : MonoBehaviour {
 
         opciones.AddOptions(esto);
 
-        /*SetGrades( "ST-QMC-101-T-001","Quimica I", 30);
+        /*
         SetGrades("ST-QMC-101-T-0012","Quimica I", 40);
         SetGrades("ST-QMC-101-T-003", "Quimica I", 350);
         SetGrades("ST-QMC-101-T-004", "Quimica I", 430);
-        Debug.Log(GetGrades("ST-QMC-101-T-001", "Quimica I"));*/
-        Load();
+        Debug.Log(GetGrades("ST-QMC-101-T-001", "Quimica I"));
+        Load();*/
+        SetGrades("ST-QMC-101-T-001", "Quimica I", "A");
     }
 	
 	// Update is called once per frame
@@ -95,25 +96,25 @@ public class Groups_Professor : MonoBehaviour {
         {
             return;
         }
-        Groups_Grades = new Dictionary<string, Dictionary<string, int>>();
+        Groups_Grades = new Dictionary<string, Dictionary<string, string>>();
     }
 
-    public int GetGrades(string group_code, string group)
+    public string GetGrades(string group_code, string group)
     {
         Init();
         if(Groups_Grades.ContainsKey(group_code) == false)
         {
-            return 0;
+            return "0";
         }
         if (Groups_Grades[group_code].ContainsKey(group) == false)
         {
-            return 0;
+            return "0";
         }
 
         return Groups_Grades[group_code][group];
     }
 
-    public void SetGrades(string group_code, string group, int grade)
+    public void SetGrades(string group_code, string group, string grade)
     {
         Init();
 
@@ -121,17 +122,17 @@ public class Groups_Professor : MonoBehaviour {
 
         if(Groups_Grades.ContainsKey(group_code) == false)
         {
-            Groups_Grades[group_code] = new Dictionary<string, int>();
+            Groups_Grades[group_code] = new Dictionary<string, string>();
         }
         Groups_Grades[group_code][group] = grade;
     }
 
-    public void ChangeGrades(string group_code, string group, int new_grade)
+    /*public void ChangeGrades(string group_code, string group, string new_grade)
     {
         Init();
         int currGrade = GetGrades(group_code, group);
         SetGrades(group_code, group, currGrade + new_grade);
-    }
+    }*/
 
     public string[] GetGroups_codes()
     {
@@ -154,12 +155,7 @@ public class Groups_Professor : MonoBehaviour {
     
     void Load()
     {
-        string path = Application.persistentDataPath + "/Nota Grupos.json";
-        string jsonString = File.ReadAllText(path);
-        JSONObject GradeJSON = (JSONObject)JSON.Parse(jsonString);
-        SetGrades("ST-QMC-101-T","001", GradeJSON["Grupo 001"]);
-        SetGrades("ST-QMC-101-T", "002", GradeJSON["Grupo 002"]);
-        SetGrades("ST-QMC-101-T", "003", GradeJSON["Grupo 003"]);
+        
     }
 
     public void go()
