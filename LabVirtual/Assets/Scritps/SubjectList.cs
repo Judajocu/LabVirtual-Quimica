@@ -20,6 +20,7 @@ public class SubjectList : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        
 
         datagrid = GameObject.FindObjectOfType<Data_Overview_Student>();
 

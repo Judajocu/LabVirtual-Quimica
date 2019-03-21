@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using SimpleJSON;
 using UnityEngine.SceneManagement;
 using System.IO;
+using System.ServiceModel;
 
 public class Groups_Professor : MonoBehaviour {
 
@@ -25,9 +26,35 @@ public class Groups_Professor : MonoBehaviour {
     public GameObject report;
     public GameObject select;
 
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+    public Dropdown opciones;
+    public Text nombre;
+    private string[] nombres;
+    List<string> esto = new List<string>();
+    private string actual, ayu;
+    private string defecto = "Grupo";
+    private UserSession Usuario;
+    private string ID;
+
 
     // Use this for initialization
     void Start () {
+        Usuario = GameObject.FindObjectOfType<UserSession>();
+        ID = Usuario.darID();
+
+        string[] resultados = servicioWCF.DarListagruposProfesor(ID);
+        nombres = new string[resultados.Length];
+        
+        opciones.ClearOptions();
+        for (int j = 0; j < resultados.Length; j++)
+        {
+            nombres[j] = resultados[j];
+            int n = j + 1;
+            esto.Add(defecto + " " + n.ToString());
+        }
+
+        opciones.AddOptions(esto);
+
         /*SetGrades( "ST-QMC-101-T-001","Quimica I", 30);
         SetGrades("ST-QMC-101-T-0012","Quimica I", 40);
         SetGrades("ST-QMC-101-T-003", "Quimica I", 350);
@@ -38,7 +65,23 @@ public class Groups_Professor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+        GetNivel();
+        int b = 0;
+        foreach (string a in esto)
+        {
+            if (ayu.Equals(a))
+            {
+                nombre.text = nombres[b];
+                actual = nombres[b];
+
+            }
+            b++;
+        }
+    }
+
+    public void GetNivel()
+    {
+        ayu = opciones.options[opciones.value].text;
     }
 
     public void ValidateMenu()
@@ -117,5 +160,12 @@ public class Groups_Professor : MonoBehaviour {
         SetGrades("ST-QMC-101-T","001", GradeJSON["Grupo 001"]);
         SetGrades("ST-QMC-101-T", "002", GradeJSON["Grupo 002"]);
         SetGrades("ST-QMC-101-T", "003", GradeJSON["Grupo 003"]);
+    }
+
+    public void go()
+    {
+        //prueba reporte
+        string esto = servicioWCF.GenerarReporteProfesor(actual, ID);
+        //print("Resultado intento reporte" + esto);
     }
 }

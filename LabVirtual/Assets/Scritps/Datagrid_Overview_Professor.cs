@@ -22,11 +22,9 @@ public class Datagrid_Overview_Professor : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        SetGrades( "ST-QMC-101-T-001","Quimica I", 30);
-        SetGrades("ST-QMC-101-T-0012","Quimica I", 40);
-        SetGrades("ST-QMC-101-T-003", "Quimica I", 350);
-        SetGrades("ST-QMC-101-T-004", "Quimica I", 430);
-        Debug.Log(GetGrades("ST-QMC-101-T-001", "Quimica I"));
+        GameObject.Find("TextC").GetComponent<Text>().text = "1";
+        SetGrades( "ST-QMC-101-T-001","Quimica101", 30);
+        Debug.Log(GetGrades("ST-QMC-101-T-001", "Quimica101"));
     }
 	
 	// Update is called once per frame

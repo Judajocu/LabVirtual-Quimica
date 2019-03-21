@@ -16,11 +16,15 @@ public class Data_Overview_Student : MonoBehaviour {
     public Button buttonMenu;
 
     public GameObject menu;
+    private UserSession Usuario;
+    private string ID;
 
 
 
     // Use this for initialization
     void Start () {
+        Usuario = GameObject.FindObjectOfType<UserSession>();
+        ID = Usuario.darID();
         Load();
         //SetGrades("Nomenclatura", "3");
         
@@ -120,7 +124,7 @@ public class Data_Overview_Student : MonoBehaviour {
 
             ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
             
-            string esto=servicioWCF.GenerarReporteEstudiante("20140001");
+            string esto=servicioWCF.GenerarReporteEstudiante(ID);
             print(esto);
 
 

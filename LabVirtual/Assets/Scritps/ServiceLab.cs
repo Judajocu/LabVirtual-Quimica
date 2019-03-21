@@ -893,6 +893,15 @@ public interface IServiceLab
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DatosSimulacion", ReplyAction="http://tempuri.org/IServiceLab/DatosSimulacionResponse")]
     long[] DatosSimulacion(string name);
     
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DarListagruposProfesor", ReplyAction="http://tempuri.org/IServiceLab/DarListagruposProfesorResponse")]
+    string[] DarListagruposProfesor(string idProfesor);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GenerarReporteProfesor", ReplyAction="http://tempuri.org/IServiceLab/GenerarReporteProfesorResponse")]
+    string GenerarReporteProfesor(string grupoName, string profesorID);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DarListaEstudiantesGrupo", ReplyAction="http://tempuri.org/IServiceLab/DarListaEstudiantesGrupoResponse")]
+    LabServerConnection.Estudiantes[] DarListaEstudiantesGrupo(string grupoID);
+    
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/aleluya", ReplyAction="http://tempuri.org/IServiceLab/aleluyaResponse")]
     bool aleluya(string name);
     
@@ -1042,9 +1051,23 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.DatosSimulacion(name);
     }
     
+    public string[] DarListagruposProfesor(string idProfesor)
+    {
+        return base.Channel.DarListagruposProfesor(idProfesor);
+    }
+    
+    public string GenerarReporteProfesor(string grupoName, string profesorID)
+    {
+        return base.Channel.GenerarReporteProfesor(grupoName, profesorID);
+    }
+    
+    public LabServerConnection.Estudiantes[] DarListaEstudiantesGrupo(string grupoID)
+    {
+        return base.Channel.DarListaEstudiantesGrupo(grupoID);
+    }
+    
     public bool aleluya(string name)
     {
         return base.Channel.aleluya(name);
     }
-    
 }
