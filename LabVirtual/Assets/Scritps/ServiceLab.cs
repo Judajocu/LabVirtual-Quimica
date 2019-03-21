@@ -893,6 +893,9 @@ public interface IServiceLab
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DatosSimulacion", ReplyAction="http://tempuri.org/IServiceLab/DatosSimulacionResponse")]
     long[] DatosSimulacion(string name);
     
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/aleluya", ReplyAction="http://tempuri.org/IServiceLab/aleluyaResponse")]
+    bool aleluya(string name);
+    
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1038,4 +1041,10 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
     {
         return base.Channel.DatosSimulacion(name);
     }
+    
+    public bool aleluya(string name)
+    {
+        return base.Channel.aleluya(name);
+    }
+    
 }

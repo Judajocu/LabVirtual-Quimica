@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.ServiceModel;
 
 public class LoginProfessor : MonoBehaviour {
 
@@ -15,10 +16,13 @@ public class LoginProfessor : MonoBehaviour {
     private string Username;
     private string Password;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private bool logueo = false;
+    public GameObject letrero;
+
+    // Use this for initialization
+    void Start () {
+        letrero.gameObject.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,10 +34,31 @@ public class LoginProfessor : MonoBehaviour {
         Password = password.GetComponent<InputField>().text;
         if (Username!=string.Empty && Password!=string.Empty)
         {
-
+            //prueva guardado de datos en la base de datos
+            string problem = "no se hizo la coneccion";
             GameObject.FindGameObjectWithTag("seccion").GetComponent<UserSession>().SendMessage("cambio", Username);
-            print("Sup");
-            SceneManager.LoadScene("Overview-Professor");
+            try
+            {
+                ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+                
+                logueo = servicioWCF.verificarProfesor(Username, Password);
+                
+            }
+            catch (System.Exception ex)
+            {
+                print(problem);
+                print(ex.ToString());
+            }
+
+            if (logueo)
+            {
+                print("Sup");
+                SceneManager.LoadScene("Overview-Professor");
+            }
+            else
+            {
+                letrero.gameObject.SetActive(true);
+            }
         }
     }
 
