@@ -1477,6 +1477,7 @@ GameObject:
   - component: {fileID: 461149851}
   - component: {fileID: 461149850}
   - component: {fileID: 461149849}
+  - component: {fileID: 461149852}
   m_Layer: 5
   m_Name: Scripts
   m_TagString: Untagged
@@ -1561,6 +1562,26 @@ RectTransform:
   m_AnchoredPosition: {x: -12, y: 3.8}
   m_SizeDelta: {x: 234.2, y: 167.1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &461149852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461149848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6248d300131e1248b62377b11a421e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSave: {fileID: 0}
+  SolFormula: {fileID: 0}
+  SolValor: {fileID: 0}
+  ProbInicio: {fileID: 0}
+  ProbFinal: {fileID: 0}
+  Nivels: {fileID: 0}
+  Formulas: {fileID: 0}
+  SolForApoyo: {fileID: 0}
+  ButtonAceptar: {fileID: 0}
 --- !u!1 &481773367
 GameObject:
   m_ObjectHideFlags: 0
