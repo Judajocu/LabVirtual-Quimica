@@ -884,8 +884,8 @@ public interface IServiceLab
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/datosUserProf", ReplyAction="http://tempuri.org/IServiceLab/datosUserProfResponse")]
     void datosUserProf(string idProf);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/LinkDocumentos", ReplyAction="http://tempuri.org/IServiceLab/LinkDocumentosResponse")]
-    string[] LinkDocumentos();
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DarLinkDocumentos", ReplyAction="http://tempuri.org/IServiceLab/DarLinkDocumentosResponse")]
+    string[] DarLinkDocumentos(string data);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ActualizarSimulacion", ReplyAction="http://tempuri.org/IServiceLab/ActualizarSimulacionResponse")]
     bool ActualizarSimulacion(string name, int fallos, int duracion);
@@ -1036,9 +1036,9 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         base.Channel.datosUserProf(idProf);
     }
     
-    public string[] LinkDocumentos()
+    public string[] DarLinkDocumentos(string data)
     {
-        return base.Channel.LinkDocumentos();
+        return base.Channel.DarLinkDocumentos(data);
     }
     
     public bool ActualizarSimulacion(string name, int fallos, int duracion)
@@ -1070,4 +1070,5 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
     {
         return base.Channel.aleluya(name);
     }
+    
 }

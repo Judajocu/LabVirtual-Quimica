@@ -43,7 +43,7 @@ public class LoginStudent : MonoBehaviour {
     {
         ID = id.GetComponent<InputField>().text;
         Password = password.GetComponent<InputField>().text;
-        CheckApi(ID, Password);
+        //CheckApi(ID, Password);
         if (ID!=string.Empty && Password != string.Empty)
         {
             //prueva guardado de datos en la base de datos

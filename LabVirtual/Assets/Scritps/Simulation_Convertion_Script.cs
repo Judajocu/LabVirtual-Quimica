@@ -43,7 +43,7 @@ public class Simulation_Convertion_Script : MonoBehaviour {
     public float mouseSensitivityY = 1;
 
     public string level;
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemicallabservicewcf20190320070309.azurewebsites.net/ServiceLab.svc"));
     #endregion
 
     // Use this for initialization

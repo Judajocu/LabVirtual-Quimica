@@ -30,7 +30,7 @@ public class TheoryTopicScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        string[] resultados = servicioWCF.LinkDocumentos();
+        string[] resultados = servicioWCF.DarLinkDocumentos("esto");
         nombres = new string[resultados.Length];
         links = new string[resultados.Length];
         //string lala = "";
