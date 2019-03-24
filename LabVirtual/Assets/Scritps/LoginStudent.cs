@@ -123,7 +123,7 @@ public class LoginStudent : MonoBehaviour {
             if (logueo)
             {
                 print("Sup");
-                SceneManager.LoadScene("Overview-Student");
+                SceneManager.LoadScene("Group_Selection");
             }
             else
             {
