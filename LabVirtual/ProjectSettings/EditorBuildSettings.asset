@@ -173,4 +173,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Interfaces/Dynamic_Table.unity
     guid: e860e76714c37764383004b0362998e7
+  - enabled: 1
+    path: Assets/Scenes/Interfaces/Group_Selection.unity
+    guid: e4436c17856d4134db0c291c9a1633c5
   m_configObjects: {}
