@@ -38,33 +38,41 @@ public class Dynamic_Nomenclature : MonoBehaviour {
             datos[i].Forms = new string[nTotal];
         }
 
-         /*
         GetNivel();
-        Nivel 1
+        /*
+        //"Solucion", "problema", "Elementos"
+        string EElementos = "Mn@Fe@Ag@Ni@Cr@Co@Pb@Zn@Cu@Pt@Au@Th@U@S@H@P@O@N@F@Br@I@Cl@Se@Si@C@B";
+        string[] simulacionesData = new string[3] { "CS₂", "Disulfuro de carbono", EElementos };
+        servicioWCF.GuardarCambioDinamicos("Nomenclatura", simulacionesData, 0, "Nivel1", simulacionesNombre);
 
-        Formula: Disulfuro de carbono
-        Elementos: Mn @ Fe @ Ag @ Ni @ Cr @ Co @ Pb @ Zn @ Cu @ Pt @ Au @ Th @ U @ S @ H @ P @ O @ N @ F @ Br @ I @ Cl @ Se @ Si @ C @ B
+        EElementos = "Mn@Fe@Ag@Ni@Cr@Co@Pb@Zn@Cu@Pt@Au@Th@U@S@H@P@O@N@F@Br@I@Cl@Se@Si@C@B";
+        simulacionesData = new string[3] { "PI₃", "Triyoduro de fósforo", EElementos };
+        servicioWCF.GuardarCambioDinamicos("Nomenclatura", simulacionesData, 0, "Nivel2", simulacionesNombre);
 
-        Nivel 2
+        EElementos = "Mn@Fe@Ag@Ni@Cr@Co@Pb@Zn@Cu@Pt@Au@Th@U@S@H@P@O@N@F@Br@I@Cl@Se@Si@C@B";
+        simulacionesData = new string[3] { "SiH₄", "Tetrahidruro de silicio", EElementos };
+        servicioWCF.GuardarCambioDinamicos("Nomenclatura", simulacionesData, 0, "Nivel3", simulacionesNombre);
 
-        Formula: Triyoduro de fósforo
-        Elementos: Mn @ Fe @ Ag @ Ni @ Cr @ Co @ Pb @ Zn @ Cu Pt @ Au @ Th @ U @ S @ H @ P @ O @ N @ F @ Br @ I @ Cl @ Se @ Si @ C @ B
+        EElementos = "Mn@Fe@Ag@Ni@Cr@Co@Pb@Zn@Cu@Pt@Au@Th@U@S@H@P@O@N@F@Br@I@Cl@Se@Si@C@B";
+        simulacionesData = new string[3] { "Cl₂O₅", "Pentaóxido de dicloro", EElementos };
+        servicioWCF.GuardarCambioDinamicos("Nomenclatura", simulacionesData, 0, "Nivel4", simulacionesNombre);
 
-        Nivel 3
+        EElementos = "Mn@Fe@Ag@Ni@Cr@Co@Pb@Zn@Cu@Pt@Au@Th@U@S@H@P@O@N@F@Br@I@Cl@Se@Si@C@B";
+        simulacionesData = new string[3] { "Br₂O", "Monóxido de dibromo", EElementos };
+        servicioWCF.GuardarCambioDinamicos("Nomenclatura", simulacionesData, 0, "Nivel5", simulacionesNombre);
 
-        Formula: Tetrahidruro de silicio
-        Elementos: Mn @ Fe @ Ag @ Ni @ Cr @ Co @ Pb @ Zn @ Cu Pt @ Au @ Th @ U @ S @ H @ P @ O @ N @ F @ Br @ I @ Cl @ Se @ Si @ C @ B
-
-        Nivel 4
-
-        Formula: Pentaóxido de dicloro
-        Elementos: Mn @ Fe @ Ag @ Ni @ Cr @ Co @ Pb @ Zn @ Cu Pt @ Au @ Th @ U @ S @ H @ P @ O @ N @ F @ Br @ I @ Cl @ Se @ Si @ C @ B
-
+        H₂S₃P₄N₅
+         arr[0] = "CS\u2082";
+       arr[1] = "PI\u2083";
+       arr[2] = "SiH\u2084";
+       arr[3] = "Cl\u2082O\u2085";
+       arr[4] = "Br\u2082O";
         Nivel 5
 
         Formula: Monóxido de dibromo
         Elementos: Mn @ Fe @ Ag @ Ni @ Cr @ Co @ Pb @ Zn @ Cu Pt @ Au @ Th @ U @ S @ H @ P @ O @ N @ F @ Br @ I @ Cl @ Se @ Si @ C @ B
         */
+        load();
 
     }
 
