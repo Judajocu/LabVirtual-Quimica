@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using System.ServiceModel;
 
 public class Simulacion_nomenclatura : MonoBehaviour {
 
@@ -46,9 +47,31 @@ public class Simulacion_nomenclatura : MonoBehaviour {
     public TextMesh intentado = null;
     bool resultado;
 
+    public string level;
+    private string nombreB= "Botton_";
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+
     // Use this for initialization
     void Start()
     {
+        string[] loadResuts = new string[5];
+        string[] simulacionesNombre = new string[3] { "Solucion", "problema", "Elementos" };
+        string[] resultados = servicioWCF.BuscarDatosD("Nomenclatura", level, simulacionesNombre);
+        string[] ayuda = resultados[2].Split('@');
+        GameObject.Find("Formula").GetComponent<TextMesh>().text = resultados[1];
+
+        for (int i = 0; i < 26; i++)
+        {
+            GameObject.Find(nombreB+(i+1)).transform.GetChild(0).GetComponent<Text>().text = ayuda[i];
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            loadResuts[i] = resultados[0];
+        }
+        GameObject.FindGameObjectWithTag("meta").GetComponent<watchGlassBehavior>().SendMessage("rellenar", loadResuts);
+
+        //string[] loadResuts=new string[5];
+        //GameObject.FindGameObjectWithTag("meta").GetComponent<watchGlassBehavior>().SendMessage("rellenar", loadResuts);
         timeup = settings.Gettime();
         CheckType();
         CheckTime();

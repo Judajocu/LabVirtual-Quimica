@@ -43,7 +43,7 @@ public class Simulation_Convertion_Script : MonoBehaviour {
     public float mouseSensitivityY = 1;
 
     public string level;
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemicallabservicewcf20190320070309.azurewebsites.net/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
     #endregion
 
     // Use this for initialization
@@ -57,11 +57,11 @@ public class Simulation_Convertion_Script : MonoBehaviour {
         GameObject.Find("TextAfter").GetComponent<Text>().text = resultados[1];
         
         GameObject.Find("Formula1").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
-        GameObject.Find("Formula2").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
-        GameObject.Find("Formula3").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
-        GameObject.Find("Formula4").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
-        GameObject.Find("Formula5").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
-        GameObject.Find("Formula6").transform.GetChild(0).GetComponent<Text>().text = ayuda[0];
+        GameObject.Find("Formula2").transform.GetChild(0).GetComponent<Text>().text = ayuda[1];
+        GameObject.Find("Formula3").transform.GetChild(0).GetComponent<Text>().text = ayuda[2];
+        GameObject.Find("Formula4").transform.GetChild(0).GetComponent<Text>().text = ayuda[3];
+        GameObject.Find("Formula5").transform.GetChild(0).GetComponent<Text>().text = ayuda[4];
+        GameObject.Find("Formula6").transform.GetChild(0).GetComponent<Text>().text = ayuda[5];
 
         GameObject.Find("ExpectedFormula").GetComponent<TextMesh>().text = resultados[3];
         GameObject.Find("ExpectedAnswer").GetComponent<TextMesh>().text = resultados[4];

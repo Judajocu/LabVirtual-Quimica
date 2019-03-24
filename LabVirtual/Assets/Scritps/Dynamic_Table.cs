@@ -9,88 +9,93 @@ public class Dynamic_Table : MonoBehaviour {
 
     #region Varialbes
     public Button buttonSave;
-    public InputField SolFormula;
-    public InputField SolValor;
-    public InputField ProbInicio;
-    public InputField ProbFinal;
+    public InputField SolSimbolo;
+    public InputField SolMasa;
+    public InputField SolElectron;
+    public InputField SolElemento;
     public Dropdown Nivels;
     //public TMP_InputField Pro;
     public Dropdown Formulas;
-    public InputField SolForApoyo;
+    public Dropdown FormulasNum;
+    public InputField opciones;
 
     public GameObject ButtonAceptar;
-
-    string sol;
-    string probInicio;
-    string probFinal;
+    
     string nivels;
     string nivelsFormula;
-    string context;
+    string nivelsFormulaNum;
     private int n;
+    private int num = 5;
 
-    //private nivel[] datos = new nivel[5];
-    private string[] countOpciones = new string[5] { "Opción 1", "Opción 2", "Opción 3", "Opción 4", "Opción 5" };
-    //private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+    private nivel[] datos = new nivel[5];
+    private string[] countOpciones = new string[3] { "Símbolo", "Masa", "Electrones"};
+    private string[] countOpcionesNum = new string[5] { "Opción 1", "Opción 2", "Opción 3", "Opción 4", "Opción 5" };
+    private string[] nombreNivel = new string[5] { "Nivel1", "Nivel2", "Nivel3", "Nivel4", "Nivel5" };
+    private string[] simulacionesNombre = new string[5] { "Soluciones", "Elemento", "Simbolos", "Masas", "Electrones" };
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
     #endregion
 
     // Use this for initialization
     void Start () {
 
-        /*
+        
          for (int i = 0; i < datos.Length; i++)
         {
             datos[i] = new nivel();
-            datos[i].Forms = new string[6];
+            datos[i].FormsSimbolos = new string[num];
+            datos[i].FormsMasas = new string[num];
+            datos[i].FormsElectrones = new string[num];
         }
 
         GetNivel();
-        Nivel 1
 
-        Elemento: Cloro
-        Respuestas: Cl @ 35.45 @ 2,8,7
-        Signos: Cl @ Mg @ Sc @ Ar @ S
-        Pesos: 35.45 @ 44.96 @ 24.31 @ 32.06 @ 39.95
-        Electrones: 2,8,6 @ 2,8,7 @ 2,8,8 @ 2,8,2 @ 2,8,9,2
+        //"Soluciones", "Elemento", "Simbolos", "Masas", "Electrones"
+        /*
+        string ESoluciones = "Cl@35.45@2,8,7";
+        string ESimbolos = "Cl@Mg@Sc@Ar@S";
+        string EMasa = "35.45@44.96@24.31@32.06@39.95";
+        string EElectron = "2,8,6@2,8,7@2,8,8@2,8,2@2,8,9,2";
+        string[] simulacionesData = new string[5] { ESoluciones, "Cloro", ESimbolos, EMasa, EElectron};
+        servicioWCF.GuardarCambioDinamicos("Tabla Periodica", simulacionesData, 0, "Nivel1", simulacionesNombre);
 
-        Nivel 2
+        ESoluciones = "CSc@44.96@2,8,9,2";
+        ESimbolos = "Cl@Mg@Sc@Ar@S";
+        EMasa = "35.45@44.96@24.31@32.06@39.95";
+        EElectron = "2,8,6@2,8,7@2,8,8@2,8,2@2,8,9,2";
+        simulacionesData = new string[5] { ESoluciones, "Escandio", ESimbolos, EMasa, EElectron };
+        servicioWCF.GuardarCambioDinamicos("Tabla Periodica", simulacionesData, 0, "Nivel2", simulacionesNombre);
 
-        Elemento: Escandio
-        Respuestas: Sc @ 44.96 @ 2,8,9,2
-        Signos: Cl @ Mg @ Sc @ Ar @ S
-        Pesos: 35.45 @ 44.96 @ 24.31 @ 32.06 @ 39.95
-        Electrones: 2,8,6 @ 2,8,7 @ 2,8,8 @ 2,8,2 @ 2,8,9,2
+        ESoluciones = "Mg@24.31@2,8,2";
+        ESimbolos = "Cl@Mg@Sc@Ar@S";
+        EMasa = "35.45@44.96@24.31@32.06@39.95";
+        EElectron = "2,8,6@2,8,7@2,8,8@2,8,2@2,8,9,2";
+        simulacionesData = new string[5] { ESoluciones, "Magnesio", ESimbolos, EMasa, EElectron };
+        servicioWCF.GuardarCambioDinamicos("Tabla Periodica", simulacionesData, 0, "Nivel3", simulacionesNombre);
 
-        Nivel 3
+        ESoluciones = "Ar@39.95@2,8,8";
+        ESimbolos = "Cl@Mg@Sc@Ar@S";
+        EMasa = "35.45@44.96@24.31@32.06@39.95";
+        EElectron = "2,8,6@2,8,7@2,8,8@2,8,2@2,8,9,2";
+        simulacionesData = new string[5] { ESoluciones, "Argón", ESimbolos, EMasa, EElectron };
+        servicioWCF.GuardarCambioDinamicos("Tabla Periodica", simulacionesData, 0, "Nivel4", simulacionesNombre);
 
-        Elemento: Magnesio
-        Respuestas Mg @ 24.31 @ 2,8,2
-        Signos: Cl @ Mg @ Sc @ Ar @ S
-        Pesos: 35.45 @ 44.96 @ 24.31 @ 32.06 @ 39.95
-        Electrones: 2,8,6 @ 2,8,7 @ 2,8,8 @ 2,8,2 @ 2,8,9,2
-
-        Nivel 4
-
-        Elemento: Argón
-        Respuestas: Ar @ 39.95 @ 2,8,8
-        Signos: Cl @ Mg @ Sc @ Ar @ S
-        Pesos: 35.45 @ 44.96 @ 24.31 @ 32.06 @ 39.95
-        Electrones: 2,8,6 @ 2,8,7 @ 2,8,8 @ 2,8,2 @ 2,8,9,2
-
-        Nivel 5
-
-        Elemento: Azufre
-        Respuestas: S @ 32.06 @ 2,8,6
-        Signos: Cl @ Mg @ Sc @ Ar @ S
-        Pesos: 35.45 @ 44.96 @ 24.31 @ 32.06 @ 39.95
-        Electrones: 2,8,6 @ 2,8,7 @ 2,8,8 @ 2,8,2 @ 2,8,9,2
+        ESoluciones = "S@32.06@2,8,6";
+        ESimbolos = "Cl@Mg@Sc@Ar@S";
+        EMasa = "35.45@44.96@24.31@32.06@39.95";
+        EElectron = "2,8,6@2,8,7@2,8,8@2,8,2@2,8,9,2";
+        simulacionesData = new string[5] { ESoluciones, "Azufre", ESimbolos, EMasa, EElectron };
+        servicioWCF.GuardarCambioDinamicos("Tabla Periodica", simulacionesData, 0, "Nivel5", simulacionesNombre);
+        
         */
+
+        load();
 
     }
 
     // Update is called once per frame
     void Update () {
 
-        /*
+        
         GetNivel();
         if (nivels.Equals("Nivel 1"))
         {
@@ -118,52 +123,48 @@ public class Dynamic_Table : MonoBehaviour {
             n = 4;
             actualizarFor(n);
         }
-        */
+        
 
     }
 
     public void ValidateChange()
     {
-        string[] simulacionesNombre = new string[5] { "ProInicio", "ProFinal", "Contexto", "Formula", "Valor" };
-        string[] nombreNivel = new string[5] { "Nivel1", "Nivel2", "Nivel3", "Nivel4", "Nivel5" };
+        //"Nivel1", "Nivel2", "Nivel3", "Nivel4", "Nivel5" 
+        //"Soluciones", "Elemento", "Simbolos", "Masas", "Electrones"
+        //simbolos
+        // masas
+        //electrones
 
-        /*
+
         for (int i = 0; i < datos.Length; i++)
         {
             try
             {
                 //string[] ayuda = datos[i].contexto.Split('\n');
-                string lala = "";
-                for (int j = 0; j < datos[i].Forms.Length; j++)
+                string lala1 = "";
+                string lala2 = "";
+                string lala3 = "";
+                string solucionesAll = datos[i].solSimbolo + "@"+datos[i].solMasa + "@"+datos[i].solElectron;
+                for (int j = 0; j < num; j++)
                 {
-                    lala += datos[i].Forms[j] + "@";
+                    lala1+=datos[i].FormsSimbolos[j] + "@";
+                    lala2 += datos[i].FormsMasas[j] + "@";
+                    lala3 += datos[i].FormsElectrones[j] + "@";
                 }
                 string aux = nombreNivel[i];
-                string[] simulacionesData = new string[5] { datos[i].probInicio, datos[i].probFinal, lala, datos[i].solFormula, datos[i].solValor };
-                servicioWCF.GuardarCambioDinamicos("Conversion", simulacionesData, 0, aux, simulacionesNombre);
+                string[] simulacionesData = new string[5] { solucionesAll, datos[i].elemento, lala1, lala2, lala3 };
+                servicioWCF.GuardarCambioDinamicos("Tabla Periodica", simulacionesData, 0, aux, simulacionesNombre);
             }
             catch (System.Exception ex)
             {
                 print(ex.ToString());
             }
-        }*/
+        }
 
         SceneManager.LoadScene("Dynamic_Simulations");
     }
 
-}
-/*
-
-    //Esto consigue el texto del problema despues que se cambia
-    public void GetProbInicio()
-    {
-        probInicio = ProbInicio.text;
-    }
-
-    public void GetProbFinal()
-    {
-        probFinal = ProbFinal.text;
-    }
+    
 
     //Esto consigue el texto del dropdown
     public void GetNivel()
@@ -175,12 +176,16 @@ public class Dynamic_Table : MonoBehaviour {
     {
         nivelsFormula = Formulas.options[Formulas.value].text;
     }
+
+    public void GetNivelFormulaNum()
+    {
+        nivelsFormulaNum = FormulasNum.options[FormulasNum.value].text;
+    }
     //Esto consigue lo del contexto
 
     public void load()
     {
-        string[] simulacionesNombre = new string[5] { "ProInicio", "ProFinal", "Contexto", "Formula", "Valor" };
-        string[] nombreNivel = new string[5] { "Nivel1", "Nivel2", "Nivel3", "Nivel4", "Nivel5" };
+        //"Soluciones", "Elemento", "Simbolos", "Masas", "Electrones"
 
         for (int i = 0; i < datos.Length; i++)
         {
@@ -188,18 +193,26 @@ public class Dynamic_Table : MonoBehaviour {
             {
                 string aux = nombreNivel[i];
                 //datos[i] = new nivel();
-                string[] resultados = servicioWCF.BuscarDatosD("Conversion", aux, simulacionesNombre);
+                string[] resultados = servicioWCF.BuscarDatosD("Tabla Periodica", aux, simulacionesNombre);
+                
                 datos[i].nivelName = nombreNivel[i];
-                datos[i].probInicio = resultados[0];
-                datos[i].probFinal = resultados[1];
-                datos[i].solFormula = resultados[3];
-                datos[i].solValor = resultados[4];
-                string[] ayuda = resultados[2].Split('@');
-                //string lala = "";
-                for (int j = 0; j < ayuda.Length; j++)
+
+                string[] resSoluciones = resultados[0].Split('@');
+                datos[i].solSimbolo = resSoluciones[0];
+                datos[i].solMasa = resSoluciones[1];
+                datos[i].solElectron = resSoluciones[2];
+
+                datos[i].elemento = resultados[1];
+
+                string[] ayuda = resultados[2].Split('@'); //simbolos
+                string[] ayuda2 = resultados[3].Split('@');// masas
+                string[] ayuda3 = resultados[4].Split('@');//electrones
+
+                for (int j = 0; j < num; j++)
                 {
-                    datos[i].Forms[j] = ayuda[j];
-                    //lala += ayuda[j] + Environment.NewLine;
+                    datos[i].FormsSimbolos[j] = ayuda[j];
+                    datos[i].FormsMasas[j] = ayuda2[j];
+                    datos[i].FormsElectrones[j] = ayuda3[j];
                 }
 
 
@@ -212,147 +225,191 @@ public class Dynamic_Table : MonoBehaviour {
     }
 
 
-    public void editarSolValor()
+    public void editarSolSimbolo()
     {
-        if (SolValor.GetComponent<InputField>().isFocused)
+        if (SolSimbolo.GetComponent<InputField>().isFocused)
         {
             GetNivel();
             if (nivels.Equals("Nivel 1"))
             {
-                datos[0].solValor = SolValor.text;
+                datos[0].solSimbolo = SolSimbolo.text;
 
             }
             else if (nivels.Equals("Nivel 2"))
             {
-                datos[1].solValor = SolValor.text;
+                datos[1].solSimbolo = SolSimbolo.text;
             }
             else if (nivels.Equals("Nivel 3"))
             {
-                datos[2].solValor = SolValor.text;
+                datos[2].solSimbolo = SolSimbolo.text;
             }
             else if (nivels.Equals("Nivel 4"))
             {
-                datos[3].solValor = SolValor.text;
+                datos[3].solSimbolo = SolSimbolo.text;
             }
             else if (nivels.Equals("Nivel 5"))
             {
-                datos[4].solValor = SolValor.text;
+                datos[4].solSimbolo = SolSimbolo.text;
             }
         }
     }
-    public void editarSolFormula()
+    public void editarSolMasa()
     {
-        if (SolFormula.GetComponent<InputField>().isFocused)
+        if (SolMasa.GetComponent<InputField>().isFocused)
         {
             GetNivel();
             if (nivels.Equals("Nivel 1"))
             {
-                datos[0].solFormula = SolFormula.text;
+                datos[0].solMasa = SolMasa.text;
 
             }
             else if (nivels.Equals("Nivel 2"))
             {
-                datos[1].solFormula = SolFormula.text;
+                datos[1].solMasa = SolMasa.text;
             }
             else if (nivels.Equals("Nivel 3"))
             {
-                datos[2].solFormula = SolFormula.text;
+                datos[2].solMasa = SolMasa.text;
             }
             else if (nivels.Equals("Nivel 4"))
             {
-                datos[3].solFormula = SolFormula.text;
+                datos[3].solMasa = SolMasa.text;
             }
             else if (nivels.Equals("Nivel 5"))
             {
-                datos[4].solFormula = SolFormula.text;
+                datos[4].solMasa = SolMasa.text;
+            }
+        }
+    }
+    public void editarSolElectrones()
+    {
+        if (SolElectron.GetComponent<InputField>().isFocused)
+        {
+            GetNivel();
+            if (nivels.Equals("Nivel 1"))
+            {
+                datos[0].solElectron = SolElectron.text;
+            }
+            else if (nivels.Equals("Nivel 2"))
+            {
+                datos[1].solElectron = SolElectron.text;
+            }
+            else if (nivels.Equals("Nivel 3"))
+            {
+                datos[2].solElectron = SolElectron.text;
+            }
+            else if (nivels.Equals("Nivel 4"))
+            {
+                datos[3].solElectron = SolElectron.text;
+            }
+            else if (nivels.Equals("Nivel 5"))
+            {
+                datos[4].solElectron = SolElectron.text;
+            }
+        }
+    }
+    public void editarElemento()
+    {
+        if (SolElemento.GetComponent<InputField>().isFocused)
+        {
+            GetNivel();
+            if (nivels.Equals("Nivel 1"))
+            {
+                datos[0].elemento = SolElemento.text;
+            }
+            else if (nivels.Equals("Nivel 2"))
+            {
+                datos[1].elemento = SolElemento.text;
+            }
+            else if (nivels.Equals("Nivel 3"))
+            {
+                datos[2].elemento = SolElemento.text;
+            }
+            else if (nivels.Equals("Nivel 4"))
+            {
+                datos[3].elemento = SolElemento.text;
+            }
+            else if (nivels.Equals("Nivel 5"))
+            {
+                datos[4].elemento = SolElemento.text;
             }
         }
     }
     public void editarContexto()
     {
-        if (SolForApoyo.GetComponent<InputField>().isFocused)
+        if (opciones.GetComponent<InputField>().isFocused)
         {
             GetNivelFormula();
+            GetNivelFormulaNum();
 
-            for (int i = 0; i < countFormulas.Length; i++)
+            for (int i = 0; i < countOpcionesNum.Length; i++)
             {
-                if (nivelsFormula.Equals(countFormulas[i]))
+                if (nivelsFormula.Equals(countOpciones[0]))
                 {
-                    datos[n].Forms[i] = SolForApoyo.text;
+                    //simbolos
+                    if (nivelsFormulaNum.Equals(countOpcionesNum[i]))
+                    {
+                        datos[n].FormsSimbolos[i] = opciones.text;
+                    }
+                }
+                else if (nivelsFormula.Equals(countOpciones[1]))
+                {
+                    // masas
+                    if (nivelsFormulaNum.Equals(countOpcionesNum[i]))
+                    {
+                        datos[n].FormsMasas[i] = opciones.text;
+                    }
+                }
+                else if (nivelsFormula.Equals(countOpciones[2]))
+                {
+                    //electrones
+                    if (nivelsFormulaNum.Equals(countOpcionesNum[i]))
+                    {
+                        datos[n].FormsElectrones[i] = opciones.text;
+                    }
                 }
             }
 
         }
     }
-    public void editarProbInicio()
-    {
-        if (ProbInicio.GetComponent<InputField>().isFocused)
-        {
-            GetNivel();
-            if (nivels.Equals("Nivel 1"))
-            {
-                datos[0].probInicio = ProbInicio.text;
-            }
-            else if (nivels.Equals("Nivel 2"))
-            {
-                datos[1].probInicio = ProbInicio.text;
-            }
-            else if (nivels.Equals("Nivel 3"))
-            {
-                datos[2].probInicio = ProbInicio.text;
-            }
-            else if (nivels.Equals("Nivel 4"))
-            {
-                datos[3].probInicio = ProbInicio.text;
-            }
-            else if (nivels.Equals("Nivel 5"))
-            {
-                datos[4].probInicio = ProbInicio.text;
-            }
-        }
-    }
-    public void editarProbFinal()
-    {
-        if (ProbFinal.GetComponent<InputField>().isFocused)
-        {
-            GetNivel();
-            if (nivels.Equals("Nivel 1"))
-            {
-                datos[0].probFinal = ProbFinal.text;
-            }
-            else if (nivels.Equals("Nivel 2"))
-            {
-                datos[1].probFinal = ProbFinal.text;
-            }
-            else if (nivels.Equals("Nivel 3"))
-            {
-                datos[2].probFinal = ProbFinal.text;
-            }
-            else if (nivels.Equals("Nivel 4"))
-            {
-                datos[3].probFinal = ProbFinal.text;
-            }
-            else if (nivels.Equals("Nivel 5"))
-            {
-                datos[4].probFinal = ProbFinal.text;
-            }
-        }
-    }
+    
 
     public void actualizarFor(int a)
     {
-        SolValor.text = datos[a].solValor;
-        SolFormula.text = datos[a].solFormula;
-        ProbInicio.text = datos[a].probInicio;
-        ProbFinal.text = datos[a].probFinal;
+        SolSimbolo.text = datos[a].solSimbolo;
+        SolMasa.text = datos[a].solMasa;
+        SolElectron.text = datos[a].solElectron;
+        SolElemento.text = datos[a].elemento;
 
         GetNivelFormula();
+        GetNivelFormulaNum();
 
-        for (int i = 0; i < countFormulas.Length; i++)
+        for (int i = 0; i < countOpcionesNum.Length; i++)
         {
-            if (nivelsFormula.Equals(countFormulas[i]))
+            if (nivelsFormula.Equals(countOpciones[0]))
             {
-                SolForApoyo.text = datos[a].Forms[i];
+                //simbolos
+                if (nivelsFormulaNum.Equals(countOpcionesNum[i]))
+                {
+                    opciones.text = datos[a].FormsSimbolos[i];
+                }
+
+            }
+            else if (nivelsFormula.Equals(countOpciones[1]))
+            {
+                // masas
+                if (nivelsFormulaNum.Equals(countOpcionesNum[i]))
+                {
+                    opciones.text = datos[a].FormsMasas[i];
+                }
+            }
+            else if (nivelsFormula.Equals(countOpciones[2]))
+            {
+                //electrones
+                if (nivelsFormulaNum.Equals(countOpcionesNum[i]))
+                {
+                    opciones.text = datos[a].FormsElectrones[i];
+                }
             }
         }
 
@@ -361,12 +418,18 @@ public class Dynamic_Table : MonoBehaviour {
     public class nivel
     {
         public string nivelName { get; set; }
-        public string solFormula { get; set; }
-        public string solValor { get; set; }
-        public string probInicio { get; set; }
-        public string probFinal { get; set; }
-        public string[] Forms { get; set; }
+        public string solSimbolo { get; set; }
+        public string solMasa { get; set; }
+        public string solElectron { get; set; }
+        public string elemento { get; set; }
+        public string[] FormsSimbolos { get; set; }
+        public string[] FormsMasas { get; set; }
+        public string[] FormsElectrones { get; set; }
 
     }
+
 }
-*/
+
+
+    
+

@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 129027562}
   - component: {fileID: 129027561}
   m_Layer: 0
-  m_Name: Botton_B
+  m_Name: Botton_25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -562,7 +562,7 @@ GameObject:
   - component: {fileID: 209818642}
   - component: {fileID: 209818641}
   m_Layer: 0
-  m_Name: Botton_Pt
+  m_Name: Botton_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -859,7 +859,7 @@ GameObject:
   - component: {fileID: 238551083}
   - component: {fileID: 238551082}
   m_Layer: 0
-  m_Name: Botton_Ag
+  m_Name: Botton_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1220,7 +1220,7 @@ GameObject:
   - component: {fileID: 426423453}
   - component: {fileID: 426423452}
   m_Layer: 0
-  m_Name: Botton_O
+  m_Name: Botton_17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1581,7 +1581,7 @@ GameObject:
   - component: {fileID: 515113061}
   - component: {fileID: 515113060}
   m_Layer: 0
-  m_Name: Botton_Cl
+  m_Name: Botton_20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2104,7 +2104,7 @@ GameObject:
   - component: {fileID: 624754677}
   - component: {fileID: 624754676}
   m_Layer: 0
-  m_Name: Botton_I
+  m_Name: Botton_23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2326,7 +2326,7 @@ GameObject:
   - component: {fileID: 718874175}
   - component: {fileID: 718874174}
   m_Layer: 0
-  m_Name: Botton_Br
+  m_Name: Botton_22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2959,7 +2959,7 @@ GameObject:
   - component: {fileID: 921515005}
   - component: {fileID: 921515004}
   m_Layer: 0
-  m_Name: Botton_Au
+  m_Name: Botton_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3095,7 +3095,7 @@ GameObject:
   - component: {fileID: 927354587}
   - component: {fileID: 927354586}
   m_Layer: 0
-  m_Name: Botton_Cr
+  m_Name: Botton_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3554,7 +3554,7 @@ GameObject:
   - component: {fileID: 1170896711}
   - component: {fileID: 1170896710}
   m_Layer: 0
-  m_Name: Botton_Mn
+  m_Name: Botton_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3690,7 +3690,7 @@ GameObject:
   - component: {fileID: 1196687619}
   - component: {fileID: 1196687618}
   m_Layer: 0
-  m_Name: Botton_Zn
+  m_Name: Botton_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4023,7 +4023,7 @@ GameObject:
   - component: {fileID: 1230606949}
   - component: {fileID: 1230606948}
   m_Layer: 0
-  m_Name: Botton_Cu
+  m_Name: Botton_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4321,7 +4321,7 @@ GameObject:
   - component: {fileID: 1258439199}
   - component: {fileID: 1258439198}
   m_Layer: 0
-  m_Name: Botton_Th
+  m_Name: Botton_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4629,7 +4629,7 @@ GameObject:
   - component: {fileID: 1273013401}
   - component: {fileID: 1273013403}
   m_Layer: 0
-  m_Name: Botton_Fe
+  m_Name: Botton_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4869,7 +4869,7 @@ GameObject:
   - component: {fileID: 1299994023}
   - component: {fileID: 1299994022}
   m_Layer: 0
-  m_Name: Botton_Pb
+  m_Name: Botton_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5005,7 +5005,7 @@ GameObject:
   - component: {fileID: 1300719488}
   - component: {fileID: 1300719487}
   m_Layer: 0
-  m_Name: Botton_H
+  m_Name: Botton_15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5339,7 +5339,7 @@ GameObject:
   - component: {fileID: 1359363013}
   - component: {fileID: 1359363012}
   m_Layer: 0
-  m_Name: Botton_P
+  m_Name: Botton_19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5506,6 +5506,7 @@ MonoBehaviour:
   mouseSensitivityX: 1
   mouseSensitivityY: 1
   intentado: {fileID: 883229908}
+  level: Nivel1
 --- !u!102 &1371210781
 TextMesh:
   serializedVersion: 3
@@ -5711,7 +5712,7 @@ GameObject:
   - component: {fileID: 1396477341}
   - component: {fileID: 1396477340}
   m_Layer: 0
-  m_Name: Botton_C
+  m_Name: Botton_26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5847,7 +5848,7 @@ GameObject:
   - component: {fileID: 1416178663}
   - component: {fileID: 1416178662}
   m_Layer: 0
-  m_Name: Botton_Si
+  m_Name: Botton_24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6219,7 +6220,7 @@ GameObject:
   - component: {fileID: 1510167738}
   - component: {fileID: 1510167737}
   m_Layer: 0
-  m_Name: Botton_Se
+  m_Name: Botton_21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6496,7 +6497,7 @@ GameObject:
   - component: {fileID: 1605589056}
   - component: {fileID: 1605589055}
   m_Layer: 0
-  m_Name: Botton_U
+  m_Name: Botton_13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7216,7 +7217,7 @@ GameObject:
   - component: {fileID: 1786658856}
   - component: {fileID: 1786658855}
   m_Layer: 0
-  m_Name: Botton_N
+  m_Name: Botton_16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7352,7 +7353,7 @@ GameObject:
   - component: {fileID: 1794251360}
   - component: {fileID: 1794251359}
   m_Layer: 0
-  m_Name: Botton_Ni
+  m_Name: Botton_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7563,7 +7564,7 @@ GameObject:
   - component: {fileID: 1799218131}
   - component: {fileID: 1799218130}
   m_Layer: 0
-  m_Name: Botton_F
+  m_Name: Botton_18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8151,7 +8152,7 @@ GameObject:
   - component: {fileID: 1937060429}
   - component: {fileID: 1937060428}
   m_Layer: 0
-  m_Name: Botton_S
+  m_Name: Botton_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8499,7 +8500,7 @@ GameObject:
   - component: {fileID: 2146097505}
   - component: {fileID: 2146097504}
   m_Layer: 0
-  m_Name: Botton_Co
+  m_Name: Botton_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

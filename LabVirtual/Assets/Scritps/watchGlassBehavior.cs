@@ -13,17 +13,17 @@ public class watchGlassBehavior : MonoBehaviour {
 
     public int result;
     private List<string> lista = new List<string>();
-    string[] arr = new string[5];
+    public string[] arr = new string[5];
     bool valor_respuesta;
 
     // Use this for initialization
     void Start () {
 
-        arr[0] = "CS\u2082";
+        /*arr[0] = "CS\u2082";
         arr[1] = "PI\u2083";
         arr[2] = "SiH\u2084";
         arr[3] = "Cl\u2082O\u2085";
-        arr[4] = "Br\u2082O";
+        arr[4] = "Br\u2082O";*/
     }
 	
 	// Update is called once per frame
@@ -178,5 +178,13 @@ public class watchGlassBehavior : MonoBehaviour {
 
         GameObject.FindGameObjectWithTag("nomenclatura").GetComponent<Simulacion_nomenclatura>().SendMessage("respuesta", valor_respuesta);
 
+    }
+
+    public void rellenar(string[] esto)
+    {
+        for(int i = 0; i < 5; i++)
+        {
+            arr[i] = esto[i];
+        }
     }
 }

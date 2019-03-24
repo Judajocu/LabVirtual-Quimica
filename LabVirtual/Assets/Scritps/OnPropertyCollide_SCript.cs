@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.ServiceModel;
 
 public class OnPropertyCollide_SCript : MonoBehaviour {
 
@@ -39,16 +40,33 @@ public class OnPropertyCollide_SCript : MonoBehaviour {
     public GameObject Electron5;
 
     List<string> results_expected = new List<string>();
+
+    public string level;
+    private string masaNombre = "Peso";
+    private string ElectronNombre = "Electrones";
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
     #endregion
 
     // Use this for initialization
     void Start()
     {
+
         GetExpectedResult();
     }
 
     void Awake()
     {
+        string[] simulacionesNombre = new string[5] { "Soluciones", "Elemento", "Simbolos", "Masas", "Electrones" };
+        string[] resultados = servicioWCF.BuscarDatosD("Tabla Periodica", level, simulacionesNombre);
+        string[] ayudaMas = resultados[3].Split('@');
+        string[] ayudaEle = resultados[4].Split('@');
+
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject.Find(masaNombre + (i + 1)).transform.GetChild(0).GetComponent<Text>().text = ayudaMas[i];
+            GameObject.Find(ElectronNombre + (i + 1)).transform.GetChild(0).GetComponent<Text>().text = ayudaEle[i];
+        }
+
         pesos.gameObject.SetActive(false);
         electronegatividad.gameObject.SetActive(false);
         pesosT.gameObject.SetActive(false);

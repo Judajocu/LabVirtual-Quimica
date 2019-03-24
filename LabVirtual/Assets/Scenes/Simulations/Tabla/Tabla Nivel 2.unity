@@ -768,7 +768,7 @@ GameObject:
   - component: {fileID: 198451555}
   - component: {fileID: 198451557}
   m_Layer: 0
-  m_Name: Peso2
+  m_Name: Peso1
   m_TagString: Weight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1077,7 +1077,7 @@ GameObject:
   - component: {fileID: 316070447}
   - component: {fileID: 316070446}
   m_Layer: 0
-  m_Name: Electrones5
+  m_Name: Electrones3
   m_TagString: Electrons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1439,7 +1439,7 @@ GameObject:
   - component: {fileID: 412938002}
   - component: {fileID: 412938001}
   m_Layer: 0
-  m_Name: Signo4
+  m_Name: Signo2
   m_TagString: Symbol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2757,7 +2757,7 @@ GameObject:
   - component: {fileID: 991330067}
   - component: {fileID: 991330066}
   m_Layer: 0
-  m_Name: Peso6
+  m_Name: Peso4
   m_TagString: Weight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3123,6 +3123,7 @@ MonoBehaviour:
   interpolationPeriod: 0.05
   mouseSensitivityX: 1
   mouseSensitivityY: 1
+  level: Nivel2
 --- !u!102 &1371210781
 TextMesh:
   serializedVersion: 3
@@ -3564,7 +3565,7 @@ GameObject:
   - component: {fileID: 1421434219}
   - component: {fileID: 1421434218}
   m_Layer: 0
-  m_Name: Peso7
+  m_Name: Peso5
   m_TagString: Weight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4078,7 +4079,7 @@ GameObject:
   - component: {fileID: 1578323748}
   - component: {fileID: 1578323747}
   m_Layer: 0
-  m_Name: Peso4
+  m_Name: Peso2
   m_TagString: Weight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4481,7 +4482,7 @@ GameObject:
   - component: {fileID: 1635388331}
   - component: {fileID: 1635388330}
   m_Layer: 0
-  m_Name: Electrones7
+  m_Name: Electrones4
   m_TagString: Electrons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4617,7 +4618,7 @@ GameObject:
   - component: {fileID: 1649641491}
   - component: {fileID: 1649641490}
   m_Layer: 0
-  m_Name: Peso5
+  m_Name: Peso3
   m_TagString: Weight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5112,7 +5113,7 @@ GameObject:
   - component: {fileID: 1831302420}
   - component: {fileID: 1831302422}
   m_Layer: 0
-  m_Name: Electrones2
+  m_Name: Electrones1
   m_TagString: Electrons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5248,7 +5249,7 @@ GameObject:
   - component: {fileID: 1884368789}
   - component: {fileID: 1884368788}
   m_Layer: 0
-  m_Name: Signo6
+  m_Name: Signo4
   m_TagString: Symbol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5773,7 +5774,7 @@ GameObject:
   - component: {fileID: 1946695179}
   - component: {fileID: 1946695178}
   m_Layer: 0
-  m_Name: Signo5
+  m_Name: Signo3
   m_TagString: Symbol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5909,7 +5910,7 @@ GameObject:
   - component: {fileID: 1953090069}
   - component: {fileID: 1953090068}
   m_Layer: 0
-  m_Name: Signo7
+  m_Name: Signo5
   m_TagString: Symbol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6045,7 +6046,7 @@ GameObject:
   - component: {fileID: 1983328920}
   - component: {fileID: 1983328922}
   m_Layer: 0
-  m_Name: Electrones3
+  m_Name: Electrones2
   m_TagString: Electrons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6181,7 +6182,7 @@ GameObject:
   - component: {fileID: 2066849986}
   - component: {fileID: 2066849985}
   m_Layer: 0
-  m_Name: Electrones6
+  m_Name: Electrones5
   m_TagString: Electrons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6449,6 +6450,7 @@ MonoBehaviour:
   Electron3: {fileID: 1093638792718036, guid: 967bfe067c7f12842a7efeeb9636aba0, type: 2}
   Electron4: {fileID: 1362137070888480, guid: f39be9b234962f84697e952af521a736, type: 2}
   Electron5: {fileID: 1949467415723268, guid: 59288ea82cb751c4487a26fef925a128, type: 2}
+  level: Nivel2
 --- !u!61 &2108089236
 BoxCollider2D:
   m_ObjectHideFlags: 0

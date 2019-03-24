@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using System.ServiceModel;
 
 public class Simulation_Table_Script : MonoBehaviour
 {
@@ -41,11 +42,37 @@ public class Simulation_Table_Script : MonoBehaviour
     public float interpolationPeriod = 0.05f;
     public float mouseSensitivityX = 1;
     public float mouseSensitivityY = 1;
+
+    public string level;
+    private string signoNombre = "Signo";
+    private string masaNombre = "Peso";
+    private string ElectronNombre = "Electrones";
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
     #endregion
 
     // Use this for initialization
     void Start()
     {
+        string[] simulacionesNombre = new string[5] { "Soluciones", "Elemento", "Simbolos", "Masas", "Electrones" };
+        string[] resultados = servicioWCF.BuscarDatosD("Tabla Periodica", level, simulacionesNombre);
+        string[] ayudaSol = resultados[0].Split('@');
+        string[] ayudaSim = resultados[2].Split('@');
+        string[] ayudaMas = resultados[3].Split('@');
+        string[] ayudaEle = resultados[4].Split('@');
+
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject.Find(signoNombre + (i + 1)).transform.GetChild(0).GetComponent<Text>().text = ayudaSim[i];
+            
+        }
+
+        GameObject.Find("Element").GetComponent<TextMesh>().text = resultados[1];
+
+        GameObject.Find("ExpectedSymbol").GetComponent<TextMesh>().text = ayudaSol[0];
+        GameObject.Find("ExpectedMass").GetComponent<TextMesh>().text = ayudaSol[1];
+        GameObject.Find("ExpectedElectrons").GetComponent<TextMesh>().text = ayudaSol[2];
+
+
         timeup = settings.Gettime();
         CheckType();
        textcant_fallos = GameObject.Find("Errores").GetComponent<TextMesh>();

@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 2350775}
   - component: {fileID: 2350774}
   m_Layer: 0
-  m_Name: Electrones3
+  m_Name: Electrones2
   m_TagString: Electrons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 77176478}
   - component: {fileID: 77176477}
   m_Layer: 0
-  m_Name: Electrones7
+  m_Name: Electrones4
   m_TagString: Electrons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 204301109}
   - component: {fileID: 204301108}
   m_Layer: 0
-  m_Name: Peso5
+  m_Name: Peso3
   m_TagString: Weight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -790,7 +790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5781743, y: 0.7351411}
   m_AnchorMax: {x: 0.93834853, y: 0.7945643}
-  m_AnchoredPosition: {x: 0.05000305, y: 0.58999634}
+  m_AnchoredPosition: {x: 0.049987793, y: 0.5899658}
   m_SizeDelta: {x: -0.1000061, y: -0.1000061}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &249454350
@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 263032525}
   - component: {fileID: 263032524}
   m_Layer: 0
-  m_Name: Peso7
+  m_Name: Peso5
   m_TagString: Weight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1655,7 +1655,7 @@ GameObject:
   - component: {fileID: 581924931}
   - component: {fileID: 581924930}
   m_Layer: 0
-  m_Name: Peso6
+  m_Name: Peso4
   m_TagString: Weight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3049,7 +3049,7 @@ GameObject:
   - component: {fileID: 1063296712}
   - component: {fileID: 1063296711}
   m_Layer: 0
-  m_Name: Electrones2
+  m_Name: Electrones1
   m_TagString: Electrons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3378,7 +3378,7 @@ GameObject:
   - component: {fileID: 1192139506}
   - component: {fileID: 1192139505}
   m_Layer: 0
-  m_Name: Peso2
+  m_Name: Peso1
   m_TagString: Weight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3664,7 +3664,7 @@ GameObject:
   - component: {fileID: 1243081600}
   - component: {fileID: 1243081599}
   m_Layer: 0
-  m_Name: Electrones6
+  m_Name: Electrones5
   m_TagString: Electrons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3800,7 +3800,7 @@ GameObject:
   - component: {fileID: 1261628173}
   - component: {fileID: 1261628172}
   m_Layer: 0
-  m_Name: Electrones5
+  m_Name: Electrones3
   m_TagString: Electrons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4196,6 +4196,7 @@ MonoBehaviour:
   interpolationPeriod: 0.05
   mouseSensitivityX: 1
   mouseSensitivityY: 1
+  level: Nivel1
 --- !u!102 &1371210781
 TextMesh:
   serializedVersion: 3
@@ -4420,7 +4421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05517426, y: 0.46460143}
   m_AnchorMax: {x: 0.46717426, y: 0.70885897}
-  m_AnchoredPosition: {x: 0.08068848, y: -0.16300201}
+  m_AnchoredPosition: {x: 0.08068848, y: -0.16299438}
   m_SizeDelta: {x: 1.1000061, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1510282841
@@ -4630,7 +4631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2735228, y: 0.89846873}
   m_AnchorMax: {x: 0.95665157, y: 0.9884376}
-  m_AnchoredPosition: {x: 0.30000305, y: 0.73999023}
+  m_AnchoredPosition: {x: 0.2999878, y: 0.73999023}
   m_SizeDelta: {x: -1.7999878, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1569107297
@@ -4761,7 +4762,7 @@ GameObject:
   - component: {fileID: 1592921301}
   - component: {fileID: 1592921300}
   m_Layer: 0
-  m_Name: Signo6
+  m_Name: Signo4
   m_TagString: Symbol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5153,7 +5154,7 @@ GameObject:
   - component: {fileID: 1669415072}
   - component: {fileID: 1669415071}
   m_Layer: 0
-  m_Name: Signo5
+  m_Name: Signo3
   m_TagString: Symbol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5289,7 +5290,7 @@ GameObject:
   - component: {fileID: 1691534755}
   - component: {fileID: 1691534754}
   m_Layer: 0
-  m_Name: Peso4
+  m_Name: Peso2
   m_TagString: Weight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5727,7 +5728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.018749997, y: 0.8493986}
   m_AnchorMax: {x: 0.25134856, y: 0.89846873}
-  m_AnchoredPosition: {x: 1.7000122, y: 0.5}
+  m_AnchoredPosition: {x: 1.7000732, y: 0.5}
   m_SizeDelta: {x: 0.80000305, y: 1.3999939}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1880393629
@@ -5743,7 +5744,7 @@ GameObject:
   - component: {fileID: 1880393632}
   - component: {fileID: 1880393631}
   m_Layer: 0
-  m_Name: Signo4
+  m_Name: Signo2
   m_TagString: Symbol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6031,7 +6032,7 @@ GameObject:
   - component: {fileID: 1946778560}
   - component: {fileID: 1946778559}
   m_Layer: 0
-  m_Name: Signo7
+  m_Name: Signo5
   m_TagString: Symbol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6511,6 +6512,7 @@ MonoBehaviour:
   Electron3: {fileID: 1093638792718036, guid: 967bfe067c7f12842a7efeeb9636aba0, type: 2}
   Electron4: {fileID: 1362137070888480, guid: f39be9b234962f84697e952af521a736, type: 2}
   Electron5: {fileID: 1949467415723268, guid: 59288ea82cb751c4487a26fef925a128, type: 2}
+  level: Nivel1
 --- !u!61 &2126800821
 BoxCollider2D:
   m_ObjectHideFlags: 0
