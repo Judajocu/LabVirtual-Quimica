@@ -23,11 +23,11 @@ namespace LabServerConnection
         
         private string EstApellidoField;
         
+        private System.Nullable<int> EstIDMoodleField;
+        
         private string EstMatriculaField;
         
         private string EstNombreField;
-        
-        private string EstPasswordField;
         
         private string EstReporteField;
         
@@ -65,6 +65,19 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> EstIDMoodle
+        {
+            get
+            {
+                return this.EstIDMoodleField;
+            }
+            set
+            {
+                this.EstIDMoodleField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string EstMatricula
         {
             get
@@ -87,19 +100,6 @@ namespace LabServerConnection
             set
             {
                 this.EstNombreField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EstPassword
-        {
-            get
-            {
-                return this.EstPasswordField;
-            }
-            set
-            {
-                this.EstPasswordField = value;
             }
         }
         
@@ -529,9 +529,9 @@ namespace LabServerConnection
         
         private string ProfApellidoField;
         
-        private string ProfNombreField;
+        private System.Nullable<int> ProfIDMoodleField;
         
-        private string ProfPasswordField;
+        private string ProfNombreField;
         
         private string ProfesorIdField;
         
@@ -574,6 +574,19 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ProfIDMoodle
+        {
+            get
+            {
+                return this.ProfIDMoodleField;
+            }
+            set
+            {
+                this.ProfIDMoodleField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string ProfNombre
         {
             get
@@ -583,19 +596,6 @@ namespace LabServerConnection
             set
             {
                 this.ProfNombreField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ProfPassword
-        {
-            get
-            {
-                return this.ProfPasswordField;
-            }
-            set
-            {
-                this.ProfPasswordField = value;
             }
         }
         
@@ -833,23 +833,32 @@ public interface IServiceLab
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerEstudiantes", ReplyAction="http://tempuri.org/IServiceLab/ObtenerEstudiantesResponse")]
     LabServerConnection.Estudiantes[] ObtenerEstudiantes(string idEstudiantes);
     
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerPass", ReplyAction="http://tempuri.org/IServiceLab/ObtenerPassResponse")]
-    string ObtenerPass(string idEstudiantes);
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerPassID", ReplyAction="http://tempuri.org/IServiceLab/ObtenerPassIDResponse")]
+    int ObtenerPassID(string idEstudiantes);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerPassIDProf", ReplyAction="http://tempuri.org/IServiceLab/ObtenerPassIDProfResponse")]
+    int ObtenerPassIDProf(string idprof);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerGroupName", ReplyAction="http://tempuri.org/IServiceLab/ObtenerGroupNameResponse")]
+    string ObtenerGroupName(int idGroup);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GenerarReporteEstudiante", ReplyAction="http://tempuri.org/IServiceLab/GenerarReporteEstudianteResponse")]
     string GenerarReporteEstudiante(string estudianteID);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarEsudiante", ReplyAction="http://tempuri.org/IServiceLab/RegistrarEsudianteResponse")]
-    bool RegistrarEsudiante(string id, string name, string lastname, string matricula);
+    bool RegistrarEsudiante(string id, string name, string lastname, string matricula, int idMoodle);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarProfesor", ReplyAction="http://tempuri.org/IServiceLab/RegistrarProfesorResponse")]
-    bool RegistrarProfesor(string id, string name, string lastname);
+    bool RegistrarProfesor(string id, string name, string lastname, int idMoodle);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarCurso", ReplyAction="http://tempuri.org/IServiceLab/RegistrarCursoResponse")]
-    bool RegistrarCurso(string name, string idprofesor);
+    bool RegistrarCurso(string name, int id, string idprofesor);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ActualizarCurso", ReplyAction="http://tempuri.org/IServiceLab/ActualizarCursoResponse")]
-    bool ActualizarCurso(string name, string idprofesor);
+    bool ActualizarCurso(string name, int id, string idprofesor);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/CambiosCursoEstudiante", ReplyAction="http://tempuri.org/IServiceLab/CambiosCursoEstudianteResponse")]
+    bool CambiosCursoEstudiante(string name, int id);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarCursoestudiante", ReplyAction="http://tempuri.org/IServiceLab/RegistrarCursoestudianteResponse")]
     bool RegistrarCursoestudiante(int idCurso, string idEstudiante);
@@ -896,11 +905,23 @@ public interface IServiceLab
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DarListagruposProfesor", ReplyAction="http://tempuri.org/IServiceLab/DarListagruposProfesorResponse")]
     string[] DarListagruposProfesor(string idProfesor);
     
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DarListaEstudentGrupo", ReplyAction="http://tempuri.org/IServiceLab/DarListaEstudentGrupoResponse")]
+    string[] DarListaEstudentGrupo(string EstID);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DarListaEstudentGrupoInt", ReplyAction="http://tempuri.org/IServiceLab/DarListaEstudentGrupoIntResponse")]
+    int[] DarListaEstudentGrupoInt(string EstID);
+    
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GenerarReporteProfesor", ReplyAction="http://tempuri.org/IServiceLab/GenerarReporteProfesorResponse")]
     string GenerarReporteProfesor(string grupoName, string profesorID);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DarListaEstudiantesGrupo", ReplyAction="http://tempuri.org/IServiceLab/DarListaEstudiantesGrupoResponse")]
     LabServerConnection.Estudiantes[] DarListaEstudiantesGrupo(string grupoID);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarProfesorGrupo", ReplyAction="http://tempuri.org/IServiceLab/RegistrarProfesorGrupoResponse")]
+    bool RegistrarProfesorGrupo(string ProfID);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarEstudentGrupo", ReplyAction="http://tempuri.org/IServiceLab/RegistrarEstudentGrupoResponse")]
+    bool RegistrarEstudentGrupo(string EstID);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/aleluya", ReplyAction="http://tempuri.org/IServiceLab/aleluyaResponse")]
     bool aleluya(string name);
@@ -951,9 +972,19 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.ObtenerEstudiantes(idEstudiantes);
     }
     
-    public string ObtenerPass(string idEstudiantes)
+    public int ObtenerPassID(string idEstudiantes)
     {
-        return base.Channel.ObtenerPass(idEstudiantes);
+        return base.Channel.ObtenerPassID(idEstudiantes);
+    }
+    
+    public int ObtenerPassIDProf(string idprof)
+    {
+        return base.Channel.ObtenerPassIDProf(idprof);
+    }
+    
+    public string ObtenerGroupName(int idGroup)
+    {
+        return base.Channel.ObtenerGroupName(idGroup);
     }
     
     public string GenerarReporteEstudiante(string estudianteID)
@@ -961,24 +992,29 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.GenerarReporteEstudiante(estudianteID);
     }
     
-    public bool RegistrarEsudiante(string id, string name, string lastname, string matricula)
+    public bool RegistrarEsudiante(string id, string name, string lastname, string matricula, int idMoodle)
     {
-        return base.Channel.RegistrarEsudiante(id, name, lastname, matricula);
+        return base.Channel.RegistrarEsudiante(id, name, lastname, matricula, idMoodle);
     }
     
-    public bool RegistrarProfesor(string id, string name, string lastname)
+    public bool RegistrarProfesor(string id, string name, string lastname, int idMoodle)
     {
-        return base.Channel.RegistrarProfesor(id, name, lastname);
+        return base.Channel.RegistrarProfesor(id, name, lastname, idMoodle);
     }
     
-    public bool RegistrarCurso(string name, string idprofesor)
+    public bool RegistrarCurso(string name, int id, string idprofesor)
     {
-        return base.Channel.RegistrarCurso(name, idprofesor);
+        return base.Channel.RegistrarCurso(name, id, idprofesor);
     }
     
-    public bool ActualizarCurso(string name, string idprofesor)
+    public bool ActualizarCurso(string name, int id, string idprofesor)
     {
-        return base.Channel.ActualizarCurso(name, idprofesor);
+        return base.Channel.ActualizarCurso(name, id, idprofesor);
+    }
+    
+    public bool CambiosCursoEstudiante(string name, int id)
+    {
+        return base.Channel.CambiosCursoEstudiante(name, id);
     }
     
     public bool RegistrarCursoestudiante(int idCurso, string idEstudiante)
@@ -1056,6 +1092,16 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.DarListagruposProfesor(idProfesor);
     }
     
+    public string[] DarListaEstudentGrupo(string EstID)
+    {
+        return base.Channel.DarListaEstudentGrupo(EstID);
+    }
+    
+    public int[] DarListaEstudentGrupoInt(string EstID)
+    {
+        return base.Channel.DarListaEstudentGrupoInt(EstID);
+    }
+    
     public string GenerarReporteProfesor(string grupoName, string profesorID)
     {
         return base.Channel.GenerarReporteProfesor(grupoName, profesorID);
@@ -1064,6 +1110,16 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
     public LabServerConnection.Estudiantes[] DarListaEstudiantesGrupo(string grupoID)
     {
         return base.Channel.DarListaEstudiantesGrupo(grupoID);
+    }
+    
+    public bool RegistrarProfesorGrupo(string ProfID)
+    {
+        return base.Channel.RegistrarProfesorGrupo(ProfID);
+    }
+    
+    public bool RegistrarEstudentGrupo(string EstID)
+    {
+        return base.Channel.RegistrarEstudentGrupo(EstID);
     }
     
     public bool aleluya(string name)

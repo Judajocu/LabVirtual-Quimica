@@ -5,9 +5,10 @@ using UnityEngine;
 public class UserSession : MonoBehaviour {
 
     static public string userID = "";
-	// Use this for initialization
-	void Start () {
-        Debug.Log("usuario logueado:"+userID);
+    static public int groupID = 0;
+    // Use this for initialization
+    void Start () {
+        Debug.Log("usuario logueado:"+userID+" |grupo:"+groupID);
 	}
 	
 	// Update is called once per frame
@@ -23,10 +24,21 @@ public class UserSession : MonoBehaviour {
     public void limpiar(GameObject esto)
     {
         userID = "";
+        groupID = 0;
     }
 
     public string darID()
     {
         return userID;
+    }
+
+    public void groupSelected(int valor)
+    {
+        groupID = valor;
+    }
+
+    public int darGroup()
+    {
+        return groupID;
     }
 }

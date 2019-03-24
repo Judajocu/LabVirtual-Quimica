@@ -26,11 +26,17 @@ public class TheoryTopicScript : MonoBehaviour {
     List<string> esto = new List<string>();
     private string actual, ayu;
     private string defecto = "Opcion";
+
+    private UserSession Usuario;
+    private int IdGroup;
     #endregion
 
     // Use this for initialization
     void Start () {
-        string[] resultados = servicioWCF.DarLinkDocumentos("esto");
+        Usuario = GameObject.FindObjectOfType<UserSession>();
+        IdGroup = Usuario.darGroup();
+
+        string[] resultados = servicioWCF.DarLinkDocumentos(IdGroup.ToString());
         nombres = new string[resultados.Length];
         links = new string[resultados.Length];
         //string lala = "";
