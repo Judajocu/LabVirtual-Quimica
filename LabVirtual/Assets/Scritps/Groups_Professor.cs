@@ -7,6 +7,7 @@ using SimpleJSON;
 using UnityEngine.SceneManagement;
 using System.IO;
 using System.ServiceModel;
+using System;
 
 public class Groups_Professor : MonoBehaviour {
 
@@ -30,8 +31,10 @@ public class Groups_Professor : MonoBehaviour {
     public Dropdown opciones;
     public Text nombre;
     private string[] nombres;
+    private int[] gId;
     List<string> esto = new List<string>();
-    private string actual, ayu;
+    private string ayu;
+    private int actual;
     private string defecto = "Grupo";
     private UserSession Usuario;
     private string ID;
@@ -44,11 +47,13 @@ public class Groups_Professor : MonoBehaviour {
 
         string[] resultados = servicioWCF.DarListagruposProfesor(ID);
         nombres = new string[resultados.Length];
-        
+        gId = new int[resultados.Length];
         opciones.ClearOptions();
         for (int j = 0; j < resultados.Length; j++)
         {
-            nombres[j] = resultados[j];
+            string[] ayuda = resultados[j].Split('@');
+            nombres[j] = ayuda[0];
+            gId[j] = Int32.Parse(ayuda[1]);
             int n = j + 1;
             esto.Add(defecto + " " + n.ToString());
         }
@@ -73,7 +78,7 @@ public class Groups_Professor : MonoBehaviour {
             if (ayu.Equals(a))
             {
                 nombre.text = nombres[b];
-                actual = nombres[b];
+                actual = gId[b];
 
             }
             b++;

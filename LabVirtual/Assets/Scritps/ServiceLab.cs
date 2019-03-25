@@ -912,10 +912,10 @@ public interface IServiceLab
     int[] DarListaEstudentGrupoInt(string EstID);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GenerarReporteProfesor", ReplyAction="http://tempuri.org/IServiceLab/GenerarReporteProfesorResponse")]
-    string GenerarReporteProfesor(string grupoName, string profesorID);
+    string GenerarReporteProfesor(int grupoId, string profesorID);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DarListaEstudiantesGrupo", ReplyAction="http://tempuri.org/IServiceLab/DarListaEstudiantesGrupoResponse")]
-    LabServerConnection.Estudiantes[] DarListaEstudiantesGrupo(string grupoID);
+    LabServerConnection.Estudiantes[] DarListaEstudiantesGrupo(int grupoID);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarProfesorGrupo", ReplyAction="http://tempuri.org/IServiceLab/RegistrarProfesorGrupoResponse")]
     bool RegistrarProfesorGrupo(string ProfID);
@@ -1102,12 +1102,12 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.DarListaEstudentGrupoInt(EstID);
     }
     
-    public string GenerarReporteProfesor(string grupoName, string profesorID)
+    public string GenerarReporteProfesor(int grupoId, string profesorID)
     {
-        return base.Channel.GenerarReporteProfesor(grupoName, profesorID);
+        return base.Channel.GenerarReporteProfesor(grupoId, profesorID);
     }
     
-    public LabServerConnection.Estudiantes[] DarListaEstudiantesGrupo(string grupoID)
+    public LabServerConnection.Estudiantes[] DarListaEstudiantesGrupo(int grupoID)
     {
         return base.Channel.DarListaEstudiantesGrupo(grupoID);
     }

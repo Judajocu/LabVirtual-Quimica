@@ -29,6 +29,7 @@ public class Group_Selection_Student : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
         Usuario = GameObject.FindObjectOfType<UserSession>();
         ID = Usuario.darID();
         grupos = servicioWCF.DarListaEstudentGrupo(ID);
