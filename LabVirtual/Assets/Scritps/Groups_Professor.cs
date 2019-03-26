@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using System.ServiceModel;
 using System;
+using System.Globalization;
 
 public class Groups_Professor : MonoBehaviour {
 
@@ -29,26 +30,49 @@ public class Groups_Professor : MonoBehaviour {
 
     private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
     public Dropdown opciones;
+    public Dropdown Dyear;
+    public Dropdown Dmes;
+    public Dropdown Ddia;
     public Text nombre;
     private string[] nombres;
     private int[] gId;
     List<string> esto = new List<string>();
-    private string ayu;
+    List<string> LYear = new List<string>();
+    List<string> LMes = new List<string>();
+    List<string> LDia = new List<string>();
+    private string[] numeros = new string[31] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" };
+    private string[] conTreinta = new string[] { "04", "06", "09", "11" };
+    private string[] conTreintaUno = new string[] { "01", "03", "05", "07","08","10","12"};
+    private string conVeintiocho = "02";
+    private string ayu, auxYear, auxMes, auxDia, actualFecha;
     private int actual;
     private string defecto = "Grupo";
     private UserSession Usuario;
-    private string ID;
+    private string ID, actualMes = "01";
+    private DateTime FechaS;
 
 
     // Use this for initialization
     void Start () {
+
+        //string name = "Balanceo";
+        //servicioWCF.RegistrarSimulacionEst(name, "juandanieljoa@gmail.com", "A");
+
         Usuario = GameObject.FindObjectOfType<UserSession>();
         ID = Usuario.darID();
 
         string[] resultados = servicioWCF.DarListagruposProfesor(ID);
+        //string[] resultados = servicioWCF.DarListagruposProfesor("eliassantiago177@gmail.com");
+
         nombres = new string[resultados.Length];
         gId = new int[resultados.Length];
         opciones.ClearOptions();
+
+        Ddia.ClearOptions();
+        Dyear.ClearOptions();
+        Dmes.ClearOptions();
+
+        //rellena con los cursos
         for (int j = 0; j < resultados.Length; j++)
         {
             string[] ayuda = resultados[j].Split('@');
@@ -58,7 +82,36 @@ public class Groups_Professor : MonoBehaviour {
             esto.Add(defecto + " " + n.ToString());
         }
 
+        //rellena dropdown de año
+        DateTime date= DateTime.Now;
+        int year = date.Year;
+        LYear.Add(year.ToString());
+        for (int j=0; j < 20; j++)
+        {
+            year--;
+            LYear.Add(year.ToString());
+        }
+
+        //rellenado el mes
+        for (int j = 0; j < 12; j++)
+        {
+            LMes.Add(numeros[j]);
+        }
+
+        //rellenando los dias
+        for (int j = 0; j < numeros.Length; j++)
+        {
+            LDia.Add(numeros[j]);
+        }
+        //DateTime date = DateTime.ParseExact("2019-03-26 23:59:24", "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+        //FechaS =  DateTime.Now;
+        //int year = date.Year;
+        //print(FechaS + " y otra " + date+" |año:"+year+"| año antes:"+(year-1));
+
         opciones.AddOptions(esto);
+        Dyear.AddOptions(LYear);
+        Dmes.AddOptions(LMes);
+        Ddia.AddOptions(LDia);
 
         /*
         SetGrades("ST-QMC-101-T-0012","Quimica I", 40);
@@ -72,6 +125,8 @@ public class Groups_Professor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         GetNivel();
+        GetFecha();
+
         int b = 0;
         foreach (string a in esto)
         {
@@ -79,15 +134,24 @@ public class Groups_Professor : MonoBehaviour {
             {
                 nombre.text = nombres[b];
                 actual = gId[b];
-
             }
             b++;
         }
+        ActualizarFecha();
+        actualFecha = auxYear+"-"+auxMes+"-"+auxDia+" 23:59:24";
+        FechaS= DateTime.ParseExact(actualFecha, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
     }
 
     public void GetNivel()
     {
         ayu = opciones.options[opciones.value].text;
+    }
+
+    public void GetFecha()
+    {
+        auxYear = Dyear.options[Dyear.value].text;
+        auxMes = Dmes.options[Dmes.value].text;
+        auxDia = Ddia.options[Ddia.value].text;
     }
 
     public void ValidateMenu()
@@ -163,10 +227,57 @@ public class Groups_Professor : MonoBehaviour {
         
     }
 
+    public void ActualizarFecha()
+    {
+
+        //para adaptar dias a febrero
+        if (!auxMes.Equals(actualMes))
+        {
+            if (auxMes.Equals(conVeintiocho))
+            {
+                Ddia.ClearOptions();
+                for (int j = 0; j < 28; j++)
+                {
+                    LDia.Add(numeros[j]);
+                }
+                Ddia.AddOptions(LDia);
+            }
+
+            for (int i = 0; i < conTreinta.Length; i++)
+            {
+                if (auxMes.Equals(conTreinta[i]))
+                {
+                    Ddia.ClearOptions();
+                    for (int j = 0; j < 30; j++)
+                    {
+                        LDia.Add(numeros[j]);
+                    }
+                    Ddia.AddOptions(LDia);
+                }
+            }
+
+            for (int i = 0; i < conTreintaUno.Length; i++)
+            {
+                if (auxMes.Equals(conTreintaUno[i]))
+                {
+                    Ddia.ClearOptions();
+                    for (int j = 0; j < numeros.Length; j++)
+                    {
+                        LDia.Add(numeros[j]);
+                    }
+                    Ddia.AddOptions(LDia);
+                }
+            }
+            actualMes = auxMes;
+        }
+
+    }
+
     public void go()
     {
         //prueba reporte
-        string esto = servicioWCF.GenerarReporteProfesor(actual, ID);
+        print(FechaS);
+        string esto = servicioWCF.GenerarReporteProfesor(actual, ID,FechaS);
         //print("Resultado intento reporte" + esto);
     }
 }
