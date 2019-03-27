@@ -49,7 +49,7 @@ public class Simulation_Balance : MonoBehaviour {
     bool type;
 
     public string level;
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
 
     Scene activeScene;
     #endregion

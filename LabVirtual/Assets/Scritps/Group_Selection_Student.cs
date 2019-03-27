@@ -15,7 +15,7 @@ public class Group_Selection_Student : MonoBehaviour {
     public Text nombre;
 
     private UserSession Usuario;
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
     private string ID;
     private string[] grupos;
     private string[] nombres;

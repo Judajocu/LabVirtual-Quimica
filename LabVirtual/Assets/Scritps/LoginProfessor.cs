@@ -39,7 +39,7 @@ public class LoginProfessor : MonoBehaviour {
             GameObject.FindGameObjectWithTag("seccion").GetComponent<UserSession>().SendMessage("cambio", Username);
             try
             {
-                ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+                ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
                 
                 logueo = servicioWCF.verificarProfesor(Username, Password);
                 

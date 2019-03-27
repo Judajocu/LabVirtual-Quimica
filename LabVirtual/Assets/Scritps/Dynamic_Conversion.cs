@@ -32,7 +32,7 @@ public class Dynamic_Conversion : MonoBehaviour {
 
     private nivel[] datos = new nivel[5];
     private string[] countFormulas = new string[6] { "Opción 1", "Opción 2", "Opción 3", "Opción 4", "Opción 5", "Opción 6" };
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
     #endregion
 
 

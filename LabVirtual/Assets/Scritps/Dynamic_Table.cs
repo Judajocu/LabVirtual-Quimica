@@ -32,7 +32,7 @@ public class Dynamic_Table : MonoBehaviour {
     private string[] countOpcionesNum = new string[5] { "Opción 1", "Opción 2", "Opción 3", "Opción 4", "Opción 5" };
     private string[] nombreNivel = new string[5] { "Nivel1", "Nivel2", "Nivel3", "Nivel4", "Nivel5" };
     private string[] simulacionesNombre = new string[5] { "Soluciones", "Elemento", "Simbolos", "Masas", "Electrones" };
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
     #endregion
 
     // Use this for initialization

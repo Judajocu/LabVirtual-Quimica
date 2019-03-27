@@ -17,7 +17,7 @@ public class TheoryTopicScript : MonoBehaviour {
     public GameObject pva;
     public GameObject simulacion;
 
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
     public Dropdown opciones;
     public Button ButtonLink;
     public Text nombre;

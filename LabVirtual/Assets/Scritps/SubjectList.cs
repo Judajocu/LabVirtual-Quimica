@@ -12,7 +12,7 @@ public class SubjectList : MonoBehaviour {
 
     int lastChangeCounter;
 
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
     private UserSession Usuario;
     //private string[] simulaciones = new string[5] { "Nomenclatura", "Balanceo", "Estequiometria", "Tabla Periodica", "Conversion" }; //orden
     private string ID;

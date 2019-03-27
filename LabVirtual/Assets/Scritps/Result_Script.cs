@@ -38,7 +38,7 @@ public class Result_Script : MonoBehaviour
     public string simulation;
     string name;
 
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
     private UserSession Usuario;
     private string ID;
 

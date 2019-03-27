@@ -8,15 +8,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LabServerConnection
+namespace ChemLabServerConnection
 {
     using System.Runtime.Serialization;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Estudiantes", Namespace="http://schemas.datacontract.org/2004/07/LabServerConnection")]
-    public partial class Estudiantes : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="Estudiante", Namespace="http://schemas.datacontract.org/2004/07/ChemLabServerConnection")]
+    public partial class Estudiante : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -35,9 +35,9 @@ namespace LabServerConnection
         
         private string EstudianteIDField;
         
-        private LabServerConnection.EstudiantesGrupos[] EstudiantesGruposField;
+        private ChemLabServerConnection.EstudiantesGrupos[] EstudiantesGruposField;
         
-        private LabServerConnection.SimmulacionEstudiante[] SimmulacionEstudianteField;
+        private ChemLabServerConnection.SimmulacionEstudiante[] SimmulacionEstudiantesField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -143,7 +143,7 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public LabServerConnection.EstudiantesGrupos[] EstudiantesGrupos
+        public ChemLabServerConnection.EstudiantesGrupos[] EstudiantesGrupos
         {
             get
             {
@@ -156,22 +156,22 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public LabServerConnection.SimmulacionEstudiante[] SimmulacionEstudiante
+        public ChemLabServerConnection.SimmulacionEstudiante[] SimmulacionEstudiantes
         {
             get
             {
-                return this.SimmulacionEstudianteField;
+                return this.SimmulacionEstudiantesField;
             }
             set
             {
-                this.SimmulacionEstudianteField = value;
+                this.SimmulacionEstudiantesField = value;
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EstudiantesGrupos", Namespace="http://schemas.datacontract.org/2004/07/LabServerConnection")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EstudiantesGrupos", Namespace="http://schemas.datacontract.org/2004/07/ChemLabServerConnection")]
     public partial class EstudiantesGrupos : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
@@ -179,13 +179,13 @@ namespace LabServerConnection
         
         private int EstGrupoIDField;
         
-        private string EstudianteIDField;
+        private ChemLabServerConnection.Estudiante EstudianteField;
         
-        private LabServerConnection.Estudiantes EstudiantesField;
+        private string EstudianteIDField;
         
         private System.Nullable<int> GrupoIDField;
         
-        private LabServerConnection.Grupos GruposField;
+        private ChemLabServerConnection.Grupos GruposField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -213,6 +213,19 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public ChemLabServerConnection.Estudiante Estudiante
+        {
+            get
+            {
+                return this.EstudianteField;
+            }
+            set
+            {
+                this.EstudianteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string EstudianteID
         {
             get
@@ -222,19 +235,6 @@ namespace LabServerConnection
             set
             {
                 this.EstudianteIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public LabServerConnection.Estudiantes Estudiantes
-        {
-            get
-            {
-                return this.EstudiantesField;
-            }
-            set
-            {
-                this.EstudiantesField = value;
             }
         }
         
@@ -252,7 +252,7 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public LabServerConnection.Grupos Grupos
+        public ChemLabServerConnection.Grupos Grupos
         {
             get
             {
@@ -267,15 +267,15 @@ namespace LabServerConnection
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SimmulacionEstudiante", Namespace="http://schemas.datacontract.org/2004/07/LabServerConnection")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SimmulacionEstudiante", Namespace="http://schemas.datacontract.org/2004/07/ChemLabServerConnection")]
     public partial class SimmulacionEstudiante : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private string EstudianteIdField;
+        private ChemLabServerConnection.Estudiante EstudianteField;
         
-        private LabServerConnection.Estudiantes EstudiantesField;
+        private string EstudianteIdField;
         
         private string NotaField;
         
@@ -283,7 +283,7 @@ namespace LabServerConnection
         
         private System.Nullable<int> SimulacionIdField;
         
-        private LabServerConnection.Simulaciones SimulacionesField;
+        private ChemLabServerConnection.Simulacione SimulacioneField;
         
         private string descField;
         
@@ -302,6 +302,19 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public ChemLabServerConnection.Estudiante Estudiante
+        {
+            get
+            {
+                return this.EstudianteField;
+            }
+            set
+            {
+                this.EstudianteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string EstudianteId
         {
             get
@@ -311,19 +324,6 @@ namespace LabServerConnection
             set
             {
                 this.EstudianteIdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public LabServerConnection.Estudiantes Estudiantes
-        {
-            get
-            {
-                return this.EstudiantesField;
-            }
-            set
-            {
-                this.EstudiantesField = value;
             }
         }
         
@@ -367,15 +367,15 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public LabServerConnection.Simulaciones Simulaciones
+        public ChemLabServerConnection.Simulacione Simulacione
         {
             get
             {
-                return this.SimulacionesField;
+                return this.SimulacioneField;
             }
             set
             {
-                this.SimulacionesField = value;
+                this.SimulacioneField = value;
             }
         }
         
@@ -408,13 +408,13 @@ namespace LabServerConnection
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Grupos", Namespace="http://schemas.datacontract.org/2004/07/LabServerConnection")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Grupos", Namespace="http://schemas.datacontract.org/2004/07/ChemLabServerConnection")]
     public partial class Grupos : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private LabServerConnection.EstudiantesGrupos[] EstudiantesGruposField;
+        private ChemLabServerConnection.EstudiantesGrupos[] EstudiantesGruposField;
         
         private int GrupoIDField;
         
@@ -424,7 +424,7 @@ namespace LabServerConnection
         
         private string NotaPromedioField;
         
-        private LabServerConnection.Profesores ProfesoresField;
+        private ChemLabServerConnection.Profesore ProfesoreField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -439,7 +439,7 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public LabServerConnection.EstudiantesGrupos[] EstudiantesGrupos
+        public ChemLabServerConnection.EstudiantesGrupos[] EstudiantesGrupos
         {
             get
             {
@@ -504,28 +504,28 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public LabServerConnection.Profesores Profesores
+        public ChemLabServerConnection.Profesore Profesore
         {
             get
             {
-                return this.ProfesoresField;
+                return this.ProfesoreField;
             }
             set
             {
-                this.ProfesoresField = value;
+                this.ProfesoreField = value;
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Profesores", Namespace="http://schemas.datacontract.org/2004/07/LabServerConnection")]
-    public partial class Profesores : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profesore", Namespace="http://schemas.datacontract.org/2004/07/ChemLabServerConnection")]
+    public partial class Profesore : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private LabServerConnection.Grupos[] GruposField;
+        private ChemLabServerConnection.Grupos[] GruposField;
         
         private string ProfApellidoField;
         
@@ -548,7 +548,7 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public LabServerConnection.Grupos[] Grupos
+        public ChemLabServerConnection.Grupos[] Grupos
         {
             get
             {
@@ -615,13 +615,13 @@ namespace LabServerConnection
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Simulaciones", Namespace="http://schemas.datacontract.org/2004/07/LabServerConnection")]
-    public partial class Simulaciones : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="Simulacione", Namespace="http://schemas.datacontract.org/2004/07/ChemLabServerConnection")]
+    public partial class Simulacione : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private LabServerConnection.Datosdinamicos[] DatosdinamicosField;
+        private ChemLabServerConnection.Datosdinamico[] DatosdinamicosField;
         
         private System.Nullable<int> SimCantFallosField;
         
@@ -631,7 +631,7 @@ namespace LabServerConnection
         
         private string SimNombreField;
         
-        private LabServerConnection.SimmulacionEstudiante[] SimmulacionEstudianteField;
+        private ChemLabServerConnection.SimmulacionEstudiante[] SimmulacionEstudiantesField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -646,7 +646,7 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public LabServerConnection.Datosdinamicos[] Datosdinamicos
+        public ChemLabServerConnection.Datosdinamico[] Datosdinamicos
         {
             get
             {
@@ -711,23 +711,23 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public LabServerConnection.SimmulacionEstudiante[] SimmulacionEstudiante
+        public ChemLabServerConnection.SimmulacionEstudiante[] SimmulacionEstudiantes
         {
             get
             {
-                return this.SimmulacionEstudianteField;
+                return this.SimmulacionEstudiantesField;
             }
             set
             {
-                this.SimmulacionEstudianteField = value;
+                this.SimmulacionEstudiantesField = value;
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Datosdinamicos", Namespace="http://schemas.datacontract.org/2004/07/LabServerConnection")]
-    public partial class Datosdinamicos : object, System.Runtime.Serialization.IExtensibleDataObject
+    [System.Runtime.Serialization.DataContractAttribute(Name="Datosdinamico", Namespace="http://schemas.datacontract.org/2004/07/ChemLabServerConnection")]
+    public partial class Datosdinamico : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -738,7 +738,7 @@ namespace LabServerConnection
         
         private string NombreIDField;
         
-        private LabServerConnection.Simulaciones SimulacionesField;
+        private ChemLabServerConnection.Simulacione SimulacioneField;
         
         private System.Nullable<int> simulacionIDField;
         
@@ -794,15 +794,15 @@ namespace LabServerConnection
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public LabServerConnection.Simulaciones Simulaciones
+        public ChemLabServerConnection.Simulacione Simulacione
         {
             get
             {
-                return this.SimulacionesField;
+                return this.SimulacioneField;
             }
             set
             {
-                this.SimulacionesField = value;
+                this.SimulacioneField = value;
             }
         }
         
@@ -831,7 +831,7 @@ public interface IServiceLab
     bool RegistrarMatricula(string matricula, string password);
 
     [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/ObtenerEstudiantes", ReplyAction = "http://tempuri.org/IServiceLab/ObtenerEstudiantesResponse")]
-    LabServerConnection.Estudiantes[] ObtenerEstudiantes(string idEstudiantes);
+    ChemLabServerConnection.Estudiante[] ObtenerEstudiantes(string idEstudiantes);
 
     [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/ObtenerPassID", ReplyAction = "http://tempuri.org/IServiceLab/ObtenerPassIDResponse")]
     int ObtenerPassID(string idEstudiantes);
@@ -918,7 +918,7 @@ public interface IServiceLab
     string GenerarReporteProfesor(int grupoId, string profesorID, System.DateTime date);
 
     [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/DarListaEstudiantesGrupo", ReplyAction = "http://tempuri.org/IServiceLab/DarListaEstudiantesGrupoResponse")]
-    LabServerConnection.Estudiantes[] DarListaEstudiantesGrupo(int grupoID);
+    ChemLabServerConnection.Estudiante[] DarListaEstudiantesGrupo(int grupoID);
 
     [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/RegistrarProfesorGrupo", ReplyAction = "http://tempuri.org/IServiceLab/RegistrarProfesorGrupoResponse")]
     bool RegistrarProfesorGrupo(string ProfID);
@@ -926,11 +926,10 @@ public interface IServiceLab
     [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/RegistrarEstudentGrupo", ReplyAction = "http://tempuri.org/IServiceLab/RegistrarEstudentGrupoResponse")]
     bool RegistrarEstudentGrupo(string EstID);
 
-
     [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/aleluya", ReplyAction = "http://tempuri.org/IServiceLab/aleluyaResponse")]
     bool aleluya(string name);
-
 }
+
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
 public interface IServiceLabChannel : IServiceLab, System.ServiceModel.IClientChannel
 {
@@ -970,7 +969,7 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.RegistrarMatricula(matricula, password);
     }
     
-    public LabServerConnection.Estudiantes[] ObtenerEstudiantes(string idEstudiantes)
+    public ChemLabServerConnection.Estudiante[] ObtenerEstudiantes(string idEstudiantes)
     {
         return base.Channel.ObtenerEstudiantes(idEstudiantes);
     }
@@ -1115,7 +1114,7 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.GenerarReporteProfesor(grupoId, profesorID, date);
     }
     
-    public LabServerConnection.Estudiantes[] DarListaEstudiantesGrupo(int grupoID)
+    public ChemLabServerConnection.Estudiante[] DarListaEstudiantesGrupo(int grupoID)
     {
         return base.Channel.DarListaEstudiantesGrupo(grupoID);
     }

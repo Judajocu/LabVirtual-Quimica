@@ -28,7 +28,7 @@ public class Groups_Professor : MonoBehaviour {
     public GameObject report;
     public GameObject select;
 
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
     public Dropdown opciones;
     public Dropdown Dyear;
     public Dropdown Dmes;

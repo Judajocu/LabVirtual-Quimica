@@ -42,7 +42,7 @@ public class Estequiometria_Script : MonoBehaviour {
     Scene activeScene;
 
     public string level;
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://localhost:21826/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
     #endregion
 
     // Use this for initialization
