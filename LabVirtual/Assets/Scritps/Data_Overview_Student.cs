@@ -25,7 +25,7 @@ public class Data_Overview_Student : MonoBehaviour {
     void Start () {
         Usuario = GameObject.FindObjectOfType<UserSession>();
         ID = Usuario.darID();
-        Load();
+        //Load();
         //SetGrades("Nomenclatura", "3");
         
         //SetGrades("Tabla Periodica", "1");
@@ -103,7 +103,7 @@ public class Data_Overview_Student : MonoBehaviour {
     {
         return changeCounter;
     }
-
+    /*
     void Load()
     {
         string path = Application.persistentDataPath + "/Nota Simulation.json";
@@ -115,7 +115,7 @@ public class Data_Overview_Student : MonoBehaviour {
         SetGrades("Conversion de Unidades", GradeJSON["Conversion de Unidades"]);
         SetGrades("Estequiometria", GradeJSON["Estequiometria"]);
     }
-
+    */
     public void GenerateReport()
     {
         string problem = "no se hizo la coneccion";
