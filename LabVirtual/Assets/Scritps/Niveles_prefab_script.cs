@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -109,7 +110,14 @@ public class Niveles_prefab_script : MonoBehaviour {
                 SceneManager.LoadScene("Tabla Nivel " + nivel);
                 return;
             case 3:
-                SceneManager.LoadScene("Conversion Nivel " + nivel);
+                if( nivel.Equals(1))
+                    SceneManager.LoadScene("Conversion Nivel " + nivel);
+                else
+                {
+                    int t = Int32.Parse(nivel);
+                    t += 4;
+                    SceneManager.LoadScene("Conversion Nivel " + t.ToString());
+                }                    
                 return;
             case 4:
                 SceneManager.LoadScene("Nomenclatura nivel " + nivel);
