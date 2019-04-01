@@ -820,114 +820,174 @@ namespace ChemLabServerConnection
         }
     }
 }
+namespace ServiceLab
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FileAttachment", Namespace="http://schemas.datacontract.org/2004/07/ServiceLab")]
+    public partial class FileAttachment : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string FileContentBase64Field;
+        
+        private System.IO.FileInfo InfoField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FileContentBase64
+        {
+            get
+            {
+                return this.FileContentBase64Field;
+            }
+            set
+            {
+                this.FileContentBase64Field = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.IO.FileInfo Info
+        {
+            get
+            {
+                return this.InfoField;
+            }
+            set
+            {
+                this.InfoField = value;
+            }
+        }
+    }
+}
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-[System.ServiceModel.ServiceContractAttribute(ConfigurationName = "IServiceLab")]
+[System.ServiceModel.ServiceContractAttribute(ConfigurationName="IServiceLab")]
 public interface IServiceLab
 {
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/RegistrarMatricula", ReplyAction = "http://tempuri.org/IServiceLab/RegistrarMatriculaResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarMatricula", ReplyAction="http://tempuri.org/IServiceLab/RegistrarMatriculaResponse")]
     bool RegistrarMatricula(string matricula, string password);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/ObtenerEstudiantes", ReplyAction = "http://tempuri.org/IServiceLab/ObtenerEstudiantesResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerEstudiantes", ReplyAction="http://tempuri.org/IServiceLab/ObtenerEstudiantesResponse")]
     ChemLabServerConnection.Estudiante[] ObtenerEstudiantes(string idEstudiantes);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/ObtenerPassID", ReplyAction = "http://tempuri.org/IServiceLab/ObtenerPassIDResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerPassID", ReplyAction="http://tempuri.org/IServiceLab/ObtenerPassIDResponse")]
     int ObtenerPassID(string idEstudiantes);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/ObtenerPassIDProf", ReplyAction = "http://tempuri.org/IServiceLab/ObtenerPassIDProfResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerPassIDProf", ReplyAction="http://tempuri.org/IServiceLab/ObtenerPassIDProfResponse")]
     int ObtenerPassIDProf(string idprof);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/ObtenerGroupName", ReplyAction = "http://tempuri.org/IServiceLab/ObtenerGroupNameResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ObtenerGroupName", ReplyAction="http://tempuri.org/IServiceLab/ObtenerGroupNameResponse")]
     string ObtenerGroupName(int idGroup);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/GenerarReporteEstudiante", ReplyAction = "http://tempuri.org/IServiceLab/GenerarReporteEstudianteResponse")]
-    string GenerarReporteEstudiante(string estudianteID);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/RegistrarEsudiante", ReplyAction = "http://tempuri.org/IServiceLab/RegistrarEsudianteResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GenerarReporteEstudiante", ReplyAction="http://tempuri.org/IServiceLab/GenerarReporteEstudianteResponse")]
+    string GenerarReporteEstudiante(string estudianteID, string IDUser);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarEsudiante", ReplyAction="http://tempuri.org/IServiceLab/RegistrarEsudianteResponse")]
     bool RegistrarEsudiante(string id, string name, string lastname, string matricula, int idMoodle);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/RegistrarProfesor", ReplyAction = "http://tempuri.org/IServiceLab/RegistrarProfesorResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarProfesor", ReplyAction="http://tempuri.org/IServiceLab/RegistrarProfesorResponse")]
     bool RegistrarProfesor(string id, string name, string lastname, int idMoodle);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/RegistrarCurso", ReplyAction = "http://tempuri.org/IServiceLab/RegistrarCursoResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarCurso", ReplyAction="http://tempuri.org/IServiceLab/RegistrarCursoResponse")]
     bool RegistrarCurso(string name, int id, string idprofesor);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/ActualizarCurso", ReplyAction = "http://tempuri.org/IServiceLab/ActualizarCursoResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ActualizarCurso", ReplyAction="http://tempuri.org/IServiceLab/ActualizarCursoResponse")]
     bool ActualizarCurso(string name, int id, string idprofesor);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/CambiosCursoEstudiante", ReplyAction = "http://tempuri.org/IServiceLab/CambiosCursoEstudianteResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/CambiosCursoEstudiante", ReplyAction="http://tempuri.org/IServiceLab/CambiosCursoEstudianteResponse")]
     bool CambiosCursoEstudiante(string name, int id);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/RegistrarCursoestudiante", ReplyAction = "http://tempuri.org/IServiceLab/RegistrarCursoestudianteResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarCursoestudiante", ReplyAction="http://tempuri.org/IServiceLab/RegistrarCursoestudianteResponse")]
     bool RegistrarCursoestudiante(int idCurso, string idEstudiante);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/RegistrarSimulacion", ReplyAction = "http://tempuri.org/IServiceLab/RegistrarSimulacionResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarSimulacion", ReplyAction="http://tempuri.org/IServiceLab/RegistrarSimulacionResponse")]
     bool RegistrarSimulacion(string name, int fallos, int duracion);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/RegistrarSimulacionEst", ReplyAction = "http://tempuri.org/IServiceLab/RegistrarSimulacionEstResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarSimulacionEst", ReplyAction="http://tempuri.org/IServiceLab/RegistrarSimulacionEstResponse")]
     bool RegistrarSimulacionEst(string NombreSim, string idEstudiante, string nota);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/verificarEstudiante", ReplyAction = "http://tempuri.org/IServiceLab/verificarEstudianteResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/verificarEstudiante", ReplyAction="http://tempuri.org/IServiceLab/verificarEstudianteResponse")]
     bool verificarEstudiante(string idEstudiantes, string password);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/verificarProfesor", ReplyAction = "http://tempuri.org/IServiceLab/verificarProfesorResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/verificarProfesor", ReplyAction="http://tempuri.org/IServiceLab/verificarProfesorResponse")]
     bool verificarProfesor(string idprofesor, string password);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/GuardarCambioDinamicos", ReplyAction = "http://tempuri.org/IServiceLab/GuardarCambioDinamicosResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GuardarCambioDinamicos", ReplyAction="http://tempuri.org/IServiceLab/GuardarCambioDinamicosResponse")]
     bool GuardarCambioDinamicos(string simulacion, string[] dato, int dato2, string nivel, string[] nombreData);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/BuscarDatosD", ReplyAction = "http://tempuri.org/IServiceLab/BuscarDatosDResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/BuscarDatosD", ReplyAction="http://tempuri.org/IServiceLab/BuscarDatosDResponse")]
     string[] BuscarDatosD(string simulacion, string nivel, string[] nombreData);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/devolverNotasEst", ReplyAction = "http://tempuri.org/IServiceLab/devolverNotasEstResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/devolverNotasEst", ReplyAction="http://tempuri.org/IServiceLab/devolverNotasEstResponse")]
     string[] devolverNotasEst(string idEstudiantes);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/devolverNotasEstPorFecha", ReplyAction = "http://tempuri.org/IServiceLab/devolverNotasEstPorFechaResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/devolverNotasEstPorFecha", ReplyAction="http://tempuri.org/IServiceLab/devolverNotasEstPorFechaResponse")]
     string[] devolverNotasEstPorFecha(string idEstudiantes, System.DateTime date);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/updateNota", ReplyAction = "http://tempuri.org/IServiceLab/updateNotaResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/updateNota", ReplyAction="http://tempuri.org/IServiceLab/updateNotaResponse")]
     bool updateNota(string NombreSim, string idEstudiante, string nota, int id);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/datosUser", ReplyAction = "http://tempuri.org/IServiceLab/datosUserResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/datosUser", ReplyAction="http://tempuri.org/IServiceLab/datosUserResponse")]
     void datosUser(string idEstudiante);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/datosUserProf", ReplyAction = "http://tempuri.org/IServiceLab/datosUserProfResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/datosUserProf", ReplyAction="http://tempuri.org/IServiceLab/datosUserProfResponse")]
     void datosUserProf(string idProf);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/DarLinkDocumentos", ReplyAction = "http://tempuri.org/IServiceLab/DarLinkDocumentosResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DarLinkDocumentos", ReplyAction="http://tempuri.org/IServiceLab/DarLinkDocumentosResponse")]
     string[] DarLinkDocumentos(string data);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/ActualizarSimulacion", ReplyAction = "http://tempuri.org/IServiceLab/ActualizarSimulacionResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/ActualizarSimulacion", ReplyAction="http://tempuri.org/IServiceLab/ActualizarSimulacionResponse")]
     bool ActualizarSimulacion(string name, int fallos, int duracion);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/DatosSimulacion", ReplyAction = "http://tempuri.org/IServiceLab/DatosSimulacionResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DatosSimulacion", ReplyAction="http://tempuri.org/IServiceLab/DatosSimulacionResponse")]
     long[] DatosSimulacion(string name);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/DarListagruposProfesor", ReplyAction = "http://tempuri.org/IServiceLab/DarListagruposProfesorResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DarListagruposProfesor", ReplyAction="http://tempuri.org/IServiceLab/DarListagruposProfesorResponse")]
     string[] DarListagruposProfesor(string idProfesor);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/DarListaEstudentGrupo", ReplyAction = "http://tempuri.org/IServiceLab/DarListaEstudentGrupoResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DarListaEstudentGrupo", ReplyAction="http://tempuri.org/IServiceLab/DarListaEstudentGrupoResponse")]
     string[] DarListaEstudentGrupo(string EstID);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/DarListaEstudentGrupoInt", ReplyAction = "http://tempuri.org/IServiceLab/DarListaEstudentGrupoIntResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DarListaEstudentGrupoInt", ReplyAction="http://tempuri.org/IServiceLab/DarListaEstudentGrupoIntResponse")]
     int[] DarListaEstudentGrupoInt(string EstID);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/GenerarReporteProfesor", ReplyAction = "http://tempuri.org/IServiceLab/GenerarReporteProfesorResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/GenerarReporteProfesor", ReplyAction="http://tempuri.org/IServiceLab/GenerarReporteProfesorResponse")]
     string GenerarReporteProfesor(int grupoId, string profesorID, System.DateTime date);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/DarListaEstudiantesGrupo", ReplyAction = "http://tempuri.org/IServiceLab/DarListaEstudiantesGrupoResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/DarListaEstudiantesGrupo", ReplyAction="http://tempuri.org/IServiceLab/DarListaEstudiantesGrupoResponse")]
     ChemLabServerConnection.Estudiante[] DarListaEstudiantesGrupo(int grupoID);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/RegistrarProfesorGrupo", ReplyAction = "http://tempuri.org/IServiceLab/RegistrarProfesorGrupoResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarProfesorGrupo", ReplyAction="http://tempuri.org/IServiceLab/RegistrarProfesorGrupoResponse")]
     bool RegistrarProfesorGrupo(string ProfID);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/RegistrarEstudentGrupo", ReplyAction = "http://tempuri.org/IServiceLab/RegistrarEstudentGrupoResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/RegistrarEstudentGrupo", ReplyAction="http://tempuri.org/IServiceLab/RegistrarEstudentGrupoResponse")]
     bool RegistrarEstudentGrupo(string EstID);
-
-    [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServiceLab/aleluya", ReplyAction = "http://tempuri.org/IServiceLab/aleluyaResponse")]
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/aleluya", ReplyAction="http://tempuri.org/IServiceLab/aleluyaResponse")]
     bool aleluya(string name);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceLab/SendEmail", ReplyAction="http://tempuri.org/IServiceLab/SendEmailResponse")]
+    int SendEmail(string gmailUserAddress, string gmailUserPassword, string[] emailTo, string[] ccTo, string subject, string body, bool isBodyHtml, ServiceLab.FileAttachment[] attachments);
+
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -989,9 +1049,9 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
         return base.Channel.ObtenerGroupName(idGroup);
     }
     
-    public string GenerarReporteEstudiante(string estudianteID)
+    public string GenerarReporteEstudiante(string estudianteID, string IDUser)
     {
-        return base.Channel.GenerarReporteEstudiante(estudianteID);
+        return base.Channel.GenerarReporteEstudiante(estudianteID, IDUser);
     }
     
     public bool RegistrarEsudiante(string id, string name, string lastname, string matricula, int idMoodle)
@@ -1132,6 +1192,11 @@ public partial class ServiceLabClient : System.ServiceModel.ClientBase<IServiceL
     public bool aleluya(string name)
     {
         return base.Channel.aleluya(name);
+    }
+    
+    public int SendEmail(string gmailUserAddress, string gmailUserPassword, string[] emailTo, string[] ccTo, string subject, string body, bool isBodyHtml, ServiceLab.FileAttachment[] attachments)
+    {
+        return base.Channel.SendEmail(gmailUserAddress, gmailUserPassword, emailTo, ccTo, subject, body, isBodyHtml, attachments);
     }
     
 }

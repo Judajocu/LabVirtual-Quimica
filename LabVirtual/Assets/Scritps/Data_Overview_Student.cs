@@ -119,20 +119,12 @@ public class Data_Overview_Student : MonoBehaviour {
     public void GenerateReport()
     {
         string problem = "no se hizo la coneccion";
-        try
-        {
 
-            ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
+            ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemical.centralus.cloudapp.azure.com/servicelab.svc"));
             
-            string esto=servicioWCF.GenerarReporteEstudiante(ID);
+            string esto=servicioWCF.GenerarReporteEstudiante(ID,ID);
             print(esto);
-
-
-        }
-        catch (System.Exception)
-        {
-            print(problem);
-        }
+            
     }
 
 }

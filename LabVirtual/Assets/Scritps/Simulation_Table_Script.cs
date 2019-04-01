@@ -47,7 +47,7 @@ public class Simulation_Table_Script : MonoBehaviour
     private string signoNombre = "Signo";
     private string masaNombre = "Peso";
     private string ElectronNombre = "Electrones";
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemical.centralus.cloudapp.azure.com/servicelab.svc"));
     #endregion
 
     // Use this for initialization

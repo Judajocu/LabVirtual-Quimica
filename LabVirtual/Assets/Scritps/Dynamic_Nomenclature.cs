@@ -25,7 +25,7 @@ public class Dynamic_Nomenclature : MonoBehaviour {
     private string countOpciones = "Símbolo";
     string[] simulacionesNombre = new string[3] { "Solucion", "problema", "Elementos" };
     string[] nombreNivel = new string[5] { "Nivel1", "Nivel2", "Nivel3", "Nivel4", "Nivel5" };
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemical.centralus.cloudapp.azure.com/servicelab.svc"));
     #endregion
 
     // Use this for initialization

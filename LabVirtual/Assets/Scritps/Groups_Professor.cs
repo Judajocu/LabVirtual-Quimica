@@ -28,7 +28,7 @@ public class Groups_Professor : MonoBehaviour {
     public GameObject report;
     public GameObject select;
 
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemical.centralus.cloudapp.azure.com/servicelab.svc"));
     public Dropdown opciones;
     public Dropdown Dyear;
     public Dropdown Dmes;
@@ -278,6 +278,7 @@ public class Groups_Professor : MonoBehaviour {
         //prueba reporte
         print(FechaS);
         string esto = servicioWCF.GenerarReporteProfesor(actual, ID,FechaS);
+        print(esto);
         //print("Resultado intento reporte" + esto);
     }
 }

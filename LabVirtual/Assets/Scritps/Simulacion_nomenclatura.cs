@@ -49,7 +49,7 @@ public class Simulacion_nomenclatura : MonoBehaviour {
 
     public string level;
     private string nombreB= "Botton_";
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemical.centralus.cloudapp.azure.com/servicelab.svc"));
 
     // Use this for initialization
     void Start()

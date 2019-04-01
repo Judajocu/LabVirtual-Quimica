@@ -44,7 +44,7 @@ public class OnPropertyCollide_SCript : MonoBehaviour {
     public string level;
     private string masaNombre = "Peso";
     private string ElectronNombre = "Electrones";
-    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemilabservice.azurewebsites.net/ServiceLab.svc"));
+    private ServiceLabClient servicioWCF = new ServiceLabClient(new BasicHttpBinding(), new EndpointAddress("http://chemical.centralus.cloudapp.azure.com/servicelab.svc"));
     #endregion
 
     // Use this for initialization
